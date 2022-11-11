@@ -1,17 +1,22 @@
 import Head from 'next/head'
+import { NextSeo } from 'next-seo';
 
-const CustomHead = (props: any) => {
+interface SeoI {
+    title: string;
+    description: string;
+}
 
-    const {
-        title,
-        description
-    } = props
+const CustomHead = ({
+    title,
+    description
+}: SeoI) => {
 
     return (
-        <Head>
-            <title>{ title }</title>
-            <meta name="description" content={ description } />
-        </Head>
+        <NextSeo
+            title={title}
+            titleTemplate='Alex Beciana | %s'
+            description={description}
+        />
     )
 }
 

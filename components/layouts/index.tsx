@@ -8,3 +8,4 @@ export const PageMargin = ({ children }: any) => {
         </section>
     )
 }
+

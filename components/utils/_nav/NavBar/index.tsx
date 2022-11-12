@@ -1,10 +1,25 @@
+import { PageMargin } from '../../../layouts'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
+
 
 const NavBar = () => {
 
     return (
-        <nav>
-            
+        <nav
+            className="bg-white z-50"
+        >
+            <PageMargin>
+                <div
+                    className="flex justify-center self-center float-left items-stretch"
+                >
+                    <a
+                        href='/'
+                        alt="Alex Beciana"
+                        className="text-3xl sm:text-4xl md:text-3xl font-reross cursor-pointer anim-text"
+                    >Alex Beciana</a>
+                </div>
+            </PageMargin>
         </nav>
     )
 }

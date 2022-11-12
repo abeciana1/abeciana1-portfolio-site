@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { PageMargin } from '../../../layouts'
 import PreRenderLink from '../../PreRenderLink'
 import { useMediaQuery } from 'react-responsive'
@@ -9,6 +9,12 @@ const NavBar = () => {
     const showDesktopNav = useMediaQuery({ query: '(min-width: 850px)' })
     const showMobileNav = useMediaQuery({ query: '(max-width: 849px)' })
     const [isOpen, setOpen] = useState(false);
+
+    useEffect(() => {
+        if (showDesktopNav) {
+            setOpen(false)
+        }
+    }, [isOpen])
 
     return (
         <nav

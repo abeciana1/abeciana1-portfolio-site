@@ -1,12 +1,15 @@
+import { useState } from 'react'
 import { PageMargin } from '../../../layouts'
 import { useRouter } from 'next/router'
 import PreRenderLink from '../../PreRenderLink'
 import { useMediaQuery } from 'react-responsive'
 import cx from 'classnames'
+import { Squash as Hamburger } from 'hamburger-react'
 
 const NavBar = () => {
     const showDesktopNav = useMediaQuery({ query: '(min-width: 850px)' })
     const showMobileNav = useMediaQuery({ query: '(max-width: 849px)' })
+    const [isOpen, setOpen] = useState(false);
 
     return (
         <nav
@@ -16,7 +19,10 @@ const NavBar = () => {
         >
             <PageMargin>
                 <div
-                    className="flex justify-center self-center float-left items-stretch"
+                    className={cx({
+                        ["flex justify-center self-center float-left items-stretch"]: showDesktopNav,
+                        ["block lg:hidden flex items-center justify-between"]: showMobileNav
+                    })}
                 >
                     <PreRenderLink
                         href="/"
@@ -24,6 +30,15 @@ const NavBar = () => {
                         alt="Homepage"
                         className="text-3xl sm:text-4xl md:text-3xl font-reross cursor-pointer anim-text"
                     />
+                    {showMobileNav &&
+                        <Hamburger
+                            toggled={isOpen}
+                            toggle={setOpen}
+                            rounded
+                            color="#292F36"
+                            easing="ease-in"
+                        />
+                    }
                 </div>
                 {showDesktopNav &&
                     <ul className="self-center ml-60 flex justify-end">
@@ -59,7 +74,7 @@ const NavBar = () => {
                         />
                     </ul>
                 }
-                {showMobileNav &&
+                {showMobileNav && isOpen &&
                     <ul className="ml-6 flex flex-col gap-y-8 absolute left-0 top-20 md:px-5">
                         <PreRenderLink
                             alt="About page"

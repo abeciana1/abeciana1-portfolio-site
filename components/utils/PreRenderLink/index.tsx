@@ -4,16 +4,19 @@ interface LinkI {
     href: string;
     className: string;
     linkText: string;
+    alt: string;
 }
 
 const PreRenderLink = ({
     href,
     className,
-    linkText
+    linkText,
+    alt
 }: LinkI) => {
     return (
         <Link href={href} className={className}>
             {linkText}
+            <span className="sr-only">{alt}</span>
         </Link>
     )
 }

@@ -13,11 +13,11 @@ const NavBar = () => {
                 <div
                     className="flex justify-center self-center float-left items-stretch"
                 >
-                    <a
+                    <Link
                         href='/'
                         alt="Alex Beciana"
                         className="text-3xl sm:text-4xl md:text-3xl font-reross cursor-pointer anim-text"
-                    >Alex Beciana</a>
+                    >Alex Beciana</Link>
                 </div>
             </PageMargin>
         </nav>

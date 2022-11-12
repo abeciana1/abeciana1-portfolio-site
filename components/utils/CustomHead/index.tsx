@@ -1,5 +1,4 @@
 import { NextSeo } from 'next-seo'
-// import { useRouter } from 'next/router'
 
 interface SeoI {
     title?: string;
@@ -10,9 +9,6 @@ const CustomHead = ({
     title,
     description
 }: SeoI) => {
-
-    // const router = useRouter()
-    // console.log(router);
 
     return (
         <NextSeo

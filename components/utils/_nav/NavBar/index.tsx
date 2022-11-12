@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { PageMargin } from '../../../layouts'
-import { useRouter } from 'next/router'
 import PreRenderLink from '../../PreRenderLink'
 import { useMediaQuery } from 'react-responsive'
 import cx from 'classnames'

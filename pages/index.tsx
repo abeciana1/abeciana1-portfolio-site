@@ -1,7 +1,7 @@
 import React from 'react'
 import CustomHead from '../components/utils/CustomHead'
 import { PageMargin } from '../components/layouts'
-import { HeroSection } from '../components/sections'
+import { HeroSectionWithLink } from '../components/sections'
 import Image from 'next/image'
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
           alt="Alex Beciana"
         />
       </div>
-        <HeroSection
+        <HeroSectionWithLink
           heading="Hi I'm Alex Beciana"
           taglineBody="Full stack software engineer with two years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."
           image="/profile-callout-edited.png"
@@ -29,6 +29,9 @@ export default function Home() {
           imageClassName="profile-callout"
           reverseOrder={true}
           cta="About Me"
+          ctaHref="/about"
+          ctaAlt="About page"
+          ctaButtonColor="altRed"
         />
       </PageMargin>
     </React.Fragment>

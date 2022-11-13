@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { PageMargin } from '../../../layouts'
-import PreRenderLink from '../../PreRenderLink'
+import { PreRenderLink } from '../../PreRenderLink'
 import cx from 'classnames'
 import { Squash as Hamburger } from 'hamburger-react'
 import useResponsiveness from '../../../../lib/useResponsiveness'

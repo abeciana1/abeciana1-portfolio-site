@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import cx from 'classnames'
+import { PreRenderLinkAsBtn } from '../utils/PreRenderLink'
 
 // todo Create hero section with gradient blur
-// todo add cta button element to hero section for render
 
 interface HeroSectionI {
     heading: string;
@@ -10,18 +10,22 @@ interface HeroSectionI {
     image: string;
     imageAlt: string;
     cta?: string;
+    ctaHref?: string;
     ctaButtonColor?: string;
+    ctaAlt?: string;
     reverseOrder?: boolean;
     imageClassName?: string;
 }
 
-export const HeroSection = ({
+export const HeroSectionWithLink = ({
     heading,
     taglineBody,
     image,
     imageAlt,
-    cta,
-    ctaButtonColor,
+    cta = "",
+    ctaHref = "",
+    ctaButtonColor = "",
+    ctaAlt = "",
     reverseOrder,
     imageClassName
 }: HeroSectionI) => {
@@ -36,16 +40,12 @@ export const HeroSection = ({
                 <h1 className="text-5xl font-reross leading-relaxed">{heading}</h1>
                 <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{taglineBody}</div>
                 <div>
-                    <button
-                        className={cx("",{
-                            ["bg-altYellow"]: ctaButtonColor === "altYellow",
-                            ["bg-black"]: ctaButtonColor === "black",
-                            ["bg-altRed"]: ctaButtonColor === "altRed",
-                            ["bg-altGray"]: ctaButtonColor === "altGray",
-                            ["bg-altBlue"]: ctaButtonColor === "altBlue",
-                            ["bg-blue-800"]: ctaButtonColor === "blue-800"
-                        })}
-                    >{cta}</button>
+                    <PreRenderLinkAsBtn
+                        href={ctaHref}
+                        linkText={cta}
+                        alt={ctaAlt}
+                        ctaButtonColor={ctaButtonColor}
+                    />
                 </div>
             </section>
             <section className="self-center justify-self-start lg:justify-self-end">

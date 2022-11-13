@@ -93,7 +93,7 @@ export const HeroSectionWithLinkGradientBG = ({
     return (
         <>
             <section className="z-10 flex justify-center">
-                <div className={cx("absolute object-cover lg:top-16 text-center blur-3xl opacity-30 h-5/6 max-h-screen w-screen max-w-5xl rounded-full", {
+                <div className={cx("absolute object-cover lg:top-20 text-center blur-3xl opacity-30 h-5/6 max-h-screen w-screen max-w-5xl rounded-3xl", {
                     [gradientClass]: gradientClass
                 })}>
                 </div>

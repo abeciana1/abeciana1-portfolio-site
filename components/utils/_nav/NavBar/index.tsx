@@ -94,7 +94,7 @@ const NavBar = () => {
                         <li>
                             <PreRenderLink
                                 alt="Contact page"
-                                className="text-3xl mr-5 font-reross cursor-pointer anim-text"
+                                className="text-3xl font-reross cursor-pointer anim-text"
                                 href="/contact"
                                 linkText="contact"
                             />
@@ -106,7 +106,7 @@ const NavBar = () => {
                         <li>
                             <PreRenderLink
                                 alt="About page"
-                                className="text-3xl mr-5 font-reross cursor-pointer anim-text"
+                                className="text-3xl font-reross cursor-pointer anim-text"
                                 linkText="about"
                                 href="/about"
                             />
@@ -114,7 +114,7 @@ const NavBar = () => {
                         <li>
                             <PreRenderLink
                                 alt="Portfolio page"
-                                className="text-3xl mr-5 font-reross cursor-pointer anim-text"
+                                className="text-3xl font-reross cursor-pointer anim-text"
                                 linkText="portfolio"
                                 href="/portfolio"
                             />
@@ -122,7 +122,7 @@ const NavBar = () => {
                         <li>
                             <PreRenderLink
                                 alt="Blog page"
-                                className="text-3xl mr-5 font-reross cursor-pointer anim-text"
+                                className="text-3xl font-reross cursor-pointer anim-text"
                                 href="/blog"
                                 linkText="blog"
                             />
@@ -130,7 +130,7 @@ const NavBar = () => {
                         <li>
                             <PreRenderLink
                                 alt="Reviews page"
-                                className="text-3xl mr-5 font-reross cursor-pointer anim-text"
+                                className="text-3xl font-reross cursor-pointer anim-text"
                                 href="/reviews"
                                 linkText="reviews"
                             />
@@ -138,7 +138,7 @@ const NavBar = () => {
                         <li>
                             <PreRenderLink
                                 alt="Contact page"
-                                className="text-3xl mr-5 font-reross cursor-pointer anim-text"
+                                className="text-3xl font-reross cursor-pointer anim-text"
                                 href="/contact"
                                 linkText="contact"
                             />

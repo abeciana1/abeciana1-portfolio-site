@@ -28,7 +28,7 @@ export const HeroSection = ({
 
     return(
         <section
-            className={cx("lg:pt-4 flex flex-col md:grid md:grid-cols-2 gap-12 justify-items-center item-stretch", {
+            className={cx("lg:pt-8 flex flex-col lg:grid lg:grid-cols-2 gap-20 justify-items-center item-stretch", {
                 ["flex-col-reverse"]: reverseOrder
             })}
         >

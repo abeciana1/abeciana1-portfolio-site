@@ -62,6 +62,20 @@ export const HeroSectionWithLink = ({
     )
 }
 
+interface HeroGradientI {
+    heading: string;
+    taglineBody: string;
+    image: string;
+    imageAlt: string;
+    cta?: string;
+    ctaHref?: string;
+    ctaButtonColor?: string;
+    ctaAlt?: string;
+    reverseOrder?: boolean;
+    imageClassName?: string;
+    gradientClass: string;
+}
+
 export const HeroSectionWithLinkGradientBG = ({
     heading,
     taglineBody,
@@ -72,13 +86,16 @@ export const HeroSectionWithLinkGradientBG = ({
     ctaButtonColor = "",
     ctaAlt = "",
     reverseOrder,
-    imageClassName
-}: HeroSectionI) => {
+    imageClassName,
+    gradientClass
+}: HeroGradientI) => {
 
     return (
         <>
             <section className="z-10 flex justify-center">
-                <div className="absolute object-cover lg:top-16 text-center blur-3xl opacity-30 h-screen w-screen max-w-5xl rounded-full bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400">
+                <div className={cx("absolute object-cover lg:top-16 text-center blur-3xl opacity-30 h-5/6 max-h-screen w-screen max-w-5xl rounded-full", {
+                    [gradientClass]: gradientClass
+                })}>
                 </div>
             </section>
             <section

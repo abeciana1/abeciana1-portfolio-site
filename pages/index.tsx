@@ -32,6 +32,7 @@ export default function Home() {
           ctaHref="/about"
           ctaAlt="About page"
           ctaButtonColor="altYellow"
+          gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
         />
       </PageMargin>
     </React.Fragment>

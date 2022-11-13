@@ -1,17 +1,28 @@
 import { useState, useEffect } from 'react'
 import { PageMargin } from '../../../layouts'
 import PreRenderLink from '../../PreRenderLink'
-import { useMediaQuery } from 'react-responsive'
 import cx from 'classnames'
 import { Squash as Hamburger } from 'hamburger-react'
+import useResponsiveness from '../../../../lib/useResponsiveness'
 
 const NavBar = () => {
-    const showDesktopNav = useMediaQuery({ query: '(min-width: 850px)' })
-    const showMobileNav = useMediaQuery({ query: '(max-width: 849px)' })
     const [isOpen, setOpen] = useState(false);
+    
+    const mediaQueryRender = useResponsiveness()
+    console.log(mediaQueryRender);
+    const {
+        isSmallMobile,
+        isLargeMobile,
+        isTablet,
+        isSmallLaptop,
+        isDesktop
+    } = mediaQueryRender || {}
+
+    const showDesktopNav = (isSmallLaptop || isDesktop)
+    const showMobileNav = (isSmallMobile || isLargeMobile || isTablet)
 
     useEffect(() => {
-        if (showDesktopNav) {
+        if (showDesktopNav && isOpen) {
             setOpen(false)
         }
     }, [isOpen])
@@ -35,7 +46,7 @@ const NavBar = () => {
                         alt="Homepage"
                         className="text-3xl sm:text-4xl md:text-3xl font-reross cursor-pointer anim-text"
                     />
-                    {showMobileNav &&
+                    {showMobileNav  &&
                         <Hamburger
                             toggled={isOpen}
                             toggle={setOpen}

@@ -24,7 +24,7 @@ const useResponsiveness = () => {
         maxWidth: 1024
     })
 
-    const isDesktop = useMediaQuery({
+    const isLaptop = useMediaQuery({
         minWidth: 1025,
         maxWidth: 1440
     })
@@ -43,10 +43,12 @@ const useResponsiveness = () => {
         return {
             isSmallMobile,
             isLargeMobile,
-            isTablet,
             isSmallLaptop,
-            isDesktop,
-            isXl
+            isLaptop,
+            isXl,
+            isMobile: (isSmallMobile || isLargeMobile),
+            isTablet,
+            isDesktop: (isSmallLaptop || isLaptop || isXl)
         }
     }
 }

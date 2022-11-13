@@ -9,18 +9,15 @@ const NavBar = () => {
     const [isOpen, setOpen] = useState(false);
     
     const mediaQueryRender = useResponsiveness()
-
+    console.log(mediaQueryRender);
     const {
-        isSmallMobile,
-        isLargeMobile,
+        isMobile,
         isTablet,
-        isSmallLaptop,
         isDesktop,
-        isXl
     } = mediaQueryRender || {}
 
-    const showDesktopNav = (isSmallLaptop || isDesktop  || isXl)
-    const showMobileNav = (isSmallMobile || isLargeMobile || isTablet)
+    const showDesktopNav = isDesktop
+    const showMobileNav = (isMobile || isTablet)
 
     useEffect(() => {
         if (showDesktopNav && isOpen) {

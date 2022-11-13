@@ -1,6 +1,9 @@
 import Image from 'next/image'
 import cx from 'classnames'
 
+// todo Create hero section with gradient blur
+// todo add cta button element to hero section for render
+
 interface HeroSectionI {
     heading: string;
     taglineBody: string;

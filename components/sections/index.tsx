@@ -36,17 +36,15 @@ export const HeroSection = ({
                 <h1 className="text-5xl font-reross leading-relaxed">{heading}</h1>
                 <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{ taglineBody }</div>
             </section>
-            <section className="self-center justify-self-start lg:justify-self-end lg:mx-20">
-                <div className="">
-                    <Image 
-                        src={image}
-                        width={450}
-                        height={450}
-                        priority
-                        className={imageClassName}
-                        alt={imageAlt}
-                    />
-                </div>
+            <section className="self-center justify-self-start lg:justify-self-end">
+                <Image 
+                    src={image}
+                    width={400}
+                    height={400}
+                    priority
+                    className={imageClassName}
+                    alt={imageAlt}
+                />
             </section>
         </section>
     )

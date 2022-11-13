@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import cx from 'classnames'
 
 interface HeroSectionI {
     heading: string;
@@ -7,6 +8,8 @@ interface HeroSectionI {
     imageAlt: string;
     cta?: string;
     ctaButtonColor?: string;
+    reverseOrder?: boolean;
+    imageClassName?: string;
 }
 
 export const HeroSection = ({
@@ -15,24 +18,29 @@ export const HeroSection = ({
     image,
     imageAlt,
     cta,
-    ctaButtonColor
+    ctaButtonColor,
+    reverseOrder,
+    imageClassName
 }: HeroSectionI) => {
 
     return(
         <section
-            className="lg:pt-4 flex flex-col md:grid md:grid-cols-2 gap-12 justify-items-center item-stretch"
+            className={cx("lg:pt-4 flex flex-col md:grid md:grid-cols-2 gap-12 justify-items-center item-stretch", {
+                ["flex-col-reverse"]: reverseOrder
+            })}
         >
             <section className="self-center justify-self-start">
                 <h1 className="text-5xl font-reross leading-relaxed">{heading}</h1>
                 <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{ taglineBody }</div>
             </section>
             <section className="self-center justify-self-start lg:justify-self-end lg:mx-20">
-                <div className="profile-callout">
+                <div className="">
                     <Image 
                         src={image}
-                        width={500}
-                        height={500}
+                        width={450}
+                        height={450}
                         priority
+                        className={imageClassName}
                         alt={imageAlt}
                     />
                 </div>

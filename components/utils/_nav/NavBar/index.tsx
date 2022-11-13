@@ -31,7 +31,7 @@ const NavBar = () => {
     return (
         <nav
             className={cx("bg-white z-50", {
-                ["absolute w-full h-screen"]: showMobileNav
+                ["absolute w-full h-screen"]: showMobileNav && isOpen
             })}
         >
             <PageMargin>

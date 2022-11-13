@@ -33,8 +33,6 @@ export const HeroSection = ({
                         width={500}
                         height={500}
                         priority
-                        // className="w-72"
-                        // className="desktop-profile transform translate-x-0 hidden md:inline"
                         alt={imageAlt}
                     />
                 </div>

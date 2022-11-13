@@ -9,7 +9,7 @@ const NavBar = () => {
     const [isOpen, setOpen] = useState(false);
     
     const mediaQueryRender = useResponsiveness()
-    console.log(mediaQueryRender);
+
     const {
         isMobile,
         isTablet,

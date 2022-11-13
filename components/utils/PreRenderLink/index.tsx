@@ -41,7 +41,7 @@ export const PreRenderLinkAsBtn = ({
     return (
         <Link
             href={href}
-            className={cx("text-xl xl:text-2xl leading-10 xl:leading-loose px-4 py-2 rounded-md",{
+            className={cx("text-xl xl:text-2xl leading-10 xl:leading-loose px-4 py-2 rounded-md font-medium",{
                 ["bg-altYellow text-black"]: ctaButtonColor === "altYellow",
                 ["bg-black text-white"]: ctaButtonColor === "black",
                 ["bg-altRed text-white"]: ctaButtonColor === "altRed",

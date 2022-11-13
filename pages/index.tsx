@@ -31,7 +31,7 @@ export default function Home() {
           cta="About Me"
           ctaHref="/about"
           ctaAlt="About page"
-          ctaButtonColor="altRed"
+          ctaButtonColor="altYellow"
         />
       </PageMargin>
     </React.Fragment>

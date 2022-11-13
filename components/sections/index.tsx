@@ -34,7 +34,19 @@ export const HeroSection = ({
         >
             <section className="self-center justify-self-start">
                 <h1 className="text-5xl font-reross leading-relaxed">{heading}</h1>
-                <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{ taglineBody }</div>
+                <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{taglineBody}</div>
+                <div>
+                    <button
+                        className={cx("",{
+                            ["bg-altYellow"]: ctaButtonColor === "altYellow",
+                            ["bg-black"]: ctaButtonColor === "black",
+                            ["bg-altRed"]: ctaButtonColor === "altRed",
+                            ["bg-altGray"]: ctaButtonColor === "altGray",
+                            ["bg-altBlue"]: ctaButtonColor === "altBlue",
+                            ["bg-blue-800"]: ctaButtonColor === "blue-800"
+                        })}
+                    >{cta}</button>
+                </div>
             </section>
             <section className="self-center justify-self-start lg:justify-self-end">
                 <Image 

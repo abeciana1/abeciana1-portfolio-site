@@ -28,6 +28,7 @@ export default function Home() {
           imageAlt="Alex Beciana (animated)"
           imageClassName="profile-callout"
           reverseOrder={true}
+          cta="About Me"
         />
       </PageMargin>
     </React.Fragment>

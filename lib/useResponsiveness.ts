@@ -29,6 +29,10 @@ const useResponsiveness = () => {
         maxWidth: 1440
     })
 
+    const isXl = useMediaQuery({
+        minWidth: 1441
+    })
+
     useEffect(() => {
         if (typeof window !== 'undefined') {
             setIsClient(true)
@@ -41,7 +45,8 @@ const useResponsiveness = () => {
             isLargeMobile,
             isTablet,
             isSmallLaptop,
-            isDesktop
+            isDesktop,
+            isXl
         }
     }
 }

@@ -15,10 +15,11 @@ const NavBar = () => {
         isLargeMobile,
         isTablet,
         isSmallLaptop,
-        isDesktop
+        isDesktop,
+        isXl
     } = mediaQueryRender || {}
 
-    const showDesktopNav = (isSmallLaptop || isDesktop)
+    const showDesktopNav = (isSmallLaptop || isDesktop  || isXl)
     const showMobileNav = (isSmallMobile || isLargeMobile || isTablet)
 
     useEffect(() => {

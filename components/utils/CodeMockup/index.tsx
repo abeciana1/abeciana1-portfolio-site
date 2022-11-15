@@ -14,7 +14,7 @@ export const CodeMockupLine = ({
     backgroundColor
 }: CodeLineI) => {
     return (
-        <pre data-prefix={prefix} className={cx({
+        <pre data-prefix={prefix} className={cx("whitespace-pre-wrap", {
             ["text-black"]: textColor === "black",
             ["text-white"]: textColor === "white",
             ["bg-altYellow text-black"]: backgroundColor === "warning",
@@ -38,7 +38,7 @@ export const CodeMockup = (
     { children, enableSection, background }: CodeMockupI
 ) => {
     return (
-        <section className="">
+        <section className="w-1/2">
             <div className={cx("",{
                 ["mockup-code-section"]: enableSection,
                 ["bg-black text-white"]: background === "black",

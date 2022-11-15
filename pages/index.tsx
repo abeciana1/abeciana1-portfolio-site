@@ -42,7 +42,7 @@ export default function Home() {
           <CodeMockupLine
             key={1}
             prefix="$"
-            text="testing line 1"
+            text="testing line 1testing line 1testing line 1testing line 1testing line 1testing line 1"
           />
           <CodeMockupLine
             key={2}
@@ -54,3 +54,4 @@ export default function Home() {
     </React.Fragment>
   )
 }
+

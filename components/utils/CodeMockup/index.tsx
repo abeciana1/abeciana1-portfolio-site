@@ -3,14 +3,24 @@ import cx from 'classnames'
 interface CodeLineI {
     text: string;
     prefix: string;
+    textColor?: string;
+    backgroundColor?: string;
 }
 
 export const CodeMockupLine = ({
     text,
-    prefix
+    prefix,
+    textColor,
+    backgroundColor
 }: CodeLineI) => {
     return (
-        <pre data-prefix={prefix}>
+        <pre data-prefix={prefix} className={cx({
+            ["text-black"]: textColor === "black",
+            ["text-white"]: textColor === "white",
+            ["bg-altYellow text-black"]: backgroundColor === "warning",
+            ["text-green-400"]: textColor === "success",
+            ["text-altYellow"]: textColor === "warning"
+        })}>
             <code>
                 {text}
             </code>
@@ -28,8 +38,8 @@ export const CodeMockup = (
     { children, enableSection, background }: CodeMockupI
 ) => {
     return (
-        <section className="z-50">
-            <div className={cx("z-50",{
+        <section className="">
+            <div className={cx("",{
                 ["mockup-code-section"]: enableSection,
                 ["bg-black text-white"]: background === "black",
                 ["bg-gray-200 text-black"]: background === "gray"

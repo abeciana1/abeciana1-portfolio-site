@@ -3,6 +3,7 @@ import CustomHead from '../components/utils/CustomHead'
 import { PageMargin } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Image from 'next/image'
+import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 
 export default function Home() {
   return (
@@ -34,6 +35,21 @@ export default function Home() {
           ctaButtonColor="altYellow"
           gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
         />
+        <CodeMockup
+          enableSection={true}
+          background="black"
+        >
+          <CodeMockupLine
+            key={1}
+            prefix="$"
+            text="testing line 1"
+          />
+          <CodeMockupLine
+            key={2}
+            prefix="$"
+            text="testing line 2"
+          />
+        </CodeMockup>
       </PageMargin>
     </React.Fragment>
   )

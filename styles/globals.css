@@ -8,12 +8,12 @@
   font-display: swap;
 }
 
-/* h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: reross-quadratic, sans-serif;
   color: #292F36;
   font-weight: 400;
   font-style: normal;
-} */
+}
 
 p, div, a {
   color: #292F36;
@@ -27,32 +27,7 @@ html, body {
   margin: 0px;
   width: 100%;
   background: #F8F8F8;
-  color: #292F36;
   font-family: futura-pt,sans-serif;
-}
-
-h1 {
-  @apply text-7xl;
-}
-
-h2 {
-  @apply text-6xl;
-}
-
-h3 {
-  @apply text-5xl;
-}
-
-h4 { 
-  @apply text-4xl;
-}
-
-h5 {
-  @apply text-3xl;
-}
-
-h6 {
-  @apply text-2xl;
 }
 
 a {
@@ -149,6 +124,30 @@ a {
   }
 }
 
+h1 {
+  @apply text-7xl
+}
+
+h2 {
+  @apply text-6xl
+}
+
+h3 {
+  @apply text-5xl
+}
+
+h4 { 
+  @apply text-4xl
+}
+
+h5 {
+  @apply text-3xl
+}
+
+h6 {
+  @apply text-2xl
+}
+
 .expand-btn {
   height: 40px;
   width: 40px;
@@ -162,29 +161,36 @@ a {
   transition: width 0.5s;
 }
 
+.mockup-code, .mockup-code-section {
+  min-width: 18rem;
+  /* z-index: 9999; */
+  /* @apply bg-neutral;  */
+  @apply py-5; 
+  /* @apply text-neutral-content; */
+  @apply rounded-lg;
+}
 
-/* 
-.mockup {
-  &-code {
-    @apply min-w-[18rem] bg-neutral py-5 text-neutral-content rounded-box;
-    &:before {
-      content: "";
-      @apply mb-4 block h-3 w-3 rounded-full opacity-30;
-      box-shadow: 1.4em 0, 2.8em 0, 4.2em 0;
-    }
-    pre {
-      @apply pr-5;
-      &:before {
-        content: "";
-        margin-right: 2ch;
-      }
-    }
-    pre[data-prefix] {
-      &:before {
-        content: attr(data-prefix);
-        @apply w-8 opacity-50;
-      }
-    }
-  }
-} */
+.mockup-code-section:before {
+  @apply mb-4;
+  @apply block;
+  @apply h-3;
+  @apply w-3;
+  @apply rounded-full;
+  @apply opacity-30;
+  content: "";
+  box-shadow: 1.4em 0, 2.8em 0, 4.2em 0;
+}
 
+.mockup-code, .mockup-code-section pre {
+  @apply pl-5;
+}
+
+.mockup-code, .mockup-code-section pre:before {
+  content: "";
+  margin-right: 2ch;
+}
+.mockup-code, .mockup-code-section pre[data-prefix]:before {
+  content: attr(data-prefix);
+  @apply w-8;
+  @apply opacity-50;
+}

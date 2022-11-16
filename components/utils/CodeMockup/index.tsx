@@ -38,8 +38,8 @@ export const CodeMockup = (
     { children, enableSection, background }: CodeMockupI
 ) => {
     return (
-        <section className="w-1/2">
-            <div className={cx("",{
+        <section className="my-10">
+            <div className={cx("mx-auto w-1/2",{
                 ["mockup-code-section"]: enableSection,
                 ["bg-black text-white"]: background === "black",
                 ["bg-gray-200 text-black"]: background === "gray"

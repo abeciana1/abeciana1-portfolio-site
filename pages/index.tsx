@@ -5,7 +5,8 @@ import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Image from 'next/image'
 import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 
-export default function Home() {
+export default function Home(props: any) {
+  const { joke } = props
   return (
     <React.Fragment>
       <CustomHead
@@ -40,14 +41,14 @@ export default function Home() {
           background="black"
         >
           <CodeMockupLine
-            key={1}
             prefix="$"
-            text="testing line 1testing line 1testing line 1testing line 1testing line 1testing line 1"
+            textColor="warning"
+            text={joke?.question}
           />
           <CodeMockupLine
-            key={2}
             prefix="$"
-            text="testing line 2"
+            textColor="success"
+            text={joke?.punchline}
           />
         </CodeMockup>
       </PageMargin>
@@ -55,3 +56,15 @@ export default function Home() {
   )
 }
 
+export async function getStaticProps() {
+
+  const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
+  const jokes = await res.json()
+
+  return {
+    props: {
+      // jokes
+      joke: jokes[0]
+    }
+  }
+}

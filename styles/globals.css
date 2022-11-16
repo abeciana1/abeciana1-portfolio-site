@@ -163,10 +163,7 @@ h6 {
 
 .mockup-code, .mockup-code-section {
   min-width: 18rem;
-  /* z-index: 9999; */
-  /* @apply bg-neutral;  */
   @apply py-5; 
-  /* @apply text-neutral-content; */
   @apply rounded-lg;
 }
 

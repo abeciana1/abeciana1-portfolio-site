@@ -92,8 +92,8 @@ export const HeroSectionWithLinkGradientBG = ({
 
     return (
         <>
-            <section className="-z-50 flex justify-center">
-                <div className={cx("absolute object-cover lg:top-20 text-center blur-3xl opacity-30 h-5/6 max-h-screen w-screen max-w-5xl rounded-3xl", {
+            <section className="flex justify-center">
+                <div className={cx("z-0 absolute object-cover lg:top-20 text-center blur-3xl opacity-30 h-5/6 max-h-screen w-screen max-w-5xl rounded-3xl", {
                     [gradientClass]: gradientClass
                 })}>
                 </div>
@@ -103,7 +103,7 @@ export const HeroSectionWithLinkGradientBG = ({
                     ["flex-col-reverse"]: reverseOrder
                 })}
             >
-                <section className="z-50 self-center justify-self-start">
+                <section className="z-10 self-center justify-self-start">
                     <h1 className="text-5xl font-reross leading-relaxed">{heading}</h1>
                     <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{taglineBody}</div>
                     <div>

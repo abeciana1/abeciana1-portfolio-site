@@ -188,7 +188,6 @@ h6 {
 }
 .mockup-code, .mockup-code-section pre[data-prefix]:before {
   content: attr(data-prefix);
-  /* @apply w-8; */
   @apply opacity-50;
   display: flex;
 }

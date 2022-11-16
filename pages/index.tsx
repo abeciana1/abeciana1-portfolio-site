@@ -63,7 +63,6 @@ export async function getStaticProps() {
 
   return {
     props: {
-      // jokes
       joke: jokes[0]
     }
   }

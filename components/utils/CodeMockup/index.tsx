@@ -14,14 +14,14 @@ export const CodeMockupLine = ({
     backgroundColor
 }: CodeLineI) => {
     return (
-        <pre data-prefix={prefix} className={cx("whitespace-pre-wrap", {
+        <pre data-prefix={prefix} className={cx("flex", {
             ["text-black"]: textColor === "black",
             ["text-white"]: textColor === "white",
             ["bg-altYellow text-black"]: backgroundColor === "warning",
             ["text-green-400"]: textColor === "success",
             ["text-altYellow"]: textColor === "warning"
         })}>
-            <code>
+            <code className="whitespace-normal">
                 {text}
             </code>
         </pre>

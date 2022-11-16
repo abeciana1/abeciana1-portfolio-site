@@ -36,7 +36,6 @@ export default function Home(props: any) {
           ctaButtonColor="altYellow"
           gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
         />
-      </PageMargin>
         <CodeMockup
           enableSection={true}
           background="black"
@@ -52,6 +51,7 @@ export default function Home(props: any) {
             text={joke?.punchline}
           />
         </CodeMockup>
+      </PageMargin>
     </React.Fragment>
   )
 }

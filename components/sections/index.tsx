@@ -39,14 +39,16 @@ export const HeroSectionWithLink = ({
             <section className="self-center justify-self-start">
                 <h1 className="text-5xl font-reross leading-relaxed">{heading}</h1>
                 <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{taglineBody}</div>
-                <div>
-                    <PreRenderLinkAsBtn
-                        href={ctaHref}
-                        linkText={cta}
-                        alt={ctaAlt}
-                        ctaButtonColor={ctaButtonColor}
-                    />
-                </div>
+                {cta && (
+                    <div>
+                        <PreRenderLinkAsBtn
+                            href={ctaHref}
+                            linkText={cta}
+                            alt={ctaAlt}
+                            ctaButtonColor={ctaButtonColor}
+                        />
+                    </div>
+                )}
             </section>
             <section className="self-center justify-self-start lg:justify-self-end">
                 <Image 

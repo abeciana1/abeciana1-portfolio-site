@@ -5,6 +5,7 @@ import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Image from 'next/image'
 import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
+import SkillCard from '../components/cards/SkillCard'
 
 interface SkillI {
   name: string;
@@ -65,19 +66,10 @@ export default function Home(props: any) {
             >
                 {Skills.map(({name, image}: SkillI) => {
                     return (
-                        <div
-                            className="text-center rounded-xl"
-                        >
-                            <img
-                                src={image}
-                                className="w-auto h-12 mx-auto"
-                            />
-                            <div
-                                className="mt-2"
-                            >
-                                {name}
-                            </div>
-                        </div>
+                      <SkillCard
+                        name={name}
+                        image={image}
+                      />
                     )
                 })}
             </section>

@@ -4,6 +4,7 @@ import { PageMargin } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Image from 'next/image'
 import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
+import Skills from '../data/skills.json'
 
 export default function Home(props: any) {
   const { joke } = props
@@ -30,10 +31,10 @@ export default function Home(props: any) {
           imageAlt="Alex Beciana (animated)"
           imageClassName="profile-callout"
           reverseOrder={true}
-          cta="About Me"
-          ctaHref="/about"
-          ctaAlt="About page"
-          ctaButtonColor="altYellow"
+          // cta="About Me"
+          // ctaHref="/about"
+          // ctaAlt="About page"
+          // ctaButtonColor="altYellow"
           gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
         />
         <CodeMockup

@@ -2,8 +2,6 @@ import Image from 'next/image'
 import cx from 'classnames'
 import { PreRenderLinkAsBtn } from '../utils/PreRenderLink'
 
-// todo Create hero section with gradient blur
-
 interface HeroSectionI {
     heading: string;
     taglineBody: string;

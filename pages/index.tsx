@@ -31,10 +31,6 @@ export default function Home(props: any) {
           imageAlt="Alex Beciana (animated)"
           imageClassName="profile-callout"
           reverseOrder={true}
-          // cta="About Me"
-          // ctaHref="/about"
-          // ctaAlt="About page"
-          // ctaButtonColor="altYellow"
           gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
         />
         <CodeMockup

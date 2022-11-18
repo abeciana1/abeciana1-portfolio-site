@@ -6,6 +6,11 @@ import Image from 'next/image'
 import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
 
+interface SkillI {
+  name: string;
+  image: string
+}
+
 export default function Home(props: any) {
   const { joke } = props
   return (
@@ -48,6 +53,35 @@ export default function Home(props: any) {
             text={joke?.punchline}
           />
         </CodeMockup>
+        <section
+            className="mt-20"
+        >
+            <h2
+                id="skills"
+                className="text-4xl font-reross text-altYellow leading-relaxed"
+            >skills</h2>
+            <section
+                className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-10"
+            >
+                {Skills.map(({name, image}: SkillI) => {
+                    return (
+                        <div
+                            className="text-center rounded-xl"
+                        >
+                            <img
+                                src={image}
+                                className="w-auto h-12 mx-auto"
+                            />
+                            <div
+                                className="mt-2"
+                            >
+                                {name}
+                            </div>
+                        </div>
+                    )
+                })}
+            </section>
+        </section>
       </PageMargin>
     </React.Fragment>
   )

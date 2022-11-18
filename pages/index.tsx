@@ -4,6 +4,13 @@ import { PageMargin } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Image from 'next/image'
 import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
+import Skills from '../data/skills.json'
+import SkillCard from '../components/cards/SkillCard'
+
+interface SkillI {
+  name: string;
+  image: string
+}
 
 export default function Home(props: any) {
   const { joke } = props
@@ -30,10 +37,6 @@ export default function Home(props: any) {
           imageAlt="Alex Beciana (animated)"
           imageClassName="profile-callout"
           reverseOrder={true}
-          cta="About Me"
-          ctaHref="/about"
-          ctaAlt="About page"
-          ctaButtonColor="altYellow"
           gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
         />
         <CodeMockup
@@ -51,6 +54,26 @@ export default function Home(props: any) {
             text={joke?.punchline}
           />
         </CodeMockup>
+        <section
+            className="mt-20"
+        >
+            <h2
+                id="skills"
+                className="text-4xl font-reross text-altYellow leading-relaxed"
+            >skills</h2>
+            <section
+                className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-10"
+            >
+              {Skills.map(({name, image}: SkillI) => {
+                  return (
+                    <SkillCard
+                      name={name}
+                      image={image}
+                    />
+                  )
+              })}
+            </section>
+        </section>
       </PageMargin>
     </React.Fragment>
   )
@@ -63,7 +86,6 @@ export async function getStaticProps() {
 
   return {
     props: {
-      // jokes
       joke: jokes[0]
     }
   }

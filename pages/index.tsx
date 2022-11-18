@@ -64,14 +64,14 @@ export default function Home(props: any) {
             <section
                 className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-10"
             >
-                {Skills.map(({name, image}: SkillI) => {
-                    return (
-                      <SkillCard
-                        name={name}
-                        image={image}
-                      />
-                    )
-                })}
+              {Skills.map(({name, image}: SkillI) => {
+                  return (
+                    <SkillCard
+                      name={name}
+                      image={image}
+                    />
+                  )
+              })}
             </section>
         </section>
       </PageMargin>

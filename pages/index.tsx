@@ -7,10 +7,7 @@ import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
 import SkillCard from '../components/cards/SkillCard'
 import { gql, GraphQLClient } from 'graphql-request'
-// import JobCard from '../components/cards/JobCard'
-import dynamic from 'next/dynamic'
-
-const JobCard = dynamic(() => import('../components/cards/JobCard'), { ssr: false })
+import JobCard from '../components/cards/JobCard'
 
 
 interface SkillI {

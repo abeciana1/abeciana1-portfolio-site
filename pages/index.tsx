@@ -13,8 +13,8 @@ interface SkillI {
   image: string;
 }
 
-export default function Home(props: any) {
-  const { joke } = props
+export default function Home({ joke, expData }: any) {
+  
   return (
     <React.Fragment>
       <CustomHead
@@ -86,7 +86,7 @@ export async function getStaticProps() {
   const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
   const jokes = await res.json()
 
-  const expClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT)
+  const expClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
     
   const expQuery = gql`
       query {

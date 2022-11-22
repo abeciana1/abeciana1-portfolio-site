@@ -105,6 +105,14 @@ export default function Home({ joke, expData }: any) {
               )
             })}
         </section>
+        <section
+            id="education"
+            className="mt-20"
+        >
+            <h2
+                className="text-4xl font-reross text-altYellow leading-relaxed"
+            >education</h2>
+        </section>
       </PageMargin>
     </React.Fragment>
   )

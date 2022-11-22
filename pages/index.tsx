@@ -6,10 +6,11 @@ import Image from 'next/image'
 import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
 import SkillCard from '../components/cards/SkillCard'
+import { gql, GraphQLClient } from 'graphql-request'
 
 interface SkillI {
   name: string;
-  image: string
+  image: string;
 }
 
 export default function Home(props: any) {
@@ -64,9 +65,10 @@ export default function Home(props: any) {
             <section
                 className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-10"
             >
-              {Skills.map(({name, image}: SkillI) => {
+              {Skills.map(({name, image}: SkillI, index:number) => {
                   return (
                     <SkillCard
+                      key={index + 1}
                       name={name}
                       image={image}
                     />
@@ -84,9 +86,40 @@ export async function getStaticProps() {
   const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
   const jokes = await res.json()
 
+  const expClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT)
+    
+  const expQuery = gql`
+      query {
+      jobs(orderBy: endDate_DESC) {
+          id
+          position
+          startDate
+          companyName
+          companyWebsite
+          companyDescription
+          companyLogo {
+          url
+          }
+          endDate
+          responsibilities
+      }
+      educations {
+          id
+          schoolName
+          schoolWebsite
+          schoolImage {
+          url
+          }
+          achievements
+      }
+    }`
+    
+    const expData = await expClient.request(expQuery)
+
   return {
     props: {
-      joke: jokes[0]
+      joke: jokes[0],
+      expData: expData
     }
   }
 }

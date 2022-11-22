@@ -7,6 +7,11 @@ import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
 import SkillCard from '../components/cards/SkillCard'
 import { gql, GraphQLClient } from 'graphql-request'
+// import JobCard from '../components/cards/JobCard'
+import dynamic from 'next/dynamic'
+
+const JobCard = dynamic(() => import('../components/cards/JobCard'), { ssr: false })
+
 
 interface SkillI {
   name: string;
@@ -80,6 +85,28 @@ export default function Home({ joke, expData }: any) {
                   )
               })}
             </section>
+        </section>
+        <section className="mt-20">
+            <h2
+                id="experience"
+                className="text-4xl font-reross text-altYellow leading-relaxed"
+            >experience</h2>
+            {jobs?.map((job: any) => {
+              return (
+                <JobCard
+                  key={job?.id}
+                  id={job?.id}
+                  position={job?.position}
+                  startDate={job?.startDate}
+                  companyName={job?.companyName}
+                  companyWebsite={job?.companyWebsite}
+                  companyDescription={job?.companyDescription}
+                  companyLogo={job?.companyLogo?.url}
+                  endDate={job?.endDate}
+                  responsibilities={job?.responsibilities}
+                />
+              )
+            })}
         </section>
       </PageMargin>
     </React.Fragment>

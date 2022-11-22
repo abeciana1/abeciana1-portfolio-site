@@ -1,4 +1,5 @@
 import ReactMarkdown from 'react-markdown'
+import Markdown from 'react-markdown'
 import moment from 'moment'
 
 interface JobCardI {
@@ -35,7 +36,7 @@ const JobCard = ({
                 className="self-center"
             >
                 <img
-                    src={companyLogo?.url || "/profile-pic.png"}
+                    src={companyLogo || "/profile-pic.png"}
                     className="w-3/5 mx-auto"
                 />
                 <div
@@ -68,28 +69,23 @@ const JobCard = ({
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-altBlue underline"
-                        alt={companyName}
                     >
-                        Website
-                    </a>
-                )}
-                <p>
+                        {companyName} - Website
+                    </a>)}
                     <ReactMarkdown
                         children={responsibilities}
                         components={{
-                            ul({ node, children, ...props }) {
+                            ul({ children }: any) {
                                 return (
                                     <ul
                                         className="list-disc ml-5"
-                                        {...props}
                                     >
-                                        <li>{ children }</li>
+                                        {children}
                                     </ul>
                                 )
                             }
                         }}
                     />
-                </p>
             </div>
         </section>
     )

@@ -15,6 +15,11 @@ interface SkillI {
 
 export default function Home({ joke, expData }: any) {
   
+  const {
+    jobs,
+    educations
+  } = expData
+
   return (
     <React.Fragment>
       <CustomHead

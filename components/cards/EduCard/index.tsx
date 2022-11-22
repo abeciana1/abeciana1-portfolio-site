@@ -1,5 +1,4 @@
 import ReactMarkdown from 'react-markdown'
-import moment from 'moment'
 
 interface EduCardI {
     id: number;

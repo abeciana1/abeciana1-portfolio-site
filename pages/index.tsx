@@ -8,7 +8,7 @@ import Skills from '../data/skills.json'
 import SkillCard from '../components/cards/SkillCard'
 import { gql, GraphQLClient } from 'graphql-request'
 import JobCard from '../components/cards/JobCard'
-
+import EduCard from '../components/cards/EduCard'
 
 interface SkillI {
   name: string;
@@ -112,6 +112,18 @@ export default function Home({ joke, expData }: any) {
             <h2
                 className="text-4xl font-reross text-altYellow leading-relaxed"
             >education</h2>
+          {educations?.map((school: any) => {
+            return (
+              <EduCard
+                key={school?.id}
+                id={school?.id}
+                schoolName={school?.schoolName}
+                schoolWebsite={school?.schoolWebsite}
+                schoolImage={school?.schoolImage?.url}
+                achievements={school?.achievements}
+              />
+              )
+            })}
         </section>
       </PageMargin>
     </React.Fragment>

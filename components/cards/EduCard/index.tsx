@@ -26,7 +26,7 @@ const EduCard = ({
                 className="self-center"
             >
                 <img
-                    src={schoolImage?.url}
+                    src={schoolImage}
                     className="w-3/5 mx-auto"
                 />
             </div>
@@ -49,23 +49,21 @@ const EduCard = ({
                         Website
                     </a>
                 )}
-                <p>
-                    <ReactMarkdown
-                        children={achievements}
-                        components={{
-                            p({ children, ...props }) {
-                                return (
-                                    <p
-                                        className=""
-                                        {...props}
-                                    >
-                                        { children }
-                                    </p>
-                                )
-                            }
-                        }}
-                    />
-                </p>
+                <ReactMarkdown
+                    children={achievements}
+                    components={{
+                        p({ children, ...props }) {
+                            return (
+                                <p
+                                    className=""
+                                    {...props}
+                                >
+                                    { children }
+                                </p>
+                            )
+                        }
+                    }}
+                />
             </div>
         </div>
     )

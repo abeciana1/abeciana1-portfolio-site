@@ -43,7 +43,6 @@ const EduCard = ({
                         href={schoolWebsite}
                         target="_blank"
                         rel="noopener noreferrer"
-                        alt={schoolName}
                         className="text-altBlue underline"
                     >
                         Website
@@ -52,12 +51,9 @@ const EduCard = ({
                 <ReactMarkdown
                     children={achievements}
                     components={{
-                        p({ children, ...props }) {
+                        p({ children }) {
                             return (
-                                <p
-                                    className=""
-                                    {...props}
-                                >
+                                <p>
                                     { children }
                                 </p>
                             )

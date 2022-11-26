@@ -9,6 +9,7 @@ import SkillCard from '../components/cards/SkillCard'
 import { gql, GraphQLClient } from 'graphql-request'
 import JobCard from '../components/cards/JobCard'
 import EduCard from '../components/cards/EduCard'
+import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 
 interface SkillI {
   name: string;
@@ -46,6 +47,20 @@ export default function Home({ joke, expData }: any) {
           imageClassName="profile-callout"
           reverseOrder={true}
           gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
+        />
+        <PreRenderLinkAsBtn
+          href="/portfolio"
+          linkText="What I'm working on"
+          alt="portfolio page"
+          ctaButtonColor="altYellow"
+          showArrow={true}
+        />
+        <PreRenderLinkAsBtn
+          href="/portfolio"
+          linkText="What I've written"
+          alt="portfolio page"
+          ctaButtonColor="altYellow"
+          showArrow={true}
         />
         <CodeMockup
           enableSection={true}

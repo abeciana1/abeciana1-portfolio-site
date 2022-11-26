@@ -106,14 +106,14 @@ export const HeroSectionWithLinkGradientBG = ({
                 <section className="z-10 self-center justify-self-start">
                     <h1 className="text-5xl font-reross leading-relaxed">{heading}</h1>
                     <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{taglineBody}</div>
-                    <div>
+                    {cta &&
                         <PreRenderLinkAsBtn
                             href={ctaHref}
                             linkText={cta}
                             alt={ctaAlt}
                             ctaButtonColor={ctaButtonColor}
                         />
-                    </div>
+                    }
                 </section>
                 <section className="z-50 self-center justify-self-start lg:justify-self-end">
                     <Image 

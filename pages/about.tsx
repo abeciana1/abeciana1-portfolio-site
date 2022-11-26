@@ -15,6 +15,12 @@ interface SkillI {
 }
 
 const AboutPage = ({ joke, expData }: any) => {
+
+    const {
+        jobs,
+        educations
+    } = expData
+
     return (
         <React.Fragment>
             <CustomHead

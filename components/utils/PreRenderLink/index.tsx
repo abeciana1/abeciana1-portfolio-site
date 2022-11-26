@@ -42,7 +42,7 @@ export const PreRenderLinkAsBtn = ({
     showArrow
 }: LinkBtnI) => {
     return (
-        <div className="z-50 relative py-2.5">
+        <div className="z-50 relative">
             <Link
                 href={href}
                 className={cx("text-xl xl:text-2xl leading-10 xl:leading-loose px-3 py-1 rounded-md font-medium flex items-center w-fit",{

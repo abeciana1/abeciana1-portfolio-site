@@ -16,12 +16,7 @@ interface SkillI {
   image: string;
 }
 
-export default function Home({ joke, expData }: any) {
-  
-  const {
-    jobs,
-    educations
-  } = expData
+export default function Home({ joke }: any) {
 
   return (
     <React.Fragment>
@@ -48,20 +43,22 @@ export default function Home({ joke, expData }: any) {
           reverseOrder={true}
           gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
         />
-        <PreRenderLinkAsBtn
-          href="/portfolio"
-          linkText="What I'm working on"
-          alt="portfolio page"
-          ctaButtonColor="altYellow"
-          showArrow={true}
-        />
-        <PreRenderLinkAsBtn
-          href="/portfolio"
-          linkText="What I've written"
-          alt="portfolio page"
-          ctaButtonColor="altYellow"
-          showArrow={true}
-        />
+        <div className="flex flex-col pt-8 space-y-4 md:space-y-0 md:pt-0 md:flex-row md:space-x-8">
+          <PreRenderLinkAsBtn
+            href="/portfolio"
+            linkText="What I'm working on"
+            alt="portfolio page"
+            ctaButtonColor="altYellow"
+            showArrow={true}
+          />
+          <PreRenderLinkAsBtn
+            href="/portfolio"
+            linkText="What I've written"
+            alt="portfolio page"
+            ctaButtonColor="altYellow"
+            showArrow={true}
+          />
+        </div>
         <CodeMockup
           enableSection={true}
           background="black"
@@ -98,48 +95,6 @@ export default function Home({ joke, expData }: any) {
               })}
             </section>
         </section>
-        <section className="mt-20">
-            <h2
-                id="experience"
-                className="text-4xl font-reross text-altYellow leading-relaxed"
-            >experience</h2>
-            {jobs?.map((job: any) => {
-              return (
-                <JobCard
-                  key={job?.id}
-                  id={job?.id}
-                  position={job?.position}
-                  startDate={job?.startDate}
-                  companyName={job?.companyName}
-                  companyWebsite={job?.companyWebsite}
-                  companyDescription={job?.companyDescription}
-                  companyLogo={job?.companyLogo?.url}
-                  endDate={job?.endDate}
-                  responsibilities={job?.responsibilities}
-                />
-              )
-            })}
-        </section>
-        <section
-            id="education"
-            className="mt-20"
-        >
-            <h2
-                className="text-4xl font-reross text-altYellow leading-relaxed"
-            >education</h2>
-          {educations?.map((school: any) => {
-            return (
-              <EduCard
-                key={school?.id}
-                id={school?.id}
-                schoolName={school?.schoolName}
-                schoolWebsite={school?.schoolWebsite}
-                schoolImage={school?.schoolImage?.url}
-                achievements={school?.achievements}
-              />
-              )
-            })}
-        </section>
       </PageMargin>
     </React.Fragment>
   )
@@ -150,40 +105,9 @@ export async function getStaticProps() {
   const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
   const jokes = await res.json()
 
-  const expClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
-    
-  const expQuery = gql`
-      query {
-      jobs(orderBy: endDate_DESC) {
-          id
-          position
-          startDate
-          companyName
-          companyWebsite
-          companyDescription
-          companyLogo {
-          url
-          }
-          endDate
-          responsibilities
-      }
-      educations {
-          id
-          schoolName
-          schoolWebsite
-          schoolImage {
-          url
-          }
-          achievements
-      }
-    }`
-    
-    const expData = await expClient.request(expQuery)
-
   return {
     props: {
       joke: jokes[0],
-      expData: expData
     }
   }
 }

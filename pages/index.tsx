@@ -7,6 +7,7 @@ import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
 import SkillCard from '../components/cards/SkillCard'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
+import { TwoColumnGrid } from '../components/layouts'
 
 interface SkillI {
   name: string;
@@ -40,7 +41,7 @@ export default function Home({ joke }: any) {
           reverseOrder={true}
           gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
         />
-        <div className="flex flex-col pt-8 space-y-4 md:space-y-0 md:pt-0 md:flex-row md:space-x-8">
+        <div className="flex flex-col pt-8 space-y-4 md:space-y-0 md:pt-4 lg:pt-0 md:flex-row md:space-x-8">
           <PreRenderLinkAsBtn
             href="/portfolio"
             linkText="What I'm working on"
@@ -56,21 +57,67 @@ export default function Home({ joke }: any) {
             showArrow={true}
           />
         </div>
-        <CodeMockup
-          enableSection={true}
-          background="black"
-        >
-          <CodeMockupLine
-            prefix="$"
-            textColor="warning"
-            text={joke?.question}
-          />
-          <CodeMockupLine
-            prefix=">"
-            textColor="success"
-            text={joke?.punchline}
-          />
-        </CodeMockup>
+        <TwoColumnGrid addClass="mt-20 gap-20">
+          <section>
+            <h2 className="text-4xl">Dev Dad Jokes</h2>
+            <div className="leading-10 text-lg xl:text-xl xl:leading-loose">Short and sweet jokes that are so bad, yet so good.</div>
+          </section>
+          <section>
+            <CodeMockup
+              enableSection={true}
+              background="black"
+            >
+              <CodeMockupLine
+                prefix="$"
+                textColor="warning"
+                text={joke?.question}
+              />
+              <CodeMockupLine
+                prefix=">"
+                textColor="success"
+                text={joke?.punchline}
+              />
+            </CodeMockup>
+          </section>
+        </TwoColumnGrid>
+        <TwoColumnGrid addClass="mt-20 gap-20">
+          <section>
+            <h2 className="text-4xl">Always learning, always growing</h2>
+            <div className="leading-10 text-lg xl:text-xl xl:leading-loose">Here's what I'm working on!</div>
+          </section>
+          <section>
+            <CodeMockup
+              enableSection={true}
+              background="black"
+            >
+              <CodeMockupLine
+                prefix="$"
+                textColor="warning"
+                text="Drop The Needle"
+              />
+              <CodeMockupLine
+                prefix=">"
+                textColor="success"
+                text="A music to craft collaborative power hours with friends"
+              />
+              <CodeMockupLine
+                prefix="$"
+                textColor="warning"
+                text="Thinking of topics to blog about"
+              />
+              <CodeMockupLine
+                prefix="$"
+                textColor="warning"
+                text="Improving my data structures and algorithms skills"
+              />
+              <CodeMockupLine
+                prefix="$"
+                textColor="warning"
+                text="Freelancing"
+              />
+            </CodeMockup>
+          </section>
+        </TwoColumnGrid>
         <section
             className="mt-20"
         >

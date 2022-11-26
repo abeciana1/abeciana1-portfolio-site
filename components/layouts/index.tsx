@@ -1,6 +1,12 @@
 import React from 'react'
+import cx from 'classnames'
 
-export const PageMargin = ({ children }: any) => {
+interface LayoutI {
+    children: any;
+    addClass?: string;
+}
+
+export const PageMargin = ({ children }: LayoutI) => {
 
     return (
         <section className="px-5 md:px-10 py-4 mx-auto page-margin">
@@ -9,10 +15,12 @@ export const PageMargin = ({ children }: any) => {
     )
 }
 
-export const TwoColumnGrid = ({ children }: any) => {
+export const TwoColumnGrid = ({ children, addClass = "" }: LayoutI) => {
     return (
-        <section className="grid grid-cols-1 md:grid-cols-2">
-
+        <section className={cx("grid grid-cols-1 md:grid-cols-2 relative items-center", {
+            [addClass]: addClass
+        })}>
+            { children }
         </section>
     )
 }

@@ -34,12 +34,14 @@ interface CodeMockupI {
     background: string;
 }
 
+// w-6/7 lg:w-3/4 max-w-2xl
+
 export const CodeMockup = (
     { children, enableSection, background }: CodeMockupI
 ) => {
     return (
         <section tabIndex={0} className="my-10 relative">
-            <div className={cx("mx-auto w-6/7 lg:w-3/4 max-w-2xl",{
+            <div className={cx("mx-auto",{
                 ["mockup-code-section"]: enableSection,
                 ["bg-black text-white"]: background === "black",
                 ["bg-gray-200 text-black"]: background === "gray"

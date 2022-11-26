@@ -6,9 +6,6 @@ import Image from 'next/image'
 import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
 import SkillCard from '../components/cards/SkillCard'
-import { gql, GraphQLClient } from 'graphql-request'
-import JobCard from '../components/cards/JobCard'
-import EduCard from '../components/cards/EduCard'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 
 interface SkillI {

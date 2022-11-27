@@ -7,7 +7,6 @@ import SkillCard from '../components/cards/SkillCard'
 import { gql, GraphQLClient } from 'graphql-request'
 import JobCard from '../components/cards/JobCard'
 import EduCard from '../components/cards/EduCard'
-import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 
 interface SkillI {
     name: string;

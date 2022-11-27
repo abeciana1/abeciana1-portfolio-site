@@ -38,7 +38,7 @@ const AboutPage = ({ joke, expData }: any) => {
                     gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
                 />
                 <section
-                    className="mt-20"
+                    className="mt-20 relative"
                 >
                     <h2
                         id="skills"
@@ -87,18 +87,18 @@ const AboutPage = ({ joke, expData }: any) => {
                     <h2
                         className="text-4xl font-reross text-altYellow leading-relaxed"
                     >education</h2>
-                {educations?.map((school: any) => {
-                    return (
-                    <EduCard
-                        key={school?.id}
-                        id={school?.id}
-                        schoolName={school?.schoolName}
-                        schoolWebsite={school?.schoolWebsite}
-                        schoolImage={school?.schoolImage?.url}
-                        achievements={school?.achievements}
-                    />
-                    )
-                    })}
+                    {educations?.map((school: any) => {
+                        return (
+                        <EduCard
+                            key={school?.id}
+                            id={school?.id}
+                            schoolName={school?.schoolName}
+                            schoolWebsite={school?.schoolWebsite}
+                            schoolImage={school?.schoolImage?.url}
+                            achievements={school?.achievements}
+                        />
+                        )
+                        })}
                 </section>
             </PageMargin>
         </React.Fragment>

@@ -43,15 +43,15 @@ export default function Home({ joke }: any) {
         />
         <div className="flex flex-col pt-8 space-y-4 md:space-y-0 md:pt-4 lg:pt-0 md:flex-row md:space-x-8">
           <PreRenderLinkAsBtn
-            href="/portfolio"
-            linkText="What I'm working on"
+            href="/about"
+            linkText="More about me"
             alt="portfolio page"
             ctaButtonColor="altYellow"
             showArrow={true}
           />
           <PreRenderLinkAsBtn
-            href="/portfolio"
-            linkText="What I've written"
+            href="/blog"
+            linkText="My blog posts"
             alt="portfolio page"
             ctaButtonColor="altYellow"
             showArrow={true}

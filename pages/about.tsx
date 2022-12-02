@@ -65,16 +65,16 @@ const AboutPage = ({ joke, expData }: any) => {
                     {jobs?.map((job: any) => {
                     return (
                         <JobCard
-                        key={job?.id}
-                        id={job?.id}
-                        position={job?.position}
-                        startDate={job?.startDate}
-                        companyName={job?.companyName}
-                        companyWebsite={job?.companyWebsite}
-                        companyDescription={job?.companyDescription}
-                        companyLogo={job?.companyLogo?.url}
-                        endDate={job?.endDate}
-                        responsibilities={job?.responsibilities}
+                            key={job?.id}
+                            id={job?.id}
+                            position={job?.position}
+                            startDate={job?.startDate}
+                            companyName={job?.companyName}
+                            companyWebsite={job?.companyWebsite}
+                            companyDescription={job?.companyDescription}
+                            companyLogo={job?.companyLogo?.url}
+                            endDate={job?.endDate}
+                            responsibilities={job?.responsibilities}
                         />
                     )
                     })}

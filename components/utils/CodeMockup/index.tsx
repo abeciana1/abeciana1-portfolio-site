@@ -1,3 +1,4 @@
+import React from 'react'
 import cx from 'classnames'
 
 interface CodeLineI {
@@ -29,7 +30,7 @@ export const CodeMockupLine = ({
 }
 
 interface CodeMockupI {
-    children: any;
+    children: React.ReactNode;
     enableSection: boolean;
     background: string;
 }

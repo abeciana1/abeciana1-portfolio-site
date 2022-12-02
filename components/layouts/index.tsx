@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 
 interface LayoutI {
-    children: any;
+    children: React.ReactNode;
     addClass?: string;
 }
 

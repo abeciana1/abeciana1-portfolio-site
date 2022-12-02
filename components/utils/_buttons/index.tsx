@@ -79,7 +79,6 @@ export const ExpandBtnLink = ({
     backgroundColor,
     addClass,
     href,
-    // altText
 }: IExpandLinkProps) => {
 
     const Icon = icon as React.ElementType

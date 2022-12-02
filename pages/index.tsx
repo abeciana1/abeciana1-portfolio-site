@@ -8,6 +8,7 @@ import Skills from '../data/skills.json'
 import SkillCard from '../components/cards/SkillCard'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 import { TwoColumnGrid } from '../components/layouts'
+import { ExpandBtnLink } from '../components/utils/_buttons'
 
 interface SkillI {
   name: string;

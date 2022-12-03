@@ -2,10 +2,33 @@ import React from 'react'
 import { PageMargin } from '../../components/layouts'
 import CustomHead from '../../components/utils/CustomHead'
 
-const BlogArticle = () => {
+interface TagI {
+    [index: number]: string;
+}
+
+interface PostI {
+    id: string;
+    Excerpt: string;
+    Name: string; // blog title
+    PublishedDate: string;
+    Slug: string;
+    hostedImage: string;
+    Tags: TagI[];
+}
+
+interface BlogArticleI {
+    post: PostI;
+    blocks: any;
+}
+
+const BlogArticle = ({ post, blocks }: BlogArticleI) => {
 
     return (
         <React.Fragment>
+            <CustomHead
+                title={"Blog | "}
+                description=""
+            />
             <PageMargin>
 
             </PageMargin>
@@ -14,8 +37,6 @@ const BlogArticle = () => {
 }
 
 export const getStaticPaths = async () => {
-
-    // let paths: [] = []
 
     const posts = await fetch(
         `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_DATABASE_ID}`

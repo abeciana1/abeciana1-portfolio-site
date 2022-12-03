@@ -3,7 +3,11 @@ import CustomHead from '../../components/utils/CustomHead'
 import { PageMargin } from '../../components/layouts'
 const { Client } = require("@notionhq/client")
 
-const BlogPage = () => {
+const BlogPage = ({
+    posts
+}: any) => {
+
+    let descPosts = posts.reverse()
 
     return (
         <React.Fragment>
@@ -12,7 +16,37 @@ const BlogPage = () => {
                 description="Alex Beciana | Writing and sharing software engineering concepts in easy-to-understand articles and tutorials."
             />
             <PageMargin>
-
+                <>
+                    <h2
+                        id="recent"
+                        className="text-4xl font-reross text-altYellow leading-relaxed"
+                    >recent posts</h2>
+                    <section
+                        className="py-12 md:mx-16 lg:mx-44"
+                    >
+                        {/* <FeaturedPostCard key={descPosts[0].id} post={descPosts[0]} /> */}
+                    </section>
+                    <section
+                        className="pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+                    >
+                        {/* {descPosts.slice(1, 4).map((post) => {
+                            return <FeaturedPostCard key={post.id} post={post} />
+                        })} */}
+                    </section>
+                </>
+                <>
+                    <h2
+                        id="all"
+                        className="text-4xl font-reross text-altYellow leading-relaxed"
+                    >all posts</h2>
+                    <section
+                        className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+                    >
+                        {/* {posts.map((post) => {
+                            return <PostCard key={post.id} post={post} /> 
+                        })} */}
+                    </section>
+                </>
             </PageMargin>
         </React.Fragment>
     )

@@ -2,6 +2,7 @@ import React from 'react'
 import CustomHead from '../../components/utils/CustomHead'
 import { PageMargin } from '../../components/layouts'
 const { Client } = require("@notionhq/client")
+import BlogPostCard from '../../components/cards/BlogPostCard'
 
 const BlogPage = ({
     posts
@@ -24,14 +25,14 @@ const BlogPage = ({
                     <section
                         className="py-12 md:mx-16 lg:mx-44"
                     >
-                        {/* <FeaturedPostCard key={descPosts[0].id} post={descPosts[0]} /> */}
+                        <BlogPostCard key={descPosts[0].id} post={descPosts[0]?.properties} />
                     </section>
                     <section
                         className="pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
                     >
-                        {/* {descPosts.slice(1, 4).map((post) => {
-                            return <FeaturedPostCard key={post.id} post={post} />
-                        })} */}
+                        {descPosts.slice(1, 4).map((post: any) => {
+                            return <BlogPostCard key={post.id} post={post?.properties} />
+                        })}
                     </section>
                 </>
                 <>
@@ -42,9 +43,9 @@ const BlogPage = ({
                     <section
                         className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
                     >
-                        {/* {posts.map((post) => {
-                            return <PostCard key={post.id} post={post} /> 
-                        })} */}
+                        {posts.map((post: any) => {
+                            return <BlogPostCard key={post.id} post={post?.properties} /> 
+                        })}
                     </section>
                 </>
             </PageMargin>

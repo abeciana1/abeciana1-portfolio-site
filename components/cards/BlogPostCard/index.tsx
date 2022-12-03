@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, KeyboardEvent } from 'react';
 import Link from 'next/link'
 import moment from 'moment';
 import cx from 'classnames'
@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Transition } from '@headlessui/react'
 
 interface TagI {
+    id: string;
     color: string;
     name: string;
 }
@@ -24,11 +25,12 @@ const BlogPostCard = ({ post, active }: BlogPostCardI) => {
     const excerpt = post["Excerpt"]["rich_text"][0]["plain_text"]
 
     const [ mouseHover, setHover ] = useState(false)
-    const [tabFocus, setTabFocus] = useState(false)
 
     return (
         <React.Fragment>
             <Link
+                onFocus={() => setHover(!mouseHover)}
+                onBlur={() => setHover(!mouseHover)}
                 className="z-40"
                 href={`/blog/${slug}`}
             >
@@ -66,8 +68,9 @@ const BlogPostCard = ({ post, active }: BlogPostCardI) => {
                             <div
                                 className="flex flex-wrap px-1"
                             >
-                                {tags.map(({ color, name }: TagI) => {
+                                {tags.map(({ id, color, name }: TagI) => {
                                     return (<span
+                                        key={id}
                                         className={cx("ml-1 my-1 py-0.5 px-1.5 rounded-full text-xs leading-tight", {
                                             ['text-white bg-yellow-700 bg-opacity-60']: color === "brown",
                                             ['text-white bg-orange-400	 bg-opacity-60']: color === 'orange',

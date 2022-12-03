@@ -32,7 +32,7 @@ const BlogPostCard = ({ post, active }: BlogPostCardI) => {
                 onFocus={() => setHover(!mouseHover)}
                 onBlur={() => setHover(!mouseHover)}
                 className="z-40"
-                href={`/blog/${slug}`}
+                href={`/blog/${encodeURIComponent(slug)}`}
             >
                 <Transition
                     show={true}

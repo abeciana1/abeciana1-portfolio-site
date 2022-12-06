@@ -1,6 +1,12 @@
 import React from 'react'
 import { PageMargin } from '../../components/layouts'
 import CustomHead from '../../components/utils/CustomHead'
+import { NotionRenderer } from "react-notion";
+
+// todo create new SEO description field for page SEO
+// todo create custom head export for a variety of page types
+// todo create share buttons for blog posts
+// todo create sidebar comp for sidebar sharing
 
 interface TagI {
     [index: number]: string;
@@ -22,15 +28,45 @@ interface BlogArticleI {
 }
 
 const BlogArticle = ({ post, blocks }: BlogArticleI) => {
+    const {
+        id,
+        Excerpt,
+        Name,
+        PublishedDate,
+        Slug,
+        hostedImage,
+        Tags
+    } = post
 
+    console.log({post});
     return (
         <React.Fragment>
             <CustomHead
-                title={"Blog | "}
-                description=""
+                title={"Blog | " + Name}
+                description={Excerpt}
             />
             <PageMargin>
-
+                <section
+                    className="py-10 leading-8"
+                >
+                    <section>
+                        <h1
+                            className="text-4xl lg:text-5xl py-5"
+                        >{Name}</h1>
+                        <p
+                            className="py-2 italic"
+                        >
+                            {Excerpt}
+                        </p>
+                    </section>
+                    <section
+                        className="py-4 break-words"
+                    >
+                        <NotionRenderer
+                            blockMap={blocks}
+                        />
+                    </section>
+                </section>
             </PageMargin>
         </React.Fragment>
     )

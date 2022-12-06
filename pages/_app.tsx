@@ -5,6 +5,12 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import NavBar from '../components/utils/_nav/NavBar'
 import { StrictMode } from "react";
+
+// todo create new SEO description field for page SEO
+// todo create custom head export for a variety of page types
+// todo create share buttons for blog posts
+// todo create sidebar comp for sidebar sharing
+
 export default function App({ Component, pageProps }: AppProps) {
 
   return (

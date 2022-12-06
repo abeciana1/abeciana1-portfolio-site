@@ -3,11 +3,6 @@ import { PageMargin } from '../../components/layouts'
 import CustomHead from '../../components/utils/CustomHead'
 import { NotionRenderer } from "react-notion";
 
-// todo create new SEO description field for page SEO
-// todo create custom head export for a variety of page types
-// todo create share buttons for blog posts
-// todo create sidebar comp for sidebar sharing
-
 interface TagI {
     [index: number]: string;
 }

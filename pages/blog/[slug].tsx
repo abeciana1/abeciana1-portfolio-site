@@ -2,6 +2,7 @@ import React from 'react'
 import { PageMargin } from '../../components/layouts'
 import CustomHead from '../../components/utils/CustomHead'
 import { NotionRenderer } from "react-notion";
+import Image from 'next/image'
 
 interface TagI {
     [index: number]: string;
@@ -48,6 +49,14 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         <h1
                             className="text-4xl lg:text-5xl py-5"
                         >{Name}</h1>
+                        <div>
+                            <Image
+                                height={500}
+                                width={1000}
+                                src={hostedImage}
+                                alt={"Alex Beciana | Blog | " + Name}
+                            />
+                        </div>
                         <p
                             className="py-2 italic"
                         >

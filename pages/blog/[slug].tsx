@@ -62,6 +62,9 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 alt={"Alex Beciana | Blog | " + Name}
                             />
                         </div>
+                        {Tags.map((tag: TagI) => {
+                            return "Hello"
+                        })}
                     </section>
                     <section
                         className="py-4 break-words"

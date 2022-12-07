@@ -1,8 +1,9 @@
 import React from 'react'
 import { PageMargin } from '../../components/layouts'
 import CustomHead from '../../components/utils/CustomHead'
-import { NotionRenderer } from "react-notion";
+import { NotionRenderer, BlockMapType } from "react-notion";
 import Image from 'next/image'
+import "prismjs/themes/prism-tomorrow.css";
 
 interface TagI {
     [index: number]: string;
@@ -34,7 +35,6 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
         Tags
     } = post
 
-    console.log({post});
     return (
         <React.Fragment>
             <CustomHead
@@ -49,6 +49,11 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         <h1
                             className="text-4xl lg:text-5xl py-5"
                         >{Name}</h1>
+                        <p
+                            className="py-2 italic"
+                        >
+                            {Excerpt}
+                        </p>
                         <div>
                             <Image
                                 height={500}
@@ -57,11 +62,6 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 alt={"Alex Beciana | Blog | " + Name}
                             />
                         </div>
-                        <p
-                            className="py-2 italic"
-                        >
-                            {Excerpt}
-                        </p>
                     </section>
                     <section
                         className="py-4 break-words"
@@ -104,7 +104,7 @@ export const getStaticProps = async (context: any) => {
 
     const post = posts.find((t: any) => t.Slug === context.params.slug);
 
-    const blocks = await fetch(`https://notion-api.splitbee.io/v1/page/${post.id}`).then((res) => res.json());
+    const blocks: BlockMapType = await fetch(`https://notion-api.splitbee.io/v1/page/${post.id}`).then((res) => res.json());
 
     return {
         props: {

@@ -334,7 +334,41 @@ img.notion-page-icon {
   padding: 3px 2px;
 }
 
-.notion .notion-code {
+.notion-code, .notion-code-section {
+  min-width: 18rem;
+  @apply py-5; 
+  @apply rounded-lg;
+  @apply bg-black;
+  @apply text-white;
+}
+
+.notion-code:before {
+  @apply mb-4;
+  @apply block;
+  @apply h-3;
+  @apply w-3;
+  @apply rounded-full;
+  @apply opacity-30;
+  content: "";
+  box-shadow: 1.4em 0, 2.8em 0, 4.2em 0;
+}
+
+.notion-code, .notion--section code {
+  @apply pl-5;
+}
+
+.notion-code, .notion-code-section code:before {
+  content: "";
+  margin-right: 2ch;
+}
+
+/* .notion-code, .notion-code-section pre[data-prefix]:before {
+  content: attr(data-prefix);
+  @apply opacity-50;
+  display: flex;
+} */
+
+/* .notion .notion-code {
   font-size: 85%;
 }
 
@@ -349,7 +383,7 @@ img.notion-page-icon {
   background: rgb(247, 246, 243);
   font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier,
     monospace;
-}
+} */
 
 .notion-column {
   padding-top: 12px;

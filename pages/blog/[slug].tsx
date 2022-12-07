@@ -4,12 +4,7 @@ import CustomHead from '../../components/utils/CustomHead'
 import { NotionRenderer, BlockMapType } from "react-notion";
 import Image from 'next/image'
 import "prismjs/themes/prism-tomorrow.css";
-
-interface TagI {
-    id: string;
-    color: string;
-    name: string;
-}
+import { TagI } from '../../components/cards/TagCard'
 
 interface PostI {
     id: string;

@@ -4,12 +4,7 @@ import moment from 'moment';
 import cx from 'classnames'
 import Image from 'next/image'
 import { Transition } from '@headlessui/react'
-
-interface TagI {
-    id: string;
-    color: string;
-    name: string;
-}
+import { TagI } from '../TagCard'
 
 interface BlogPostCardI {
     post: any;

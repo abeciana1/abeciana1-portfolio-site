@@ -6,7 +6,9 @@ import Image from 'next/image'
 import "prismjs/themes/prism-tomorrow.css";
 
 interface TagI {
-    [index: number]: string;
+    id: string;
+    color: string;
+    name: string;
 }
 
 interface PostI {

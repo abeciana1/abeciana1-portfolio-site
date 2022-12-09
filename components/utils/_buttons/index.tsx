@@ -36,10 +36,10 @@ export const ExpandBtn = ({
         <button
             onClick={onClick}
             className={cx('py-2 hover:px-4 flex overflow-hidden expand-btn rounded-full items-center', {
-                ['text-altWhite']: textColor === 'altWhite',
-                ['text-royalBlue']: textColor === 'royalBlue',
-                ['bg-royalBlue']: backgroundColor === 'royalBlue',
-                ['bg-scarlet']: backgroundColor === 'scarlet',
+                ['text-white']: textColor === 'white',
+                ['text-altBlue']: textColor === 'altBlue',
+                ['bg-altBlue']: backgroundColor === 'altBlue',
+                ['bg-altRed']: backgroundColor === 'altRed',
                 ['bg-green-400']: backgroundColor === 'bg-green-400',
                 ['rounded-lg']: open,
                 [addClass]: addClass
@@ -48,13 +48,17 @@ export const ExpandBtn = ({
             onMouseLeave={expandHandler}
         >
             <Icon strokeWidth="2.5" className={cx('h-5 w-5', {
-                ['text-altWhite']: textColor === 'altWhite',
-                ['text-royalBlue']: textColor === 'royalBlue',
+                ['text-white']: textColor === 'white',
+                ['text-altBlue']: textColor === 'altBlue',
                 ['text-coolGray']: textColor === 'coolGray',
                 ['mx-auto']: open === false
             })} />
             {open &&
-                <div className="font-medium ml-2 whitespace-nowrap">
+                <div className={cx("font-medium ml-2 whitespace-nowrap", {
+                    ['text-white']: textColor === 'white',
+                    ['text-altBlue']: textColor === 'altBlue',
+                    ['text-coolGray']: textColor === 'coolGray',
+                })}>
                     {text}
                 </div>
             }
@@ -65,10 +69,10 @@ export const ExpandBtn = ({
 interface IExpandLinkProps {
     text: string;
     textColor: string;
-    disabled?: boolean;
+    // disabled?: boolean;
     backgroundColor?: string;
     icon: React.ElementType;
-    addClass: string;
+    addClass?: string;
     href: string;
 }
 
@@ -77,7 +81,7 @@ export const ExpandBtnLink = ({
     icon,
     textColor,
     backgroundColor,
-    addClass,
+    addClass = "",
     href,
 }: IExpandLinkProps) => {
 
@@ -97,26 +101,31 @@ export const ExpandBtnLink = ({
         <a
             href={href}
             target="_blank"
-            className={cx('py-2 hover:px-4 flex overflow-hidden expand-btn rounded-full items-center', {
-                ['text-altWhite']: textColor === 'altWhite',
-                ['text-royalBlue']: textColor === 'royalBlue',
-                ['bg-royalBlue']: backgroundColor === 'royalBlue',
-                ['bg-scarlet']: backgroundColor === 'scarlet',
+            className={cx('py-2 hover:pl-2 flex overflow-hidden expand-btn rounded-full items-center', {
+                ['text-white']: textColor === 'white',
+                ['text-altBlue']: textColor === 'altBlue',
+                ['bg-altBlue']: backgroundColor === 'altBlue',
+                ['bg-black']: backgroundColor === 'black',
+                ['bg-altRed']: backgroundColor === 'altRed',
                 ['bg-green-400']: backgroundColor === 'bg-green-400',
-                ['rounded-lg']: open,
+                ['rounded-full']: open,
                 [addClass]: addClass
             })}
             onMouseEnter={expandHandler}
             onMouseLeave={expandHandler}
         >
-            <Icon strokeWidth="2.5" className={cx('h-5 w-5', {
-                ['text-altWhite']: textColor === 'altWhite',
-                ['text-royalBlue']: textColor === 'royalBlue',
-                ['text-coolGray']: textColor === 'coolGray',
+            <Icon strokeWidth="1" className={cx('h-7 w-7', {
+                ['fill-white']: textColor === 'white',
+                ['fill-altBlue']: textColor === 'altBlue',
+                ['fill-coolGray']: textColor === 'coolGray',
                 ['mx-auto']: open === false
             })} />
             {open &&
-                <div className="font-medium ml-2 whitespace-nowrap">
+                <div className={cx("font-medium ml-2 whitespace-nowrap", {
+                    ['text-white']: textColor === 'white',
+                    ['text-altBlue']: textColor === 'altBlue',
+                    ['text-coolGray']: textColor === 'coolGray',
+                })}>
                     {text}
                 </div>
             }

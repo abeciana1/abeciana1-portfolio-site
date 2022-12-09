@@ -10,6 +10,8 @@ import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 import { TwoColumnGrid } from '../components/layouts'
 import { GetStaticProps } from 'next'
 import { ExpandBtnLink } from '../components/utils/_buttons'
+import { TiSocialLinkedin } from "react-icons/ti";
+import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 
 interface SkillI {
   name: string;
@@ -43,6 +45,32 @@ export default function Home({ joke }: any) {
           reverseOrder={true}
           gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
         />
+        <div className="flex flex-col pb-8 space-y-4 md:space-y-0 md:pt-4 lg:pt-0 md:flex-row md:space-x-4 relative">
+          <ExpandBtnLink
+            icon={TiSocialLinkedin}
+            text="LinkedIn"
+            textColor="white"
+            backgroundColor="black"
+            href="https://www.linkedin.com/in/alexbeciana"
+            addClass="hover:w-32"
+          />
+          <ExpandBtnLink
+            icon={AiOutlineGithub}
+            text="GitHub"
+            textColor="white"
+            backgroundColor="black"
+            href="https://github.com/abeciana1"
+            addClass="hover:w-32"
+          />
+          <ExpandBtnLink
+            icon={AiOutlineBehance}
+            text="Behance"
+            textColor="white"
+            backgroundColor="black"
+            href="https://www.behance.net/alexbeciana"
+            addClass="hover:w-32"
+          />
+        </div>
         <div className="flex flex-col pt-8 space-y-4 md:space-y-0 md:pt-4 lg:pt-0 md:flex-row md:space-x-8">
           <PreRenderLinkAsBtn
             href="/about"
@@ -59,7 +87,7 @@ export default function Home({ joke }: any) {
             showArrow={true}
           />
         </div>
-        <TwoColumnGrid addClass="mt-20 gap-20">
+        <TwoColumnGrid addClass="mt-12 gap-12">
           <section>
             <h2 className="text-4xl">Dev Dad Jokes</h2>
             <div className="leading-10 text-lg xl:text-xl xl:leading-loose">Short and sweet jokes that are so bad, yet so good.</div>
@@ -82,7 +110,7 @@ export default function Home({ joke }: any) {
             </CodeMockup>
           </section>
         </TwoColumnGrid>
-        <TwoColumnGrid addClass="mt-20 gap-20">
+        <TwoColumnGrid addClass="mt-12 gap-12">
           <section>
             <h2 className="text-4xl">Always learning, always growing</h2>
             <div className="leading-10 text-lg xl:text-xl xl:leading-loose">Here's what I'm working on!</div>
@@ -121,7 +149,7 @@ export default function Home({ joke }: any) {
           </section>
         </TwoColumnGrid>
         <section
-            className="mt-20"
+            className="mt-12"
         >
             <h2
                 id="skills"

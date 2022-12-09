@@ -156,7 +156,7 @@ h6 {
 }
 
 .expand-btn:hover {
-  width: 185px;
+  /* width: 185px; */
   -webkit-transition: width 0.5s;
   transition: width 0.5s;
 }

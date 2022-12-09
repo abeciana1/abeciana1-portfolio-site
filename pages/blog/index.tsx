@@ -7,7 +7,7 @@ import BlogPostCard from '../../components/cards/BlogPostCard'
 const BlogPage = ({
     posts
 }: any) => {
-
+    console.log(posts);
     let descPosts = posts.reverse()
 
     return (

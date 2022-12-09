@@ -5,18 +5,21 @@ export interface TagI {
     id: string;
     color: string;
     name: string;
+    addClass?: string;
 }
 
 export const TagCard = ({
     id,
     color,
-    name
+    name,
+    addClass = ""
 }: TagI) => {
-
+    console.log(name);
     return (
         <span
             key={id}
-            className={cx("ml-1 my-1 py-0.5 px-1.5 rounded-full text-xs leading-tight", {
+            className={cx({
+                [addClass]: addClass,
                 ['text-white bg-yellow-700 bg-opacity-60']: color === "brown",
                 ['text-white bg-orange-400	 bg-opacity-60']: color === 'orange',
                 ['text-white bg-pink-300']: color === 'pink',

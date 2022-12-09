@@ -4,7 +4,7 @@ import moment from 'moment';
 import cx from 'classnames'
 import Image from 'next/image'
 import { Transition } from '@headlessui/react'
-import { TagI } from '../TagCard'
+import { TagCard, TagI } from '../TagCard'
 
 interface BlogPostCardI {
     post: any;
@@ -64,21 +64,15 @@ const BlogPostCard = ({ post, active }: BlogPostCardI) => {
                                 className="flex flex-wrap px-1"
                             >
                                 {tags.map(({ id, color, name }: TagI) => {
-                                    return (<span
-                                        key={id}
-                                        className={cx("ml-1 my-1 py-0.5 px-1.5 rounded-full text-xs leading-tight", {
-                                            ['text-white bg-yellow-700 bg-opacity-60']: color === "brown",
-                                            ['text-white bg-orange-400	 bg-opacity-60']: color === 'orange',
-                                            ['text-white bg-pink-300']: color === 'pink',
-                                            ['text-white bg-purple-300']: color === 'purple',
-                                            ['text-black bg-yellow-200']: color === 'yellow',
-                                            ['text-white bg-blue-300']: color === 'blue',
-                                            ['text-black bg-gray-200']: color === 'gray',
-                                            ['text-white bg-green-400']: color === 'green',
-                                            ['text-white bg-red-400']: color === 'red',
-                                            ['text-white bg-blue-800']: color === 'default'
-                                        })}
-                                    >{name}</span>)
+                                    return (
+                                        <TagCard
+                                            key={id}
+                                            id={id}
+                                            color={color}
+                                            name={name}
+                                            addClass="ml-1 my-1 py-0.5 px-1.5 rounded-full text-xs leading-tight"
+                                        />
+                                    )
                                 })}
                                 <div
                                     className="p-2"

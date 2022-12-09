@@ -4,7 +4,9 @@ import CustomHead from '../../components/utils/CustomHead'
 import { NotionRenderer, BlockMapType } from "react-notion";
 import Image from 'next/image'
 import "prismjs/themes/prism-tomorrow.css";
-import { TagI } from '../../components/cards/TagCard'
+import { TagCard } from '../../components/cards/TagCard'
+const { Client } = require("@notionhq/client")
+import { GetStaticProps, GetStaticPaths } from 'next'
 
 interface PostI {
     id: string;
@@ -13,7 +15,7 @@ interface PostI {
     PublishedDate: string;
     Slug: string;
     hostedImage: string;
-    Tags: TagI[];
+    Tags: any;
 }
 
 interface BlogArticleI {
@@ -22,6 +24,7 @@ interface BlogArticleI {
 }
 
 const BlogArticle = ({ post, blocks }: BlogArticleI) => {
+
     const {
         id,
         Excerpt,
@@ -59,9 +62,17 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 alt={"Alex Beciana | Blog | " + Name}
                             />
                         </div>
-                        {Tags.map((tag: TagI) => {
-                            return "Hello"
-                        })}
+                        {/* {Tags.map((tag: string, index: number) => {
+                            return (
+                                <TagCard
+                                    key={index}
+                                    id={index}
+                                    // color={color}
+                                    name={tag}
+                                    addClass="ml-1 my-1 py-0.5 px-1.5 rounded-full text-xs leading-tight"
+                                />
+                            )
+                        })} */}
                     </section>
                     <section
                         className="py-4 break-words"
@@ -76,7 +87,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
     )
 }
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
 
     const posts = await fetch(
         `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_DATABASE_ID}`
@@ -96,14 +107,13 @@ export const getStaticPaths = async () => {
     }
 }
 
-export const getStaticProps = async (context: any) => {
+export const getStaticProps: GetStaticProps = async (context: any) => {
 
     const posts = await fetch(
         `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_DATABASE_ID}`
     ).then((res) => res.json());
 
     const post = posts.find((t: any) => t.Slug === context.params.slug);
-
     const blocks: BlockMapType = await fetch(`https://notion-api.splitbee.io/v1/page/${post.id}`).then((res) => res.json());
 
     return {

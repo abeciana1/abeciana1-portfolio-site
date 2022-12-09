@@ -8,6 +8,9 @@ import { gql, GraphQLClient } from 'graphql-request'
 import JobCard from '../components/cards/JobCard'
 import EduCard from '../components/cards/EduCard'
 import { GetStaticProps } from 'next'
+import { ExpandBtnLink } from '../components/utils/_buttons'
+import { TiSocialLinkedin } from "react-icons/ti";
+import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 
 interface SkillI {
     name: string;
@@ -37,8 +40,34 @@ const AboutPage = ({ joke, expData }: any) => {
                     reverseOrder={true}
                     gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
                 />
+                        <div className="flex flex-col pb-8 space-y-4 md:space-y-0 md:pt-4 lg:pt-0 md:flex-row md:space-x-4 relative">
+                            <ExpandBtnLink
+                                icon={TiSocialLinkedin}
+                                text="LinkedIn"
+                                textColor="white"
+                                backgroundColor="black"
+                                href="https://www.linkedin.com/in/alexbeciana"
+                                addClass="hover:w-32"
+                            />
+                            <ExpandBtnLink
+                                icon={AiOutlineGithub}
+                                text="GitHub"
+                                textColor="white"
+                                backgroundColor="black"
+                                href="https://github.com/abeciana1"
+                                addClass="hover:w-32"
+                            />
+                            <ExpandBtnLink
+                                icon={AiOutlineBehance}
+                                text="Behance"
+                                textColor="white"
+                                backgroundColor="black"
+                                href="https://www.behance.net/alexbeciana"
+                                addClass="hover:w-32"
+                            />
+                        </div>
                 <section
-                    className="mt-20 relative"
+                    className="mt-12 relative"
                 >
                     <h2
                         id="skills"
@@ -58,7 +87,7 @@ const AboutPage = ({ joke, expData }: any) => {
                     })}
                     </section>
                 </section>
-                <section className="mt-20">
+                <section className="mt-12">
                     <h2
                         id="experience"
                         className="text-4xl font-reross text-altYellow leading-relaxed"
@@ -82,7 +111,7 @@ const AboutPage = ({ joke, expData }: any) => {
                 </section>
                 <section
                     id="education"
-                    className="mt-20"
+                    className="mt-12"
                 >
                     <h2
                         className="text-4xl font-reross text-altYellow leading-relaxed"

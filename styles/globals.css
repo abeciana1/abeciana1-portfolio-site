@@ -167,17 +167,6 @@ h6 {
   @apply rounded-lg;
 }
 
-.mockup-code-section:before {
-  @apply mb-4;
-  @apply block;
-  @apply h-3;
-  @apply w-3;
-  @apply rounded-full;
-  @apply opacity-30;
-  content: "";
-  box-shadow: 1.4em 0, 2.8em 0, 4.2em 0;
-}
-
 .mockup-code, .mockup-code-section pre {
   @apply pl-5;
 }
@@ -190,4 +179,15 @@ h6 {
   content: attr(data-prefix);
   @apply opacity-50;
   display: flex;
+}
+
+.mockup-code-section:before {
+  @apply mb-4;
+  @apply block;
+  @apply h-3;
+  @apply w-3;
+  @apply rounded-full;
+  @apply opacity-30;
+  content: "";
+  box-shadow: 1.4em 0, 2.8em 0, 4.2em 0;
 }

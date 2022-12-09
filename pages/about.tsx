@@ -7,6 +7,7 @@ import SkillCard from '../components/cards/SkillCard'
 import { gql, GraphQLClient } from 'graphql-request'
 import JobCard from '../components/cards/JobCard'
 import EduCard from '../components/cards/EduCard'
+import { GetStaticProps } from 'next'
 
 interface SkillI {
     name: string;
@@ -104,7 +105,7 @@ const AboutPage = ({ joke, expData }: any) => {
     )
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
 
     const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
     const jokes = await res.json()

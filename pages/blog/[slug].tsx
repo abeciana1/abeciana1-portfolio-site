@@ -4,8 +4,6 @@ import CustomHead from '../../components/utils/CustomHead'
 import { NotionRenderer, BlockMapType } from "react-notion";
 import Image from 'next/image'
 import "prismjs/themes/prism-tomorrow.css";
-import { TagCard } from '../../components/cards/TagCard'
-const { Client } = require("@notionhq/client")
 import { GetStaticProps, GetStaticPaths } from 'next'
 
 interface PostI {

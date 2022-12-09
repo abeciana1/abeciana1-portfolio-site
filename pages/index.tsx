@@ -8,6 +8,7 @@ import Skills from '../data/skills.json'
 import SkillCard from '../components/cards/SkillCard'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 import { TwoColumnGrid } from '../components/layouts'
+import { GetStaticProps } from 'next'
 import { ExpandBtnLink } from '../components/utils/_buttons'
 
 interface SkillI {
@@ -145,7 +146,7 @@ export default function Home({ joke }: any) {
   )
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
 
   const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
   const jokes = await res.json()

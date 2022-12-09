@@ -3,6 +3,7 @@ import CustomHead from '../../components/utils/CustomHead'
 import { PageMargin } from '../../components/layouts'
 const { Client } = require("@notionhq/client")
 import BlogPostCard from '../../components/cards/BlogPostCard'
+import { GetStaticProps } from 'next'
 
 const BlogPage = ({
     posts
@@ -53,7 +54,7 @@ const BlogPage = ({
     )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
     const response = await notion.databases.query({
         database_id: process.env.NOTION_DATABASE_ID,

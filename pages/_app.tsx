@@ -13,7 +13,6 @@ import { StrictMode } from "react";
 // todo build portfolio page
 // todo build portfolio [slug] pages
 // todo build contact page
-// todo hide reviews page from nav bar
 
 export default function App({ Component, pageProps }: AppProps) {
 

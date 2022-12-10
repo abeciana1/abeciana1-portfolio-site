@@ -80,14 +80,14 @@ const NavBar = () => {
                                 linkText="blog"
                             />
                         </li>
-                        <li>
+                        {/* <li>
                             <PreRenderLink
                                 alt="Reviews page"
                                 className="text-3xl mr-5 font-reross cursor-pointer anim-text"
                                 href="/reviews"
                                 linkText="reviews"
                             />
-                        </li>
+                        </li> */}
                         <li>
                             <PreRenderLink
                                 alt="Contact page"
@@ -124,14 +124,14 @@ const NavBar = () => {
                                 linkText="blog"
                             />
                         </li>
-                        <li>
+                        {/* <li>
                             <PreRenderLink
                                 alt="Reviews page"
                                 className="text-3xl font-reross cursor-pointer anim-text"
                                 href="/reviews"
                                 linkText="reviews"
                             />
-                        </li>
+                        </li> */}
                         <li>
                             <PreRenderLink
                                 alt="Contact page"

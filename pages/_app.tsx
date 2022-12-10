@@ -10,6 +10,10 @@ import { StrictMode } from "react";
 // todo create custom head export for a variety of page types
 // todo create share buttons for blog posts
 // todo create sidebar comp for sidebar sharing
+// todo build portfolio page
+// todo build portfolio [slug] pages
+// todo build contact page
+// todo hide reviews page from nav bar
 
 export default function App({ Component, pageProps }: AppProps) {
 

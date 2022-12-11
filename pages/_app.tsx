@@ -7,13 +7,11 @@ import NavBar from '../components/utils/_nav/NavBar'
 import { StrictMode } from "react";
 
 // todo create new SEO description field for page SEO
-// todo create custom head export for a variety of page types
 // todo create share buttons for blog posts
 // todo create sidebar comp for sidebar sharing
 // todo build portfolio page
 // todo build portfolio [slug] pages
 // todo build contact page
-// todo add canonical links to SEO
 // todo 
 
 export default function App({ Component, pageProps }: AppProps) {

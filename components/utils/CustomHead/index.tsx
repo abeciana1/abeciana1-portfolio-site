@@ -11,13 +11,15 @@ export const CustomHead = ({
     description
 }: SeoI) => {
 
+    const router = useRouter()
+
     return (
         <NextSeo
             title={title}
             titleTemplate='Alex Beciana | %s'
             defaultTitle='Alex Beciana'
             description={description}
-            // canonical={}
+            canonical={"https://alexbeciana.com" + router.asPath}
         />
     )
 }
@@ -33,8 +35,8 @@ interface BlogPostSeoI {
 }
 
 interface ArticleI {
-    publishedTime: string;
-    modifiedTime: string;
+    publishedTime?: string;
+    modifiedTime?: string;
     blogTags: TagI | any;
 }
 
@@ -44,11 +46,12 @@ export const BlogPostHead = ({
     article
 }: BlogPostSeoI) => {
 
-    // const router = useRouter()
+    const router = useRouter()
+
+    console.log(router);
 
     const {
         publishedTime,
-        modifiedTime,
         blogTags
     } = article
 
@@ -61,11 +64,10 @@ export const BlogPostHead = ({
             openGraph={{
                 title: title,
                 description: description,
-                url: '',
+                url: "https://alexbeciana.com" + router.asPath,
                 type: 'article',
                 article: {
                     publishedTime: publishedTime,
-                    modifiedTime: modifiedTime,
                     tags: blogTags
                 }
             }}

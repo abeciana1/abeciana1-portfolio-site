@@ -38,6 +38,10 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
             <BlogPostHead
                 title={"Blog | " + Name}
                 description={Excerpt}
+                article={{
+                    publishedTime: PublishedDate,
+                    blogTags: Tags
+                }}
             />
             <PageMargin>
                 <section

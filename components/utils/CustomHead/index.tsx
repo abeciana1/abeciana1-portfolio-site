@@ -61,6 +61,7 @@ export const BlogPostHead = ({
             titleTemplate='Alex Beciana | %s'
             defaultTitle='Alex Beciana'
             description={description}
+            canonical={"https://alexbeciana.com" + router.asPath}
             openGraph={{
                 title: title,
                 description: description,

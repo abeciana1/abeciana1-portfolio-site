@@ -1,5 +1,5 @@
 import React from 'react'
-import CustomHead from '../../components/utils/CustomHead'
+import { CustomHead } from '../../components/utils/CustomHead'
 import { PageMargin } from '../../components/layouts'
 const { Client } = require("@notionhq/client")
 import BlogPostCard from '../../components/cards/BlogPostCard'

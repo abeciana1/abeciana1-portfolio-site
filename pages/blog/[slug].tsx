@@ -1,6 +1,6 @@
 import React from 'react'
 import { PageMargin } from '../../components/layouts'
-import CustomHead from '../../components/utils/CustomHead'
+import { BlogPostHead } from '../../components/utils/CustomHead'
 import { NotionRenderer, BlockMapType } from "react-notion";
 import Image from 'next/image'
 import "prismjs/themes/prism-tomorrow.css";
@@ -35,7 +35,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
 
     return (
         <React.Fragment>
-            <CustomHead
+            <BlogPostHead
                 title={"Blog | " + Name}
                 description={Excerpt}
             />
@@ -60,17 +60,6 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 alt={"Alex Beciana | Blog | " + Name}
                             />
                         </div>
-                        {/* {Tags.map((tag: string, index: number) => {
-                            return (
-                                <TagCard
-                                    key={index}
-                                    id={index}
-                                    // color={color}
-                                    name={tag}
-                                    addClass="ml-1 my-1 py-0.5 px-1.5 rounded-full text-xs leading-tight"
-                                />
-                            )
-                        })} */}
                     </section>
                     <section
                         className="py-4 break-words"

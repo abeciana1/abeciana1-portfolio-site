@@ -13,6 +13,8 @@ import { StrictMode } from "react";
 // todo build portfolio page
 // todo build portfolio [slug] pages
 // todo build contact page
+// todo add canonical links to SEO
+// todo 
 
 export default function App({ Component, pageProps }: AppProps) {
 

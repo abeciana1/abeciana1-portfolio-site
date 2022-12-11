@@ -1,5 +1,5 @@
 import React from 'react'
-import CustomHead from '../components/utils/CustomHead'
+import { CustomHead } from '../components/utils/CustomHead'
 import { PageMargin } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Skills from '../data/skills.json'

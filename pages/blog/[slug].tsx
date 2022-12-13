@@ -5,6 +5,10 @@ import { NotionRenderer, BlockMapType } from "react-notion";
 import Image from 'next/image'
 import "prismjs/themes/prism-tomorrow.css";
 import { GetStaticProps, GetStaticPaths } from 'next'
+import SideBarSharing from '../../components/utils/SideBarSharing'
+import { ExpandBtnLink } from '../../components/utils/_buttons'
+import { TiSocialLinkedin } from "react-icons/ti";
+import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 
 interface PostI {
     id: string;
@@ -64,6 +68,32 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 alt={"Alex Beciana | Blog | " + Name}
                             />
                         </div>
+                        <SideBarSharing>
+                            <ExpandBtnLink
+                                icon={TiSocialLinkedin}
+                                text="LinkedIn"
+                                textColor="white"
+                                backgroundColor="black"
+                                href="https://www.linkedin.com/in/alexbeciana"
+                                addClass="hover:w-32"
+                            />
+                            <ExpandBtnLink
+                                icon={AiOutlineGithub}
+                                text="GitHub"
+                                textColor="white"
+                                backgroundColor="black"
+                                href="https://github.com/abeciana1"
+                                addClass="hover:w-32"
+                            />
+                            <ExpandBtnLink
+                                icon={AiOutlineBehance}
+                                text="Behance"
+                                textColor="white"
+                                backgroundColor="black"
+                                href="https://www.behance.net/alexbeciana"
+                                addClass="hover:w-32"
+                            />
+                        </SideBarSharing>
                     </section>
                     <section
                         className="py-4 break-words"

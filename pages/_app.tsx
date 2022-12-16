@@ -11,7 +11,8 @@ import { StrictMode } from "react";
 // todo build portfolio [slug] pages
 // todo build contact page
 // todo Add back to top button blog post article page
-// todo 
+// todo Add liking / claps feature
+// todo Add section for personal updates from me
 
 export default function App({ Component, pageProps }: AppProps) {
 

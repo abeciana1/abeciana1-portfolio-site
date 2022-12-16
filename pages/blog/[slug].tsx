@@ -9,7 +9,7 @@ import SideBarSharing from '../../components/utils/SideBarSharing'
 import { ShareBtn } from '../../components/utils/_buttons'
 import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '../../lib/useResponsiveness'
-import { copyToClipboard, getPage, getBlocks, getDatabase } from '../../lib/helper-functions'
+import { copyToClipboard, getBlocks, getDatabase } from '../../lib/helper-functions'
 import { useRouter } from 'next/router'
 
 interface PostI {
@@ -173,10 +173,7 @@ const BlogArticle = (props: any) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-
-    const posts = await fetch(
-        `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_DATABASE_ID}`
-    ).then((res) => res.json());
+    const posts = await getDatabase(process.env.NOTION_DATABASE_ID)
 
     let paths = posts.map((post: any) => {
         return {
@@ -204,29 +201,6 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     // const blocks: BlockMapType = await fetch(`https://notion-api.splitbee.io/v1/page/${post.id}`).then((res) => res.json());
     // const page = await getPage(post.id);
     const blocks = await getBlocks(post.id);
-
-    // let primaryRelatedPosts = [] as any[]
-    // let secondaryRelatedPosts = [] as any[]
-
-    // const relatedPosts = posts.map((post: any) => {
-    //     let boolArrExp = []
-    //     let boolArrResult = []
-    //     for (let tag of post.Tags) {
-    //         let boolArr = posts.includes(tag)
-    //         if (boolArr) {
-    //             post.Tags
-    //         }
-    //         console.log(boolArr)
-    //         boolArrResult = boolArr.filter((bool: boolean) => bool)
-    //     }
-    //     if (boolArrResult.length <= 1) {
-    //         return null
-    //     } else if (boolArrResult.length < 2) {
-    //         secondaryRelatedPosts.push(post)
-    //     } else if (boolArrResult.length > 2) {
-    //         primaryRelatedPosts.push(post)
-    //     }
-    // })
 
   // Retrieve block children for nested blocks (one level deep), for example toggle blocks
   // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks

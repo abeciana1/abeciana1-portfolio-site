@@ -1,7 +1,6 @@
 import React from 'react'
 import { CustomHead } from '../../components/utils/CustomHead'
 import { PageMargin } from '../../components/layouts'
-const { Client } = require("@notionhq/client")
 import BlogPostCard from '../../components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
 import { getDatabase } from '../../lib/helper-functions'

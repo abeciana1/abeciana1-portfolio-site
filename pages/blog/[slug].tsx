@@ -11,6 +11,7 @@ import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '../../lib/useResponsiveness'
 import { copyToClipboard, getBlocks, getDatabase } from '../../lib/helper-functions'
 import { useRouter } from 'next/router'
+import { slugProp } from '../../lib/notion-props'
 
 interface PostI {
     id: string;
@@ -175,10 +176,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const posts = await getDatabase(process.env.NOTION_DATABASE_ID)
 
     let paths = posts.map((post: any) => {
-        console.log(post)
+        let slug = slugProp(post.properties)
         return {
             params: {
-                slug: post.Slug
+                slug: slug
             }
         }
     })
@@ -191,11 +192,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
 
-    console.log("context", context)
-
     const posts = await getDatabase(process.env.NOTION_DATABASE_ID)
 
-    const post = posts.find((t: any) => t.Slug === context.params.slug);
+    const post = posts.find((t: any) => {
+        let slug = slugProp(t.properties)
+        if (slug === context.params.slug) {
+            return t
+        }
+    });
     // const blocks: BlockMapType = await fetch(`https://notion-api.splitbee.io/v1/page/${post.id}`).then((res) => res.json());
     // const page = await getPage(post.id);
     const blocks = await getBlocks(post.id);

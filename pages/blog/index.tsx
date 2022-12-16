@@ -45,7 +45,6 @@ const BlogPage = ({
                         className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
                     >
                         {posts.map((post: any) => {
-                            console.log(post)
                             return <BlogPostCard key={post.id} postId={post.id} post={post?.properties} active={false} /> 
                             // return <BlogPostCard key={post.id} post={post} active={false} /> 
                         })}

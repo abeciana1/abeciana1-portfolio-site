@@ -5,6 +5,13 @@ import cx from 'classnames'
 import Image from 'next/image'
 import { Transition } from '@headlessui/react'
 import { TagCard, TagI } from '../TagCard'
+import {
+    slugProp,
+    titleProp,
+    publishedDateProp,
+    tagsProp,
+    excerptProp
+} from '../../../lib/notion-props'
 
 interface BlogPostCardI {
     postId: string;
@@ -13,11 +20,11 @@ interface BlogPostCardI {
 }
 
 const BlogPostCard = ({ postId, post, active }: BlogPostCardI) => {
-    const slug = post["Slug"]["rich_text"][0]["plain_text"]
-    const title = post["Name"]["title"][0]["plain_text"]
-    const publishedDate = post["PublishedDate"]["date"]["start"]
-    const tags = post["Tags"]["multi_select"]
-    const excerpt = post["Excerpt"]["rich_text"][0]["plain_text"]
+    const slug = slugProp(post)
+    const title = titleProp(post)
+    const publishedDate = publishedDateProp(post)
+    const tags = tagsProp(post)
+    const excerpt = excerptProp(post)
 
     const [ mouseHover, setHover ] = useState(false)
 
@@ -27,12 +34,7 @@ const BlogPostCard = ({ postId, post, active }: BlogPostCardI) => {
                 onFocus={() => setHover(!mouseHover)}
                 onBlur={() => setHover(!mouseHover)}
                 className="z-40"
-                href={{
-                    pathname: `/blog/${encodeURIComponent(slug)}`,
-                    query: {
-                        postId: postId
-                    }
-                }}
+                href={`/blog/${encodeURIComponent(slug)}`}
             >
                 <Transition
                     show={true}

@@ -193,9 +193,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
 
     console.log("context", context)
 
-    const posts = await fetch(
-        `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_DATABASE_ID}`
-    ).then((res) => res.json());
+    const posts = await getDatabase(process.env.NOTION_DATABASE_ID)
 
     const post = posts.find((t: any) => t.Slug === context.params.slug);
     // const blocks: BlockMapType = await fetch(`https://notion-api.splitbee.io/v1/page/${post.id}`).then((res) => res.json());

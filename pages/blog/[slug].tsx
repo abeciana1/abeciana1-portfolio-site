@@ -1,14 +1,16 @@
 import React from 'react'
-import { PageMargin } from '../../components/layouts'
+import { BlogPageMargin } from '../../components/layouts'
 import { BlogPostHead } from '../../components/utils/CustomHead'
 import { NotionRenderer, BlockMapType } from "react-notion";
 import Image from 'next/image'
 import "prismjs/themes/prism-tomorrow.css";
 import { GetStaticProps, GetStaticPaths } from 'next'
 import SideBarSharing from '../../components/utils/SideBarSharing'
-import { ExpandBtnLink } from '../../components/utils/_buttons'
-import { TiSocialLinkedin } from "react-icons/ti";
-import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
+import { ShareBtn } from '../../components/utils/_buttons'
+import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
+import useResponsiveness from '../../lib/useResponsiveness'
+import { copyToClipboard } from '../../lib/helper-functions'
+import { useRouter } from 'next/router'
 
 interface PostI {
     id: string;
@@ -27,6 +29,19 @@ interface BlogArticleI {
 
 const BlogArticle = ({ post, blocks }: BlogArticleI) => {
 
+    const router = useRouter()
+
+    const mediaQueryRender = useResponsiveness()
+
+    const {
+        isMobile,
+        isTablet,
+        isDesktop,
+    } = mediaQueryRender || {}
+
+    const desktop = isDesktop
+    const mobile = (isMobile || isTablet)
+
     const {
         id,
         Excerpt,
@@ -36,6 +51,8 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
         hostedImage,
         Tags
     } = post
+
+    console.log(router);
 
     return (
         <React.Fragment>
@@ -47,9 +64,40 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     blogTags: Tags
                 }}
             />
-            <PageMargin>
+            {desktop && 
+                <SideBarSharing>
+                    <ShareBtn
+                        body=""
+                        subject={"Check out this blog post I read, " + Name}
+                        text="Share by email"
+                        textColor="white"
+                        backgroundColor="black"
+                        icon={AiFillMail}
+                        addClass="hover:w-44"
+                    />
+                    <ShareBtn
+                        body={"Check out this blog post I read, " + Name + ": https://alexbeciana.com" + router.asPath}
+                        text="Share by SMS"
+                        textColor="white"
+                        backgroundColor="black"
+                        icon={AiFillMessage}
+                        sms={true}
+                        addClass="hover:w-40"
+                    />
+                    <ShareBtn
+                        body=""
+                        text="Copy link"
+                        textColor="white"
+                        backgroundColor="black"
+                        icon={AiFillCopy}
+                        onClick={() => copyToClipboard(`https://alexbeciana.com${router.asPath}`)}
+                        addClass="hover:w-32"
+                    />
+                </SideBarSharing>
+            }
+            <BlogPageMargin>
                 <section
-                    className="py-10 leading-8"
+                    className="leading-8"
                 >
                     <section>
                         <h1
@@ -68,33 +116,38 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 alt={"Alex Beciana | Blog | " + Name}
                             />
                         </div>
+                    </section>
+                    {mobile && 
                         <SideBarSharing>
-                            <ExpandBtnLink
-                                icon={TiSocialLinkedin}
-                                text="LinkedIn"
+                            <ShareBtn
+                                body=""
+                                subject={"Check out this blog post I read, " + Name}
+                                text="Share by email"
                                 textColor="white"
                                 backgroundColor="black"
-                                href="https://www.linkedin.com/in/alexbeciana"
-                                addClass="hover:w-32"
+                                icon={AiFillMail}
+                                addClass="hover:w-44"
                             />
-                            <ExpandBtnLink
-                                icon={AiOutlineGithub}
-                                text="GitHub"
+                            <ShareBtn
+                                body={"Check out this blog post I read, " + Name + ": https://alexbeciana.com" + router.asPath}
+                                text="Share by SMS"
                                 textColor="white"
                                 backgroundColor="black"
-                                href="https://github.com/abeciana1"
-                                addClass="hover:w-32"
+                                icon={AiFillMessage}
+                                sms={true}
+                                addClass="hover:w-40"
                             />
-                            <ExpandBtnLink
-                                icon={AiOutlineBehance}
-                                text="Behance"
+                            <ShareBtn
+                                body=""
+                                text="Copy link"
                                 textColor="white"
                                 backgroundColor="black"
-                                href="https://www.behance.net/alexbeciana"
+                                icon={AiFillCopy}
+                                onClick={() => copyToClipboard(`https://alexbeciana.com${router.asPath}`)}
                                 addClass="hover:w-32"
                             />
                         </SideBarSharing>
-                    </section>
+                    }
                     <section
                         className="py-4 break-words"
                     >
@@ -103,7 +156,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         />
                     </section>
                 </section>
-            </PageMargin>
+            </BlogPageMargin>
         </React.Fragment>
     )
 }

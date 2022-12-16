@@ -48,7 +48,7 @@ export const BlogPostHead = ({
 
     const router = useRouter()
 
-    console.log(router);
+    // console.log(router);
 
     const {
         publishedTime,

@@ -25,3 +25,11 @@ export const TwoColumnGrid = ({ children, addClass = "" }: LayoutI) => {
     )
 }
 
+export const BlogPageMargin = ({ children }: LayoutI) => {
+
+    return (
+        <section className="px-5 md:px-10 py-4 mx-auto lg:mx-20 page-margin">
+            {children}
+        </section>
+    )
+}

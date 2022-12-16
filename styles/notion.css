@@ -335,7 +335,7 @@ img.notion-page-icon {
 }
 
 .notion-code, .notion-code-section {
-  min-width: 18rem;
+  /* min-width: 18rem; */
   @apply py-5; 
   @apply rounded-lg;
   @apply bg-black;
@@ -710,3 +710,7 @@ img.notion-nav-icon {
   margin: 0 2px;
   color: rgba(55, 53, 47, 0.4);
 }
+
+/* .notion-code {
+  @apply sm:w-10;
+} */

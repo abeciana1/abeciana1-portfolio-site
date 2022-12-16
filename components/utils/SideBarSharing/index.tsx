@@ -24,8 +24,8 @@ const SideBarSharing = ({
     return (
         <aside
             className={cx({
-                ["absolute top-72 space-y-10"]: desktop,
-                [""]: mobile
+                ["fixed top-72 space-y-10 ml-10"]: desktop,
+                ["relative py-5 flex flex-row space-x-8"]: mobile
             })}
         >
             { children }

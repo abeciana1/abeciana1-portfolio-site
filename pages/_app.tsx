@@ -7,8 +7,6 @@ import NavBar from '../components/utils/_nav/NavBar'
 import { StrictMode } from "react";
 
 // todo create new SEO description field for page SEO
-// todo create share buttons for blog posts
-// todo create sidebar comp for sidebar sharing
 // todo build portfolio page
 // todo build portfolio [slug] pages
 // todo build contact page

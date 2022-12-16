@@ -28,15 +28,14 @@ interface BlogArticleI {
 }
 
 // { post, blocks }: BlogArticleI
-const BlogArticle = (props: any) => {
-    console.log(props);
-    const router = useRouter()
+const BlogArticle = ({ post, blocks }: BlogArticleI) => {
+    // console.log(props);
+    // const {
+    //     post,
+    //     blocks
+    // } = props
     // console.log(post);
-
-    const {
-        post,
-        blocks
-    } = props
+    const router = useRouter()
 
     const mediaQueryRender = useResponsiveness()
 

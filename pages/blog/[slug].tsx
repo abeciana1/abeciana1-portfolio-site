@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BlogPageMargin } from '../../components/layouts'
 import { BlogPostHead } from '../../components/utils/CustomHead'
 import { NotionRenderer, BlockMapType } from "react-notion";
@@ -9,7 +9,7 @@ import SideBarSharing from '../../components/utils/SideBarSharing'
 import { ShareBtn } from '../../components/utils/_buttons'
 import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '../../lib/useResponsiveness'
-import { copyToClipboard } from '../../lib/helper-functions'
+import { copyToClipboard, getPage, getBlocks, getDatabase } from '../../lib/helper-functions'
 import { useRouter } from 'next/router'
 
 interface PostI {
@@ -27,9 +27,16 @@ interface BlogArticleI {
     blocks: any;
 }
 
-const BlogArticle = ({ post, blocks }: BlogArticleI) => {
-
+// { post, blocks }: BlogArticleI
+const BlogArticle = (props: any) => {
+    console.log(props);
     const router = useRouter()
+    // console.log(post);
+
+    const {
+        post,
+        blocks
+    } = props
 
     const mediaQueryRender = useResponsiveness()
 
@@ -51,8 +58,6 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
         hostedImage,
         Tags
     } = post
-
-    console.log(router);
 
     return (
         <React.Fragment>
@@ -156,6 +161,12 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         />
                     </section>
                 </section>
+                <section
+                    className="py-12"
+                >
+                    <h2 className="text-4xl font-reross text-altYellow leading-relaxed">Related posts</h2>
+
+                </section>
             </BlogPageMargin>
         </React.Fragment>
     )
@@ -183,17 +194,66 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
 
+    console.log("context", context)
+
     const posts = await fetch(
         `https://notion-api.splitbee.io/v1/table/${process.env.NOTION_DATABASE_ID}`
     ).then((res) => res.json());
 
     const post = posts.find((t: any) => t.Slug === context.params.slug);
-    const blocks: BlockMapType = await fetch(`https://notion-api.splitbee.io/v1/page/${post.id}`).then((res) => res.json());
+    // const blocks: BlockMapType = await fetch(`https://notion-api.splitbee.io/v1/page/${post.id}`).then((res) => res.json());
+    // const page = await getPage(post.id);
+    const blocks = await getBlocks(post.id);
+
+    // let primaryRelatedPosts = [] as any[]
+    // let secondaryRelatedPosts = [] as any[]
+
+    // const relatedPosts = posts.map((post: any) => {
+    //     let boolArrExp = []
+    //     let boolArrResult = []
+    //     for (let tag of post.Tags) {
+    //         let boolArr = posts.includes(tag)
+    //         if (boolArr) {
+    //             post.Tags
+    //         }
+    //         console.log(boolArr)
+    //         boolArrResult = boolArr.filter((bool: boolean) => bool)
+    //     }
+    //     if (boolArrResult.length <= 1) {
+    //         return null
+    //     } else if (boolArrResult.length < 2) {
+    //         secondaryRelatedPosts.push(post)
+    //     } else if (boolArrResult.length > 2) {
+    //         primaryRelatedPosts.push(post)
+    //     }
+    // })
+
+  // Retrieve block children for nested blocks (one level deep), for example toggle blocks
+  // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
+    const childBlocks = await Promise.all(
+        blocks
+        .filter((block: any) => block.has_children)
+        .map(async (block: any) => {
+            return {
+            id: block.id,
+            children: await getBlocks(block.id),
+            };
+        })
+    );
+    const blocksWithChildren = blocks.map((block) => {
+        // Add child blocks if the block should contain children but none exists
+        if (block.has_children && !block[block.type].children) {
+        block[block.type]["children"] = childBlocks.find(
+            (x) => x.id === block.id
+        )?.children;
+        }
+        return block;
+    });
 
     return {
         props: {
             post,
-            blocks
+            blocks: blocksWithChildren,
         }
     }
 }

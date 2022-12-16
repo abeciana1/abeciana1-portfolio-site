@@ -7,12 +7,13 @@ import { Transition } from '@headlessui/react'
 import { TagCard, TagI } from '../TagCard'
 
 interface BlogPostCardI {
+    postId: string;
     post: any;
     active: boolean;
 }
 
-const BlogPostCard = ({ post, active }: BlogPostCardI) => {
-
+const BlogPostCard = ({ postId, post, active }: BlogPostCardI) => {
+    console.log(post);
     const slug = post["Slug"]["rich_text"][0]["plain_text"]
     const title = post["Name"]["title"][0]["plain_text"]
     const publishedDate = post["PublishedDate"]["date"]["start"]
@@ -27,7 +28,12 @@ const BlogPostCard = ({ post, active }: BlogPostCardI) => {
                 onFocus={() => setHover(!mouseHover)}
                 onBlur={() => setHover(!mouseHover)}
                 className="z-40"
-                href={`/blog/${encodeURIComponent(slug)}`}
+                href={{
+                    pathname: `/blog/${encodeURIComponent(slug)}`,
+                    query: {
+                        postId: postId
+                    }
+                }}
             >
                 <Transition
                     show={true}

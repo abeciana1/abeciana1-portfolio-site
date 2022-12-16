@@ -14,7 +14,6 @@ export const TagCard = ({
     name,
     addClass = ""
 }: TagI) => {
-    console.log(name);
     return (
         <span
             key={id}

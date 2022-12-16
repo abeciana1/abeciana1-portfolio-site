@@ -13,6 +13,9 @@ import { StrictMode } from "react";
 // todo Add back to top button blog post article page
 // todo Add liking / claps feature
 // todo Add section for personal updates from me
+// todo DRY out code with notion blocks and notion 
+// todo Create notion block styled components
+// todo 
 
 export default function App({ Component, pageProps }: AppProps) {
 

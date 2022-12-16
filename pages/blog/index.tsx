@@ -1,14 +1,13 @@
 import React from 'react'
 import { CustomHead } from '../../components/utils/CustomHead'
 import { PageMargin } from '../../components/layouts'
-const { Client } = require("@notionhq/client")
 import BlogPostCard from '../../components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
+import { getDatabase } from '../../lib/helper-functions'
 
 const BlogPage = ({
     posts
 }: any) => {
-    console.log(posts);
     let descPosts = posts.reverse()
 
     return (
@@ -26,13 +25,14 @@ const BlogPage = ({
                     <section
                         className="py-12 md:mx-16 lg:mx-44"
                     >
-                        <BlogPostCard key={descPosts[0].id} post={descPosts[0]?.properties} active={true} />
+                        <BlogPostCard key={descPosts[0].id} postId={descPosts[0].id} post={descPosts[0]?.properties} active={true} />
                     </section>
                     <section
                         className="pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
                     >
                         {descPosts.slice(1, 4).map((post: any) => {
-                            return <BlogPostCard key={post.id} post={post?.properties} active={true} />
+                            return <BlogPostCard key={post.id} postId={post.id} post={post?.properties} active={true} />
+                            // return <BlogPostCard key={post.id} post={post} active={true} />
                         })}
                     </section>
                 </>
@@ -45,7 +45,9 @@ const BlogPage = ({
                         className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
                     >
                         {posts.map((post: any) => {
-                            return <BlogPostCard key={post.id} post={post?.properties} active={false} /> 
+                            console.log(post)
+                            return <BlogPostCard key={post.id} postId={post.id} post={post?.properties} active={false} /> 
+                            // return <BlogPostCard key={post.id} post={post} active={false} /> 
                         })}
                     </section>
                 </>
@@ -55,26 +57,11 @@ const BlogPage = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const notion = new Client({ auth: process.env.NOTION_API_KEY });
-    const response = await notion.databases.query({
-        database_id: process.env.NOTION_DATABASE_ID,
-        sorts: [
-        {
-            property: 'PublishedDate',
-            direction: 'ascending',
-        },
-    ],
-    filter: {
-        property: 'Status',
-        select: {
-            equals: 'Published'
-        }
-    }
-    });
+    const response = getDatabase(process.env.NOTION_DATABASE_ID)
 
     return {
         props: {
-            posts: response.results,
+            posts: response,
         }
     }
 }

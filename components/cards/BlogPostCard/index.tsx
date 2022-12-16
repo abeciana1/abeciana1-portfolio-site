@@ -13,7 +13,6 @@ interface BlogPostCardI {
 }
 
 const BlogPostCard = ({ postId, post, active }: BlogPostCardI) => {
-    console.log(post);
     const slug = post["Slug"]["rich_text"][0]["plain_text"]
     const title = post["Name"]["title"][0]["plain_text"]
     const publishedDate = post["PublishedDate"]["date"]["start"]

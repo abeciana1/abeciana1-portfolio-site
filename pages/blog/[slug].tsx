@@ -34,7 +34,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
     //     post,
     //     blocks
     // } = props
-    // console.log(post);
+    console.log(post);
     const router = useRouter()
 
     const mediaQueryRender = useResponsiveness()
@@ -60,7 +60,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
 
     return (
         <React.Fragment>
-            <BlogPostHead
+            {/* <BlogPostHead
                 title={"Blog | " + Name}
                 description={Excerpt}
                 article={{
@@ -166,7 +166,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <h2 className="text-4xl font-reross text-altYellow leading-relaxed">Related posts</h2>
 
                 </section>
-            </BlogPageMargin>
+            </BlogPageMargin> */}
         </React.Fragment>
     )
 }
@@ -175,6 +175,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const posts = await getDatabase(process.env.NOTION_DATABASE_ID)
 
     let paths = posts.map((post: any) => {
+        console.log(post)
         return {
             params: {
                 slug: post.Slug
@@ -223,7 +224,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
 
     return {
         props: {
-            post,
+            post, //: post.properties,
             blocks: blocksWithChildren,
         }
     }

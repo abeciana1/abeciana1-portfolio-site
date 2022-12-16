@@ -16,6 +16,18 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY });
 export const getDatabase = async (databaseId: string | undefined) => {
     const response = await notion.databases.query({
         database_id: databaseId,
+        sorts: [
+        {
+            property: 'PublishedDate',
+            direction: 'ascending',
+        },
+    ],
+    filter: {
+        property: 'Status',
+        select: {
+            equals: 'Published'
+        }
+    }
     });
     return response.results;
 };

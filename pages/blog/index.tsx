@@ -1,6 +1,7 @@
 import React from 'react'
 import { CustomHead } from '../../components/utils/CustomHead'
 import { PageMargin } from '../../components/layouts'
+const { Client } = require("@notionhq/client")
 import BlogPostCard from '../../components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
 import { getDatabase } from '../../lib/helper-functions'
@@ -57,11 +58,11 @@ const BlogPage = ({
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const response = getDatabase(process.env.NOTION_DATABASE_ID)
+    const response = await getDatabase(process.env.NOTION_DATABASE_ID)
 
     return {
         props: {
-            posts: response,
+            posts: response
         }
     }
 }

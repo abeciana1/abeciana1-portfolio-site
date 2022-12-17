@@ -17,6 +17,7 @@ import {
     excerptProp,
     hostedImageProp
 } from '../../lib/notion-props'
+import { NotionBlockRenderer } from '../../components/utils/NotionComponents'
 
 interface PostI {
     id: string;
@@ -149,7 +150,9 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <section
                         className="py-4 break-words"
                     >
-
+                        {blocks.map((block: any) => {
+                            return <NotionBlockRenderer key={block.id} block={block} />
+                        })}
                     </section>
                 </section>
                 <section

@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BlogPageMargin } from '../../components/layouts'
 import { BlogPostHead } from '../../components/utils/CustomHead'
-import { NotionRenderer, BlockMapType } from "react-notion";
 import Image from 'next/image'
 import "prismjs/themes/prism-tomorrow.css";
 import { GetStaticProps, GetStaticPaths } from 'next'
@@ -10,13 +9,13 @@ import { ShareBtn } from '../../components/utils/_buttons'
 import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '../../lib/useResponsiveness'
 import { copyToClipboard, getBlocks, getDatabase } from '../../lib/helper-functions'
-import { useRouter } from 'next/router'
 import {
     slugProp,
     titleProp,
     publishedDateProp,
     tagsProp,
-    excerptProp
+    excerptProp,
+    hostedImageProp
 } from '../../lib/notion-props'
 
 interface PostI {
@@ -34,16 +33,7 @@ interface BlogArticleI {
     blocks: any;
 }
 
-// { post, blocks }: BlogArticleI
 const BlogArticle = ({ post, blocks }: BlogArticleI) => {
-    // console.log(props);
-    // const {
-    //     post,
-    //     blocks
-    // } = props
-    console.log(post);
-    const router = useRouter()
-
     const mediaQueryRender = useResponsiveness()
 
     const {
@@ -60,6 +50,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
     const publishedDate = publishedDateProp(post)
     const tags = tagsProp(post)
     const excerpt = excerptProp(post)
+    const hostedImage = hostedImageProp(post)
 
     return (
         <React.Fragment>
@@ -83,7 +74,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         addClass="hover:w-44"
                     />
                     <ShareBtn
-                        body={"Check out this blog post I read, " + title + ": https://alexbeciana.com" + router.asPath}
+                        body={"Check out this blog post I read, " + title + ": https://alexbeciana.com/blog/" + slug}
                         text="Share by SMS"
                         textColor="white"
                         backgroundColor="black"
@@ -97,7 +88,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         textColor="white"
                         backgroundColor="black"
                         icon={AiFillCopy}
-                        onClick={() => copyToClipboard(`https://alexbeciana.com${router.asPath}`)}
+                        onClick={() => copyToClipboard(`https://alexbeciana.com/blog/${slug}`)}
                         addClass="hover:w-32"
                     />
                 </SideBarSharing>
@@ -119,7 +110,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                             <Image
                                 height={500}
                                 width={1000}
-                                src={post?.hostedImage}
+                                src={hostedImage}
                                 alt={"Alex Beciana | Blog | " + title}
                             />
                         </div>
@@ -136,7 +127,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 addClass="hover:w-44"
                             />
                             <ShareBtn
-                                body={"Check out this blog post I read, " + title + ": https://alexbeciana.com" + router.asPath}
+                                body={"Check out this blog post I read, " + title + ": https://alexbeciana.com/blog/" + slug}
                                 text="Share by SMS"
                                 textColor="white"
                                 backgroundColor="black"
@@ -150,7 +141,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 textColor="white"
                                 backgroundColor="black"
                                 icon={AiFillCopy}
-                                onClick={() => copyToClipboard(`https://alexbeciana.com${router.asPath}`)}
+                                onClick={() => copyToClipboard(`https://alexbeciana.com/blog/${slug}`)}
                                 addClass="hover:w-32"
                             />
                         </SideBarSharing>
@@ -158,9 +149,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <section
                         className="py-4 break-words"
                     >
-                        <NotionRenderer
-                            blockMap={blocks}
-                        />
+
                     </section>
                 </section>
                 <section
@@ -202,8 +191,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
             return t
         }
     });
-    // const blocks: BlockMapType = await fetch(`https://notion-api.splitbee.io/v1/page/${post.id}`).then((res) => res.json());
-    // const page = await getPage(post.id);
+
     const blocks = await getBlocks(post.id);
 
   // Retrieve block children for nested blocks (one level deep), for example toggle blocks

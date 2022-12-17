@@ -17,3 +17,7 @@ export const tagsProp = (post: any | undefined) => {
 export const excerptProp = (post: any | undefined) => {
     return post["Excerpt"]["rich_text"][0]["plain_text"]
 }
+
+export const hostedImageProp = (post: any | undefined) => {
+    return post["hostedImage"]["rich_text"][0]["plain_text"]
+} 

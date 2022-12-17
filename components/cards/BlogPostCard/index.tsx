@@ -10,21 +10,22 @@ import {
     titleProp,
     publishedDateProp,
     tagsProp,
-    excerptProp
+    excerptProp,
+    hostedImageProp
 } from '../../../lib/notion-props'
 
 interface BlogPostCardI {
-    postId: string;
     post: any;
     active: boolean;
 }
 
-const BlogPostCard = ({ postId, post, active }: BlogPostCardI) => {
+const BlogPostCard = ({ post, active }: BlogPostCardI) => {
     const slug = slugProp(post)
     const title = titleProp(post)
     const publishedDate = publishedDateProp(post)
     const tags = tagsProp(post)
     const excerpt = excerptProp(post)
+    const hostedImage = hostedImageProp(post)
 
     const [ mouseHover, setHover ] = useState(false)
 
@@ -46,7 +47,7 @@ const BlogPostCard = ({ postId, post, active }: BlogPostCardI) => {
                         onMouseLeave={() => setHover(!mouseHover)}
                     >
                         <Image
-                            src={post["hostedImage"]["rich_text"][0]["plain_text"]}
+                            src={hostedImage}
                             width={1000}
                             height={500}
                             alt={"Alex Beciana - " + title}

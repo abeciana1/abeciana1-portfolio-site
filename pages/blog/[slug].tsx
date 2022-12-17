@@ -11,7 +11,13 @@ import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '../../lib/useResponsiveness'
 import { copyToClipboard, getBlocks, getDatabase } from '../../lib/helper-functions'
 import { useRouter } from 'next/router'
-import { slugProp } from '../../lib/notion-props'
+import {
+    slugProp,
+    titleProp,
+    publishedDateProp,
+    tagsProp,
+    excerptProp
+} from '../../lib/notion-props'
 
 interface PostI {
     id: string;
@@ -49,31 +55,27 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
     const desktop = isDesktop
     const mobile = (isMobile || isTablet)
 
-    const {
-        id,
-        Excerpt,
-        Name,
-        PublishedDate,
-        Slug,
-        hostedImage,
-        Tags
-    } = post
+    const slug = slugProp(post)
+    const title = titleProp(post)
+    const publishedDate = publishedDateProp(post)
+    const tags = tagsProp(post)
+    const excerpt = excerptProp(post)
 
     return (
         <React.Fragment>
-            {/* <BlogPostHead
-                title={"Blog | " + Name}
-                description={Excerpt}
+            <BlogPostHead
+                title={"Blog | " + title}
+                description={excerpt}
                 article={{
-                    publishedTime: PublishedDate,
-                    blogTags: Tags
+                    publishedTime: publishedDate,
+                    blogTags: tags
                 }}
             />
             {desktop && 
                 <SideBarSharing>
                     <ShareBtn
                         body=""
-                        subject={"Check out this blog post I read, " + Name}
+                        subject={"Check out this blog post I read, " + title}
                         text="Share by email"
                         textColor="white"
                         backgroundColor="black"
@@ -81,7 +83,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         addClass="hover:w-44"
                     />
                     <ShareBtn
-                        body={"Check out this blog post I read, " + Name + ": https://alexbeciana.com" + router.asPath}
+                        body={"Check out this blog post I read, " + title + ": https://alexbeciana.com" + router.asPath}
                         text="Share by SMS"
                         textColor="white"
                         backgroundColor="black"
@@ -107,18 +109,18 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <section>
                         <h1
                             className="text-4xl lg:text-5xl py-5"
-                        >{Name}</h1>
+                        >{title}</h1>
                         <p
                             className="py-2 italic"
                         >
-                            {Excerpt}
+                            {excerpt}
                         </p>
                         <div>
                             <Image
                                 height={500}
                                 width={1000}
-                                src={hostedImage}
-                                alt={"Alex Beciana | Blog | " + Name}
+                                src={post?.hostedImage}
+                                alt={"Alex Beciana | Blog | " + title}
                             />
                         </div>
                     </section>
@@ -126,7 +128,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         <SideBarSharing>
                             <ShareBtn
                                 body=""
-                                subject={"Check out this blog post I read, " + Name}
+                                subject={"Check out this blog post I read, " + title}
                                 text="Share by email"
                                 textColor="white"
                                 backgroundColor="black"
@@ -134,7 +136,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 addClass="hover:w-44"
                             />
                             <ShareBtn
-                                body={"Check out this blog post I read, " + Name + ": https://alexbeciana.com" + router.asPath}
+                                body={"Check out this blog post I read, " + title + ": https://alexbeciana.com" + router.asPath}
                                 text="Share by SMS"
                                 textColor="white"
                                 backgroundColor="black"
@@ -167,7 +169,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <h2 className="text-4xl font-reross text-altYellow leading-relaxed">Related posts</h2>
 
                 </section>
-            </BlogPageMargin> */}
+            </BlogPageMargin>
         </React.Fragment>
     )
 }
@@ -228,7 +230,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
 
     return {
         props: {
-            post, //: post.properties,
+            post: post.properties,
             blocks: blocksWithChildren,
         }
     }

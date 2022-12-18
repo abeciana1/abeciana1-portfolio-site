@@ -128,7 +128,7 @@ export default function Home({ joke }: any) {
               <CodeMockupLine
                 prefix=">"
                 textColor="success"
-                text="A music to craft collaborative power hours with friends"
+                text="A music app to craft collaborative power hours with friends"
               />
               <CodeMockupLine
                 prefix="$"

@@ -1,6 +1,6 @@
 import React from 'react'
 import { PageMargin } from '../components/layouts'
-// import ContactForm from '../utils/forms/ContactForm'
+import ContactForm from '../components/utils/_forms/ContactForm'
 
 const Contact = () => {
 
@@ -19,7 +19,7 @@ const Contact = () => {
                     <section
                         className="grid grid-cols-1 md:grid-cols-2 gap-12 content-center mt-10"
                     >
-                        {/* <ContactForm /> */}
+                        <ContactForm />
                             <div
                                 className="text-center"
                             >

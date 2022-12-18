@@ -1,7 +1,5 @@
 import React from 'react'
 import { PageMargin } from '../components/layouts'
-
-
 // import ContactForm from '../utils/forms/ContactForm'
 
 const Contact = () => {

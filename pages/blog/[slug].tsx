@@ -154,12 +154,13 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         <NotionRenderer blockMap={blocks} />
                     </section>
                 </section>
-                <section
+                {/* <section
                     className="py-12"
                 >
-                    <h2 className="text-4xl font-reross text-altYellow leading-relaxed">Related posts</h2>
-
-                </section>
+                    <h2 className="text-4xl font-reross text-altYellow leading-relaxed">
+                        Related posts
+                    </h2>
+                </section> */}
             </BlogPageMargin>
         </React.Fragment>
     )

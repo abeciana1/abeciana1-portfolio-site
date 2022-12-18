@@ -8,7 +8,7 @@ import SideBarSharing from '../../components/utils/SideBarSharing'
 import { ShareBtn } from '../../components/utils/_buttons'
 import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '../../lib/useResponsiveness'
-import { copyToClipboard, getBlocks, getDatabase } from '../../lib/helper-functions'
+import { copyToClipboard, getDatabase } from '../../lib/helper-functions'
 import {
     slugProp,
     titleProp,
@@ -17,7 +17,7 @@ import {
     excerptProp,
     hostedImageProp
 } from '../../lib/notion-props'
-import { NotionBlockRenderer } from '../../components/utils/NotionComponents'
+import { NotionRenderer, BlockMapType } from "react-notion";
 
 interface PostI {
     id: string;
@@ -32,6 +32,7 @@ interface PostI {
 interface BlogArticleI {
     post: PostI;
     blocks: any;
+    codeBlocks: any;
 }
 
 const BlogArticle = ({ post, blocks }: BlogArticleI) => {
@@ -52,7 +53,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
     const tags = tagsProp(post)
     const excerpt = excerptProp(post)
     const hostedImage = hostedImageProp(post)
-
+    // console.log(codeBlocks);
     return (
         <React.Fragment>
             <BlogPostHead
@@ -150,9 +151,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <section
                         className="py-4 break-words"
                     >
-                        {blocks.map((block: any) => {
-                            return <NotionBlockRenderer key={block.id} block={block} />
-                        })}
+                        <NotionRenderer blockMap={blocks} />
                     </section>
                 </section>
                 <section
@@ -195,34 +194,12 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
         }
     });
 
-    const blocks = await getBlocks(post.id);
-
-  // Retrieve block children for nested blocks (one level deep), for example toggle blocks
-  // https://developers.notion.com/docs/working-with-page-content#reading-nested-blocks
-    const childBlocks = await Promise.all(
-        blocks
-        .filter((block: any) => block.has_children)
-        .map(async (block: any) => {
-            return {
-            id: block.id,
-            children: await getBlocks(block.id),
-            };
-        })
-    );
-    const blocksWithChildren = blocks.map((block) => {
-        // Add child blocks if the block should contain children but none exists
-        if (block.has_children && !block[block.type].children) {
-        block[block.type]["children"] = childBlocks.find(
-            (x) => x.id === block.id
-        )?.children;
-        }
-        return block;
-    });
+    const blocks: BlockMapType = await fetch(`https://notion-api.splitbee.io/v1/page/${post.id}`).then((res) => res.json());
 
     return {
         props: {
             post: post.properties,
-            blocks: blocksWithChildren,
+            blocks: blocks,
         }
     }
 }

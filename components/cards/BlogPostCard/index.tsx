@@ -1,7 +1,6 @@
-import React, { useState, KeyboardEvent } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link'
 import moment from 'moment';
-import cx from 'classnames'
 import Image from 'next/image'
 import { Transition } from '@headlessui/react'
 import { TagCard, TagI } from '../TagCard'

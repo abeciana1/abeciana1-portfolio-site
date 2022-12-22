@@ -2,7 +2,7 @@ import React from 'react'
 import { CustomHead } from '../../components/utils/CustomHead'
 import { PageMargin } from '../../components/layouts'
 import BlogPostCard from '../../components/cards/BlogPostCard'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { getDatabase } from '../../lib/helper-functions'
 
 const BlogPage = ({
@@ -55,8 +55,8 @@ const BlogPage = ({
     )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
-    const response = await getDatabase(process.env.NOTION_DATABASE_ID)
+export const getServerSideProps: GetServerSideProps = async () => {
+    const response = await getDatabase(process.env.NOTION_BLOG_DATABASE_ID)
 
     return {
         props: {

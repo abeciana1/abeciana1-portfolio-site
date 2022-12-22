@@ -167,7 +167,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const posts = await getDatabase(process.env.NOTION_DATABASE_ID)
+    const posts = await getDatabase(process.env.NOTION_BLOG_DATABASE_ID)
 
     let paths = posts.map((post: any) => {
         let slug = slugProp(post.properties)
@@ -186,7 +186,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
 
-    const posts = await getDatabase(process.env.NOTION_DATABASE_ID)
+    const posts = await getDatabase(process.env.NOTION_BLOG_DATABASE_ID)
 
     const post = posts.find((t: any) => {
         let slug = slugProp(t.properties)

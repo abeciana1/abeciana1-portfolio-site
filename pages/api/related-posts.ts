@@ -9,7 +9,7 @@ export default function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
-    fetch(`https://notion-api.splitbee.io/v1/table/${process.env.NOTION_DATABASE_ID}`)
+    fetch(`https://notion-api.splitbee.io/v1/table/${process.env.NOTION_BLOG_DATABASE_ID}`)
         .then((res) => res.json())
         .then(data => {
         console.log(data)

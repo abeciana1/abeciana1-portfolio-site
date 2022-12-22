@@ -4,9 +4,11 @@ import { CustomHead } from '../../components/utils/CustomHead'
 import { PageMargin } from '../../components/layouts'
 import { getDatabase } from '../../lib/helper-functions'
 
-const PortfolioPage = () => {
+const PortfolioPage = ({
+    projects
+}: any) => {
 
-
+    console.log(projects);
     return (
         <React.Fragment>
             <CustomHead

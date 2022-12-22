@@ -11,7 +11,7 @@ import {
     tagsProp,
     excerptProp,
     hostedImageProp
-} from '../../../lib/notion-props'
+} from '../../../lib/notion-blog-props'
 
 interface BlogPostCardI {
     post: any;

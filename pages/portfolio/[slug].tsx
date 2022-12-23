@@ -8,17 +8,44 @@ import {
     getClientInfo,
     getProjectTitle,
     getProjectStatus,
-    getClientType
+    getClientType,
+    getProjectTools,
+    getProjectWorkAreas
 } from '../../lib/notion-proj-props'
+import { NotionRenderer, BlockMapType } from "react-notion";
+import SideBarSharing from '../../components/utils/SideBarSharing'
 
-const PortfolioProjectPage = ({ project }: any) => {
+const PortfolioProjectPage = ({ project, blocks }: any) => {
 
-    console.log(project);
+    const slug = getProjectSlug(project)
+    const client = getClientInfo(project)
+    const title = getProjectTitle(project)
+    const status = getProjectStatus(project)
+    const clientType = getClientType(project)
+    const projectTools = getProjectTools(project)
+    const workAreas = getProjectWorkAreas(project)
+
+    const {
+        name,
+        bio,
+        logo,
+        link
+    } = client
 
     return (
         <React.Fragment>
             <PageMargin>
-                <h1></h1>
+                <h1 className="text-5xl font-reross leading-relaxed">{title}</h1>
+                <section>
+                    <aside className="fixed top-72 space-y-10 ml-10">
+                        
+                    </aside>
+                    <section
+                        className="ml-44 py-4 break-words"
+                    >
+                        <NotionRenderer blockMap={blocks} />
+                    </section>
+                </section>
             </PageMargin>
         </React.Fragment>
     )
@@ -53,9 +80,12 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
         }
     })
 
+    const blocks: BlockMapType = await fetch(`https://notion-api.splitbee.io/v1/page/${project.id}`).then((res) => res.json());
+
     return {
         props: {
-            project: project.properties
+            project: project.properties,
+            blocks
         },
         revalidate: 5
     }

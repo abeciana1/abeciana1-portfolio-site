@@ -1,36 +1,36 @@
 export const getClientInfo = (project: any | undefined) => {
     return {
-        name: project.properties.clientName.rich_text[0].plain_text,
-        bio: project.properties.clientBio.rich_text[0].plain_text,
-        link: project.properties.clientLink.url,
-        logo: project.properties.clientLogo.url
+        name: project.clientName.rich_text[0].plain_text,
+        bio: project.clientBio.rich_text[0].plain_text,
+        link: project.clientLink.url,
+        logo: project.clientLogo.url
     }
 }
 
 export const getProjectTitle = (project: any | undefined) => {
-    return project.properties.projectTitle.title[0].plain_text
+    return project.projectTitle.title[0].plain_text
 }
 
 export const getProjectStatus = (project: any | undefined) => {
     return {
-        color: project.properties.status.multi_select[0].color,
-        name: project.properties.status.multi_select[0].name
+        color: project.status.multi_select[0].color,
+        name: project.status.multi_select[0].name
     }
 }
 
 export const getProjectTools = (project: any | undefined) => {
-    return project.properties.toolsUsed.multi_select
+    return project.toolsUsed.multi_select
 }
 
 export const getClientType = (project: any | undefined) => {
     return {
-        color: project.properties.type.select.color,
-        name: project.properties.type.select.name
+        color: project.type.select.color,
+        name: project.type.select.name
     }
 }
 
 export const getProjectWorkAreas = (project: any | undefined) => {
-    return project.properties.workAreas.multi_select
+    return project.workAreas.multi_select
 }
 
 export const getProjectSlug = (project: any | undefined) => {

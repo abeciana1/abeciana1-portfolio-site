@@ -32,3 +32,7 @@ export const getClientType = (project: any | undefined) => {
 export const getProjectWorkAreas = (project: any | undefined) => {
     return project.properties.workAreas.multi_select
 }
+
+export const getProjectSlug = (project: any | undefined) => {
+    return project.slug["rich_text"][0]["plain_text"]
+}

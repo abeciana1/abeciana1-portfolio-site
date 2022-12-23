@@ -8,7 +8,7 @@ import Skills from '../data/skills.json'
 import SkillCard from '../components/cards/SkillCard'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 import { TwoColumnGrid } from '../components/layouts'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
@@ -174,7 +174,7 @@ export default function Home({ joke }: any) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 
   const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
   const jokes = await res.json()

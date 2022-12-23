@@ -34,6 +34,19 @@ export const getStaticPaths: GetStaticPaths = async (context: any) => {
 }
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
+    const projects = await getDatabase(process.env.NOTION_PORTFOLIO_DATABASE_ID)
 
-    return {}
+    const project = projects.find((proj: any) => {
+        let slug = getProjectSlug(project)
+        if (slug === context.params.slug) {
+            return proj
+        }
+    })
+
+    return {
+        props: {
+            project: project.properties
+        },
+        revalidate: 5
+    }
 }

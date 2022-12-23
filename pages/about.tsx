@@ -173,7 +173,8 @@ export const getStaticProps: GetStaticProps = async () => {
         props: {
         joke: jokes[0],
         expData: expData
-        }
+        },
+        revalidate: 5
     }
 }
 

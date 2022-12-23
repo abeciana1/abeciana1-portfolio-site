@@ -1,56 +1,77 @@
 import React, { useState } from 'react';
 import Link from 'next/link'
-import { TagCard, TagI } from '../TagCard'
-import { publishedDateProp, hostedImageProp } from '../../../lib/notion-blog-props'
+import Image from 'next/image'
+import { TagCard } from '../TagCard'
+import {
+    getProjectSlug,
+    getClientInfo,
+    getProjectTitle,
+    getProjectStatus,
+    getClientType
+} from '../../../lib/notion-proj-props'
+
 
 const ProjectCard = ({
     project
 }: any) => {
 
-    console.log(project);
+    const slug = getProjectSlug(project)
+    const client = getClientInfo(project)
+    const title = getProjectTitle(project)
+    const status = getProjectStatus(project)
+    const clientType = getClientType(project)
+
+    const {
+        name,
+        bio,
+        logo
+    } = client
+    
     return (
         <React.Fragment>
             <Link
-                // onFocus={() => setHover(!mouseHover)}
-                // onBlur={() => setHover(!mouseHover)}
                 className="z-40"
                 href={`/portfolio/${encodeURIComponent(slug)}`}
             >
-                <div>
-                    {/* <Image
-                        src={hostedImage}
-                        width={1000}
-                        height={500}
-                        alt={"Alex Beciana - " + title}
-                    /> */}
-                </div>
-                    <div className="w-full bg-white z-30 rounded-bl-lg rounded-br-lg shadow-xl">
-                        <div
-                            className="font-medium text-lg px-2 flex flex-wrap"
-                        >
-                            {/* {title + " — " + moment(new Date(publishedDate)).add(1, 'days').format("MMM Do YY")} */}
-                        </div>
-                        <div
-                            className="flex flex-wrap px-1"
-                        >
-                            {/* {tags.map(({ id, color, name }: TagI) => {
-                                return (
-                                    <TagCard
-                                        key={id}
-                                        id={id}
-                                        color={color}
-                                        name={name}
-                                        addClass="ml-1 my-1 py-0.5 px-1.5 rounded-full text-xs leading-tight"
-                                    />
-                                )
-                            })} */}
-                            <div
-                                className="p-2"
-                            >
-                                {/* {excerpt} */}
-                            </div>
-                        </div>
+                <div className="px-2 py-2 bg-white z-30 rounded-bl-lg rounded-br-lg shadow-xl max-h-72 overflow-auto">
+                    <div className="flex justify-content">
+                        <Image
+                            src={logo}
+                            width={350}
+                            height={400}
+                            alt={"Alex Beciana - Portfolio - " + title}
+                        />
                     </div>
+                    <div
+                        className="font-bold text-lg px-2 flex flex-wrap items-stretch"
+                    >
+                        {title}
+                        <span>
+                            {status && 
+                                <TagCard
+                                    color={status.color}
+                                    name={status.name}
+                                    addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
+                                />
+                            }
+                        </span>
+                        <span>
+                            {clientType &&
+                                <TagCard
+                                    color={clientType.color}
+                                    name={clientType.name}
+                                    addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
+                                />
+                            }
+                        </span>
+                    </div>
+                    <div
+                        className="font-bold px-2"
+                    >
+                        {name}
+                        <span className="font-normal"> | {bio}</span>
+                    </div>
+                </div>
             </Link>
         </React.Fragment>
     )

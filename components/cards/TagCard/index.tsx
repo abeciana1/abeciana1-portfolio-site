@@ -2,14 +2,14 @@ import React from 'react'
 import cx from 'classnames'
 
 export interface TagI {
-    id: string;
+    id?: string;
     color: string;
     name: string;
     addClass?: string;
 }
 
 export const TagCard = ({
-    id,
+    id = "",
     color,
     name,
     addClass = ""

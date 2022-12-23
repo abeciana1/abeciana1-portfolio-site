@@ -33,7 +33,7 @@ const ProjectCard = ({
                 className="z-40"
                 href={`/portfolio/${encodeURIComponent(slug)}`}
             >
-                <div className="px-2 py-2 bg-white z-30 rounded-bl-lg rounded-br-lg shadow-xl max-h-72 overflow-auto">
+                <div className="px-2 py-2 bg-white z-30 rounded-bl-lg rounded-br-lg shadow-xl">
                     <div className="flex justify-content">
                         <Image
                             src={logo}

@@ -33,7 +33,7 @@ const PortfolioPage = ({
     )
 }
 
-export const getStaticPaths: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
 
     const response = await getDatabase(process.env.NOTION_PORTFOLIO_DATABASE_ID)
 

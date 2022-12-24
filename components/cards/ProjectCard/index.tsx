@@ -43,29 +43,25 @@ const ProjectCard = ({
                         />
                     </div>
                     <div
-                        className="font-bold text-lg px-2 flex flex-wrap items-stretch"
+                        className="font-bold text-lg px-2 flex flex-wrap items-center"
                     >
                         {title}
-                        <span>
-                            {status && 
-                                <TagCard
-                                    id={status.id}
-                                    color={status.color}
-                                    name={status.name}
-                                    addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
-                                />
-                            }
-                        </span>
-                        <span>
-                            {clientType &&
-                                <TagCard
-                                    id={clientType.id}
-                                    color={clientType.color}
-                                    name={clientType.name}
-                                    addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
-                                />
-                            }
-                        </span>
+                        {status && 
+                            <TagCard
+                                id={status.id}
+                                color={status.color}
+                                name={status.name}
+                                addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
+                            />
+                        }
+                        {clientType &&
+                            <TagCard
+                                id={clientType.id}
+                                color={clientType.color}
+                                name={clientType.name}
+                                addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
+                            />
+                        }
                     </div>
                     <div
                         className="font-bold px-2"

@@ -48,6 +48,7 @@ const AboutPage = ({ joke, expData }: any) => {
                                 backgroundColor="black"
                                 href="https://www.linkedin.com/in/alexbeciana"
                                 addClass="hover:w-32"
+                                ariaLabel="Link to Alex Beciana LinkedIn profile"
                             />
                             <ExpandBtnLink
                                 icon={AiOutlineGithub}
@@ -56,6 +57,7 @@ const AboutPage = ({ joke, expData }: any) => {
                                 backgroundColor="black"
                                 href="https://github.com/abeciana1"
                                 addClass="hover:w-32"
+                                ariaLabel="Link to Alex Beciana GitHub profile"
                             />
                             <ExpandBtnLink
                                 icon={AiOutlineBehance}
@@ -64,6 +66,7 @@ const AboutPage = ({ joke, expData }: any) => {
                                 backgroundColor="black"
                                 href="https://www.behance.net/alexbeciana"
                                 addClass="hover:w-32"
+                                ariaLabel="Link to Alex Beciana Behace profile"
                             />
                         </div>
                 <section

@@ -120,11 +120,11 @@ export const ShareBtn = ({
 interface IExpandLinkProps {
     text: string;
     textColor: string;
-    // disabled?: boolean;
     backgroundColor?: string;
     icon: React.ElementType;
     addClass?: string;
     href: string;
+    ariaLabel: string;
 }
 
 export const ExpandBtnLink = ({
@@ -134,6 +134,7 @@ export const ExpandBtnLink = ({
     backgroundColor,
     addClass = "",
     href,
+    ariaLabel
 }: IExpandLinkProps) => {
 
     const Icon = icon as React.ElementType
@@ -165,6 +166,7 @@ export const ExpandBtnLink = ({
             })}
             onMouseEnter={expandHandler}
             onMouseLeave={expandHandler}
+            aria-label={ariaLabel}
         >
             <Icon strokeWidth="1" className={cx('h-7 w-7', {
                 ['fill-white']: textColor === 'white',

@@ -58,6 +58,7 @@ export default function Home({ joke }: any) {
             backgroundColor="black"
             href="https://www.linkedin.com/in/alexbeciana"
             addClass="hover:w-32"
+            ariaLabel="Link to Alex Beciana LinkedIn profile"
           />
           <ExpandBtnLink
             icon={AiOutlineGithub}
@@ -66,6 +67,7 @@ export default function Home({ joke }: any) {
             backgroundColor="black"
             href="https://github.com/abeciana1"
             addClass="hover:w-32"
+            ariaLabel="Link to Alex Beciana GitHub profile"
           />
           <ExpandBtnLink
             icon={AiOutlineBehance}
@@ -74,6 +76,7 @@ export default function Home({ joke }: any) {
             backgroundColor="black"
             href="https://www.behance.net/alexbeciana"
             addClass="hover:w-32"
+            ariaLabel="Link to Alex Beciana Behance profile"
           />
         </div>
         <div className="flex flex-col pt-8 space-y-4 md:space-y-0 md:pt-4 lg:pt-0 md:flex-row md:space-x-8">

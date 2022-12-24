@@ -24,8 +24,6 @@ const PortfolioProjectPage = ({ project, blocks }: any) => {
     const projectTools = getProjectTools(project)
     const workAreas = getProjectWorkAreas(project)
 
-    console.log(status);
-
     const {
         name,
         bio,
@@ -44,6 +42,12 @@ const PortfolioProjectPage = ({ project, blocks }: any) => {
                             bio={bio}
                             logo={logo}
                             link={link}
+                        />
+                        <ProjectDetailsCard
+                            status={status}
+                            clientType={clientType}
+                            projectTools={projectTools}
+                            workAreas={workAreas}
                         />
                     </aside>
                     <section

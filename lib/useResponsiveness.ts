@@ -37,7 +37,7 @@ const useResponsiveness = () => {
         if (typeof window !== 'undefined') {
             setIsClient(true)
         }
-    })
+    }, [isClient])
 
     if (isClient) {
         return {

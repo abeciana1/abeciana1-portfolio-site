@@ -56,10 +56,10 @@ const EduCard = ({
                 <ReactMarkdown
                     children={achievements}
                     components={{
-                        p({ children }: any) {
+                        p(props: any) {
                             return (
                                 <p>
-                                    { children }
+                                    { props.children }
                                 </p>
                             )
                         }

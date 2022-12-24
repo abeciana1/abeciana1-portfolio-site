@@ -78,12 +78,12 @@ const JobCard = ({
                     <ReactMarkdown
                         children={responsibilities}
                         components={{
-                            ul({ children }: any) {
+                            ul(props: any) {
                                 return (
                                     <ul
                                         className="list-disc ml-5"
                                     >
-                                        {children}
+                                        {props.children}
                                     </ul>
                                 )
                             }

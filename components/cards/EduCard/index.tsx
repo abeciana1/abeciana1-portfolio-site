@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
-import Image from 'nextimage'
+import Image from 'next/image'
 
 interface EduCardI {
     id: number;

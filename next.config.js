@@ -9,7 +9,9 @@ const nextConfig = {
         "media.graphcms.com",
         "s3.us-west-2.amazonaws.com",
         "media.graphassets.com"
-    ]
+    ],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   }
 }
 

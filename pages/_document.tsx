@@ -22,18 +22,18 @@ const MyDocument = () => {
                     strategy="lazyOnload"
                 />
                 <Script
-                    id="msft clarity"
+                    id="msft-clarity"
                     strategy="afterInteractive"
-                    dangerouslySetInnerHTML={{
-                        __html: `
+                >
+                    {`
                         (function(c,l,a,r,i,t,y){
                             c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
                         })(window, document, "clarity", "script", "a78c5ntos1");
                         `
-                    }}
-                />
+                    }
+                </Script>
                 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"></script>
                 <script dangerouslySetInnerHTML={{
                     __html: `
@@ -45,23 +45,23 @@ const MyDocument = () => {
                             `
                         }}></script>
                 <Script
-                    id="gtm"
+                    id="google-tag-manager"
                     strategy="afterInteractive"
                     src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"
                 />
                 <Script
-                    id="google analytics"
+                    id="google-analytics"
                     strategy="afterInteractive"
-                    dangerouslySetInnerHTML={{
-                        __html: `
+                >
+                    {`
                             window.dataLayer = window.dataLayer || [];
                             function gtag(){dataLayer.push(arguments);}
                             gtag('js', new Date());
 
                             gtag('config', 'G-Y7HNS80HJT');
                         `
-                    }}
-                />
+                    }
+                </Script>
             </Head>
             <body>
                 <Main />

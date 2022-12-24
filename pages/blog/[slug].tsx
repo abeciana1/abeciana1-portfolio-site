@@ -76,15 +76,6 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         addClass="hover:w-44"
                     />
                     <ShareBtn
-                        body={"Check out this blog post I read, " + title + ": https://alexbeciana.com/blog/" + slug}
-                        text="Share by SMS"
-                        textColor="white"
-                        backgroundColor="black"
-                        icon={AiFillMessage}
-                        sms={true}
-                        addClass="hover:w-40"
-                    />
-                    <ShareBtn
                         body=""
                         text="Copy link"
                         textColor="white"

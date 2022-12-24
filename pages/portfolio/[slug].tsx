@@ -16,11 +16,6 @@ import ClientCard from '../../components/cards/ClientCard'
 import ProjectDetailsCard from '../../components/cards/ProjectDetailsCard'
 import "prismjs/themes/prism-tomorrow.css";
 
-// import dynamic from 'next/dynamic'
-// const NotionRenderer = dynamic(() => import("react-notion").then((module: any) => module.NotionRenderer), {
-//     ssr: false
-// })
-
 const PortfolioProjectPage = ({ project, blocks }: any) => {
 
     const client = getClientInfo(project)

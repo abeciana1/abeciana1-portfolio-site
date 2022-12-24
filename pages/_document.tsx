@@ -11,10 +11,10 @@ const MyDocument = () => {
                 <link rel="icon preload" as="image" href="/waving.png" />
                 <link rel="preload" as="image" href="/profile-callout-edited.png" />
                 <link rel="preload" as="image" href="/profile-pic.png" />
-                <link rel="preload" as="image" href="./github-png.png" />
-                <link rel="preload" as="image" href="./linkedin-png.png" />
-                <link rel="preload" as="image" href="./behance-png.png" />
-                <link rel="preload stylesheet" as="font" href="./RerossQuadratic.otf" crossOrigin="anonymous" />
+                <link rel="preload" as="image" href="/github-png.png" />
+                <link rel="preload" as="image" href="/linkedin-png.png" />
+                <link rel="preload" as="image" href="/behance-png.png" />
+                <link rel="preload stylesheet" as="font" href="/RerossQuadratic.otf" crossOrigin="anonymous" />
                 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" as="font" rel="stylesheet preload" crossOrigin="anonymous" />
                 <Script
                     id="hs-script-loader"

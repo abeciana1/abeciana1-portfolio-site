@@ -36,8 +36,8 @@ const PortfolioProjectPage = ({ project, blocks }: any) => {
         <React.Fragment>
             <PageMargin>
                 <h1 className="text-5xl font-reross leading-relaxed">{title}</h1>
-                <section className="flex space-x-10">
-                    <aside className="mt-16 basis-1/4">
+                <section className="flex flex-col md:flex-row md:space-x-10">
+                    <aside className="mt-16 md:basis-1/4 min-w-xl">
                         <ClientCard
                             name={name}
                             bio={bio}
@@ -46,7 +46,7 @@ const PortfolioProjectPage = ({ project, blocks }: any) => {
                         />
                     </aside>
                     <section
-                        className="py-4 break-words basis-3/4 max-w-3xl"
+                        className="py-4 break-words md:basis-3/4 max-w-md lg:max-w-2xl"
                     >
                         <NotionRenderer blockMap={blocks} />
                     </section>

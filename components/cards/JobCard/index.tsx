@@ -74,14 +74,11 @@ const JobCard = ({
                     <ReactMarkdown
                         children={responsibilities}
                         components={{
-                            // eslint-disable-next-line
                             ul({ children }: any) {
-                                // eslint-disable-next-line
                                 return (
                                     <ul
                                         className="list-disc ml-5"
                                     >
-                                        {/* //eslint-disable-next-line  */}
                                         {children}
                                     </ul>
                                 )

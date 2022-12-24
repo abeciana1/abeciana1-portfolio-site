@@ -52,9 +52,10 @@ const EduCard = ({
                 <ReactMarkdown
                     children={achievements}
                     components={{
-                        p({children }: any) {
+                        p({ children }: any) {
                             return (
                                 <p>
+                                    {/* eslint-disable-next-line */}
                                     { children }
                                 </p>
                             )

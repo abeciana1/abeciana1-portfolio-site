@@ -79,6 +79,7 @@ const JobCard = ({
                                     <ul
                                         className="list-disc ml-5"
                                     >
+                                        {/* eslint-disable-next-line */}
                                         {children}
                                     </ul>
                                 )

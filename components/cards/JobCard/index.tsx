@@ -1,5 +1,6 @@
 import ReactMarkdown from 'react-markdown'
 import moment from 'moment'
+import Image from 'next/image'
 
 interface JobCardI {
     id: number;
@@ -34,9 +35,12 @@ const JobCard = ({
             <div
                 className="self-center"
             >
-                <img
+                <Image
+                    width={200}
+                    height={100}
                     src={companyLogo || "/profile-pic.png"}
-                    className="w-3/5 mx-auto"
+                    alt={`${companyName} logo`}
+                    className="mx-auto"
                 />
                 <div
                     className="text-center mt-5 text-lg"

@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import Image from 'nextimage'
 
 interface EduCardI {
     id: number;
@@ -26,9 +27,12 @@ const EduCard = ({
             <div
                 className="self-center"
             >
-                <img
+                <Image
+                    width={200}
+                    height={100}
                     src={schoolImage}
-                    className="w-3/5 mx-auto"
+                    alt={`${schoolName} logo`}
+                    className="mx-auto"
                 />
             </div>
             <div

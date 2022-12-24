@@ -53,7 +53,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
     const tags = tagsProp(post)
     const excerpt = excerptProp(post)
     const hostedImage = hostedImageProp(post)
-    // console.log(codeBlocks);
+    
     return (
         <React.Fragment>
             <BlogPostHead

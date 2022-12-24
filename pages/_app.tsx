@@ -6,14 +6,9 @@ import Head from 'next/head'
 import NavBar from '../components/utils/_nav/NavBar'
 import { StrictMode } from "react";
 
-// todo create new SEO description field for page SEO
-// todo build portfolio page
-// todo build portfolio [slug] pages
 // todo Add back to top button blog post article page
 // todo Add liking / claps feature
 // todo Add section for personal updates from me
-// todo DRY out code with notion blocks and notion 
-// todo Create notion block styled components
 // todo Create smooth scroll comp for long form content
 
 export default function App({ Component, pageProps }: AppProps) {

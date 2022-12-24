@@ -13,6 +13,11 @@ import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 
+// import dynamic from 'next/dynamic'
+// const SkillCard = dynamic(() => import('../components/cards/SkillCard').then((module: any) => module), {
+//   ssr: false
+// })
+
 interface SkillI {
   name: string;
   image: string;

@@ -19,6 +19,11 @@ import {
 } from '../../lib/notion-blog-props'
 import { NotionRenderer, BlockMapType } from "react-notion";
 
+// import dynamic from 'next/dynamic';
+// const NotionRenderer = dynamic(() => import("react-notion").then((module: any) => module.NotionRenderer), {
+//     ssr: false
+// })
+
 interface PostI {
     id: string;
     Excerpt: string;
@@ -53,11 +58,11 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
     const tags = tagsProp(post)
     const excerpt = excerptProp(post)
     const hostedImage = hostedImageProp(post)
-    
+
     return (
         <React.Fragment>
             <BlogPostHead
-                title={"Blog | " + title}
+                title={`Blog | ${title}`}
                 description={excerpt}
                 article={{
                     publishedTime: publishedDate,
@@ -68,7 +73,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                 <SideBarSharing>
                     <ShareBtn
                         body=""
-                        subject={"Check out this blog post I read, " + title}
+                        subject={`Check out this blog post I read, ${title}`}
                         text="Share by email"
                         textColor="white"
                         backgroundColor="black"
@@ -104,7 +109,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 height={500}
                                 width={1000}
                                 src={hostedImage}
-                                alt={"Alex Beciana | Blog | " + title}
+                                alt={`Alex Beciana | Blog | ${title}`}
                             />
                         </div>
                     </section>
@@ -112,7 +117,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         <SideBarSharing>
                             <ShareBtn
                                 body=""
-                                subject={"Check out this blog post I read, " + title}
+                                subject={`Check out this blog post I read, ${title}`}
                                 text="Share by email"
                                 textColor="white"
                                 backgroundColor="black"
@@ -120,7 +125,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 addClass="hover:w-44"
                             />
                             <ShareBtn
-                                body={"Check out this blog post I read, " + title + ": https://alexbeciana.com/blog/" + slug}
+                                body={`Check out this blog post I read, ${title} : https://alexbeciana.com/blog/${slug}`}
                                 text="Share by SMS"
                                 textColor="white"
                                 backgroundColor="black"

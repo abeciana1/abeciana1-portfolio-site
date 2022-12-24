@@ -15,6 +15,11 @@ import { NotionRenderer, BlockMapType } from "react-notion";
 import ClientCard from '../../components/cards/ClientCard'
 import ProjectDetailsCard from '../../components/cards/ProjectDetailsCard'
 
+// import dynamic from 'next/dynamic'
+// const NotionRenderer = dynamic(() => import("react-notion").then((module: any) => module.NotionRenderer), {
+//     ssr: false
+// })
+
 const PortfolioProjectPage = ({ project, blocks }: any) => {
 
     const client = getClientInfo(project)

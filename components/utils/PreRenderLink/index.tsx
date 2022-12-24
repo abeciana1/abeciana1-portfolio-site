@@ -2,8 +2,6 @@ import Link from 'next/link'
 import cx from 'classnames'
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
 
-// todo add svg arrow to render on hover on button link - make conditional
-
 interface LinkI {
     href: string;
     className: string;

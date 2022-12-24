@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
 import { TagCard } from '../TagCard'
@@ -39,7 +39,7 @@ const ProjectCard = ({
                             src={logo}
                             width={350}
                             height={400}
-                            alt={"Alex Beciana - Portfolio - " + title}
+                            alt={`Alex Beciana - Portfolio - ${title}`}
                         />
                     </div>
                     <div

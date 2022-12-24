@@ -7,7 +7,7 @@ interface SkillCardI {
 const SkillCard = ({
     name,
     image
-}: SkillCardI) => {
+}: SkillCardI | any) => {
     return (
         <div
             className="text-center rounded-xl"

@@ -7,7 +7,6 @@ interface ClientI {
     bio: string;
     link: string;
     logo: string;
-    // addClass?: string;
 }
 
 const ClientCard = ({
@@ -15,7 +14,6 @@ const ClientCard = ({
     bio,
     link,
     logo,
-    // addClass = ""
 }: ClientI) => {
     
     return (
@@ -33,7 +31,7 @@ const ClientCard = ({
             </div>
             <div className="font-bold leading-8 whitespace-pre-line">
                 {name}
-                <span className="font-normal">{" | " + bio }</span>
+                <span className="font-normal">{` | ${bio}`}</span>
             </div>
             <div>
                 <a

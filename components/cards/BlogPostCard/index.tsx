@@ -49,7 +49,7 @@ const BlogPostCard = ({ post, active }: BlogPostCardI) => {
                             src={hostedImage}
                             width={1000}
                             height={500}
-                            alt={"Alex Beciana - " + title}
+                            alt={`Alex Beciana - ${title}`}
                         />
                     </div>
                     <Transition
@@ -65,7 +65,7 @@ const BlogPostCard = ({ post, active }: BlogPostCardI) => {
                             <div
                                 className="font-medium text-lg px-2 flex flex-wrap"
                             >
-                                {title + " — " + moment(new Date(publishedDate)).add(1, 'days').format("MMM Do YY")}
+                                {`${title} - ${moment(new Date(publishedDate)).add(1, 'days').format("MMM Do YY")}`}
                             </div>
                             <div
                                 className="flex flex-wrap px-1"

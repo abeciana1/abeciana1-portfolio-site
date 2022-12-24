@@ -16,7 +16,7 @@ const MyDocument = () => {
                 <link rel="preload" as="image" href="./behance-png.png" />
                 <link rel="preload stylesheet" as="font" href="./RerossQuadratic.otf" crossOrigin="anonymous" />
                 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" as="font" rel="stylesheet preload" crossOrigin="anonymous" />
-                {/* <Script
+                <Script
                     id="hs-script-loader"
                     src="//js.hs-scripts.com/21235958.js"
                     strategy="lazyOnload"
@@ -32,8 +32,8 @@ const MyDocument = () => {
                         })(window, document, "clarity", "script", "a78c5ntos1");
                         `
                     }}
-                /> */}
-                {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"></script>
+                />
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"></script>
                 <script dangerouslySetInnerHTML={{
                     __html: `
                         window.dataLayer = window.dataLayer || [];
@@ -42,8 +42,8 @@ const MyDocument = () => {
 
                         gtag('config', 'G-Y7HNS80HJT');
                             `
-                        }}></script> */}
-                {/* <Script
+                        }}></script>
+                <Script
                     strategy="afterInteractive"
                     src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"
                 />
@@ -58,7 +58,7 @@ const MyDocument = () => {
                             gtag('config', 'G-Y7HNS80HJT');
                         `
                     }}
-                /> */}
+                />
             </Head>
             <body>
                 <Main />

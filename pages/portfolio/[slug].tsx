@@ -14,6 +14,7 @@ import {
 import { NotionRenderer, BlockMapType } from "react-notion";
 import ClientCard from '../../components/cards/ClientCard'
 import ProjectDetailsCard from '../../components/cards/ProjectDetailsCard'
+import "prismjs/themes/prism-tomorrow.css";
 
 // import dynamic from 'next/dynamic'
 // const NotionRenderer = dynamic(() => import("react-notion").then((module: any) => module.NotionRenderer), {

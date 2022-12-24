@@ -22,6 +22,7 @@ const MyDocument = () => {
                     strategy="lazyOnload"
                 />
                 <Script
+                    id="msft clarity"
                     strategy="afterInteractive"
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -44,10 +45,12 @@ const MyDocument = () => {
                             `
                         }}></script>
                 <Script
+                    id="gtm"
                     strategy="afterInteractive"
                     src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"
                 />
                 <Script
+                    id="google analytics"
                     strategy="afterInteractive"
                     dangerouslySetInnerHTML={{
                         __html: `

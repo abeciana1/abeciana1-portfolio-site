@@ -1,12 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
+// import cx from 'classnames'
 
 interface ClientI {
     name: string;
     bio: string;
     link: string;
     logo: string;
-    addClass?: string;
+    // addClass?: string;
 }
 
 const ClientCard = ({
@@ -14,7 +15,7 @@ const ClientCard = ({
     bio,
     link,
     logo,
-    addClass = ""
+    // addClass = ""
 }: ClientI) => {
     
     return (

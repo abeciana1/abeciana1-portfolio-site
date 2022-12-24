@@ -2,7 +2,6 @@ import React from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { getDatabase } from '../../lib/helper-functions'
 import { PageMargin } from '../../components/layouts'
-import { TagCard } from '../../components/cards/TagCard'
 import {
     getProjectSlug,
     getClientInfo,
@@ -14,16 +13,18 @@ import {
 } from '../../lib/notion-proj-props'
 import { NotionRenderer, BlockMapType } from "react-notion";
 import ClientCard from '../../components/cards/ClientCard'
+import ProjectDetailsCard from '../../components/cards/ProjectDetailsCard'
 
 const PortfolioProjectPage = ({ project, blocks }: any) => {
 
-    const slug = getProjectSlug(project)
     const client = getClientInfo(project)
     const title = getProjectTitle(project)
     const status = getProjectStatus(project)
     const clientType = getClientType(project)
     const projectTools = getProjectTools(project)
     const workAreas = getProjectWorkAreas(project)
+
+    console.log(status);
 
     const {
         name,

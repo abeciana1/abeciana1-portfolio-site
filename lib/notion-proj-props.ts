@@ -13,6 +13,7 @@ export const getProjectTitle = (project: any | undefined) => {
 
 export const getProjectStatus = (project: any | undefined) => {
     return {
+        id: project.status.multi_select[0].id,
         color: project.status.multi_select[0].color,
         name: project.status.multi_select[0].name
     }
@@ -23,7 +24,9 @@ export const getProjectTools = (project: any | undefined) => {
 }
 
 export const getClientType = (project: any | undefined) => {
+        console.log(project)
     return {
+        id: project.type.select.id,
         color: project.type.select.color,
         name: project.type.select.name
     }

@@ -52,7 +52,7 @@ const EduCard = ({
                 <ReactMarkdown
                     children={achievements}
                     components={{
-                        p({node, children, ...props }) {
+                        p({children }: any) {
                             return (
                                 <p>
                                     { children }

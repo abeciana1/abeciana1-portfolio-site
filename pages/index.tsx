@@ -118,7 +118,7 @@ export default function Home({ joke }: any) {
         <TwoColumnGrid addClass="mt-12 gap-12">
           <section>
             <h2 className="text-4xl">Always learning, always growing</h2>
-            <div className="leading-10 text-lg xl:text-xl xl:leading-loose">Here's what I&apos;m working on!</div>
+            <div className="leading-10 text-lg xl:text-xl xl:leading-loose">Here's what I'm working on!</div>
           </section>
           <section>
             <CodeMockup

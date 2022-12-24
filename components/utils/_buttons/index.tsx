@@ -152,6 +152,7 @@ export const ExpandBtnLink = ({
         <a
             href={href}
             target="_blank"
+            rel="noreferrer"
             className={cx('py-2 hover:pl-2 flex overflow-hidden expand-btn rounded-full items-center', {
                 ['text-white']: textColor === 'white',
                 ['text-altBlue']: textColor === 'altBlue',

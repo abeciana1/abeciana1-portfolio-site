@@ -37,6 +37,7 @@ const ClientCard = ({
                 <a
                     href={link}
                     target="_blank"
+                    rel="noreferrer"
                     className="text-altBlue underline underline-offset-4"
                 >
                     Company link

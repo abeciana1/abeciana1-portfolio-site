@@ -1,3 +1,4 @@
+import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
 interface EduCardI {
@@ -51,7 +52,7 @@ const EduCard = ({
                 <ReactMarkdown
                     children={achievements}
                     components={{
-                        p({ children }) {
+                        p({node, children, ...props }) {
                             return (
                                 <p>
                                     { children }

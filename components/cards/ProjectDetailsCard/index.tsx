@@ -53,6 +53,7 @@ const ProjectDetailsCard = ({
                         }: TagI) => {
                             return (
                                 <TagCard
+                                    key={id}
                                     id={id}
                                     color={color}
                                     name={name}
@@ -72,6 +73,7 @@ const ProjectDetailsCard = ({
                         }: TagI) => {
                             return (
                                 <TagCard
+                                    key={id}
                                     id={id}
                                     color={color}
                                     name={name}

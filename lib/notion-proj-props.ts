@@ -24,7 +24,6 @@ export const getProjectTools = (project: any | undefined) => {
 }
 
 export const getClientType = (project: any | undefined) => {
-        console.log(project)
     return {
         id: project.type.select.id,
         color: project.type.select.color,

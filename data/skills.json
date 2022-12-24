@@ -1,23 +1,23 @@
 [
     {
         "name": "Git",
-        "image": "./skills/git.png"
+        "image": "/skills/git.png"
     },
     {
         "name": "Ruby",
-        "image": "./skills/ruby.png" 
+        "image": "/skills/ruby.png" 
     },
     {
         "name": "Ruby on Rails",
-        "image": "./skills/ruby-on-rails.png"
+        "image": "/skills/ruby-on-rails.png"
     },
     {
         "name": "Ruby Gems",
-        "image": "./skills/ruby-gem.png"
+        "image": "/skills/ruby-gem.png"
     },
     {
         "name": "JavaScript",
-        "image": "./skills/javascript.png"
+        "image": "/skills/javascript.png"
     },
     {
         "name": "TypeScript",
@@ -25,102 +25,102 @@
     },
     {
         "name": "HTML5",
-        "image": "./skills/html-5.png"
+        "image": "/skills/html-5.png"
     },
     {
         "name": "CSS3",
-        "image": "./skills/css3.png"
+        "image": "/skills/css3.png"
     },
     {
         "name": "Tailwind CSS",
-        "image": "./skills/tailwind-css.png"
+        "image": "/skills/tailwind-css.png"
     },
     {
         "name": "ReactJS",
-        "image": "./skills/react.png"
+        "image": "/skills/react.png"
     },
     {
         "name": "Redux",
-        "image": "./skills/redux.png"
+        "image": "/skills/redux.png"
     },
     {
         "name": "NextJS",
-        "image": "./skills/next-js.svg"
+        "image": "/skills/next-js.svg"
     },
     {
         "name": "Gatsby",
-        "image": "./skills/gatsbyjs.png"
+        "image": "/skills/gatsbyjs.png"
     },
     {
         "name": "Twilio",
-        "image": "./skills/twilio-icon.png"
+        "image": "/skills/twilio-icon.png"
     },
     {
         "name": "GraphQL",
-        "image": "./skills/graphql.png"
+        "image": "/skills/graphql.png"
     },
     {
         "name": "hygraph (fmr. GraphCMS)",
-        "image": "./skills/graphcms.svg"
+        "image": "/skills/graphcms.svg"
     },
     {
         "name": "Heroku",
-        "image": "./skills/heroku.png"
+        "image": "/skills/heroku.png"
     },
     {
         "name": "Vercel",
-        "image": "./vercel.svg"
+        "image": "/vercel.svg"
     },
     {
         "name": "PostgreSQL",
-        "image": "./skills/postgresql.png"
+        "image": "/skills/postgresql.png"
     },
     {
         "name": "SQLite",
-        "image": "./skills/sqlite-icon.png"
+        "image": "/skills/sqlite-icon.png"
     },
     {
         "name": "Figma",
-        "image": "./skills/figma.png"
+        "image": "/skills/figma.png"
     },
     {
         "name": "Adobe Photoshop",
-        "image": "./skills/adobe-photoshop.png"
+        "image": "/skills/adobe-photoshop.png"
     },
     {
         "name": "Adobe Illustrator",
-        "image": "./skills/adobe-illustrator.png"
+        "image": "/skills/adobe-illustrator.png"
     },
     {
         "name": "Adobe InDesign",
-        "image": "./skills/adobe-indesign.png"
+        "image": "/skills/adobe-indesign.png"
     },
     {
         "name": "Adobe XD",
-        "image": "./skills/adobe-xd.png"
+        "image": "/skills/adobe-xd.png"
     },
     {
         "name": "Google Analytics",
-        "image": "./skills/google-analytics.png"
+        "image": "/skills/google-analytics.png"
     },
     {
         "name": "Google Cloud Platform APIs",
-        "image": "./skills/google-cloud-platform.png"
+        "image": "/skills/google-cloud-platform.png"
     },
     {
         "name": "HubSpot",
-        "image": "./skills/hubspot.png"
+        "image": "/skills/hubspot.png"
     },
     {
         "name": "JIRA",
-        "image": "./skills/jira.svg"
+        "image": "/skills/jira.svg"
     },
     {
         "name": "Prisma",
-        "image": "./skills/prisma.svg"
+        "image": "/skills/prisma.svg"
     },
     {
         "name": "Supabase",
-        "image": "./skills/supabase.png"
+        "image": "/skills/supabase.png"
     }
 ]

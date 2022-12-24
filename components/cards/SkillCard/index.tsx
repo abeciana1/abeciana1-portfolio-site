@@ -1,3 +1,4 @@
+import Image from 'next/image'
 
 interface SkillCardI {
     name: string;
@@ -12,10 +13,15 @@ const SkillCard = ({
         <div
             className="text-center rounded-xl"
         >
-            <img
+            <Image
+                width={50}
+                height={50}
                 src={image}
-                className="w-auto h-12 mx-auto"
+                alt={name}
+                className="mx-auto"
             />
+            {/* <div className="mx-auto text-center">
+            </div> */}
             <div
                 className="mt-2"
             >

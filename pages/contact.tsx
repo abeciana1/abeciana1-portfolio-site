@@ -1,6 +1,7 @@
 import React from 'react'
 import { PageMargin } from '../components/layouts'
 import ContactForm from '../components/utils/_forms/ContactForm'
+import Image from 'next/image'
 
 const Contact = () => {
 
@@ -20,15 +21,13 @@ const Contact = () => {
                         className="grid grid-cols-1 md:grid-cols-2 gap-12 content-center mt-10"
                     >
                         <ContactForm />
-                            <div
-                                className="text-center"
-                            >
-                                <img 
-                                    src="/profile-callout-edited.png"
-                                    className="hidden md:inline"
-                                    alt="Alex Beciana (animated)"
-                                />
-                            </div>
+                        <Image 
+                            width={450}
+                            height={450}
+                            src="/profile-callout-edited.png"
+                            className="hidden md:inline mx-auto"
+                            alt="Alex Beciana (animated)"
+                        />
                     </section>
                 </section>
             </PageMargin>

@@ -17,11 +17,9 @@ const SkillCard = ({
                 width={50}
                 height={50}
                 src={image}
-                alt={name}
+                alt={`Alex Beciana | Skill - ${name}`}
                 className="mx-auto"
             />
-            {/* <div className="mx-auto text-center">
-            </div> */}
             <div
                 className="mt-2"
             >

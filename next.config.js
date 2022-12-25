@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+const withCss = require("@zeit/next-css");
+const withPurgeCss = require("next-purgecss");
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -12,7 +15,14 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-  }
+  },
 }
 
-module.exports = nextConfig
+module.exports =
+  nextConfig
+
+module.exports = withCss(
+  withPurgeCss({
+    purgeCssEnabled: ({ dev, isServer }) => !dev && !isServer, // Only enable PurgeCSS for client-side production builds
+  })
+);

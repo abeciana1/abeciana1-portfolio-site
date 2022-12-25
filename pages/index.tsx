@@ -5,13 +5,18 @@ import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Image from 'next/image'
 import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
-import SkillCard from '../components/cards/SkillCard'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 import { TwoColumnGrid } from '../components/layouts'
-import { GetInitialProps } from 'next'
+import { NextPageContext } from 'next'
 import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
+import dynamic from 'next/dynamic';
+
+const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
+  ssr: false
+})
+
 
 interface SkillI {
   name: string;
@@ -177,7 +182,7 @@ export default function Home({ joke }: any) {
   )
 }
 
-export const getInitialProps: GetInitialProps = async () => {
+export const getInitialProps = async (ctx: NextPageContext) => {
 
   const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
   const jokes = await res.json()

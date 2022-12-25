@@ -3,7 +3,11 @@ import { GetServerSideProps } from 'next'
 import { CustomHead } from '../../components/utils/CustomHead'
 import { PageMargin } from '../../components/layouts'
 import { getDatabase } from '../../lib/helper-functions'
-import ProjectCard from '../../components/cards/ProjectCard'
+import dynamic from 'next/dynamic';
+
+const ProjectCard = dynamic(() => import('../../components/cards/ProjectCard'), {
+    ssr: false
+})
 
 const PortfolioPage = ({
     projects

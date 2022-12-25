@@ -3,7 +3,7 @@ import { BlogPageMargin } from '../../components/layouts'
 import { BlogPostHead } from '../../components/utils/CustomHead'
 import Image from 'next/image'
 import "prismjs/themes/prism-tomorrow.css";
-import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from 'next'
+import { GetStaticProps, GetStaticPaths } from 'next'
 import SideBarSharing from '../../components/utils/SideBarSharing'
 import { ShareBtn } from '../../components/utils/_buttons'
 import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";

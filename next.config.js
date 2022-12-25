@@ -1,6 +1,4 @@
 /** @type {import('next').NextConfig} */
-const withCss = require("@zeit/next-css");
-const withPurgeCss = require("next-purgecss");
 
 const nextConfig = {
   reactStrictMode: true,
@@ -20,9 +18,3 @@ const nextConfig = {
 
 module.exports =
   nextConfig
-
-// module.exports = withCss(
-//   withPurgeCss({
-//     purgeCssEnabled: ({ dev, isServer }) => !dev && !isServer, // Only enable PurgeCSS for client-side production builds
-//   })
-// );

@@ -25,7 +25,7 @@ interface SkillI {
     image: string;
 }
 
-const AboutPage = ({ joke, expData }: any) => {
+const AboutPage = ({ expData }: any) => {
 
     const {
         jobs,
@@ -147,9 +147,6 @@ const AboutPage = ({ joke, expData }: any) => {
 
 export const getStaticProps: GetStaticProps = async () => {
 
-    const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
-    const jokes = await res.json()
-
     const expClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
     
     const expQuery = gql`
@@ -182,7 +179,6 @@ export const getStaticProps: GetStaticProps = async () => {
 
     return {
         props: {
-        joke: jokes[0],
         expData: expData
         },
         revalidate: 5

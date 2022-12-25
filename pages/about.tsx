@@ -4,8 +4,6 @@ import { PageMargin } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Skills from '../data/skills.json'
 import { gql, GraphQLClient } from 'graphql-request'
-import JobCard from '../components/cards/JobCard'
-import EduCard from '../components/cards/EduCard'
 import { GetStaticProps } from 'next'
 import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
@@ -13,6 +11,12 @@ import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import dynamic from 'next/dynamic';
 
 const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
+    ssr: false
+})
+const JobCard = dynamic(() => import('../components/cards/JobCard'), {
+    ssr: false
+})
+const EduCard = dynamic(() => import('../components/cards/EduCard'), {
     ssr: false
 })
 

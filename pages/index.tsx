@@ -8,15 +8,10 @@ import Skills from '../data/skills.json'
 import SkillCard from '../components/cards/SkillCard'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 import { TwoColumnGrid } from '../components/layouts'
-import { GetServerSideProps } from 'next'
+import { GetInitialProps } from 'next'
 import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
-
-// import dynamic from 'next/dynamic'
-// const SkillCard = dynamic(() => import('../components/cards/SkillCard').then((module: any) => module), {
-//   ssr: false
-// })
 
 interface SkillI {
   name: string;
@@ -182,7 +177,7 @@ export default function Home({ joke }: any) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getInitialProps: GetInitialProps = async () => {
 
   const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
   const jokes = await res.json()

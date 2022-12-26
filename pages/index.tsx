@@ -14,7 +14,7 @@ import dynamic from 'next/dynamic';
 import useResponsiveness from '../lib/useResponsiveness'
 import profilePic from '../public/profile-pic.webp'
 import profileCallout from '../public/profile-callout-edited.webp'
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 
 const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
   ssr: false
@@ -196,7 +196,7 @@ export default function Home({ joke }: any) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
 
   const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
   const jokes = await res.json()

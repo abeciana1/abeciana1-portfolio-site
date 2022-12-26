@@ -49,7 +49,7 @@ export default function Home({ joke }: any) {
             src={profilePic}
             // width={150}
             // height={150}
-            // priority
+            priority
             className="profile-pic-simple"
             alt="Alex Beciana"
           />

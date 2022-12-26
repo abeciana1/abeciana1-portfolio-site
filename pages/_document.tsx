@@ -11,7 +11,7 @@ const MyDocument = () => {
                 <link rel="preload" as="image" href="/profile-callout-edited.webp" />
                 <link rel="preload" as="image" href="/profile-pic.webp" />
                 {/* <meta name="description" content="Full stack software engineer with two years of experience with an entrepreneurial spirit. Previous experience with five years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps." /> */}
-                <link rel="preload stylesheet" as="font" href="/RerossQuadratic.otf" crossOrigin="anonymous" />
+                {/* <link rel="preload stylesheet" as="font" href="/RerossQuadratic.otf" crossOrigin="anonymous" /> */}
                 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" as="font" rel="stylesheet preload" crossOrigin="anonymous" />
                 <Script
                     id="hs-script-loader"

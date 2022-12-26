@@ -48,7 +48,7 @@ const AboutPage = ({ expData }: any) => {
                     reverseOrder={true}
                     gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
                 />
-                        <div className="flex flex-col pb-8 space-y-4 md:space-y-0 md:pt-4 lg:pt-0 md:flex-row md:space-x-4 relative">
+                        <div className="flex pb-8 space-x-4 md:space-y-0 pt-4 lg:pt-0 flex-row relative items-center">
                             <ExpandBtnLink
                                 icon={TiSocialLinkedin}
                                 text="LinkedIn"

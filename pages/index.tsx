@@ -11,7 +11,7 @@ import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import dynamic from 'next/dynamic';
-// import useResponsiveness from '../../'
+import useResponsiveness from '../lib/useResponsiveness'
 
 const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
   ssr: false
@@ -25,22 +25,35 @@ interface SkillI {
 
 export default function Home({ joke }: any) {
 
+  const mediaQueryRender = useResponsiveness()
+
+  const {
+      isMobile,
+      isTablet,
+      // isDesktop,
+  } = mediaQueryRender || {}
+
+  // const showDesktopNav = isDesktop
+  const showMobileNav = (isMobile || isTablet)
+
   return (
     <React.Fragment>
       <CustomHead
         description='Full stack software engineer with two years of experience with an entrepreneurial spirit.'
       />
       <PageMargin>
-      <div className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl">
-        <Image 
-          src="/profile-pic.webp"
-          width={150}
-          height={150}
-          priority
-          className="profile-pic-simple"
-          alt="Alex Beciana"
-        />
-      </div>
+      {showMobileNav && 
+        <div className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl">
+          <Image 
+            src="/profile-pic.webp"
+            width={150}
+            height={150}
+            priority
+            className="profile-pic-simple"
+            alt="Alex Beciana"
+          />
+        </div>
+      }
         <HeroSectionWithLinkGradientBG
           heading="Hi I'm Alex Beciana"
           taglineBody="Full stack software engineer with two years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."

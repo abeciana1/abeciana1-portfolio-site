@@ -24,7 +24,7 @@ const Contact = () => {
                         <Image 
                             width={450}
                             height={450}
-                            src="/profile-callout-edited.png"
+                            src="/profile-callout-edited.webp"
                             className="hidden md:inline mx-auto"
                             alt="Alex Beciana (animated)"
                         />

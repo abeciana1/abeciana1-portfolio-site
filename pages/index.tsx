@@ -30,10 +30,8 @@ export default function Home({ joke }: any) {
   const {
       isMobile,
       isTablet,
-      // isDesktop,
   } = mediaQueryRender || {}
 
-  // const showDesktopNav = isDesktop
   const showMobileNav = (isMobile || isTablet)
 
   return (

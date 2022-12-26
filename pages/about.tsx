@@ -9,6 +9,7 @@ import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import dynamic from 'next/dynamic';
+import useResponsiveness from '../lib/useResponsiveness'
 
 const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
     ssr: false
@@ -31,6 +32,15 @@ const AboutPage = ({ expData }: any) => {
         jobs,
         educations
     } = expData
+
+    const mediaQueryRender = useResponsiveness()
+
+    const {
+        isMobile,
+        isTablet,
+    } = mediaQueryRender || {}
+
+    const showMobileNav = (isMobile || isTablet)
 
     return (
         <React.Fragment>

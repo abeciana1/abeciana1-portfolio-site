@@ -32,7 +32,7 @@ export default function Home({ joke }: any) {
       <PageMargin>
       <div className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl">
         <Image 
-          src="/profile-pic.png"
+          src="/profile-pic.webp"
           width={150}
           height={150}
           priority
@@ -43,7 +43,7 @@ export default function Home({ joke }: any) {
         <HeroSectionWithLinkGradientBG
           heading="Hi I'm Alex Beciana"
           taglineBody="Full stack software engineer with two years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."
-          image="/profile-callout-edited.png"
+          image="/profile-callout-edited.webp"
           imageAlt="Alex Beciana (animated)"
           imageClassName="profile-callout"
           reverseOrder={true}

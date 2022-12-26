@@ -38,7 +38,7 @@ const JobCard = ({
                 <Image
                     width={200}
                     height={100}
-                    src={companyLogo || "/profile-pic.png"}
+                    src={companyLogo || "/profile-pic.webp"}
                     alt={`${companyName} logo`}
                     className="mx-auto"
                 />

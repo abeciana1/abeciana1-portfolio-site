@@ -1,5 +1,5 @@
 import React from 'react'
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { CustomHead } from '../../components/utils/CustomHead'
 import { PageMargin } from '../../components/layouts'
 import { getDatabase } from '../../lib/helper-functions'
@@ -37,7 +37,7 @@ const PortfolioPage = ({
     )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
 
     const response = await getDatabase(process.env.NOTION_PORTFOLIO_DATABASE_ID)
 

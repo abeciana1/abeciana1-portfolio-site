@@ -6,8 +6,6 @@ import Head from 'next/head'
 import NavBar from '../components/utils/_nav/NavBar'
 import { StrictMode } from "react";
 
-
-
 // todo Add back to top button blog post article page
 // todo Add liking / claps feature
 // todo Add section for personal updates from me

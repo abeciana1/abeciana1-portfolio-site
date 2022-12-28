@@ -1,11 +1,11 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import cx from 'classnames'
 import { PreRenderLinkAsBtn } from '../utils/PreRenderLink'
 
 interface HeroSectionI {
     heading: string;
     taglineBody: string;
-    image: string;
+    image: string | StaticImageData;
     imageAlt: string;
     cta?: string;
     ctaHref?: string;
@@ -51,9 +51,9 @@ export const HeroSectionWithLink = ({
             <section className="self-center justify-self-start lg:justify-self-end">
                 <Image 
                     src={image}
-                    width={400}
-                    height={400}
-                    priority
+                    // width={400}
+                    // height={400}
+                    // priority
                     className={imageClassName}
                     alt={imageAlt}
                 />
@@ -65,7 +65,7 @@ export const HeroSectionWithLink = ({
 interface HeroGradientI {
     heading: string;
     taglineBody: string;
-    image: string;
+    image: string | StaticImageData;
     imageAlt: string;
     cta?: string;
     ctaHref?: string;
@@ -120,7 +120,7 @@ export const HeroSectionWithLinkGradientBG = ({
                         src={image}
                         width={400}
                         height={400}
-                        priority
+                        // priority
                         className={imageClassName}
                         alt={imageAlt}
                     />

@@ -12,6 +12,9 @@ import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import dynamic from 'next/dynamic';
 import useResponsiveness from '../lib/useResponsiveness'
+import profilePic from '../public/profile-pic.webp'
+import profileCallout from '../public/profile-callout-edited.webp'
+import { GetStaticProps } from 'next'
 
 const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
   ssr: false
@@ -43,9 +46,9 @@ export default function Home({ joke }: any) {
       {showMobileNav && 
         <div className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl">
           <Image 
-            src="/profile-pic.webp"
-            width={150}
-            height={150}
+            src={profilePic}
+            // width={150}
+            // height={150}
             priority
             className="profile-pic-simple"
             alt="Alex Beciana"
@@ -55,7 +58,7 @@ export default function Home({ joke }: any) {
         <HeroSectionWithLinkGradientBG
           heading="Hi I'm Alex Beciana"
           taglineBody="Full stack software engineer with two years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."
-          image="/profile-callout-edited.webp"
+          image={profileCallout} //"/profile-callout-edited.webp"
           imageAlt="Alex Beciana (animated)"
           imageClassName="profile-callout"
           reverseOrder={true}
@@ -193,7 +196,7 @@ export default function Home({ joke }: any) {
   )
 }
 
-export const getInitialProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
 
   const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
   const jokes = await res.json()

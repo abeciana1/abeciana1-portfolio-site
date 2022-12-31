@@ -31,16 +31,6 @@ const MyDocument = () => {
                         `
                     }
                 </Script>
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"></script>
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-
-                        gtag('config', 'G-Y7HNS80HJT');
-                            `
-                        }}></script>
                 <Script
                     id="google-tag-manager"
                     strategy="afterInteractive"

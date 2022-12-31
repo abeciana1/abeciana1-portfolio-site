@@ -44,7 +44,8 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
         props: {
             projects: response
-        }
+        },
+        revalidate: 600
     }
 }
 

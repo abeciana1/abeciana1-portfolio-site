@@ -98,6 +98,6 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
             project: project.properties,
             blocks
         },
-        revalidate: 5
+        revalidate: 600
     }
 }

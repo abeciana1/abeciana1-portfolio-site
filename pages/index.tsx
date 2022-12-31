@@ -204,6 +204,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       joke: jokes[0],
-    }
+    },
+    revalidate: 600
   }
 }

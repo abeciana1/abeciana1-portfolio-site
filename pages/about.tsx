@@ -192,7 +192,7 @@ export const getStaticProps: GetStaticProps = async () => {
         props: {
         expData: expData
         },
-        revalidate: 5
+        revalidate: 600
     }
 }
 

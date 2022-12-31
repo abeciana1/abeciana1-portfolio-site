@@ -12,7 +12,7 @@ const MyDocument = () => {
                 <link rel="preload" as="image" href="/profile-pic.webp" />
                 <Script
                     id="hs-script-loader"
-                    src="//js.hs-scripts.com/21235958.js"
+                    src="//js.hs-scripts.com/23677902.js"
                     strategy="lazyOnload"
                 />
                 <Script

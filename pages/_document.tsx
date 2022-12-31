@@ -30,7 +30,8 @@ const MyDocument = () => {
                 </Script>
                 <Script
                     id="google-tag-manager"
-                    strategy="afterInteractive"
+                    // strategy="afterInteractive"
+                    strategy="lazyOnload"
                     src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"
                 />
                 <Script

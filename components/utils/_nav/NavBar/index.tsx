@@ -51,6 +51,7 @@ const NavBar = () => {
                             rounded
                             color="#292F36"
                             easing="ease-in"
+                            label="menu"
                         />
                     }
                 </div>

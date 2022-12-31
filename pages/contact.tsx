@@ -13,9 +13,9 @@ const Contact = () => {
                     className="pb-16 flex flex-col justify-items-center item-stretch"
                 >
                     <h1
-                        className="text-5xl font-reross text-altYellow leading-relaxed"
+                        className="text-5xl leading-relaxed"
                     >
-                        contact
+                        Contact
                     </h1>
                     <section
                         className="grid grid-cols-1 md:grid-cols-2 gap-12 content-center mt-10"

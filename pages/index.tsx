@@ -175,8 +175,8 @@ export default function Home({ joke }: any) {
         >
             <h2
                 id="skills"
-                className="text-4xl font-reross text-altYellow leading-relaxed"
-            >skills</h2>
+                className="text-4xl leading-relaxed"
+            >Skills</h2>
             <section
                 className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-10"
             >

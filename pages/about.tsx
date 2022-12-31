@@ -93,8 +93,8 @@ const AboutPage = ({ expData }: any) => {
                 >
                     <h2
                         id="skills"
-                        className="text-4xl font-reross text-altYellow leading-relaxed"
-                    >skills</h2>
+                        className="text-4xl leading-relaxed"
+                    >Skills</h2>
                     <section
                         className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-10"
                     >
@@ -112,8 +112,8 @@ const AboutPage = ({ expData }: any) => {
                 <section className="mt-12">
                     <h2
                         id="experience"
-                        className="text-4xl font-reross text-altYellow leading-relaxed"
-                    >experience</h2>
+                        className="text-4xl leading-relaxed"
+                    >Experience</h2>
                     {jobs?.map((job: any) => {
                     return (
                         <JobCard
@@ -136,8 +136,8 @@ const AboutPage = ({ expData }: any) => {
                     className="mt-12"
                 >
                     <h2
-                        className="text-4xl font-reross text-altYellow leading-relaxed"
-                    >education</h2>
+                        className="text-4xl leading-relaxed"
+                    >Education</h2>
                     {educations?.map((school: any) => {
                         return (
                         <EduCard

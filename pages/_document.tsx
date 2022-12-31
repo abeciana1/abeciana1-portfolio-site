@@ -38,7 +38,8 @@ const MyDocument = () => {
                 />
                 <Script
                     id="google-analytics"
-                    strategy="afterInteractive"
+                    // strategy="afterInteractive"
+                    strategy="lazyOnload"
                 >
                     {`
                             window.dataLayer = window.dataLayer || [];

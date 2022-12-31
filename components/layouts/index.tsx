@@ -1,15 +1,30 @@
 import React from 'react'
 import cx from 'classnames'
+import useResponsiveness from '../../lib/useResponsiveness'
 
 interface LayoutI {
     children: React.ReactNode;
     addClass?: string;
 }
 
+
 export const PageMargin = ({ children }: LayoutI) => {
+    const mediaQueryRender = useResponsiveness()
+    
+    const {
+        isMobile,
+        isTablet,
+        isDesktop,
+    } = mediaQueryRender || {}
+    
+    const showDesktop = isDesktop
+    const showMobile = (isMobile || isTablet)
 
     return (
-        <section className="px-5 md:px-10 py-4 mx-auto page-margin">
+        <section className={cx('py-4 mx-auto page-margin', {
+            ['px-10']: showDesktop,
+            ['px-5']: showMobile
+        })}>
             {children}
         </section>
     )
@@ -26,9 +41,20 @@ export const TwoColumnGrid = ({ children, addClass = "" }: LayoutI) => {
 }
 
 export const BlogPageMargin = ({ children }: LayoutI) => {
+    const mediaQueryRender = useResponsiveness()
+    
+    const {
+        isMobile,
+        isTablet,
+        isDesktop,
+    } = mediaQueryRender || {}
 
     return (
-        <section className="px-5 md:px-10 py-4 mx-auto lg:mx-20 page-margin">
+        <section className={cx("py-4 mx-auto page-margin", {
+            ['px-5']: isMobile,
+            ['px-10']: isTablet,
+            ['px-20']: isDesktop
+        })}>
             {children}
         </section>
     )

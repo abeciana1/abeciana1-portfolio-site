@@ -17,6 +17,7 @@ import {
     excerptProp,
     hostedImageProp
 } from '../../lib/notion-blog-props'
+// import { NotionRenderer } from 'react-notion-x'
 import { NotionRenderer, BlockMapType } from "react-notion";
 
 interface PostI {

@@ -11,11 +11,6 @@ const MyDocument = () => {
                 <link rel="preload" as="image" href="/profile-callout-edited.webp" />
                 <link rel="preload" as="image" href="/profile-pic.webp" />
                 <Script
-                    id="hs-script-loader"
-                    src="//js.hs-scripts.com/23677902.js"
-                    strategy="lazyOnload"
-                />
-                <Script
                     id="msft-clarity"
                     strategy="afterInteractive"
                 >

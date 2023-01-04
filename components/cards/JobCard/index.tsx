@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown'
-import moment from 'moment'
 import Image from 'next/image'
+import { format, add } from 'date-fns'
 
 interface JobCardI {
     id: number;
@@ -64,7 +64,7 @@ const JobCard = ({
                 <div
                     className="text-xl"
                 >
-                    {moment(startDate).format("MMM YYYY")} — {endDate === "2023-01-01" ? "Present" : moment(endDate).format("MMM YYYY")}
+                    {format(new Date(startDate), "MMM yyyy")} — {endDate === "2023-01-01" ? "Present" : format(new Date(endDate), "MMM yyyy")}
                 </div>
                 {companyWebsite && (
                     <a

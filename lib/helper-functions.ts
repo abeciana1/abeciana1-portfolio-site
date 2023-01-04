@@ -1,5 +1,5 @@
-import moment from 'moment'
 const { Client } = require("@notionhq/client")
+import { format } from 'date-fns'
 
 export const copyToClipboard = (text: string) => {
     if (navigator) {
@@ -8,7 +8,7 @@ export const copyToClipboard = (text: string) => {
 }
 
 export const dateFormatter = (date: string) => {
-    return moment(date).format("MMM Do YYYY")
+    return format(new Date(date), "MMM do yyyy")
 }
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });

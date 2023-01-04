@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link'
-import moment from 'moment';
+import { format, add } from 'date-fns'
 import Image from 'next/image'
 import { Transition } from '@headlessui/react'
 import { TagCard, TagI } from '../TagCard'
@@ -65,7 +65,7 @@ const BlogPostCard = ({ post, active }: BlogPostCardI) => {
                             <div
                                 className="font-medium text-lg px-2 flex flex-wrap"
                             >
-                                {`${title} - ${moment(new Date(publishedDate)).add(1, 'days').format("MMM Do YY")}`}
+                                {`${title} - ${format(add(new Date(publishedDate), {days: 1}), "MMM do yy")}`}
                             </div>
                             <div
                                 className="flex flex-wrap px-1"

@@ -30,14 +30,14 @@ const MyDocument = () => {
                 </Script>
                 <Script
                     id="google-tag-manager"
-                    // strategy="afterInteractive"
-                    strategy="lazyOnload"
+                    strategy="afterInteractive"
+                    // strategy="lazyOnload"
                     src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"
                 />
                 <Script
                     id="google-analytics"
-                    // strategy="afterInteractive"
-                    strategy="lazyOnload"
+                    strategy="afterInteractive"
+                    // strategy="lazyOnload"
                 >
                     {`
                             window.dataLayer = window.dataLayer || [];

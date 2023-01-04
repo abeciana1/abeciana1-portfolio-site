@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
-const nextConfig = {
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
+const nextConfig = withBundleAnalyzer({
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -13,8 +18,8 @@ const nextConfig = {
     ],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-  },
-}
+  }
+})
 
 module.exports =
   nextConfig

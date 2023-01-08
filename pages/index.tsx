@@ -163,7 +163,8 @@ export default function Home({ joke }: any) {
                 className="text-4xl leading-relaxed"
             >Skills</h2>
             <section
-            className={cx("grid grid-cols-3 gap-10", {
+            className={cx("grid gap-10", {
+                  ['grid-cols-3']: isMobile,
                   ['grid-cols-5']: isTablet,
                   ['grid-cols-7']: isDesktop
                 })}

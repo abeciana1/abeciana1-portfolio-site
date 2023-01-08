@@ -21,8 +21,8 @@ export const PageMargin = ({ children }: LayoutI) => {
     const showMobile = (isMobile || isTablet)
 
     return (
-        <section className={cx('py-4 mx-auto page-margin', {
-            ['px-10']: showDesktop,
+        <section className={cx('py-4 mx-auto', {
+            ['px-10 page-margin']: showDesktop,
             ['px-5']: showMobile
         })}>
             {children}

@@ -12,6 +12,8 @@ import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import dynamic from 'next/dynamic';
 import profileCallout from '../public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
+import useResponsiveness from '../lib/useResponsiveness'
+import cx from 'classnames'
 
 const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
   ssr: false
@@ -24,6 +26,13 @@ interface SkillI {
 }
 
 export default function Home({ joke }: any) {
+  const mediaQueryRender = useResponsiveness()
+  
+  const {
+      isMobile,
+      isTablet,
+      isDesktop,
+  } = mediaQueryRender || {}
 
   return (
     <React.Fragment>
@@ -154,7 +163,10 @@ export default function Home({ joke }: any) {
                 className="text-4xl leading-relaxed"
             >Skills</h2>
             <section
-                className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-10"
+            className={cx("grid grid-cols-3 gap-10", {
+                  ['grid-cols-5']: isTablet,
+                  ['grid-cols-7']: isDesktop
+                })}
             >
               {Skills.map(({name, image}: SkillI, index:number) => {
                   return (

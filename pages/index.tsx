@@ -2,7 +2,6 @@ import React from 'react'
 import { CustomHead } from '../components/utils/CustomHead'
 import { PageMargin } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
-import Image from 'next/image'
 import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
@@ -11,8 +10,6 @@ import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import dynamic from 'next/dynamic';
-import useResponsiveness from '../lib/useResponsiveness'
-import profilePic from '../public/profile-pic.webp'
 import profileCallout from '../public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
 
@@ -28,33 +25,12 @@ interface SkillI {
 
 export default function Home({ joke }: any) {
 
-  const mediaQueryRender = useResponsiveness()
-
-  const {
-      isMobile,
-      isTablet,
-  } = mediaQueryRender || {}
-
-  const showMobileNav = (isMobile || isTablet)
-
   return (
     <React.Fragment>
       <CustomHead
         description='Full stack software engineer with two years of experience with an entrepreneurial spirit.'
       />
       <PageMargin>
-      {showMobileNav && 
-        <div className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl">
-          <Image 
-            src={profilePic}
-            // width={150}
-            // height={150}
-            priority
-            className="profile-pic-simple"
-            alt="Alex Beciana"
-          />
-        </div>
-      }
         <HeroSectionWithLinkGradientBG
           heading="Hi I'm Alex Beciana"
           taglineBody="Full stack software engineer with two years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."

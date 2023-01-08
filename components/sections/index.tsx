@@ -1,6 +1,8 @@
 import Image, { StaticImageData } from 'next/image'
 import cx from 'classnames'
 import { PreRenderLinkAsBtn } from '../utils/PreRenderLink'
+import useResponsiveness from '../../lib/useResponsiveness'
+import profilePic from '../public/profile-pic.webp'
 
 interface HeroSectionI {
     heading: string;
@@ -90,6 +92,17 @@ export const HeroSectionWithLinkGradientBG = ({
     gradientClass
 }: HeroGradientI) => {
 
+    const mediaQueryRender = useResponsiveness()
+
+    const {
+        isMobile,
+        isTablet,
+        isDesktop,
+    } = mediaQueryRender || {}
+
+    const desktop = (isDesktop || isTablet)
+    const mobile = isMobile
+
     return (
         <>
             <section className="flex justify-center">
@@ -115,16 +128,28 @@ export const HeroSectionWithLinkGradientBG = ({
                         />
                     }
                 </section>
-                <section className="z-50 self-center justify-self-start lg:justify-self-end">
-                    <Image 
-                        src={image}
-                        width={400}
-                        height={400}
-                        priority
-                        className={imageClassName}
-                        alt={imageAlt}
-                    />
-                </section>
+                    {desktop &&
+                        <section className="z-50 self-center justify-self-start lg:justify-self-end">
+                            <Image 
+                                src={image}
+                                width={400}
+                                height={400}
+                                priority
+                                className={imageClassName}
+                                alt={imageAlt}
+                            />
+                        </section>
+                    }
+                    {mobile &&
+                        <section className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl">
+                            <Image 
+                                src={profilePic}
+                                priority
+                                className="profile-pic-simple"
+                                alt="Alex Beciana"
+                            />
+                        </section>
+                    }
             </section>
         </>
     )

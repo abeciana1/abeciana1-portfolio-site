@@ -2,7 +2,7 @@ import Image, { StaticImageData } from 'next/image'
 import cx from 'classnames'
 import { PreRenderLinkAsBtn } from '../utils/PreRenderLink'
 import useResponsiveness from '../../lib/useResponsiveness'
-import profilePic from '../public/profile-pic.webp'
+import profilePic from '../../public/profile-pic.webp'
 
 interface HeroSectionI {
     heading: string;
@@ -101,7 +101,7 @@ export const HeroSectionWithLinkGradientBG = ({
     } = mediaQueryRender || {}
 
     const desktop = (isDesktop || isTablet)
-    const mobile = isMobile
+    const mobile = (isMobile || isTablet)
 
     return (
         <>
@@ -111,6 +111,18 @@ export const HeroSectionWithLinkGradientBG = ({
                 })}>
                 </div>
             </section>
+            {mobile &&
+                <section className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl">
+                    <Image 
+                        src={profilePic}
+                        width={500}
+                        height={500}
+                        priority
+                        className="profile-pic-simple"
+                        alt="Alex Beciana"
+                    />
+                </section>
+            }
             <section
                 className={cx("lg:pt-8 flex flex-col lg:grid lg:grid-cols-2 gap-20 justify-items-center item-stretch", {
                     ["flex-col-reverse"]: reverseOrder
@@ -137,16 +149,6 @@ export const HeroSectionWithLinkGradientBG = ({
                                 priority
                                 className={imageClassName}
                                 alt={imageAlt}
-                            />
-                        </section>
-                    }
-                    {mobile &&
-                        <section className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl">
-                            <Image 
-                                src={profilePic}
-                                priority
-                                className="profile-pic-simple"
-                                alt="Alex Beciana"
                             />
                         </section>
                     }

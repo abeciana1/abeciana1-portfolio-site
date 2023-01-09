@@ -107,6 +107,7 @@ a {
 
 .page-margin{
   max-width: 1440px;
+  height: auto;
 }
 
 .profile-pic-simple {

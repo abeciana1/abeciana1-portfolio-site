@@ -57,7 +57,8 @@ const NavBar = () => {
                 </div>
                 {showDesktopNav &&
                     <ul className="self-center ml-60 flex justify-end">
-                        <li>
+                        <li
+                        >
                             <PreRenderLink
                                 alt="About page"
                                 className="text-3xl mr-5 font-reross cursor-pointer anim-text"
@@ -81,14 +82,6 @@ const NavBar = () => {
                                 linkText="blog"
                             />
                         </li>
-                        {/* <li>
-                            <PreRenderLink
-                                alt="Reviews page"
-                                className="text-3xl mr-5 font-reross cursor-pointer anim-text"
-                                href="/reviews"
-                                linkText="reviews"
-                            />
-                        </li> */}
                         <li>
                             <PreRenderLink
                                 alt="Contact page"
@@ -101,7 +94,9 @@ const NavBar = () => {
                 }
                 {showMobileNav && isOpen &&
                     <ul className="ml-6 flex flex-col gap-y-8 absolute left-0 top-20 md:px-5">
-                        <li>
+                        <li
+                            onClick={() => setOpen(false)}
+                        >
                             <PreRenderLink
                                 alt="About page"
                                 className="text-3xl font-reross cursor-pointer anim-text"
@@ -109,7 +104,9 @@ const NavBar = () => {
                                 href="/about"
                             />
                         </li>
-                        <li>
+                        <li
+                            onClick={() => setOpen(false)}
+                        >
                             <PreRenderLink
                                 alt="Portfolio page"
                                 className="text-3xl font-reross cursor-pointer anim-text"
@@ -117,7 +114,9 @@ const NavBar = () => {
                                 href="/portfolio"
                             />
                         </li>
-                        <li>
+                        <li
+                            onClick={() => setOpen(false)}
+                        >
                             <PreRenderLink
                                 alt="Blog page"
                                 className="text-3xl font-reross cursor-pointer anim-text"
@@ -125,15 +124,9 @@ const NavBar = () => {
                                 linkText="blog"
                             />
                         </li>
-                        {/* <li>
-                            <PreRenderLink
-                                alt="Reviews page"
-                                className="text-3xl font-reross cursor-pointer anim-text"
-                                href="/reviews"
-                                linkText="reviews"
-                            />
-                        </li> */}
-                        <li>
+                        <li
+                            onClick={() => setOpen(false)}
+                        >
                             <PreRenderLink
                                 alt="Contact page"
                                 className="text-3xl font-reross cursor-pointer anim-text"

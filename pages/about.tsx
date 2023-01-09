@@ -1,5 +1,4 @@
-// import React from 'react'
-import React, { Suspense } from 'react'
+import React from 'react'
 import { lazily } from 'react-lazily'
 import { CustomHead } from '../components/utils/CustomHead'
 import { PageMargin, SkillCardGrid } from '../components/layouts'
@@ -10,7 +9,6 @@ import { GetStaticProps } from 'next'
 import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
-// import dynamic from 'next/dynamic';
 import profileCallout from '../public/profile-callout-edited.webp'
 
 const {SkillCard} = lazily(() => import('../components/cards/SkillCard'))

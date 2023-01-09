@@ -5,7 +5,7 @@ interface SkillCardI {
     image: string;
 }
 
-const SkillCard = ({
+export const SkillCard = ({
     name,
     image
 }: SkillCardI | any) => {
@@ -29,4 +29,4 @@ const SkillCard = ({
     )
 }
 
-export default SkillCard
+// export default SkillCard

@@ -12,7 +12,7 @@ import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import profileCallout from '../public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
 
-const SkillCard = lazily(() => import('../components/cards/SkillCard'))
+const {SkillCard} = lazily(() => import('../components/cards/SkillCard'))
 const { CodeMockup, CodeMockupLine } = lazily(() => import('../components/utils/CodeMockup'))
 
 interface SkillI {
@@ -154,8 +154,8 @@ export default function Home({ joke }: any) {
                   className="text-4xl leading-relaxed"
               >Skills</h2>
               <SkillCardGrid>
-                {Skills.map(({name, image}: SkillI, index:number) => {
-                    return (
+              {Skills.map(({ name, image }: SkillI, index: number) => {
+                return (
                       <SkillCard
                         key={index + 1}
                         name={name}

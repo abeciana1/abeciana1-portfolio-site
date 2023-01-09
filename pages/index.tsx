@@ -1,19 +1,16 @@
 import React from 'react'
 import { CustomHead } from '../components/utils/CustomHead'
-import { PageMargin } from '../components/layouts'
+import { PageMargin, SkillCardGrid, TwoColumnGrid } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
-import { TwoColumnGrid } from '../components/layouts'
 import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import dynamic from 'next/dynamic';
 import profileCallout from '../public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
-import useResponsiveness from '../lib/useResponsiveness'
-import cx from 'classnames'
 
 const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
   ssr: false
@@ -26,13 +23,6 @@ interface SkillI {
 }
 
 export default function Home({ joke }: any) {
-  const mediaQueryRender = useResponsiveness()
-  
-  const {
-      isMobile,
-      isTablet,
-      isDesktop,
-  } = mediaQueryRender || {}
 
   return (
     <React.Fragment>
@@ -162,13 +152,7 @@ export default function Home({ joke }: any) {
                 id="skills"
                 className="text-4xl leading-relaxed"
             >Skills</h2>
-            <section
-            className={cx("grid gap-10", {
-                  ['grid-cols-3']: isMobile,
-                  ['grid-cols-5']: isTablet,
-                  ['grid-cols-7']: isDesktop
-                })}
-            >
+            <SkillCardGrid>
               {Skills.map(({name, image}: SkillI, index:number) => {
                   return (
                     <SkillCard
@@ -178,7 +162,7 @@ export default function Home({ joke }: any) {
                     />
                   )
               })}
-            </section>
+            </SkillCardGrid>
         </section>
       </PageMargin>
     </React.Fragment>

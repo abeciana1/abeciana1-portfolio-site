@@ -40,6 +40,19 @@ export const TwoColumnGrid = ({ children, addClass = "" }: LayoutI) => {
     )
 }
 
+export const SkillCardGrid = ({ children, addClass = "" }: LayoutI) => {
+    
+    return (
+        <section
+            className={cx("grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-10", {
+                [addClass]: addClass
+            })}
+        >
+            { children }
+        </section>
+    )
+}
+
 export const BlogPageMargin = ({ children }: LayoutI) => {
     const mediaQueryRender = useResponsiveness()
     

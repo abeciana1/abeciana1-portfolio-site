@@ -1,6 +1,6 @@
 import React from 'react'
 import { CustomHead } from '../components/utils/CustomHead'
-import { PageMargin } from '../components/layouts'
+import { PageMargin, SkillCardGrid } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Skills from '../data/skills.json'
 import { gql, GraphQLClient } from 'graphql-request'
@@ -9,7 +9,7 @@ import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import dynamic from 'next/dynamic';
-import useResponsiveness from '../lib/useResponsiveness'
+// import useResponsiveness from '../lib/useResponsiveness'
 import profileCallout from '../public/profile-callout-edited.webp'
 
 const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
@@ -33,15 +33,6 @@ const AboutPage = ({ expData }: any) => {
         jobs,
         educations
     } = expData
-
-    const mediaQueryRender = useResponsiveness()
-
-    const {
-        isMobile,
-        isTablet,
-    } = mediaQueryRender || {}
-
-    const showMobileNav = (isMobile || isTablet)
 
     return (
         <React.Fragment>
@@ -95,9 +86,7 @@ const AboutPage = ({ expData }: any) => {
                         id="skills"
                         className="text-4xl leading-relaxed"
                     >Skills</h2>
-                    <section
-                        className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-10"
-                    >
+                    <SkillCardGrid>
                     {Skills.map(({name, image}: SkillI, index:number) => {
                         return (
                             <SkillCard
@@ -107,7 +96,7 @@ const AboutPage = ({ expData }: any) => {
                             />
                         )
                     })}
-                    </section>
+                    </SkillCardGrid>
                 </section>
                 <section className="mt-12">
                     <h2

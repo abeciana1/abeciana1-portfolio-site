@@ -64,33 +64,35 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     publishedTime: publishedDate,
                     blogTags: tags
                 }}
-            />
-            {desktop && 
-                <SideBarSharing>
-                    <ShareBtn
-                        body=""
-                        subject={`Check out this blog post I read, ${title}`}
-                        text="Share by email"
-                        textColor="white"
-                        backgroundColor="black"
-                        icon={AiFillMail}
-                        addClass="hover:w-44"
-                    />
-                    <ShareBtn
-                        body=""
-                        text="Copy link"
-                        textColor="white"
-                        backgroundColor="black"
-                        icon={AiFillCopy}
-                        onClick={() => copyToClipboard(`https://alexbeciana.com/blog/${slug}`)}
-                        addClass="hover:w-32"
-                    />
-                </SideBarSharing>
-            }
+                />
             <BlogPageMargin>
+                {desktop &&
+                    <div className="relative">
+                        <SideBarSharing>
+                            <ShareBtn
+                                body=""
+                                subject={`Check out this blog post I read, ${title}`}
+                                text="Share by email"
+                                textColor="white"
+                                backgroundColor="black"
+                                icon={AiFillMail}
+                                addClass="hover:w-44"
+                            />
+                            <ShareBtn
+                                body=""
+                                text="Copy link"
+                                textColor="white"
+                                backgroundColor="black"
+                                icon={AiFillCopy}
+                                onClick={() => copyToClipboard(`https://alexbeciana.com/blog/${slug}`)}
+                                addClass="hover:w-32"
+                            />
+                        </SideBarSharing>
+                    </div>
+                }
                 <section
                     className="leading-8"
-                >
+                    >
                     <section>
                         <h1
                             className="text-4xl lg:text-5xl py-5"

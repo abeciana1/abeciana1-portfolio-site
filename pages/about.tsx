@@ -12,13 +12,13 @@ import dynamic from 'next/dynamic';
 import profileCallout from '../public/profile-callout-edited.webp'
 
 const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
-    ssr: true
+    ssr: false
 })
 const JobCard = dynamic(() => import('../components/cards/JobCard'), {
-    ssr: true
+    ssr: false
 })
 const EduCard = dynamic(() => import('../components/cards/EduCard'), {
-    ssr: true
+    ssr: false
 })
 
 interface SkillI {

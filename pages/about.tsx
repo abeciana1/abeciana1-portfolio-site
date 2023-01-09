@@ -9,17 +9,16 @@ import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import dynamic from 'next/dynamic';
-// import useResponsiveness from '../lib/useResponsiveness'
 import profileCallout from '../public/profile-callout-edited.webp'
 
 const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
-    ssr: false
+    ssr: true
 })
 const JobCard = dynamic(() => import('../components/cards/JobCard'), {
-    ssr: false
+    ssr: true
 })
 const EduCard = dynamic(() => import('../components/cards/EduCard'), {
-    ssr: false
+    ssr: true
 })
 
 interface SkillI {

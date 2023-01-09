@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+import React, { lazy, Suspense } from 'react'
 import { CustomHead } from '../components/utils/CustomHead'
 import { PageMargin, SkillCardGrid, TwoColumnGrid } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
@@ -142,25 +142,27 @@ export default function Home({ joke }: any) {
             </CodeMockup>
           </section>
         </TwoColumnGrid>
-        <section
-            className="mt-12"
-        >
-            <h2
-                id="skills"
-                className="text-4xl leading-relaxed"
-            >Skills</h2>
-            <SkillCardGrid>
-              {Skills.map(({name, image}: SkillI, index:number) => {
-                  return (
-                    <SkillCard
-                      key={index + 1}
-                      name={name}
-                      image={image}
-                    />
-                  )
-              })}
-            </SkillCardGrid>
-        </section>
+        <Suspense fallback={<div>isLoading...</div>}>
+          <section
+              className="mt-12"
+          >
+              <h2
+                  id="skills"
+                  className="text-4xl leading-relaxed"
+              >Skills</h2>
+              <SkillCardGrid>
+                {Skills.map(({name, image}: SkillI, index:number) => {
+                    return (
+                      <SkillCard
+                        key={index + 1}
+                        name={name}
+                        image={image}
+                      />
+                    )
+                })}
+              </SkillCardGrid>
+          </section>
+        </Suspense>
       </PageMargin>
     </React.Fragment>
   )

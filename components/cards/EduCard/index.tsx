@@ -48,7 +48,7 @@ const EduCard = ({
                         href={schoolWebsite}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-altBlue underline"
+                        className="text-blue-800 underline"
                     >
                         Website
                     </a>

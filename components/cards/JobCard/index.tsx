@@ -71,7 +71,7 @@ const JobCard = ({
                         href={companyWebsite}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-altBlue underline"
+                        className="text-blue-800 underline"
                     >
                         {companyName} - Website
                     </a>)}

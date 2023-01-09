@@ -15,10 +15,11 @@ import {
 
 interface BlogPostCardI {
     post: any;
+    imagePriority?: boolean;
     active: boolean;
 }
 
-const BlogPostCard = ({ post, active }: BlogPostCardI) => {
+const BlogPostCard = ({ post, active, imagePriority = false }: BlogPostCardI) => {
     const slug = slugProp(post)
     const title = titleProp(post)
     const publishedDate = publishedDateProp(post)
@@ -49,6 +50,7 @@ const BlogPostCard = ({ post, active }: BlogPostCardI) => {
                             src={hostedImage}
                             width={1000}
                             height={500}
+                            priority={imagePriority}
                             alt={`Alex Beciana - ${title}`}
                         />
                     </div>

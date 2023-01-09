@@ -81,30 +81,30 @@ export default function Home({ joke }: any) {
             showArrow={true}
           />
         </div>
-        <TwoColumnGrid addClass="mt-12 gap-12">
-          <section>
-            <h2 className="text-4xl">Dev Dad Jokes</h2>
-            <div className="leading-10 text-lg xl:text-xl xl:leading-loose">Short and sweet jokes that are so bad, yet so good.</div>
-          </section>
-          <section>
-            <CodeMockup
-              enableSection={true}
-              background="black"
-            >
-              <CodeMockupLine
-                prefix="$"
-                textColor="warning"
-                text={joke?.question}
-              />
-              <CodeMockupLine
-                prefix=">"
-                textColor="success"
-                text={joke?.punchline}
-              />
-            </CodeMockup>
-          </section>
-        </TwoColumnGrid>
         <Suspense fallback={<div>isLoading...</div>}>
+          <TwoColumnGrid addClass="mt-12 gap-12">
+            <section>
+              <h2 className="text-4xl">Dev Dad Jokes</h2>
+              <div className="leading-10 text-lg xl:text-xl xl:leading-loose">Short and sweet jokes that are so bad, yet so good.</div>
+            </section>
+            <section>
+              <CodeMockup
+                enableSection={true}
+                background="black"
+              >
+                <CodeMockupLine
+                  prefix="$"
+                  textColor="warning"
+                  text={joke?.question}
+                />
+                <CodeMockupLine
+                  prefix=">"
+                  textColor="success"
+                  text={joke?.punchline}
+                />
+              </CodeMockup>
+            </section>
+          </TwoColumnGrid>
           <TwoColumnGrid addClass="mt-12 gap-12">
             <section>
               <h2 className="text-4xl">Always learning, always growing</h2>

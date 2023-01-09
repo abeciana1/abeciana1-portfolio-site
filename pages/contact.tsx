@@ -2,7 +2,6 @@ import React from 'react'
 import { PageMargin } from '../components/layouts'
 import ContactForm from '../components/utils/_forms/ContactForm'
 import Image from 'next/image'
-// import Head from 'next/head'
 import Script from 'next/script'
 
 const Contact = () => {

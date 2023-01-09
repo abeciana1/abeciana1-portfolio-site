@@ -9,7 +9,7 @@ import { GetStaticProps } from 'next'
 import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import profileCallout from '../public/profile-callout-edited.webp'
 
 const SkillCard = lazy(() => import('../components/cards/SkillCard'))

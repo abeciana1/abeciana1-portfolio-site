@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { CustomHead } from '../components/utils/CustomHead'
 import { PageMargin, SkillCardGrid, TwoColumnGrid } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
@@ -8,14 +8,11 @@ import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import profileCallout from '../public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
 
-const SkillCard = dynamic(() => import('../components/cards/SkillCard'), {
-  ssr: false
-})
-
+const SkillCard = lazy(() => import('../components/cards/SkillCard'))
 
 interface SkillI {
   name: string;

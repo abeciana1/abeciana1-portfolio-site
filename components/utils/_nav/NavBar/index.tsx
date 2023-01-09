@@ -35,7 +35,7 @@ const NavBar = () => {
                 <div
                     className={cx({
                         ["flex justify-center self-center float-left items-stretch"]: showDesktopNav,
-                        ["block lg:hidden flex items-center justify-between"]: showMobileNav
+                        ["block flex items-center justify-between"]: showMobileNav
                     })}
                 >
                     <PreRenderLink

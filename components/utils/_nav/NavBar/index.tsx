@@ -57,8 +57,7 @@ const NavBar = () => {
                 </div>
                 {showDesktopNav &&
                     <ul className="self-center ml-60 flex justify-end">
-                        <li
-                        >
+                        <li>
                             <PreRenderLink
                                 alt="About page"
                                 className="text-3xl mr-5 font-reross cursor-pointer anim-text"

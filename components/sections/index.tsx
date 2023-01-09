@@ -145,7 +145,7 @@ export const HeroSectionWithLinkGradientBG = ({
                             <Image 
                                 src={image}
                                 width={400}
-                                height={400}
+                                height={414}
                                 priority
                                 className={imageClassName}
                                 alt={imageAlt}

@@ -1,18 +1,19 @@
-import React, { lazy, Suspense } from 'react'
+import React, { Suspense } from 'react'
+import { lazily } from 'react-lazily'
 import { CustomHead } from '../components/utils/CustomHead'
 import { PageMargin, SkillCardGrid, TwoColumnGrid } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
-import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
+// import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
-// import dynamic from 'next/dynamic';
 import profileCallout from '../public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
 
-const SkillCard = lazy(() => import('../components/cards/SkillCard'))
+const SkillCard = lazily(() => import('../components/cards/SkillCard'))
+const { CodeMockup, CodeMockupLine } = lazily(() => import('../components/utils/CodeMockup'))
 
 interface SkillI {
   name: string;

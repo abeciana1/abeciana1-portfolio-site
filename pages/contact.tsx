@@ -9,13 +9,11 @@ const Contact = () => {
 
     return (
         <React.Fragment>
-            {/* <Head> */}
-                <Script
-                    id="hs-script-loader"
-                    src="//js.hs-scripts.com/23677902.js"
-                    strategy="lazyOnload"
-                />
-            {/* </Head> */}
+            <Script
+                id="hs-script-loader"
+                src="//js.hs-scripts.com/23677902.js"
+                strategy="afterInteractive"
+            />
             <PageMargin>
                 <section
                     id="contact"
@@ -34,6 +32,7 @@ const Contact = () => {
                             width={450}
                             height={450}
                             src="/profile-callout-edited.webp"
+                            priority
                             className="hidden md:inline mx-auto"
                             alt="Alex Beciana (animated)"
                         />

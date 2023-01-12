@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {lazy} from 'react'
 import { lazily } from 'react-lazily'
 import { CustomHead } from '../components/utils/CustomHead'
 import { PageMargin, SkillCardGrid } from '../components/layouts'
@@ -11,9 +11,9 @@ import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import profileCallout from '../public/profile-callout-edited.webp'
 
-const SkillCard = lazily(() => import('../components/cards/SkillCard'))
-const JobCard = lazily(() => import('../components/cards/JobCard'))
-const EduCard = lazily(() => import('../components/cards/EduCard'))
+const SkillCard = lazy(() => import('../components/cards/SkillCard'))
+const JobCard = lazy(() => import('../components/cards/JobCard'))
+const EduCard = lazy(() => import('../components/cards/EduCard'))
 
 interface SkillI {
     name: string;

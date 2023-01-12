@@ -10,7 +10,7 @@ interface EduCardI {
     achievements: string;
 }
 
-export const EduCard = ({
+const EduCard = ({
     id,
     schoolName,
     schoolWebsite,
@@ -69,3 +69,5 @@ export const EduCard = ({
         </div>
     )
 }
+
+export default EduCard

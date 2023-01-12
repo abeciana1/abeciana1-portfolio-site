@@ -14,7 +14,7 @@ interface JobCardI {
     responsibilities: string;
 }
 
-export const JobCard = ({
+const JobCard = ({
     id,
     position,
     startDate,
@@ -93,3 +93,5 @@ export const JobCard = ({
         </section>
     )
 }
+
+export default JobCard

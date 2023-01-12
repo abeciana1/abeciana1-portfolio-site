@@ -11,9 +11,9 @@ import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import profileCallout from '../public/profile-callout-edited.webp'
 
-const {SkillCard} = lazily(() => import('../components/cards/SkillCard'))
-const {JobCard} = lazily(() => import('../components/cards/JobCard'))
-const {EduCard} = lazily(() => import('../components/cards/EduCard'))
+const SkillCard = lazily(() => import('../components/cards/SkillCard'))
+const JobCard = lazily(() => import('../components/cards/JobCard'))
+const EduCard = lazily(() => import('../components/cards/EduCard'))
 
 interface SkillI {
     name: string;

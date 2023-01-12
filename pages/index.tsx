@@ -3,7 +3,6 @@ import { lazily } from 'react-lazily'
 import { CustomHead } from '../components/utils/CustomHead'
 import { PageMargin, SkillCardGrid, TwoColumnGrid } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
-// import { CodeMockup, CodeMockupLine } from '../components/utils/CodeMockup'
 import Skills from '../data/skills.json'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
 import { ExpandBtnLink } from '../components/utils/_buttons'
@@ -13,7 +12,10 @@ import profileCallout from '../public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
 
 const SkillCard = lazy(() => import('../components/cards/SkillCard'))
-const {CodeMockup, CodeMockupLine} = lazily(() => import('../components/utils/CodeMockup'))
+const {
+  CodeMockup,
+  CodeMockupLine
+} = lazily(() => import('../components/utils/CodeMockup'))
 
 interface SkillI {
   name: string;
@@ -82,7 +84,7 @@ export default function Home({ joke }: any) {
             showArrow={true}
           />
         </div>
-        <Suspense fallback={<div>isLoading...</div>}>
+        <Suspense fallback={<div>Loading...</div>}>
           <TwoColumnGrid addClass="mt-12 gap-12">
             <section>
               <h2 className="text-4xl">Dev Dad Jokes</h2>

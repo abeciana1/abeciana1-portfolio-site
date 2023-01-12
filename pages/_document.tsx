@@ -1,8 +1,9 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
 
-
 const MyDocument = () => {
+    
+    
 
     return (
         <Html lang="en">
@@ -37,7 +38,7 @@ const MyDocument = () => {
                     }
                 </Script>
             </Head>
-            <body className="py-4 mx-auto px-5 md:px-10">
+            <body className="py-4 mx-auto px-5 md:px-10 lg:px-20 page-margin">
                 <Main />
                 <NextScript />
             </body>

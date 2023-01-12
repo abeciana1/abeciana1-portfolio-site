@@ -37,7 +37,7 @@ const MyDocument = () => {
                     }
                 </Script>
             </Head>
-            <body>
+            <body className="py-4 mx-auto px-5 md:px-10">
                 <Main />
                 <NextScript />
             </body>

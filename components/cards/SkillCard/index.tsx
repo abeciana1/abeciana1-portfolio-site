@@ -10,18 +10,18 @@ const SkillCard = ({
     image
 }: SkillCardI | any) => {
     return (
-        <div
-            className="text-center rounded-xl"
-        >
-            <Image
-                width={50}
-                height={50}
-                src={image}
-                alt={`Alex Beciana | Skill - ${name}`}
-                className="mx-auto"
-            />
+        <div>
+            <div className="h-12 w-12 mx-auto">
+                <Image
+                    width={50}
+                    height={50}
+                    src={image}
+                    alt={`Alex Beciana | Skill - ${name}`}
+                    className="mx-auto"
+                />
+            </div>
             <div
-                className="mt-2"
+                className="mt-2 text-center"
             >
                 {name}
             </div>

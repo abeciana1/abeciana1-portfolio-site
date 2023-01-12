@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, lazy } from 'react'
 import { lazily } from 'react-lazily'
 import { CustomHead } from '../components/utils/CustomHead'
 import { PageMargin, SkillCardGrid, TwoColumnGrid } from '../components/layouts'
@@ -12,8 +12,8 @@ import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import profileCallout from '../public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
 
-const {SkillCard} = lazily(() => import('../components/cards/SkillCard'))
-const { CodeMockup, CodeMockupLine } = lazily(() => import('../components/utils/CodeMockup'))
+const SkillCard = lazy(() => import('../components/cards/SkillCard'))
+const {CodeMockup, CodeMockupLine} = lazily(() => import('../components/utils/CodeMockup'))
 
 interface SkillI {
   name: string;

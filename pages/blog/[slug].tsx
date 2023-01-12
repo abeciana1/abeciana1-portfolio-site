@@ -1,5 +1,4 @@
 import React from 'react'
-import { BlogPageMargin } from '../../components/layouts'
 import { BlogPostHead } from '../../components/utils/CustomHead'
 import Image from 'next/image'
 import "prismjs/themes/prism-tomorrow.css";
@@ -65,9 +64,8 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     blogTags: tags
                 }}
                 />
-            <BlogPageMargin>
                 {desktop &&
-                    <div className="relative">
+                    <section className="relative">
                         <SideBarSharing>
                             <ShareBtn
                                 body=""
@@ -88,7 +86,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 addClass="hover:w-32"
                             />
                         </SideBarSharing>
-                    </div>
+                    </section>
                 }
                 <section
                     className="leading-8"
@@ -152,10 +150,9 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     className="py-12"
                 >
                     <h2 className="text-4xl font-reross text-altYellow leading-relaxed">
-                        Related posts
+                     Related posts
                     </h2>
                 </section> */}
-            </BlogPageMargin>
         </React.Fragment>
     )
 }

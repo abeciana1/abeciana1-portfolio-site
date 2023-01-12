@@ -54,25 +54,3 @@ export const SkillCardGrid = ({ children, addClass = "" }: LayoutI) => {
         </section>
     )
 }
-
-export const BlogPageMargin = ({ children }: LayoutI) => {
-    const mediaQueryRender = useResponsiveness()
-    
-    const {
-        isMobile,
-        isTablet,
-        isDesktop,
-    } = mediaQueryRender || {}
-
-    return (
-        <section
-            // className={cx("py-4 mx-auto page-margin", {
-            // ['px-5']: isMobile,
-            // ['px-10']: isTablet,
-            // ['px-20']: isDesktop
-            // })}
-        >
-            {children}
-        </section>
-    )
-}

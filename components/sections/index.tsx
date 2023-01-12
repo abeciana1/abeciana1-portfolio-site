@@ -53,9 +53,9 @@ export const HeroSectionWithLink = ({
             <section className="self-center justify-self-start lg:justify-self-end">
                 <Image 
                     src={image}
-                    // width={400}
-                    // height={400}
-                    // priority
+                    width={400}
+                    height={414}
+                    priority
                     className={imageClassName}
                     alt={imageAlt}
                 />

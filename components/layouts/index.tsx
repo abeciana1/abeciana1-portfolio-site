@@ -1,35 +1,9 @@
 import React from 'react'
 import cx from 'classnames'
-import useResponsiveness from '../../lib/useResponsiveness'
 
 interface LayoutI {
     children: React.ReactNode;
     addClass?: string;
-}
-
-
-export const PageMargin = ({ children }: LayoutI) => {
-    const mediaQueryRender = useResponsiveness()
-    
-    const {
-        isMobile,
-        isTablet,
-        isDesktop,
-    } = mediaQueryRender || {}
-    
-    const showDesktop = isDesktop
-    const showMobile = (isMobile || isTablet)
-
-    return (
-        <section
-        //     className={cx('py-4 mx-auto', {
-        //     ['px-10 page-margin']: showDesktop,
-        //     ['px-5']: showMobile
-        // })}
-        >
-            {children}
-        </section>
-    )
 }
 
 export const TwoColumnGrid = ({ children, addClass = "" }: LayoutI) => {

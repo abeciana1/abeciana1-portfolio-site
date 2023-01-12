@@ -1,7 +1,6 @@
 import React from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { getDatabase } from '../../lib/helper-functions'
-import { PageMargin } from '../../components/layouts'
 import {
     getProjectSlug,
     getClientInfo,
@@ -34,30 +33,28 @@ const PortfolioProjectPage = ({ project, blocks }: any) => {
 
     return (
         <React.Fragment>
-            <PageMargin>
-                <h1 className="text-5xl font-reross leading-relaxed">{title}</h1>
-                <section className="flex flex-col md:flex-row md:space-x-10">
-                    <aside className="mt-16 md:basis-1/4 min-w-xl">
-                        <ClientCard
-                            name={name}
-                            bio={bio}
-                            logo={logo}
-                            link={link}
-                        />
-                        <ProjectDetailsCard
-                            status={status}
-                            clientType={clientType}
-                            projectTools={projectTools}
-                            workAreas={workAreas}
-                        />
-                    </aside>
-                    <section
-                        className="py-4 break-words md:basis-3/4 max-w-md lg:max-w-2xl"
-                    >
-                        <NotionRenderer blockMap={blocks} />
-                    </section>
+            <h1 className="text-5xl font-reross leading-relaxed">{title}</h1>
+            <section className="flex flex-col md:flex-row md:space-x-10">
+                <aside className="mt-16 md:basis-1/4 min-w-xl">
+                    <ClientCard
+                        name={name}
+                        bio={bio}
+                        logo={logo}
+                        link={link}
+                    />
+                    <ProjectDetailsCard
+                        status={status}
+                        clientType={clientType}
+                        projectTools={projectTools}
+                        workAreas={workAreas}
+                    />
+                </aside>
+                <section
+                    className="py-4 break-words md:basis-3/4 max-w-md lg:max-w-2xl"
+                >
+                    <NotionRenderer blockMap={blocks} />
                 </section>
-            </PageMargin>
+            </section>
         </React.Fragment>
     )
 }

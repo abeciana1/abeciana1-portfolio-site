@@ -1,7 +1,7 @@
 import React, {lazy} from 'react'
 import { lazily } from 'react-lazily'
 import { CustomHead } from '../components/utils/CustomHead'
-import { PageMargin, SkillCardGrid } from '../components/layouts'
+import { SkillCardGrid } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Skills from '../data/skills.json'
 import { gql, GraphQLClient } from 'graphql-request'
@@ -33,7 +33,7 @@ const AboutPage = ({ expData }: any) => {
                 title="About"
                 description="Alex Beciana | Work experience and education as a digital marketer, community manager, and full-stack software engineer"
             />
-            <PageMargin>
+            <section>
                 <HeroSectionWithLinkGradientBG
                     heading="Hi I'm Alex Beciana"
                     taglineBody="Full stack software engineer with two years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."
@@ -133,7 +133,7 @@ const AboutPage = ({ expData }: any) => {
                         )
                         })}
                 </section>
-            </PageMargin>
+            </section>
         </React.Fragment>
     )
 }

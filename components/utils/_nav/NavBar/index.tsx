@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { PageMargin } from '../../../layouts'
 import { PreRenderLink } from '../../PreRenderLink'
 import cx from 'classnames'
 import { Squash as Hamburger } from 'hamburger-react'
@@ -31,7 +30,7 @@ const NavBar = () => {
                 ["absolute w-full h-screen"]: showMobileNav && isOpen
             })}
         >
-            <PageMargin>
+            <section>
                 <div
                     className={cx({
                         ["flex justify-center self-center float-left items-stretch"]: showDesktopNav,
@@ -135,7 +134,7 @@ const NavBar = () => {
                         </li>
                     </ul>
                 }
-            </PageMargin>
+            </section>
         </nav>
     )
 }

@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import { lazily } from 'react-lazily'
 import { CustomHead } from '../components/utils/CustomHead'
-import { PageMargin, SkillCardGrid, TwoColumnGrid } from '../components/layouts'
+import { SkillCardGrid, TwoColumnGrid } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Skills from '../data/skills.json'
 import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
@@ -29,7 +29,7 @@ export default function Home({ joke }: any) {
       <CustomHead
         description='Full stack software engineer with two years of experience with an entrepreneurial spirit.'
       />
-      <PageMargin>
+      <section>
         <HeroSectionWithLinkGradientBG
           heading="Hi I'm Alex Beciana"
           taglineBody="Full stack software engineer with two years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."
@@ -168,7 +168,7 @@ export default function Home({ joke }: any) {
               </SkillCardGrid>
           </section>
         </Suspense>
-      </PageMargin>
+      </section>
     </React.Fragment>
   )
 }

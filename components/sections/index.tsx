@@ -76,7 +76,6 @@ interface HeroGradientI {
     ctaAlt?: string;
     reverseOrder?: boolean;
     imageClassName?: string;
-    gradientClass: string;
 }
 
 export const HeroSectionWithLinkGradientBG = ({
@@ -90,7 +89,6 @@ export const HeroSectionWithLinkGradientBG = ({
     ctaAlt = "",
     reverseOrder,
     imageClassName,
-    gradientClass
 }: HeroGradientI) => {
 
     const mediaQueryRender = useResponsiveness()

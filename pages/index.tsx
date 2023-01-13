@@ -36,7 +36,6 @@ export default function Home({ joke }: any) {
         imageAlt="Alex Beciana (animated)"
         imageClassName="profile-callout"
         reverseOrder={true}
-        gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
       />
       <div className="flex pb-8 space-x-4 md:space-y-0 pt-4 lg:pt-0 flex-row relative items-center">
         <ExpandBtnLink

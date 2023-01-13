@@ -105,12 +105,12 @@ export const HeroSectionWithLinkGradientBG = ({
 
     return (
         <>
-            <section className="flex justify-center">
+            {/* <section className="flex justify-center">
                 <div className={cx("z-0 absolute lg:top-20 mx-auto blur-3xl opacity-30 h-[45rem] w-screen max-w-6xl rounded-3xl", {
                     [gradientClass]: gradientClass
                 })}>
                 </div>
-            </section>
+            </section> */}
             {mobile &&
                 <section className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl">
                     <Image 

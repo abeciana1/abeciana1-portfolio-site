@@ -3,7 +3,6 @@ import cx from 'classnames'
 import { PreRenderLinkAsBtn } from '../utils/PreRenderLink'
 import useResponsiveness from '../../lib/useResponsiveness'
 import profilePic from '../../public/profile-pic.webp'
-import BGGradient from '../../public/gradient-blur.webp'
 
 interface HeroSectionI {
     heading: string;
@@ -76,6 +75,7 @@ interface HeroGradientI {
     ctaAlt?: string;
     reverseOrder?: boolean;
     imageClassName?: string;
+    gradientClass: string;
 }
 
 export const HeroSectionWithLinkGradientBG = ({
@@ -89,6 +89,7 @@ export const HeroSectionWithLinkGradientBG = ({
     ctaAlt = "",
     reverseOrder,
     imageClassName,
+    gradientClass
 }: HeroGradientI) => {
 
     const mediaQueryRender = useResponsiveness()
@@ -104,16 +105,14 @@ export const HeroSectionWithLinkGradientBG = ({
 
     return (
         <>
-            <div className="flex justify-center">
-                <Image
-                    src={BGGradient}
-                    width={1440}
-                    height={1242}
-                    priority
-                    className="z-0 absolute top-0 mx-auto "
-                    alt="Background gradient"
-                />
-            </div>
+            {desktop && 
+                <section className="flex justify-center">
+                    <div className={cx("z-0 absolute lg:top-20 mx-auto", {
+                        [gradientClass]: gradientClass
+                    })}>
+                    </div>
+                </section>
+            }
             {mobile &&
                 <section className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl">
                     <Image 

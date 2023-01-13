@@ -107,9 +107,10 @@ export const HeroSectionWithLinkGradientBG = ({
             <div className="flex justify-center">
                 <Image
                     src={BGGradient}
-                    width={1000}
-                    height={863}
-                    className="z-0 absolute top-0 mx-auto"
+                    width={1440}
+                    height={1242}
+                    priority
+                    className="z-0 absolute top-0 mx-auto "
                     alt="Background gradient"
                 />
             </div>

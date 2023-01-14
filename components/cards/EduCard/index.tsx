@@ -49,6 +49,7 @@ const EduCard = ({
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-800 underline"
+                        aria-label={`Link to ${schoolName} external site`}
                     >
                         Website
                     </a>

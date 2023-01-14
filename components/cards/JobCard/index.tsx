@@ -72,6 +72,7 @@ const JobCard = ({
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-800 underline"
+                        aria-label={`Link to ${companyName} external site`}
                     >
                         {companyName} - Website
                     </a>)}

@@ -25,35 +25,35 @@ const NavBar = () => {
     }, [isOpen])
 
     return (
-        <nav
-            className={cx("bg-white z-50", {
-                ["absolute w-full h-screen"]: showMobileNav && isOpen
-            })}
-        >
-            <section>
-                <div
-                    className={cx({
-                        ["flex justify-center self-center float-left items-stretch"]: showDesktopNav,
-                        ["block flex items-center justify-between"]: showMobileNav
-                    })}
-                >
-                    <PreRenderLink
-                        href="/"
-                        linkText="Alex Beciana"
-                        alt="Homepage"
-                        className="text-3xl sm:text-4xl md:text-3xl font-reross cursor-pointer anim-text"
+        <>
+            <header
+                className={cx({
+                    ["float-left"]: showDesktopNav,
+                    ["block flex items-center justify-between"]: showMobileNav
+                })}
+            >
+                <PreRenderLink
+                    href="/"
+                    linkText="Alex Beciana"
+                    alt="Homepage"
+                    className="text-3xl sm:text-4xl md:text-3xl font-reross cursor-pointer anim-text"
+                />
+                {showMobileNav  &&
+                    <Hamburger
+                        toggled={isOpen}
+                        toggle={setOpen}
+                        rounded
+                        color="#292F36"
+                        easing="ease-in"
+                        label="menu"
                     />
-                    {showMobileNav  &&
-                        <Hamburger
-                            toggled={isOpen}
-                            toggle={setOpen}
-                            rounded
-                            color="#292F36"
-                            easing="ease-in"
-                            label="menu"
-                        />
-                    }
-                </div>
+                }
+            </header>
+            <nav
+                className={cx("bg-white z-50", {
+                    ["absolute w-full h-screen"]: showMobileNav && isOpen
+                })}
+            >
                 {showDesktopNav &&
                     <ul className="self-center ml-60 flex justify-end">
                         <li>
@@ -134,8 +134,8 @@ const NavBar = () => {
                         </li>
                     </ul>
                 }
-            </section>
-        </nav>
+            </nav>
+        </>
     )
 }
 

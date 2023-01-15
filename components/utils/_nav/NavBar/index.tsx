@@ -1,12 +1,18 @@
-import { useState, useEffect } from 'react'
+import {MutableRefObject} from 'react';
 import { PreRenderLink } from '../../PreRenderLink'
 import cx from 'classnames'
 import { Squash as Hamburger } from 'hamburger-react'
 import useResponsiveness from '../../../../lib/useResponsiveness'
 
-const NavBar = () => {
-    const [isOpen, setOpen] = useState(false);
-    
+interface NavBarI {
+    mobileNavOpen: boolean;
+    toggleMobileNav: () => void;
+}
+
+const NavBar = ({
+    mobileNavOpen,
+    toggleMobileNav
+}: NavBarI) => {    
     const mediaQueryRender = useResponsiveness()
 
     const {
@@ -18,40 +24,35 @@ const NavBar = () => {
     const showDesktopNav = isDesktop
     const showMobileNav = (isMobile || isTablet)
 
-    useEffect(() => {
-        if (showDesktopNav && isOpen) {
-            setOpen(false)
-        }
-    }, [isOpen])
-
     return (
         <>
             <header
-                className={cx({
+                className={cx("z-50",{
                     ["float-left"]: showDesktopNav,
-                    ["block flex items-center justify-between"]: showMobileNav
+                    ["block flex items-center justify-between bg-white"]: showMobileNav
                 })}
             >
-                <PreRenderLink
-                    href="/"
-                    linkText="Alex Beciana"
-                    alt="Homepage"
-                    className="text-3xl sm:text-4xl md:text-3xl font-reross cursor-pointer anim-text"
-                />
-                {showMobileNav  &&
-                    <Hamburger
-                        toggled={isOpen}
-                        toggle={setOpen}
-                        rounded
-                        color="#292F36"
-                        easing="ease-in"
-                        label="menu"
+                    <PreRenderLink
+                        href="/"
+                        linkText="Alex Beciana"
+                        alt="Homepage"
+                        className="text-4xl font-reross cursor-pointer anim-text"
                     />
-                }
+                    {showMobileNav  &&
+                        <Hamburger
+                            toggled={mobileNavOpen}
+                            toggle={toggleMobileNav}
+                            rounded
+                            color="#292F36"
+                            easing="ease-in"
+                            label="menu"
+                            size={40}
+                        />
+                    }
             </header>
             <nav
-                className={cx("bg-white z-50", {
-                    ["absolute w-full h-screen"]: showMobileNav && isOpen
+                className={cx({
+                    ["h-screen bg-white z-50 relative"]: showMobileNav && mobileNavOpen
                 })}
             >
                 {showDesktopNav &&
@@ -59,7 +60,7 @@ const NavBar = () => {
                         <li>
                             <PreRenderLink
                                 alt="About page"
-                                className="text-3xl mr-5 font-reross cursor-pointer anim-text"
+                                className="text-4xl mr-5 font-reross cursor-pointer anim-text"
                                 linkText="about"
                                 href="/about"
                             />
@@ -67,7 +68,7 @@ const NavBar = () => {
                         <li>
                             <PreRenderLink
                                 alt="Portfolio page"
-                                className="text-3xl mr-5 font-reross cursor-pointer anim-text"
+                                className="text-4xl mr-5 font-reross cursor-pointer anim-text"
                                 linkText="portfolio"
                                 href="/portfolio"
                             />
@@ -75,7 +76,7 @@ const NavBar = () => {
                         <li>
                             <PreRenderLink
                                 alt="Blog page"
-                                className="text-3xl mr-5 font-reross cursor-pointer anim-text"
+                                className="text-4xl mr-5 font-reross cursor-pointer anim-text"
                                 href="/blog"
                                 linkText="blog"
                             />
@@ -83,51 +84,51 @@ const NavBar = () => {
                         <li>
                             <PreRenderLink
                                 alt="Contact page"
-                                className="text-3xl font-reross cursor-pointer anim-text"
+                                className="text-4xl font-reross cursor-pointer anim-text"
                                 href="/contact"
                                 linkText="contact"
                             />
                         </li>
                     </ul>
                 }
-                {showMobileNav && isOpen &&
-                    <ul className="ml-6 flex flex-col gap-y-8 absolute left-0 top-20 md:px-5">
+                {showMobileNav && mobileNavOpen &&
+                    <ul className="ml-6 flex flex-col gap-y-8 absolute left-0 top-10 md:px-5">
                         <li
-                            onClick={() => setOpen(false)}
+                            onClick={toggleMobileNav}
                         >
                             <PreRenderLink
                                 alt="About page"
-                                className="text-3xl font-reross cursor-pointer anim-text"
+                                className="text-4xl font-reross cursor-pointer anim-text"
                                 linkText="about"
                                 href="/about"
                             />
                         </li>
                         <li
-                            onClick={() => setOpen(false)}
+                            onClick={toggleMobileNav}
                         >
                             <PreRenderLink
                                 alt="Portfolio page"
-                                className="text-3xl font-reross cursor-pointer anim-text"
+                                className="text-4xl font-reross cursor-pointer anim-text"
                                 linkText="portfolio"
                                 href="/portfolio"
                             />
                         </li>
                         <li
-                            onClick={() => setOpen(false)}
+                            onClick={toggleMobileNav}
                         >
                             <PreRenderLink
                                 alt="Blog page"
-                                className="text-3xl font-reross cursor-pointer anim-text"
+                                className="text-4xl font-reross cursor-pointer anim-text"
                                 href="/blog"
                                 linkText="blog"
                             />
                         </li>
                         <li
-                            onClick={() => setOpen(false)}
+                            onClick={toggleMobileNav}
                         >
                             <PreRenderLink
                                 alt="Contact page"
-                                className="text-3xl font-reross cursor-pointer anim-text"
+                                className="text-4xl font-reross cursor-pointer anim-text"
                                 href="/contact"
                                 linkText="contact"
                             />

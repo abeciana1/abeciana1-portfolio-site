@@ -143,7 +143,7 @@ export const HeroSectionWithLinkGradientBG = ({
                     }
                 </section>
                     {desktop &&
-                        <section className="z-50 self-center justify-self-start lg:justify-self-end">
+                        <section className="z-30 self-center justify-self-start lg:justify-self-end">
                             <Image 
                                 src={image}
                                 width={400}

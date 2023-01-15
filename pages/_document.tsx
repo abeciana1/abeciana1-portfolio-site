@@ -3,8 +3,6 @@ import Script from 'next/script'
 
 const MyDocument = () => {
     
-    
-
     return (
         <Html lang="en">
             <Head>

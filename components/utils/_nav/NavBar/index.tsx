@@ -29,7 +29,8 @@ const NavBar = ({
             <header
                 className={cx("z-50",{
                     ["float-left"]: showDesktopNav,
-                    ["block flex items-center justify-between bg-white"]: showMobileNav
+                    ["block flex items-center justify-between bg-white"]: showMobileNav,
+                    ["mb-10"]: showMobileNav && mobileNavOpen === false
                 })}
             >
                     <PreRenderLink

@@ -29,8 +29,7 @@ interface PostI {
 
 interface BlogArticleI {
     post: PostI;
-    blocks: any;
-    codeBlocks: any;
+    blocks: BlockMapType;
 }
 
 const BlogArticle = ({ post, blocks }: BlogArticleI) => {

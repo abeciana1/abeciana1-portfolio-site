@@ -1,4 +1,4 @@
-import React, {lazy} from 'react'
+import React, { Suspense,lazy } from 'react'
 import { lazily } from 'react-lazily'
 import { CustomHead } from '../components/utils/CustomHead'
 import { SkillCardGrid } from '../components/layouts'
@@ -72,67 +72,74 @@ const AboutPage = ({ expData }: any) => {
                                 ariaLabel="Link to Alex Beciana Behace profile"
                             />
                         </div>
-                <section
-                    className="mt-12 relative"
-                >
-                    <h2
-                        id="skills"
-                        className="text-4xl leading-relaxed"
-                    >Skills</h2>
-                    <SkillCardGrid>
-                    {Skills.map(({name, image}: SkillI, index:number) => {
+                <Suspense fallback={<div>Loading...</div>}>
+                    <section
+                        className="mt-12 relative"
+                    >
+                        <h2
+                            id="skills"
+                            className="text-4xl leading-relaxed"
+                        >Skills</h2>
+                        <SkillCardGrid>
+                        {Skills.map(({name, image}: SkillI, index:number) => {
+                            return (
+                                <SkillCard
+                                key={index + 1}
+                                name={name}
+                                image={image}
+                                />
+                            )
+                        })}
+                        </SkillCardGrid>
+                    </section>
+                </Suspense>
+                <Suspense fallback={<div>Loading...</div>}>
+                    <section className="mt-12">
+                        <h2
+                            id="experience"
+                            className="text-4xl leading-relaxed"
+                        >Experience</h2>
+                        {jobs?.map((job: any) => {
                         return (
-                            <SkillCard
-                            key={index + 1}
-                            name={name}
-                            image={image}
+                            <JobCard
+                                key={job?.id}
+                                id={job?.id}
+                                position={job?.position}
+                                startDate={job?.startDate}
+                                companyName={job?.companyName}
+                                companyWebsite={job?.companyWebsite}
+                                companyDescription={job?.companyDescription}
+                                companyLogo={job?.companyLogo?.url}
+                                endDate={job?.endDate}
+                                responsibilities={job?.responsibilities}
                             />
                         )
-                    })}
-                    </SkillCardGrid>
-                </section>
-                <section className="mt-12">
-                    <h2
-                        id="experience"
-                        className="text-4xl leading-relaxed"
-                    >Experience</h2>
-                    {jobs?.map((job: any) => {
-                    return (
-                        <JobCard
-                            key={job?.id}
-                            id={job?.id}
-                            position={job?.position}
-                            startDate={job?.startDate}
-                            companyName={job?.companyName}
-                            companyWebsite={job?.companyWebsite}
-                            companyDescription={job?.companyDescription}
-                            companyLogo={job?.companyLogo?.url}
-                            endDate={job?.endDate}
-                            responsibilities={job?.responsibilities}
-                        />
-                    )
-                    })}
-                </section>
-                <section
-                    id="education"
-                    className="mt-12"
-                >
-                    <h2
-                        className="text-4xl leading-relaxed"
-                    >Education</h2>
-                    {educations?.map((school: any) => {
-                        return (
-                        <EduCard
-                            key={school?.id}
-                            id={school?.id}
-                            schoolName={school?.schoolName}
-                            schoolWebsite={school?.schoolWebsite}
-                            schoolImage={school?.schoolImage?.url}
-                            achievements={school?.achievements}
-                        />
-                        )
                         })}
-                </section>
+                    </section>
+                </Suspense>
+                <Suspense fallback={<div>Loading...</div>}>
+
+                    <section
+                        id="education"
+                        className="mt-12"
+                    >
+                        <h2
+                            className="text-4xl leading-relaxed"
+                        >Education</h2>
+                        {educations?.map((school: any) => {
+                            return (
+                            <EduCard
+                                key={school?.id}
+                                id={school?.id}
+                                schoolName={school?.schoolName}
+                                schoolWebsite={school?.schoolWebsite}
+                                schoolImage={school?.schoolImage?.url}
+                                achievements={school?.achievements}
+                            />
+                            )
+                            })}
+                    </section>
+                </Suspense>
             </section>
         </React.Fragment>
     )

@@ -36,7 +36,7 @@ const MyDocument = () => {
                     }
                 </Script>
             </Head>
-            <body className="py-4 mx-auto px-5 md:px-10 lg:px-20 page-margin">
+            <body className="py-4 mx-auto px-5 md:px-20 page-margin">
                 <Main />
                 <NextScript />
             </body>

@@ -65,7 +65,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                 }}
                 />
                 {desktop &&
-                    <section className="relative">
+                    <section className="absolute">
                         <SideBarSharing>
                             <ShareBtn
                                 body=""

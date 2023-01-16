@@ -104,6 +104,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                             <Image
                                 height={500}
                                 width={1000}
+                                priority
                                 src={hostedImage}
                                 alt={`Alex Beciana | Blog | ${title}`}
                             />

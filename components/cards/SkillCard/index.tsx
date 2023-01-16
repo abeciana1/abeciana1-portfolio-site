@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-interface SkillCardI {
+export interface SkillI {
     name: string;
     image: string;
 }
@@ -8,7 +8,7 @@ interface SkillCardI {
 const SkillCard = ({
     name,
     image
-}: SkillCardI | any) => {
+}: SkillI | any) => {
     return (
         <div>
             <div className="h-12 w-12 mx-auto">

@@ -10,15 +10,11 @@ import { ExpandBtnLink } from '../components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import profileCallout from '../public/profile-callout-edited.webp'
+import { SkillI } from '../components/cards/SkillCard'
 
 const SkillCard = lazy(() => import('../components/cards/SkillCard'))
 const JobCard = lazy(() => import('../components/cards/JobCard'))
 const EduCard = lazy(() => import('../components/cards/EduCard'))
-
-interface SkillI {
-    name: string;
-    image: string;
-}
 
 const AboutPage = ({ expData }: any) => {
 

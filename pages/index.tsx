@@ -10,17 +10,13 @@ import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import profileCallout from '../public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
+import { SkillI } from '../components/cards/SkillCard'
 
 const SkillCard = lazy(() => import('../components/cards/SkillCard'))
 const {
   CodeMockup,
   CodeMockupLine
 } = lazily(() => import('../components/utils/CodeMockup'))
-
-interface SkillI {
-  name: string;
-  image: string;
-}
 
 export default function Home({ joke }: any) {
 

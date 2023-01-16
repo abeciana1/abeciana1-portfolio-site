@@ -1,26 +1,52 @@
+import { useMemo } from 'react'
 import Image from 'next/image'
 
 interface NotionImageI {
-    src: string;
-    width: number;
-    height: number;
-    alt: string;
+    blockValue: any;
 }
 
 const NotionImage = ({
-    src,
-    width,
-    height,
-    alt
+    blockValue,
 }: NotionImageI) => {
+    const source = blockValue.format.display_source
+    const caption = blockValue.properties.caption?.[0][0];
+    const aspectRatio = blockValue.format.block_aspect_ratio
+    const imgWidth = blockValue.format.block_width
+
+    const imgHeight = useMemo(() => {
+        let height = Math.floor(aspectRatio * imgWidth)
+        return height
+    }, [imgWidth])
+
+    const imgSource = useMemo(() => {
+        const url = new URL(
+            `https://www.notion.so${
+            source.startsWith("/image") ? source : `/image/${encodeURIComponent(source)}`
+            }`
+        );
+
+        if (blockValue && !source.includes("/images/page-cover/")) {
+            const table =
+            blockValue.parent_table === "space" ? "block" : blockValue.parent_table;
+            url.searchParams.set("table", table);
+            url.searchParams.set("id", blockValue.id);
+            url.searchParams.set("cache", "v2");
+        }
+
+        return url.toString();
+    }, [source])
+
+    console.log(imgSource);
 
     return (
-        <Image
-            width={width}
-            height={height}
-            src={src}
-            alt={alt}
-        />
+        <>
+            <Image
+                src={imgSource}
+                alt={caption}
+                width={imgWidth}
+                height={imgHeight}
+            />
+        </>
     )
 }
 

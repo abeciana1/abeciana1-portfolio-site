@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -14,7 +13,9 @@ const nextConfig = withBundleAnalyzer({
     domains: [
         "media.graphcms.com",
         "s3.us-west-2.amazonaws.com",
-        "media.graphassets.com"
+        "www.notion.so",
+        "media.graphassets.com",
+        
     ],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",

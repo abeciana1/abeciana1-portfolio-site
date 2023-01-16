@@ -1,7 +1,9 @@
 import React from 'react'
 import { BlogPostHead } from '../../components/utils/CustomHead'
 import Image from 'next/image'
-import "prismjs/themes/prism-tomorrow.css";
+import Link from 'next/link'
+import dynamic from 'next/dynamic'
+
 import { GetStaticProps, GetStaticPaths } from 'next'
 import SideBarSharing from '../../components/utils/SideBarSharing'
 import { ShareBtn } from '../../components/utils/_buttons'
@@ -16,7 +18,6 @@ import {
     excerptProp,
     hostedImageProp
 } from '../../lib/notion-blog-props'
-// import { NotionRenderer } from 'react-notion-x'
 import { NotionRenderer, BlockMapType } from "react-notion";
 
 interface PostI {
@@ -144,7 +145,13 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <section
                         className="py-4 break-words"
                     >
-                        <NotionRenderer blockMap={blocks} />
+                        <NotionRenderer 
+                            recordMap={blocks}
+                            components={{
+                                nextImage: Image,
+                                nextLink: Link
+                            }}
+                        />
                     </section>
                 </section>
                 {/* <section

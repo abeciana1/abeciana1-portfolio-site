@@ -74,7 +74,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 textColor="white"
                                 backgroundColor="black"
                                 icon={AiFillMail}
-                                addClass="hover:w-44"
+                                addClass="hover:w-44 hover:border-white hover:border-2"
                             />
                             <ShareBtn
                                 body=""
@@ -83,7 +83,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 backgroundColor="black"
                                 icon={AiFillCopy}
                                 onClick={() => copyToClipboard(`https://alexbeciana.com/blog/${slug}`)}
-                                addClass="hover:w-32"
+                                addClass="hover:w-32 hover:border-white hover:border-2"
                             />
                         </SideBarSharing>
                     </section>

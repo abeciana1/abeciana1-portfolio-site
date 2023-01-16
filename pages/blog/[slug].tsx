@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { BlogPostHead } from '../../components/utils/CustomHead'
 import Image from 'next/image'
 import { GetStaticProps, GetStaticPaths } from 'next'
@@ -16,6 +16,8 @@ import {
     hostedImageProp
 } from '../../lib/notion-blog-props'
 import { NotionRenderer, BlockMapType } from "react-notion";
+
+const NotionContentRender = lazy(() => import('../../components/notion-comps'))
 
 interface PostI {
     id: string;
@@ -141,8 +143,8 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <section
                         className="py-4 break-words"
                     >
-                        <NotionRenderer 
-                            blockMap={blocks}
+                        <NotionContentRender 
+                            blocks={blocks}
                             // customBlockComponents={{
                             //     nextImage: Image,
                             //     nextLink: Link

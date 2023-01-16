@@ -1,9 +1,6 @@
 import React from 'react'
 import { BlogPostHead } from '../../components/utils/CustomHead'
 import Image from 'next/image'
-import Link from 'next/link'
-import dynamic from 'next/dynamic'
-
 import { GetStaticProps, GetStaticPaths } from 'next'
 import SideBarSharing from '../../components/utils/SideBarSharing'
 import { ShareBtn } from '../../components/utils/_buttons'
@@ -146,11 +143,11 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         className="py-4 break-words"
                     >
                         <NotionRenderer 
-                            recordMap={blocks}
-                            components={{
-                                nextImage: Image,
-                                nextLink: Link
-                            }}
+                            blockMap={blocks}
+                            // customBlockComponents={{
+                            //     nextImage: Image,
+                            //     nextLink: Link
+                            // }}
                         />
                     </section>
                 </section>

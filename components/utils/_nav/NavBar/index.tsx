@@ -19,10 +19,13 @@ const NavBar = ({
         isMobile,
         isTablet,
         isDesktop,
+        isSmallLaptop,
+        isLaptop,
+        isXl
     } = mediaQueryRender || {}
 
-    const showDesktopNav = isDesktop
-    const showMobileNav = (isMobile || isTablet)
+    const showDesktopNav = ((isDesktop && isLaptop) || isXl)
+    const showMobileNav = (isMobile || isTablet || isSmallLaptop)
 
     return (
         <>

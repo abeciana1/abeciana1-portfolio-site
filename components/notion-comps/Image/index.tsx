@@ -32,7 +32,6 @@ const NotionImage = ({
             url.searchParams.set("id", blockValue.id);
             url.searchParams.set("cache", "v2");
         }
-
         return url.toString();
     }, [source])
 

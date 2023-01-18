@@ -36,8 +36,6 @@ const NotionImage = ({
         return url.toString();
     }, [source])
 
-    console.log(imgSource);
-
     return (
         <>
             <Image

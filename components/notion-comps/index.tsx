@@ -1,8 +1,5 @@
-import { useMemo } from 'react'
-import { NotionRenderer, BlockMapType } from "react-notion";
+import { NotionRenderer, BlockMapType, BlockValueProp, CustomBlockComponentProps, BlockValueType } from "react-notion";
 import NotionImage from './Image'
-import Link from 'next/link'
-import Image from 'next/image'
 
 interface BlockI {
     blocks: BlockMapType;
@@ -13,15 +10,14 @@ const NotionContentRender = ({ blocks }: BlockI) => {
         <NotionRenderer
             blockMap={blocks}
             customBlockComponents={{
-                image: ({ blockValue }: any) => {
+                image: ({ blockValue }: CustomBlockComponentProps<'image'>) => {
                     return (
-                        <NotionImage blockValue={blockValue}/>
+                        <NotionImage blockValue={blockValue as BlockValueProp<typeof blockValue>}/>
                         )
-                    }
-                // text: ({ blockValue, renderComponent }: any) => {
-                //     console.log(blockValue)
+                },
+                // text: ({ blockValue }: BlockValueProp) => {
                 //     return (
-                //         <p>{renderComponent()}</p>
+                //         <a>{blockValue.id}</a>
                 //     )
                 // }
             }}

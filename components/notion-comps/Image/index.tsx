@@ -1,13 +1,9 @@
 import { useMemo } from 'react'
 import Image from 'next/image'
 
-interface NotionImageI {
-    blockValue: any;
-}
-
 const NotionImage = ({
     blockValue,
-}: NotionImageI) => {
+}: any) => {
     const source = blockValue.format.display_source
     const caption = blockValue.properties.caption?.[0][0];
     const aspectRatio = blockValue.format.block_aspect_ratio

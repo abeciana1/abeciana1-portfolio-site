@@ -29,15 +29,15 @@ const NotionImage = ({
             url.searchParams.set("cache", "v2");
         }
         return url.toString();
-    }, [source])
+    }, [source])  
 
     return (
         <>
             <Image
                 src={imgSource}
                 alt={caption}
-                width={imgWidth}
-                height={imgHeight}
+                width={imgWidth ? imgWidth : 100}
+                height={imgHeight ? imgHeight : 200}
             />
         </>
     )

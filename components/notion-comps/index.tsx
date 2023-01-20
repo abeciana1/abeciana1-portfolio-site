@@ -1,5 +1,9 @@
+import { lazy } from 'react'
 import { NotionRenderer, BlockMapType, BlockValueProp, CustomBlockComponentProps, BlockValueType } from "react-notion";
 import NotionImage from './Image'
+// import NotionCode from './Code'
+
+const NotionCode = lazy(() => import('./Code'))
 
 interface BlockI {
     blocks: BlockMapType;
@@ -15,11 +19,12 @@ const NotionContentRender = ({ blocks }: BlockI) => {
                         <NotionImage blockValue={blockValue as BlockValueProp<typeof blockValue>}/>
                         )
                 },
-                // text: ({ blockValue }: BlockValueProp) => {
-                //     return (
-                //         <a>{blockValue.id}</a>
-                //     )
-                // }
+                code: ({ blockValue }: CustomBlockComponentProps<'code'>) => {
+                    return (
+                        <NotionCode blockValue={blockValue as BlockValueProp<typeof blockValue>}/>
+                    )
+                }
+                
             }}
         />
     )

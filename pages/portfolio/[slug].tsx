@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { getDatabase } from '../../lib/helper-functions'
 import {
@@ -10,10 +10,10 @@ import {
     getProjectTools,
     getProjectWorkAreas
 } from '../../lib/notion-proj-props'
-import { NotionRenderer, BlockMapType } from "react-notion";
+import { BlockMapType } from "react-notion";
 import ClientCard from '../../components/cards/ClientCard'
 import ProjectDetailsCard from '../../components/cards/ProjectDetailsCard'
-import "prismjs/themes/prism-tomorrow.css";
+const NotionContentRender = lazy(() => import('../../components/notion-comps'))
 
 const PortfolioProjectPage = ({ project, blocks }: any) => {
 
@@ -52,7 +52,7 @@ const PortfolioProjectPage = ({ project, blocks }: any) => {
                 <section
                     className="py-4 break-words md:basis-3/4 max-w-md lg:max-w-2xl"
                 >
-                    <NotionRenderer blockMap={blocks} />
+                    <NotionContentRender blocks={blocks} />
                 </section>
             </section>
         </React.Fragment>

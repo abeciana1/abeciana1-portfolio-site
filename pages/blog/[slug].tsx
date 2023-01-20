@@ -15,7 +15,7 @@ import {
     excerptProp,
     hostedImageProp
 } from '../../lib/notion-blog-props'
-import { NotionRenderer, BlockMapType } from "react-notion";
+import { BlockMapType } from "react-notion";
 
 const NotionContentRender = lazy(() => import('../../components/notion-comps'))
 
@@ -143,13 +143,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <section
                         className="py-4 break-words"
                     >
-                        <NotionContentRender 
-                            blocks={blocks}
-                            // customBlockComponents={{
-                            //     nextImage: Image,
-                            //     nextLink: Link
-                            // }}
-                        />
+                        <NotionContentRender blocks={blocks}/>
                     </section>
                 </section>
                 {/* <section

@@ -1,7 +1,11 @@
 import { lazy } from 'react'
 import { NotionRenderer, BlockMapType, BlockValueProp, CustomBlockComponentProps, BlockValueType } from "react-notion";
 import NotionImage from './Image'
-// import NotionCode from './Code'
+import {
+    NotionHeader,
+    NotionSubHeader,
+    NotionSubSubHeader
+} from './Headers'
 
 const NotionCode = lazy(() => import('./Code'))
 
@@ -21,10 +25,24 @@ const NotionContentRender = ({ blocks }: BlockI) => {
                 },
                 code: ({ blockValue }: CustomBlockComponentProps<'code'>) => {
                     return (
-                        <NotionCode blockValue={blockValue as BlockValueProp<typeof blockValue>}/>
+                        <NotionCode key={blockValue.id} blockValue={blockValue as BlockValueProp<typeof blockValue>}/>
+                    )
+                },
+                header: ({ blockValue }: CustomBlockComponentProps<'header'>) => {
+                    return (
+                        <NotionHeader key={blockValue.id} blockValue={blockValue as BlockValueProp<typeof blockValue>} />
+                    )
+                },
+                sub_header: ({ blockValue }: CustomBlockComponentProps<'sub_header'>) => {
+                    return (
+                        <NotionSubHeader key={blockValue.id} blockValue={blockValue as BlockValueProp<typeof blockValue>}/>
+                    )
+                },
+                sub_sub_header: ({ blockValue }: CustomBlockComponentProps<'sub_sub_header'>) => {
+                    return (
+                        <NotionSubSubHeader key={blockValue.id} blockValue={blockValue as BlockValueProp<typeof blockValue>}/>
                     )
                 }
-                
             }}
         />
     )

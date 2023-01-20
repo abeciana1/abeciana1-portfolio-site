@@ -88,7 +88,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     </section>
                 }
                 <section
-                    className="leading-8"
+                    className="leading-8 mt-5"
                     >
                     <section>
                         <h1

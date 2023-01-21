@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { CustomHead } from '../../components/utils/CustomHead'
 import BlogPostCard from '../../components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
 import { getDatabase } from '../../lib/helper-functions'
 
 const BlogPage = ({
-    posts
+    posts, recentPosts
 }: any) => {
-    let descPosts = posts.reverse()
+
+    // const [ recentPosts, setPosts ] = useState([])
+    
+    // const recentPosts = useMemo(() => {
+    //     let recentPosts = posts.reverse()
+    //     return recentPosts
+    // }, [posts])
 
     return (
         <React.Fragment>
@@ -18,19 +24,19 @@ const BlogPage = ({
             <>
                 <h2
                     id="recent"
-                    className="text-4xl leading-relaxed"
+                    className="text-4xl leading-relaxed mt-5"
                 >Recent posts</h2>
-                { descPosts &&
+                { recentPosts &&
                     <section
                         className="py-12 md:mx-16 lg:mx-44"
                     >
-                            <BlogPostCard key={descPosts[0].id} post={descPosts[0]?.properties} active={true} imagePriority={true} />
+                            <BlogPostCard key={recentPosts[0].id} post={recentPosts[0]?.properties} active={true} imagePriority={true} />
                     </section>
                 }
                 <section
                     className="pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
                 >
-                    {descPosts.slice(1, 4).map((post: any) => {
+                    {recentPosts.slice(1, 4).map((post: any) => {
                         return <BlogPostCard key={post.id} post={post?.properties} active={true} imagePriority={true} />
                     })}
                 </section>
@@ -54,10 +60,12 @@ const BlogPage = ({
 
 export const getStaticProps: GetStaticProps = async () => {
     const response = await getDatabase(process.env.NOTION_BLOG_DATABASE_ID)
+    const recentPosts = response.reverse()
 
     return {
         props: {
-            posts: response
+            posts: response,
+            recentPosts: recentPosts
         },
         revalidate: 600
     }

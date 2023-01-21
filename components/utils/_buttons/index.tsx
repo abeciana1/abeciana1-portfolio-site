@@ -202,8 +202,6 @@ export const ScrollToTopBtn = () => {
         }
     }
 
-    console.log(mouseHover);
-
     return (
         <Fragment>
             <div
@@ -218,23 +216,15 @@ export const ScrollToTopBtn = () => {
                 >
                     <Transition
                         as="span"
-                        className="fixed absolute bottom-2"
-                        show={true}
-                        enter="transition ease-in-out duration-1000 transform"
-                        leave="transition ease-in-out duration-1000 transform"
+                        show={mouseHover}
+                        enter="transition ease-in-out duration-700 transform"
+                        enterFrom="translate-x-0 opacity-0"
+                        enterTo="translate-x-0 opacity-100"
+                        leave="transition ease-in-out duration-700 transform"
+                        leaveFrom="translate-x-0 opacity-100"
+                        leaveTo="translate-x-0 opacity-0"
                     >
-                        <Transition
-                            as="span"
-                            show={mouseHover}
-                            enter="transition ease-in-out duration-700 transform"
-                            enterFrom="translate-x-0 opacity-0"
-                            enterTo="translate-x-0 opacity-100"
-                            leave="transition ease-in-out duration-700 transform"
-                            leaveFrom="translate-x-0 opacity-100"
-                            leaveTo="translate-x-0 opacity-0"
-                        >
-                            <span className="absolute bottom-0 right-16 text-white bg-black py-2 px-3 rounded-lg w-44 border-white border-2">Click to scroll to top</span>
-                        </Transition>
+                        <span className="absolute bottom-0 right-16 text-white bg-black py-2 px-3 rounded-lg w-44 border-white border-2">Click to scroll to top</span>
                     </Transition>
                     <AiFillCaretUp
                         strokeWidth="2.5"

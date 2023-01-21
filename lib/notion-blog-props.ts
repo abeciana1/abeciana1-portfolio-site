@@ -20,4 +20,8 @@ export const excerptProp = (post: any | undefined) => {
 
 export const hostedImageProp = (post: any | undefined) => {
     return post["hostedImage"]["rich_text"][0]["plain_text"]
-} 
+}
+
+export const clapsProp = (post: any | undefined) => {
+    return post.Claps.number
+}

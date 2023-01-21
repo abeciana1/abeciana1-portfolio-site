@@ -13,10 +13,11 @@ import {
     publishedDateProp,
     tagsProp,
     excerptProp,
-    hostedImageProp
+    hostedImageProp,
+    clapsProp
 } from '../../lib/notion-blog-props'
 import { BlockMapType } from "react-notion";
-
+// import { TbHandRock }  from 'react-icons/tb'
 const NotionContentRender = lazy(() => import('../../components/notion-comps'))
 
 interface PostI {
@@ -52,6 +53,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
     const tags = tagsProp(post)
     const excerpt = excerptProp(post)
     const hostedImage = hostedImageProp(post)
+    const claps = clapsProp(post)
 
     return (
         <React.Fragment>
@@ -63,6 +65,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     blogTags: tags
                 }}
             />
+            {claps}
                 {desktop &&
                     <section className="fixed">
                         <SideBarSharing>

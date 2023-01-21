@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import { CustomHead } from '../../components/utils/CustomHead'
 import BlogPostCard from '../../components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
@@ -7,13 +7,6 @@ import { getDatabase } from '../../lib/helper-functions'
 const BlogPage = ({
     posts, recentPosts
 }: any) => {
-
-    // const [ recentPosts, setPosts ] = useState([])
-    
-    // const recentPosts = useMemo(() => {
-    //     let recentPosts = posts.reverse()
-    //     return recentPosts
-    // }, [posts])
 
     return (
         <React.Fragment>

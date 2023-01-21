@@ -13,6 +13,7 @@ import {
 import { BlockMapType } from "react-notion";
 import ClientCard from '../../components/cards/ClientCard'
 import ProjectDetailsCard from '../../components/cards/ProjectDetailsCard'
+import { ScrollToTopBtn } from '../../components/utils/_buttons'
 const NotionContentRender = lazy(() => import('../../components/notion-comps'))
 
 const PortfolioProjectPage = ({ project, blocks }: any) => {
@@ -54,6 +55,7 @@ const PortfolioProjectPage = ({ project, blocks }: any) => {
                 >
                     <NotionContentRender blocks={blocks} />
                 </section>
+                <ScrollToTopBtn/>
             </section>
         </React.Fragment>
     )

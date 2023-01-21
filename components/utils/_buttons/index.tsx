@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import cx from 'classnames'
+import { AiFillCaretUp } from 'react-icons/ai'
 
 interface IShareButtonProps {
     text: string;
@@ -184,5 +185,33 @@ export const ExpandBtnLink = ({
                 </div>
             }
         </a>
+    )
+}
+
+export const ScrollToTopBtn = () => {
+
+    const clickToTopHandler = () => {
+        if (window) {
+            window.scrollTo(0, 0)
+        }
+        // window.scroll({ 
+        //         top: 0, 
+        //         left: 0, 
+        //         behavior: 'smooth' 
+        //     });
+    }
+
+    return (
+        <div className="flex justify-end">
+            <button
+                className="z-50 bg-altRed h-14 w-14 rounded-full fixed bottom-2"
+                onClick={clickToTopHandler}
+            >
+                <AiFillCaretUp
+                    strokeWidth="2.5"
+                    className="h-7 w-7 text-white mx-auto"
+                />
+            </button>
+        </div>
     )
 }

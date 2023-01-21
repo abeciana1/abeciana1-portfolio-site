@@ -3,7 +3,7 @@ import { BlogPostHead } from '../../components/utils/CustomHead'
 import Image from 'next/image'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import SideBarSharing from '../../components/utils/SideBarSharing'
-import { ShareBtn } from '../../components/utils/_buttons'
+import { ShareBtn, ScrollToTopBtn } from '../../components/utils/_buttons'
 import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '../../lib/useResponsiveness'
 import { copyToClipboard, getDatabase } from '../../lib/helper-functions'
@@ -62,7 +62,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     publishedTime: publishedDate,
                     blogTags: tags
                 }}
-                />
+            />
                 {desktop &&
                     <section className="fixed">
                         <SideBarSharing>
@@ -143,9 +143,10 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <section
                         className="py-4 break-words"
                     >
-                        <NotionContentRender blocks={blocks}/>
+                        <NotionContentRender blocks={blocks} />
                     </section>
                 </section>
+                <ScrollToTopBtn />
                 {/* <section
                     className="py-12"
                 >

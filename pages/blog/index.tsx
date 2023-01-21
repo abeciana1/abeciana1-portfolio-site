@@ -3,6 +3,7 @@ import { CustomHead } from '../../components/utils/CustomHead'
 import BlogPostCard from '../../components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
 import { getDatabase } from '../../lib/helper-functions'
+import { ScrollToTopBtn } from '../../components/utils/_buttons'
 
 const BlogPage = ({
     posts, recentPosts
@@ -47,6 +48,7 @@ const BlogPage = ({
                     })}
                 </section>
             </>
+            <ScrollToTopBtn/>
         </React.Fragment>
     )
 }

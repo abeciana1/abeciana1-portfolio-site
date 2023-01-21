@@ -65,7 +65,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     blogTags: tags
                 }}
             />
-            {claps}
+            {/* {claps} */}
                 {desktop &&
                     <section className="fixed">
                         <SideBarSharing>

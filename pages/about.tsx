@@ -1,5 +1,4 @@
 import React, { Suspense,lazy } from 'react'
-import { lazily } from 'react-lazily'
 import { CustomHead } from '../components/utils/CustomHead'
 import { SkillCardGrid } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
@@ -11,7 +10,7 @@ import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import profileCallout from '../public/profile-callout-edited.webp'
 import { SkillI } from '../components/cards/SkillCard'
-
+import { ScrollToTopBtn } from '../components/utils/_buttons'
 const SkillCard = lazy(() => import('../components/cards/SkillCard'))
 const JobCard = lazy(() => import('../components/cards/JobCard'))
 const EduCard = lazy(() => import('../components/cards/EduCard'))
@@ -136,6 +135,7 @@ const AboutPage = ({ expData }: any) => {
                             })}
                     </section>
                 </Suspense>
+                <ScrollToTopBtn/>
             </section>
         </React.Fragment>
     )

@@ -11,7 +11,7 @@ import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import profileCallout from '../public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
 import { SkillI } from '../components/cards/SkillCard'
-
+import { ScrollToTopBtn } from '../components/utils/_buttons'
 const SkillCard = lazy(() => import('../components/cards/SkillCard'))
 const {
   CodeMockup,
@@ -163,6 +163,7 @@ export default function Home({ joke }: any) {
             </SkillCardGrid>
         </section>
       </Suspense>
+      <ScrollToTopBtn/>
     </React.Fragment>
   )
 }

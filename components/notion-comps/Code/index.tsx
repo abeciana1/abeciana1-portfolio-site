@@ -1,7 +1,6 @@
-import { useEffect, useMemo } from 'react'
-import { languages, highlightAll } from "prismjs";
+import { useEffect } from 'react'
+import { highlightAll } from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
-// require('prismjs/components/index')
 
 const NotionCode = ({
     blockValue

@@ -192,7 +192,6 @@ export const ScrollToTopBtn = () => {
 
     const clickToTopHandler = () => {
         if (window) {
-            // window.scrollTo(0, 0)
             window.scroll({ 
                     top: 0, 
                     left: 0, 

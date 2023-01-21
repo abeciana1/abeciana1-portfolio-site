@@ -13,7 +13,6 @@ import { StrictMode } from "react";
 // todo Create smooth scroll comp for long form content
 
 // todo look at notion image comp console log for red dwarf gif
-// todo work on notion comp text header and sub headers
 
 export default function App({ Component, pageProps }: AppProps) {
 

@@ -22,5 +22,17 @@ const nextConfig = withBundleAnalyzer({
   }
 })
 
+const redirects = {
+  async redirects() {
+    return [
+      {
+        source: "/portfolio",
+        destination: "/freelance",
+        permanent: true
+      }
+    ]
+  }
+}
+
 module.exports =
-  nextConfig
+  nextConfig && redirects

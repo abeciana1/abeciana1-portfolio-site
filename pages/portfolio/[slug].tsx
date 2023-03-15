@@ -15,6 +15,7 @@ import ClientCard from '../../components/cards/ClientCard'
 import ProjectDetailsCard from '../../components/cards/ProjectDetailsCard'
 import { ScrollToTopBtn } from '../../components/utils/_buttons'
 const NotionContentRender = lazy(() => import('../../components/notion-comps'))
+import { BlogPostHead } from '../../components/utils/CustomHead'
 
 const PortfolioProjectPage = ({ project, blocks }: any) => {
 
@@ -34,6 +35,14 @@ const PortfolioProjectPage = ({ project, blocks }: any) => {
 
     return (
         <React.Fragment>
+            <BlogPostHead
+                title={`Project | ${title}`}
+                description={bio}
+                article={{
+                    blogTags: projectTools,
+                }}
+                image={logo}
+            />
             <h1 className="mt-5 text-5xl font-reross leading-relaxed">{title}</h1>
             <section className="flex flex-col md:flex-row md:space-x-10">
                 <aside className="mt-16 md:basis-1/4 min-w-xl">

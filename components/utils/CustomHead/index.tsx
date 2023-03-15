@@ -31,7 +31,8 @@ interface TagI {
 interface BlogPostSeoI {
     title?: string;
     description: string;
-    article: ArticleI
+    article: ArticleI;
+    image: string;
 }
 
 interface ArticleI {
@@ -43,15 +44,11 @@ interface ArticleI {
 export const BlogPostHead = ({
     title,
     description,
-    article
+    article,
+    image
 }: BlogPostSeoI) => {
 
     const router = useRouter()
-
-    const {
-        publishedTime,
-        blogTags
-    } = article
 
     return (
         <NextSeo
@@ -65,10 +62,15 @@ export const BlogPostHead = ({
                 description: description,
                 url: "https://alexbeciana.com" + router.asPath,
                 type: 'article',
-                article: {
-                    publishedTime: publishedTime,
-                    tags: blogTags
-                }
+                article: article,
+                images: [
+                {
+                    url: image,
+                    width: 850,
+                    height: 650,
+                    alt: `Alex Beciana | ${title}`,
+                },
+                ],
             }}
         />
     )

@@ -67,7 +67,7 @@ const ProjectCard = ({
                         className="font-bold px-2"
                     >
                         {name}
-                        <span className="font-normal"> | {bio}</span>
+                        <span className="font-normal"> | {bio.substring(0, 100)}...</span>
                     </div>
                 </div>
             </Link>

@@ -24,6 +24,7 @@ export default function Home({ joke }: any) {
     <React.Fragment>
       <CustomHead
         description='Full stack software engineer with two years of experience with an entrepreneurial spirit.'
+        image="./profile-callout-edited.webp"
       />
       <HeroSectionWithLinkGradientBG
         heading="Hi I'm Alex Beciana"

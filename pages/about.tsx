@@ -28,6 +28,7 @@ const AboutPage = ({ expData }: any) => {
             <CustomHead
                 title="About"
                 description="Alex Beciana | Work experience and education as a digital marketer, community manager, and full-stack software engineer"
+                image="./profile-callout-edited.webp"
             />
             <SocialProfileJsonLd
                 type="Person"

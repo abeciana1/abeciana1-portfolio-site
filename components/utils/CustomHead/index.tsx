@@ -4,11 +4,13 @@ import { useRouter } from 'next/router'
 interface SeoI {
     title?: string;
     description: string;
+    image?: any;
 }
 
 export const CustomHead = ({
     title,
-    description
+    description,
+    image
 }: SeoI) => {
 
     const router = useRouter()
@@ -20,6 +22,19 @@ export const CustomHead = ({
             defaultTitle='Alex Beciana'
             description={description}
             canonical={"https://alexbeciana.com" + router.asPath}
+            openGraph={{
+                title: title,
+                description: description,
+                url: "https://alexbeciana.com" + router.asPath,
+                images: [
+                    {
+                        url: image,
+                        width: 400,
+                        height: 413,
+                        alt: 'Photo of text',
+                    }
+                ]
+            }}
         />
     )
 }

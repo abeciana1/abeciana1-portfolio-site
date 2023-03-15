@@ -17,6 +17,7 @@ import {
     clapsProp
 } from '../../lib/notion-blog-props'
 import { BlockMapType } from "react-notion";
+import { TagI } from '../../components/cards/TagCard'
 // import { TbHandRock }  from 'react-icons/tb'
 const NotionContentRender = lazy(() => import('../../components/notion-comps'))
 
@@ -62,7 +63,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                 description={excerpt}
                 article={{
                     publishedTime: publishedDate,
-                    blogTags: tags
+                    blogTags: tags.map((tag: TagI) => tag.name)
                 }}
                 image={hostedImage}
             />

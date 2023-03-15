@@ -16,6 +16,7 @@ import ProjectDetailsCard from '../../components/cards/ProjectDetailsCard'
 import { ScrollToTopBtn } from '../../components/utils/_buttons'
 const NotionContentRender = lazy(() => import('../../components/notion-comps'))
 import { BlogPostHead } from '../../components/utils/CustomHead'
+import { TagI } from '../../components/cards/TagCard'
 
 const PortfolioProjectPage = ({ project, blocks }: any) => {
 
@@ -39,7 +40,7 @@ const PortfolioProjectPage = ({ project, blocks }: any) => {
                 title={`Project | ${title}`}
                 description={bio}
                 article={{
-                    blogTags: projectTools,
+                    blogTags: projectTools.map((tool: TagI) => tool.name),
                 }}
                 image={logo}
             />

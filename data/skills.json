@@ -122,5 +122,13 @@
     {
         "name": "Supabase",
         "image": "/skills/supabase.webp"
+    },
+    {
+        "name": "Jenkins",
+        "image": "/skills/Jenkins.webp"
+    },
+    {
+        "name": "Postman",
+        "image": "/skills/Postman.webp"
     }
 ]

@@ -64,6 +64,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     publishedTime: publishedDate,
                     blogTags: tags
                 }}
+                image={hostedImage}
             />
             {/* {claps} */}
                 {desktop &&

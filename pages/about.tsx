@@ -1,5 +1,6 @@
 import React, { Suspense,lazy } from 'react'
 import { CustomHead } from '../components/utils/CustomHead'
+import { SocialProfileJsonLd } from 'next-seo';
 import { SkillCardGrid } from '../components/layouts'
 import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import Skills from '../data/skills.json'
@@ -27,6 +28,17 @@ const AboutPage = ({ expData }: any) => {
             <CustomHead
                 title="About"
                 description="Alex Beciana | Work experience and education as a digital marketer, community manager, and full-stack software engineer"
+                image="./profile-callout-edited.webp"
+            />
+            <SocialProfileJsonLd
+                type="Person"
+                name="Alex Beciana"
+                url="https://alexbeciana.com/"
+                sameAs={[
+                    "https://www.linkedin.com/in/alexbeciana/",
+                    "https://github.com/abeciana1",
+                    "https://www.behance.net/alexbeciana"
+                ]}
             />
             <section>
                 <HeroSectionWithLinkGradientBG

@@ -21,7 +21,7 @@ const SkillCard = ({
                 />
             </div>
             <div
-                className="mt-2 text-center"
+                className="mt-4 text-center"
             >
                 {name}
             </div>

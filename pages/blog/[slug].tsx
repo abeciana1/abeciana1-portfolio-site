@@ -1,4 +1,5 @@
-import React, { lazy } from 'react'
+import React from 'react'
+// import React, { lazy, useEffect } from 'react'
 import { BlogPostHead } from '../../components/utils/CustomHead'
 import Image from 'next/image'
 import { GetStaticProps, GetStaticPaths } from 'next'
@@ -6,7 +7,7 @@ import SideBarSharing from '../../components/utils/SideBarSharing'
 import { ShareBtn, ScrollToTopBtn } from '../../components/utils/_buttons'
 import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '../../lib/useResponsiveness'
-import { copyToClipboard, getDatabase } from '../../lib/helper-functions'
+import { copyToClipboard, getDatabase, updateBlogClaps } from '../../lib/helper-functions'
 import {
     slugProp,
     titleProp,
@@ -14,11 +15,11 @@ import {
     tagsProp,
     excerptProp,
     hostedImageProp,
-    clapsProp
+    // clapsProp
 } from '../../lib/notion-blog-props'
 import { BlockMapType } from "react-notion";
 // import { TbHandRock }  from 'react-icons/tb'
-const NotionContentRender = lazy(() => import('../../components/notion-comps'))
+// const NotionContentRender = lazy(() => import('../../components/notion-comps'))
 
 interface PostI {
     id: string;
@@ -33,9 +34,10 @@ interface PostI {
 interface BlogArticleI {
     post: PostI;
     blocks: BlockMapType;
+    postId: string;
 }
 
-const BlogArticle = ({ post, blocks }: BlogArticleI) => {
+const BlogArticle = ({ post, blocks, postId }: BlogArticleI) => {
     const mediaQueryRender = useResponsiveness()
 
     const {
@@ -53,7 +55,14 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
     const tags = tagsProp(post)
     const excerpt = excerptProp(post)
     const hostedImage = hostedImageProp(post)
-    const claps = clapsProp(post)
+    // const claps = clapsProp(post)
+
+    // let clapsRef = useRef(claps)
+
+    // const clapsClickHandler = () => {
+    //     updateBlogClaps(postId, claps)
+    //     clapsRef.current += 1
+    // }
 
     return (
         <React.Fragment>
@@ -65,7 +74,6 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     blogTags: tags
                 }}
             />
-            {/* {claps} */}
                 {desktop &&
                     <section className="fixed">
                         <SideBarSharing>
@@ -87,6 +95,17 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 onClick={() => copyToClipboard(`https://alexbeciana.com/blog/${slug}`)}
                                 addClass="hover:w-32 hover:border-white hover:border-2"
                             />
+                            {clapsRef.current &&
+                                <ShareBtn
+                                    body=""
+                                    text={`${clapsRef.current} Claps`}
+                                    textColor="white"
+                                    backgroundColor="black"
+                                    icon={AiFillCopy}
+                                    onClick={clapsClickHandler}
+                                    addClass="hover:w-32 hover:border-white hover:border-2"
+                                />
+                            }
                         </SideBarSharing>
                     </section>
                 }
@@ -146,7 +165,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <section
                         className="py-4 break-words"
                     >
-                        <NotionContentRender blocks={blocks} />
+                        {/* <NotionContentRender blocks={blocks} /> */}
                     </section>
                 </section>
                 <ScrollToTopBtn />
@@ -194,6 +213,8 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
 
     return {
         props: {
+            testPost: post,
+            postId: post.id,
             post: post.properties,
             blocks: blocks,
         },

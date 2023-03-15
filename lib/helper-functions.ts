@@ -53,3 +53,38 @@ export const getBlocks = async (blockId: string | undefined) => {
     }
     return blocks;
 };
+
+export const updateBlogClaps = async (pageId: string | undefined, clapsNum: number) => {
+    //  attempt: number
+    // if (attempt > 0) {
+        
+    // }
+    let newNum = clapsNum += 1
+    const response = await notion.pages.update({
+        page_id: pageId,
+        properties: {
+            Claps: {
+                number: newNum
+            }
+        }
+    })
+    console.log(response)
+
+    const options = {
+        method: 'PATCH',
+        body: JSON.stringify({
+            "properties": {
+                "Claps": {
+                    "number": newNum
+                }
+            }
+        })
+    };
+    
+    fetch(`https://api.notion.com/v1/pages/${pageId}`, options)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    })
+    .catch(err => console.error(err))
+}

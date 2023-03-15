@@ -73,8 +73,8 @@ const NavBar = ({
                             <PreRenderLink
                                 alt="Portfolio page"
                                 className="text-4xl mr-5 font-reross cursor-pointer anim-text"
-                                linkText="portfolio"
-                                href="/portfolio"
+                                linkText="freelance"
+                                href="/freelance"
                             />
                         </li>
                         <li>
@@ -113,8 +113,8 @@ const NavBar = ({
                             <PreRenderLink
                                 alt="Portfolio page"
                                 className="text-4xl font-reross cursor-pointer anim-text"
-                                linkText="portfolio"
-                                href="/portfolio"
+                                linkText="freelance"
+                                href="/freelance"
                             />
                         </li>
                         <li

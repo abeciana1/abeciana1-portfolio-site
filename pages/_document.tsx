@@ -6,7 +6,9 @@ const MyDocument = () => {
     return (
         <Html lang="en">
             <Head>
-                <link rel="icon preload" as="image" href="/waving.webp" />
+                <link rel="icon" href="/waving.webp" />
+                <link rel="shortcut icon" href="/waving.webp" />
+                <link rel="apple-touch-icon" href="/waving.webp" />
                 <link rel="preload" as="image" href="/profile-callout-edited.webp" />
                 <link rel="preload" as="image" href="/profile-pic.webp" />
                 <Script

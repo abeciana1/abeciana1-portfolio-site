@@ -16,6 +16,16 @@ export const TwoColumnGrid = ({ children, addClass = "" }: LayoutI) => {
     )
 }
 
+export const ThreeColumnGrid = ({ children, addClass = "" }: LayoutI) => {
+    return (
+        <section className={cx("grid grid-cols-2 md:grid-cols-3 relative items-center", {
+            [addClass]: addClass
+        })}>
+            { children }
+        </section>
+    )
+}
+
 export const SkillCardGrid = ({ children, addClass = "" }: LayoutI) => {
     
     return (

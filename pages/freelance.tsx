@@ -10,6 +10,7 @@ import { lazily } from 'react-lazily'
 const { ServiceIcon } = lazily(() => import('../components/utils/_icons'))
 import Clients from '../data/clients.json'
 import Logo, { ILogo } from '../components/cards/Logo'
+import { ThreeColumnGrid } from '../components/layouts'
 
 const FreelancePage = (): JSX.Element => {
 
@@ -26,7 +27,7 @@ const FreelancePage = (): JSX.Element => {
             />
             <section className="text-center relative z-50 mt-20">
                 <h2 className="text-4xl">I've worked with</h2>
-                <section className="my-20 grid grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-20 items-center">
+                <ThreeColumnGrid addClass="my-20 gap-10 lg:gap-20">
                     {Clients.map(({
                         name,
                         logo,
@@ -42,7 +43,7 @@ const FreelancePage = (): JSX.Element => {
                             />
                         )
                     })}
-                </section>
+                </ThreeColumnGrid>
             </section>
         </React.Fragment>
     )

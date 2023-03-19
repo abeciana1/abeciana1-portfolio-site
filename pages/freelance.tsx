@@ -24,9 +24,9 @@ const FreelancePage = (): JSX.Element => {
                 reverseOrder={true}
                 gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
             />
-            <section className="text-center text-4xl relative z-50 mt-20">
-                <h2>I've worked with</h2>
-                <section className="my-20">
+            <section className="text-center relative z-50 mt-20">
+                <h2 className="text-4xl">I've worked with</h2>
+                <section className="my-20 grid grid-cols-3 gap-20 items-center">
                     {Clients.map(({
                         name,
                         logo,

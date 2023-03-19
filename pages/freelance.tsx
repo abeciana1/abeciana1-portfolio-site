@@ -9,7 +9,7 @@ import UXDesign from '../public/services/UX Design icon.svg'
 import { lazily } from 'react-lazily'
 const { ServiceIcon } = lazily(() => import('../components/utils/_icons'))
 import Clients from '../data/clients.json'
-import Image from 'next/image'
+import Logo, { ILogo } from '../components/cards/Logo'
 
 const FreelancePage = (): JSX.Element => {
 
@@ -27,6 +27,21 @@ const FreelancePage = (): JSX.Element => {
             <section className="text-center text-4xl relative z-50 mt-20">
                 <h2>I've worked with</h2>
                 <section className="my-20">
+                    {Clients.map(({
+                        name,
+                        logo,
+                        height,
+                        width
+                    }: ILogo) => {
+                        return (
+                            <Logo
+                                name={name}
+                                logo={logo}
+                                width={width}
+                                height={height}
+                            />
+                        )
+                    })}
                 </section>
             </section>
         </React.Fragment>

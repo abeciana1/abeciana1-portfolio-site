@@ -89,7 +89,7 @@ export const HeroSectionWithLinkGradientBG = ({
     ctaAlt = "",
     reverseOrder,
     imageClassName,
-    gradientClass
+    gradientClass,
 }: HeroGradientI) => {
 
     const mediaQueryRender = useResponsiveness()

@@ -26,7 +26,7 @@ const FreelancePage = (): JSX.Element => {
             />
             <section className="text-center relative z-50 mt-20">
                 <h2 className="text-4xl">I've worked with</h2>
-                <section className="my-20 grid grid-cols-3 gap-20 items-center">
+                <section className="my-20 grid grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-20 items-center">
                     {Clients.map(({
                         name,
                         logo,

@@ -22,14 +22,12 @@ const Logo = ({
 
     return (
         <React.Fragment>
-            <div>
-                <Image
-                    src={logo}
-                    alt={name + "client logo"}
-                    width={width}
-                    height={height}
-                />
-            </div>
+            <Image
+                src={logo}
+                alt={name + "client logo"}
+                width={width}
+                height={height}
+            />
         </React.Fragment>
     )
 }

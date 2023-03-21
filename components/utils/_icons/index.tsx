@@ -12,13 +12,27 @@ export const ServiceIcon = ({
     color,
     icon
 }: IServiceIcon) => {
-    const Icon = icon
+    const Icon = icon as React.ElementType
     const [hovered, setHovered] = useState(false)
 
     return (
         <Fragment>
-            <Icon
-            />
+            <div
+                className="flex flex-row gap-10"
+            >
+                <div className="bg-blue-800 max-h-12">
+                    <Icon
+                        strokeWidth="2.5"
+                        className={cx('h-12 w-12 p-3', {
+                            ['fill-white']: color === 'blue'
+                        })}
+                    />
+                </div>
+
+                <div>
+                    {text}
+                </div>
+            </div>
         </Fragment>
     )
 }

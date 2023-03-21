@@ -3,14 +3,14 @@ import { HeroSectionWithLinkGradientBG } from '../components/sections'
 import profileCallout from '../public/profile-callout-edited.webp'
 import DeskVector from '../public/services/deskvector-without-bg.svg'
 import DigitalMarketing from '../public/services/Digital Marketing icon.svg'
-import Engineering from '../public/services/Engineering icon.svg'
+import Engineering from '../public/services/Engineeringicon'
 import UIDesign from '../public/services/UI Design icon.svg'
 import UXDesign from '../public/services/UX Design icon.svg'
 import { lazily } from 'react-lazily'
 const { ServiceIcon } = lazily(() => import('../components/utils/_icons'))
 import Clients from '../data/clients.json'
 import Logo, { ILogo } from '../components/cards/Logo'
-import { ThreeColumnGrid } from '../components/layouts'
+import { TwoColumnGrid, ThreeColumnGrid } from '../components/layouts'
 
 const FreelancePage = (): JSX.Element => {
 
@@ -27,7 +27,7 @@ const FreelancePage = (): JSX.Element => {
             />
             <section className="text-center relative z-50 mt-20">
                 <h2 className="text-4xl">I've worked with</h2>
-                <ThreeColumnGrid addClass="my-20 gap-10 lg:gap-20">
+                <ThreeColumnGrid addClass="mt-20 gap-10 lg:gap-20">
                     {Clients.map(({
                         name,
                         logo,
@@ -44,6 +44,31 @@ const FreelancePage = (): JSX.Element => {
                         )
                     })}
                 </ThreeColumnGrid>
+            </section>
+            <section className="my-20">
+                <h2 className="text-4xl text-center relative z-50">My offerings</h2>
+                <TwoColumnGrid addClass="mt-20 gap-20">
+                    <ServiceIcon
+                        icon={Engineering}
+                        text="Specializing frontend development services that deliver clean and efficient code for web applications and sites. With my expertise, I can provide you with a modern, accessible, SEO-friendly, and responsive user interface that enhances user experience. Timely delivery within your budget. Ongoing support is also available."
+                        color="blue"
+                    />
+                    <ServiceIcon
+                        icon={Engineering}
+                        text="Specializing frontend development services that deliver clean and efficient code for web applications and sites. With my expertise, I can provide you with a modern, accessible, SEO-friendly, and responsive user interface that enhances user experience. Timely delivery within your budget. Ongoing support is also available."
+                        color="blue"
+                    />
+                    <ServiceIcon
+                        icon={Engineering}
+                        text="Specializing frontend development services that deliver clean and efficient code for web applications and sites. With my expertise, I can provide you with a modern, accessible, SEO-friendly, and responsive user interface that enhances user experience. Timely delivery within your budget. Ongoing support is also available."
+                        color="blue"
+                    />
+                    <ServiceIcon
+                        icon={Engineering}
+                        text="Specializing frontend development services that deliver clean and efficient code for web applications and sites. With my expertise, I can provide you with a modern, accessible, SEO-friendly, and responsive user interface that enhances user experience. Timely delivery within your budget. Ongoing support is also available."
+                        color="blue"
+                    />
+                </TwoColumnGrid>
             </section>
         </React.Fragment>
     )

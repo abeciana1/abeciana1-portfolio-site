@@ -20,11 +20,11 @@ export const ServiceIcon = ({
             <div
                 className="flex flex-row gap-10"
             >
-                <div className="bg-blue-800 max-h-12">
+                <div className="max-h-12">
                     <Icon
                         strokeWidth="2.5"
-                        className={cx('h-12 w-12 p-3', {
-                            ['fill-white']: color === 'blue'
+                        className={cx('h-12 w-12', {
+                            ['fill-blue-800 opacity-100']: color === 'blue'
                         })}
                     />
                 </div>

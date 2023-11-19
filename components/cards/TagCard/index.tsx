@@ -1,15 +1,6 @@
 import React from 'react'
 import cx from 'classnames'
-
-export interface TagDataI {
-    id?: string;
-    color: string;
-    tagName: string;
-}
-
-export interface TagI extends TagDataI {
-    addClass?: string;
-}
+import { TagI } from '@/interfaces'
 
 export const TagCard = ({
     id = "",

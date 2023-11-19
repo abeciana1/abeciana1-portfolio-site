@@ -8,31 +8,9 @@ import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '../../lib/useResponsiveness'
 import { copyToClipboard } from '../../lib/helper-functions'
 import { gql, GraphQLClient } from 'graphql-request'
-import { TagDataI } from '../../components/cards/TagCard'
+import { IPost, ITagData } from '@/interfaces'
 
-interface PostImageI {
-    alt: string;
-    url: string
-}
-
-interface PostTagI {
-    color: string;
-    tagName: string;
-    id: string;
-}
-
-interface PostI {
-    id: string;
-    excerpt: string;
-    title: string;
-    publishedDate: string;
-    slug: string;
-    content: string;
-    featuredImage: PostImageI;
-    blogPostTags: PostTagI[];
-}
-
-const BlogArticle = ({ post }: {post: PostI}) => {
+const BlogArticle = ({ post }: {post: IPost}) => {
     const mediaQueryRender = useResponsiveness()
 
     const {
@@ -51,7 +29,7 @@ const BlogArticle = ({ post }: {post: PostI}) => {
                 description={post.excerpt}
                 article={{
                     publishedTime: post.publishedDate,
-                    blogTags: post.blogPostTags.map((tag: TagDataI) => tag.tagName)
+                    blogTags: post.blogPostTags.map((tag: ITagData) => tag.tagName)
                 }}
                 image={post.featuredImage.url}
             />

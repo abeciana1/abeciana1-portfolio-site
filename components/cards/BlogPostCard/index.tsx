@@ -4,14 +4,6 @@ import { format, add } from 'date-fns'
 import Image from 'next/image'
 import { Transition } from '@headlessui/react'
 import { TagCard } from '../TagCard'
-import {
-    slugProp,
-    titleProp,
-    publishedDateProp,
-    tagsProp,
-    excerptProp,
-    hostedImageProp
-} from '../../../lib/notion-blog-props'
 import { ITag, IBlogPostCard } from '@/interfaces'
 
 const BlogPostCard = ({ post, active, imagePriority = false }: IBlogPostCard) => {

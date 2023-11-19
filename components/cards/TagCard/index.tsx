@@ -1,13 +1,13 @@
 import React from 'react'
 import cx from 'classnames'
-import { TagI } from '@/interfaces'
+import { ITag } from '@/interfaces'
 
 export const TagCard = ({
     id = "",
     color,
     tagName,
     addClass = ""
-}: TagI) => {
+}: ITag) => {
     return (
         <span
             key={id}

@@ -33,9 +33,10 @@ const FreelancePage = (): JSX.Element => {
                         logo,
                         height,
                         width
-                    }: ILogo) => {
+                    }: ILogo, index: number) => {
                         return (
                             <Logo
+                                key={index}
                                 name={name}
                                 logo={logo}
                                 width={width}

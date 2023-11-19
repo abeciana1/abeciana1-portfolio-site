@@ -7,36 +7,44 @@ import { ShareBtn, ScrollToTopBtn } from '../../components/utils/_buttons'
 import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '../../lib/useResponsiveness'
 import { copyToClipboard, getDatabase } from '../../lib/helper-functions'
-import {
-    slugProp,
-    titleProp,
-    publishedDateProp,
-    tagsProp,
-    excerptProp,
-    hostedImageProp,
-    clapsProp
-} from '../../lib/notion-blog-props'
+// import {
+//     slugProp,
+//     titleProp,
+//     publishedDateProp,
+//     tagsProp,
+//     excerptProp,
+//     hostedImageProp,
+//     clapsProp
+// } from '../../lib/notion-blog-props'
 import { BlockMapType } from "react-notion";
-import { TagI } from '../../components/cards/TagCard'
+import { gql, GraphQLClient } from 'graphql-request'
+import { TagDataI } from '../../components/cards/TagCard'
 // import { TbHandRock }  from 'react-icons/tb'
 const NotionContentRender = lazy(() => import('../../components/notion-comps'))
 
+interface PostImageI {
+    alt: string;
+    url: string
+}
+
+interface PostTagI {
+    color: string;
+    tagName: string;
+    id: string;
+}
+
 interface PostI {
     id: string;
-    Excerpt: string;
-    Name: string; // blog title
-    PublishedDate: string;
-    Slug: string;
-    hostedImage: string;
-    Tags: any;
+    excerpt: string;
+    title: string;
+    publishedDate: string;
+    slug: string;
+    content: string;
+    featuredImage: PostImageI;
+    blogPostTags: PostTagI[];
 }
 
-interface BlogArticleI {
-    post: PostI;
-    blocks: BlockMapType;
-}
-
-const BlogArticle = ({ post, blocks }: BlogArticleI) => {
+const BlogArticle = ({ post }: {post: PostI}) => {
     const mediaQueryRender = useResponsiveness()
 
     const {
@@ -48,32 +56,23 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
     const desktop = isDesktop
     const mobile = (isMobile || isTablet)
 
-    const slug = slugProp(post)
-    const title = titleProp(post)
-    const publishedDate = publishedDateProp(post)
-    const tags = tagsProp(post)
-    const excerpt = excerptProp(post)
-    const hostedImage = hostedImageProp(post)
-    const claps = clapsProp(post)
-
     return (
         <React.Fragment>
             <BlogPostHead
-                title={`Blog | ${title}`}
-                description={excerpt}
+                title={`Blog | ${post.title}`}
+                description={post.excerpt}
                 article={{
-                    publishedTime: publishedDate,
-                    blogTags: tags.map((tag: TagI) => tag.name)
+                    publishedTime: post.publishedDate,
+                    blogTags: post.blogPostTags.map((tag: TagDataI) => tag.tagName)
                 }}
-                image={hostedImage}
+                image={post.featuredImage.url}
             />
-            {claps}
                 {desktop &&
                     <section className="fixed">
                         <SideBarSharing>
                             <ShareBtn
                                 body=""
-                                subject={`Check out this blog post I read, ${title}`}
+                                subject={`Check out this blog post I read, ${post.title}`}
                                 text="Share by email"
                                 textColor="white"
                                 backgroundColor="black"
@@ -86,7 +85,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 textColor="white"
                                 backgroundColor="black"
                                 icon={AiFillCopy}
-                                onClick={() => copyToClipboard(`https://alexbeciana.com/blog/${slug}`)}
+                                onClick={() => copyToClipboard(`https://alexbeciana.com/blog/${post.slug}`)}
                                 addClass="hover:w-32 hover:border-white hover:border-2"
                             />
                         </SideBarSharing>
@@ -98,19 +97,19 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <section>
                         <h1
                             className="text-4xl lg:text-5xl py-5"
-                        >{title}</h1>
+                        >{post.title}</h1>
                         <p
                             className="py-2 italic"
                         >
-                            {excerpt}
+                            {post.excerpt}
                         </p>
                         <div>
                             <Image
                                 height={500}
                                 width={1000}
                                 priority
-                                src={hostedImage}
-                                alt={`Alex Beciana | Blog | ${title}`}
+                                src={post.featuredImage.url}
+                                alt={`Alex Beciana | Blog | ${post.title}`}
                             />
                         </div>
                     </section>
@@ -118,7 +117,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                         <SideBarSharing>
                             <ShareBtn
                                 body=""
-                                subject={`Check out this blog post I read, ${title}`}
+                                subject={`Check out this blog post I read, ${post.title}`}
                                 text="Share by email"
                                 textColor="white"
                                 backgroundColor="black"
@@ -126,7 +125,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 addClass="hover:w-44"
                             />
                             <ShareBtn
-                                body={`Check out this blog post I read, ${title} : https://alexbeciana.com/blog/${slug}`}
+                                body={`Check out this blog post I read, ${post.title} : https://alexbeciana.com/blog/${post.slug}`}
                                 text="Share by SMS"
                                 textColor="white"
                                 backgroundColor="black"
@@ -140,7 +139,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                                 textColor="white"
                                 backgroundColor="black"
                                 icon={AiFillCopy}
-                                onClick={() => copyToClipboard(`https://alexbeciana.com/blog/${slug}`)}
+                                onClick={() => copyToClipboard(`https://alexbeciana.com/blog/${post.slug}`)}
                                 addClass="hover:w-32"
                             />
                         </SideBarSharing>
@@ -148,7 +147,7 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
                     <section
                         className="py-4 break-words"
                     >
-                        <NotionContentRender blocks={blocks} />
+                        {/* <NotionContentRender blocks={blocks} /> */}
                     </section>
                 </section>
                 <ScrollToTopBtn />
@@ -164,13 +163,21 @@ const BlogArticle = ({ post, blocks }: BlogArticleI) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const posts = await getDatabase(process.env.NOTION_BLOG_DATABASE_ID)
+    const postClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
 
-    let paths = posts.map((post: any) => {
-        let slug = slugProp(post.properties)
+    const postQuery = gql`
+    query posts {
+        blogPosts {
+            slug
+        }
+    }`
+    
+    const postData = await postClient.request(postQuery)
+    
+    let paths = postData.blogPosts.map((post: any) => {
         return {
             params: {
-                slug: slug
+                slug: post.slug
             }
         }
     })
@@ -181,23 +188,35 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 }
 
-export const getStaticProps: GetStaticProps = async (context: any) => {
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+    const slug = params.slug as string;
 
-    const posts = await getDatabase(process.env.NOTION_BLOG_DATABASE_ID)
-
-    const post = posts.find((t: any) => {
-        let slug = slugProp(t.properties)
-        if (slug === context.params.slug) {
-            return t
+    const blogPostQuery = gql`query post {
+        blogPosts(where: {slug: "${slug}"}) {
+        id
+        title
+        featuredImage {
+            alt
+            url(transformation: {document: {output: {format: webp}}})
         }
-    });
+        blogPostTags {
+            color
+            tagName
+            id
+        }
+        slug
+        publishedDate
+        excerpt
+        content
+        }
+    }`
 
-    const blocks: BlockMapType = await fetch(`https://notion-api.splitbee.io/v1/page/${post.id}`).then((res) => res.json());
+    const postClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
+    const postData = await postClient.request(blogPostQuery)
 
     return {
         props: {
-            post: post.properties,
-            blocks: blocks,
+            post: postData.blogPosts[0],
         },
         revalidate: 600
     }

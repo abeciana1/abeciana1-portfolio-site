@@ -1,17 +1,20 @@
 import React from 'react'
 import cx from 'classnames'
 
-export interface TagI {
+export interface TagDataI {
     id?: string;
     color: string;
-    name: string;
+    tagName: string;
+}
+
+export interface TagI extends TagDataI {
     addClass?: string;
 }
 
 export const TagCard = ({
     id = "",
     color,
-    name,
+    tagName,
     addClass = ""
 }: TagI) => {
     return (
@@ -30,6 +33,6 @@ export const TagCard = ({
                 ['text-white bg-red-400']: color === 'red',
                 ['text-white bg-blue-800']: color === 'default'
             })}
-        >{name}</span>
+        >{tagName}</span>
     )
 }

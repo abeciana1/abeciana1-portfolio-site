@@ -1,4 +1,4 @@
-import React, { lazy } from 'react'
+import React from 'react'
 import { BlogPostHead } from '../../components/utils/CustomHead'
 import Image from 'next/image'
 import { GetStaticProps, GetStaticPaths } from 'next'
@@ -6,21 +6,9 @@ import SideBarSharing from '../../components/utils/SideBarSharing'
 import { ShareBtn, ScrollToTopBtn } from '../../components/utils/_buttons'
 import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '../../lib/useResponsiveness'
-import { copyToClipboard, getDatabase } from '../../lib/helper-functions'
-// import {
-//     slugProp,
-//     titleProp,
-//     publishedDateProp,
-//     tagsProp,
-//     excerptProp,
-//     hostedImageProp,
-//     clapsProp
-// } from '../../lib/notion-blog-props'
-import { BlockMapType } from "react-notion";
+import { copyToClipboard } from '../../lib/helper-functions'
 import { gql, GraphQLClient } from 'graphql-request'
 import { TagDataI } from '../../components/cards/TagCard'
-// import { TbHandRock }  from 'react-icons/tb'
-const NotionContentRender = lazy(() => import('../../components/notion-comps'))
 
 interface PostImageI {
     alt: string;

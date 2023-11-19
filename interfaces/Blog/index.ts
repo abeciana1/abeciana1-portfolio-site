@@ -1,21 +1,16 @@
-interface PostImageI {
+import { IPostData } from '@/interfaces'
+
+export interface IPostImage {
     alt: string;
     url: string
 }
 
-interface PostTagI {
+export interface IPostTag {
     color: string;
     tagName: string;
     id: string;
 }
 
-export interface PostI {
-    id: string;
-    excerpt: string;
-    title: string;
-    publishedDate: string;
-    slug: string;
+export interface IPost extends IPostData {
     content: string;
-    featuredImage: PostImageI;
-    blogPostTags: PostTagI[];
 }

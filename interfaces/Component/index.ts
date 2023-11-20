@@ -1,11 +1,11 @@
-import { ITagData, IPostData } from '@/interfaces'
-
-export interface ITag extends ITagData {
-    addClass?: string;
+export interface ILogo {
+    name: string;
+    logo: string;
+    height: number;
+    width: number;
 }
 
-export interface IBlogPostCard {
-    post: IPostData;
-    imagePriority?: boolean;
-    active: boolean;
+export interface ILayout {
+    children: React.ReactNode;
+    addClass?: string;
 }

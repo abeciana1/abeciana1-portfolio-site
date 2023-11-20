@@ -1,13 +1,32 @@
 export type {
     ITagData,
-    IPostData
+    IPostData,
+    IClientData
 } from '@/interfaces/Data'
+
 export type {
     IPost,
     IPostImage,
     IPostTag
 } from '@/interfaces/Blog'
+
 export type {
-    ITag,
-    IBlogPostCard
+    ILogo,
+    ILayout
 } from '@/interfaces/Component'
+
+export type {
+    IProjectCard,
+    IProjectDetailsCard,
+    ISkillCard,
+    ITag,
+    IBlogPostCard,
+    IClientCard,
+    IEduCard,
+    IJobCard,
+} from '@/interfaces/Component/Card'
+
+export type {
+    IHeroSection,
+    IHeroGradient
+} from '@/interfaces/Component/Section'

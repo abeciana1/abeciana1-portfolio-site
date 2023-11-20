@@ -1,12 +1,8 @@
 import React from 'react'
 import cx from 'classnames'
+import { ILayout } from '@/interfaces'
 
-interface LayoutI {
-    children: React.ReactNode;
-    addClass?: string;
-}
-
-export const TwoColumnGrid = ({ children, addClass = "" }: LayoutI) => {
+export const TwoColumnGrid = ({ children, addClass = "" }: ILayout) => {
     return (
         <section className={cx("grid grid-cols-1 md:grid-cols-2 relative items-center", {
             [addClass]: addClass
@@ -16,7 +12,7 @@ export const TwoColumnGrid = ({ children, addClass = "" }: LayoutI) => {
     )
 }
 
-export const ThreeColumnGrid = ({ children, addClass = "" }: LayoutI) => {
+export const ThreeColumnGrid = ({ children, addClass = "" }: ILayout) => {
     return (
         <section className={cx("grid grid-cols-2 md:grid-cols-3 relative items-center", {
             [addClass]: addClass
@@ -26,7 +22,7 @@ export const ThreeColumnGrid = ({ children, addClass = "" }: LayoutI) => {
     )
 }
 
-export const SkillCardGrid = ({ children, addClass = "" }: LayoutI) => {
+export const SkillCardGrid = ({ children, addClass = "" }: ILayout) => {
     
     return (
         <section

@@ -1,14 +1,7 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
-
-interface EduCardI {
-    id: number;
-    schoolName: string;
-    schoolWebsite: string;
-    schoolImage: string;
-    achievements: string;
-}
+import { IEduCard } from '@/interfaces'
 
 const EduCard = ({
     id,
@@ -16,7 +9,7 @@ const EduCard = ({
     schoolWebsite,
     schoolImage,
     achievements
-}: EduCardI) => {
+}: IEduCard) => {
 
     return (
         <div

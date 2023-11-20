@@ -1,16 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-
-export interface ILogo {
-    name: string;
-    logo: string;
-    height: number;
-    width: number;
-}
-
-// const myLoader = ({ src }: string): string => {
-//     return src
-// }
+import { ILogo } from '@/interfaces'
 
 const Logo = ({
     name,
@@ -18,7 +8,6 @@ const Logo = ({
     height,
     width
 }: ILogo) => {
-    console.log(logo)
 
     return (
         <React.Fragment>

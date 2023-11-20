@@ -1,8 +1,8 @@
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import cx from 'classnames'
 import { PreRenderLinkAsBtn } from '@/components/utils/PreRenderLink'
 import useResponsiveness from '@/lib/useResponsiveness'
-import profilePic from '../../public/profile-pic.webp'
+import profilePic from '@/public/profile-pic.webp'
 import {
     IHeroSection,
     IHeroGradient

@@ -1,20 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
-// import cx from 'classnames'
-
-interface ClientI {
-    name: string;
-    bio: string;
-    link: string;
-    logo: string;
-}
+import { IClientCard } from '@/interfaces'
 
 const ClientCard = ({
     name,
     bio,
     link,
     logo,
-}: ClientI) => {
+}: IClientCard) => {
     
     return (
         <React.Fragment>

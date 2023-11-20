@@ -1,17 +1,15 @@
 import { NextSeo } from 'next-seo'
 import { useRouter } from 'next/router'
-
-interface SeoI {
-    title?: string;
-    description: string;
-    image?: any;
-}
+import {
+    ISeo,
+    IBlogPostSeo
+} from '@/interfaces'
 
 export const CustomHead = ({
     title,
     description,
     image
-}: SeoI) => {
+}: ISeo) => {
 
     const router = useRouter()
 
@@ -28,7 +26,7 @@ export const CustomHead = ({
                 url: "https://alexbeciana.com" + router.asPath,
                 images: [
                     {
-                        url: image,
+                        url: image ? image : '',
                         width: 400,
                         height: 413,
                         alt: 'Photo of text',
@@ -39,29 +37,12 @@ export const CustomHead = ({
     )
 }
 
-interface TagI {
-    [index: number]: string[];
-}
-
-interface BlogPostSeoI {
-    title?: string;
-    description: string;
-    article: ArticleI;
-    image: string;
-}
-
-interface ArticleI {
-    publishedTime?: string;
-    modifiedTime?: string;
-    blogTags: TagI | any;
-}
-
 export const BlogPostHead = ({
     title,
     description,
     article,
     image
-}: BlogPostSeoI) => {
+}: IBlogPostSeo) => {
 
     const router = useRouter()
 

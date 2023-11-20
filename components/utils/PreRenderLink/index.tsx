@@ -1,20 +1,17 @@
 import Link from 'next/link'
 import cx from 'classnames'
 import { ArrowRightIcon } from '@heroicons/react/24/outline'
-
-interface LinkI {
-    href: string;
-    className: string;
-    linkText: string;
-    alt: string;
-}
+import {
+    ILink,
+    ILinkBtn
+} from '@/interfaces'
 
 export const PreRenderLink = ({
     href,
     className,
     linkText,
     alt
-}: LinkI) => {
+}: ILink) => {
     return (
         <Link href={href} className={className}>
             {linkText}
@@ -23,22 +20,13 @@ export const PreRenderLink = ({
     )
 }
 
-interface LinkBtnI {
-    href: string;
-    className?: string;
-    linkText: string;
-    alt: string;
-    ctaButtonColor: string;
-    showArrow?: boolean;
-}
-
 export const PreRenderLinkAsBtn = ({
     href,
     linkText,
     alt,
     ctaButtonColor,
     showArrow
-}: LinkBtnI) => {
+}: ILinkBtn) => {
     return (
         <div className="z-50 relative">
             <Link

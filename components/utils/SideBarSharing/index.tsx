@@ -1,14 +1,11 @@
 import React from 'react'
 import useResponsiveness from '@/lib/useResponsiveness'
 import cx from 'classnames'
-
-interface SideBarI {
-    children: React.ReactNode;
-}
+import { ISideBar } from '@/interfaces'
 
 const SideBarSharing = ({
     children
-}: SideBarI) => {
+}: ISideBar) => {
 
     const mediaQueryRender = useResponsiveness()
 

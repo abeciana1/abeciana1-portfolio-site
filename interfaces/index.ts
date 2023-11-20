@@ -30,3 +30,17 @@ export type {
     IHeroSection,
     IHeroGradient
 } from '@/interfaces/Component/Section'
+
+export type {
+    IShareButtonProps,
+    IExpandLinkProps,
+    IServiceIcon,
+    INavBar,
+    ICodeLine,
+    ICodeMockup,
+    ISeo,
+    IBlogPostSeo,
+    ILink,
+    ILinkBtn,
+    ISideBar
+} from '@/interfaces/Utils'

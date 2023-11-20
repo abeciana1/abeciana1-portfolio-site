@@ -2,19 +2,10 @@ import { Fragment, useState } from 'react';
 import cx from 'classnames'
 import { AiFillCaretUp } from 'react-icons/ai'
 import { Transition } from '@headlessui/react'
-
-interface IShareButtonProps {
-    text: string;
-    addClass?: string;
-    textColor: string;
-    disabled?: boolean;
-    subject?: any;
-    body?: any;
-    backgroundColor?: string;
-    sms?: boolean;
-    icon: React.ElementType;
-    onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-}
+import {
+    IShareButtonProps,
+    IExpandLinkProps
+} from '@/interfaces'
 
 export const ShareBtn = ({
     text,
@@ -40,7 +31,10 @@ export const ShareBtn = ({
         }
     }
 
-    const emailHref = `mailto:?subject=${encodeURIComponent(subject) || ''}&body=${encodeURIComponent(body) || ''}`
+    let emailHref; 
+    if (subject && body) {
+        emailHref = `mailto:?subject=${encodeURIComponent(subject) || ''}&body=${encodeURIComponent(body) || ''}`
+    }
 
     const smsHref = `sms=?body=${body}`
 
@@ -117,16 +111,6 @@ export const ShareBtn = ({
         }
         </>
     )
-}
-
-interface IExpandLinkProps {
-    text: string;
-    textColor: string;
-    backgroundColor?: string;
-    icon: React.ElementType;
-    addClass?: string;
-    href: string;
-    ariaLabel: string;
 }
 
 export const ExpandBtnLink = ({

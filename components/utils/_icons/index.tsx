@@ -1,11 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import cx from 'classnames'
-
-interface IServiceIcon {
-    text: string;
-    color: string;
-    icon: React.ElementType;
-}
+import { IServiceIcon } from '@/interfaces'
 
 export const ServiceIcon = ({
     text,

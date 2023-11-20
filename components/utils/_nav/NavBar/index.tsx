@@ -2,16 +2,12 @@ import { PreRenderLink } from '@/components/utils/PreRenderLink'
 import cx from 'classnames'
 import { Squash as Hamburger } from 'hamburger-react'
 import useResponsiveness from '@/lib/useResponsiveness'
-
-interface NavBarI {
-    mobileNavOpen: boolean;
-    toggleMobileNav: () => void;
-}
+import { INavBar } from '@/interfaces'
 
 const NavBar = ({
     mobileNavOpen,
     toggleMobileNav
-}: NavBarI) => {    
+}: INavBar) => {    
     const mediaQueryRender = useResponsiveness()
 
     const {

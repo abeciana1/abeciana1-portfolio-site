@@ -1,4 +1,7 @@
-import { IPostImage, IPostTag } from '@/interfaces'
+import {
+    IPostImage,
+    IPostTag
+} from '@/interfaces'
 
 export interface ITagData {
     id?: string;
@@ -14,4 +17,10 @@ export interface IPostData {
     slug: string;
     featuredImage: IPostImage;
     blogPostTags: IPostTag[];
+}
+
+export interface IClientData {
+    name: string;
+    bio: string;
+    logo: string;
 }

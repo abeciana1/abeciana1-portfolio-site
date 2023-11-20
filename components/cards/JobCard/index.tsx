@@ -1,18 +1,7 @@
 import ReactMarkdown from 'react-markdown'
 import Image from 'next/image'
-import { format, add } from 'date-fns'
-
-interface JobCardI {
-    id: number;
-    position: string;
-    startDate: string;
-    companyName: string;
-    companyWebsite: string;
-    companyDescription: string;
-    companyLogo: string;
-    endDate: string;
-    responsibilities: string;
-}
+import { format } from 'date-fns'
+import { IJobCard } from '@/interfaces'
 
 const JobCard = ({
     id,
@@ -24,7 +13,7 @@ const JobCard = ({
     companyLogo,
     endDate,
     responsibilities
-}: JobCardI) => {
+}: IJobCard) => {
 
     return (
         <section

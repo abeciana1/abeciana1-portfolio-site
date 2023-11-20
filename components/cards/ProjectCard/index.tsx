@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
-import { TagCard } from '../TagCard'
+import { TagCard } from '@/components/cards/TagCard'
 import { IProjectCard } from '@/interfaces'
 
 

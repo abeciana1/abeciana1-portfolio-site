@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { format, add } from 'date-fns'
 import Image from 'next/image'
 import { Transition } from '@headlessui/react'
-import { TagCard } from '../TagCard'
+import { TagCard } from '@/components/cards/TagCard'
 import { ITag, IBlogPostCard } from '@/interfaces'
 
 const BlogPostCard = ({ post, active, imagePriority = false }: IBlogPostCard) => {

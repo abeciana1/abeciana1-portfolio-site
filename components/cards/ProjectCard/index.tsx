@@ -2,36 +2,24 @@ import React from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
 import { TagCard } from '../TagCard'
-import {
-    getProjectSlug,
-    getClientInfo,
-    getProjectTitle,
-    getProjectStatus,
-    getClientType
-} from '../../../lib/notion-proj-props'
+import { IProjectCard } from '@/interfaces'
 
 
 const ProjectCard = ({
     project
-}: any) => {
-
-    const slug = getProjectSlug(project)
-    const client = getClientInfo(project)
-    const title = getProjectTitle(project)
-    const status = getProjectStatus(project)
-    const clientType = getClientType(project)
+}: {project: IProjectCard}) => {
 
     const {
         name,
         bio,
         logo
-    } = client
+    } = project.client
     
     return (
         <React.Fragment>
             <Link
                 className="z-40"
-                href={`/portfolio/${encodeURIComponent(slug)}`}
+                href={`/portfolio/${encodeURIComponent(project.slug)}`}
             >
                 <div className="px-2 py-2 bg-white z-30 rounded-bl-lg rounded-br-lg shadow-xl">
                     <div className="flex justify-content">
@@ -39,26 +27,26 @@ const ProjectCard = ({
                             src={logo}
                             width={350}
                             height={400}
-                            alt={`Alex Beciana - Portfolio - ${title}`}
+                            alt={`Alex Beciana - Portfolio - ${project.title}`}
                         />
                     </div>
                     <div
                         className="font-bold text-lg px-2 flex flex-wrap items-center"
                     >
-                        {title}
-                        {status && 
+                        {project.title}
+                        {project.status && 
                             <TagCard
-                                id={status.id}
-                                color={status.color}
-                                name={status.name}
+                                id={project.status.id}
+                                color={project.status.color}
+                                tagName={project.status.tagName}
                                 addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
                             />
                         }
-                        {clientType &&
+                        {project.clientType &&
                             <TagCard
-                                id={clientType.id}
-                                color={clientType.color}
-                                name={clientType.name}
+                                id={project.clientType.id}
+                                color={project.clientType.color}
+                                tagName={project.clientType.tagName}
                                 addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
                             />
                         }

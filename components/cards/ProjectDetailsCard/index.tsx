@@ -1,19 +1,13 @@
 import React from 'react'
-import { TagCard, TagI } from '../TagCard'
-
-interface DetailsI {
-    status: TagI;
-    clientType: TagI;
-    projectTools: TagI[];
-    workAreas: TagI[];
-}
+import { TagCard } from '../TagCard'
+import { ITagData, IProjectDetailsCard } from '@/interfaces'
 
 const ProjectDetailsCard = ({
     status,
     clientType,
     projectTools,
     workAreas
-}: DetailsI) => {
+}: IProjectDetailsCard) => {
 
     return (
         <React.Fragment>
@@ -27,7 +21,7 @@ const ProjectDetailsCard = ({
                         <TagCard
                             id={status.id}
                             color={status.color}
-                            name={status.name}
+                            tagName={status.tagName}
                             addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
                         />
                     </div>
@@ -38,7 +32,7 @@ const ProjectDetailsCard = ({
                         <TagCard
                             id={clientType.id}
                             color={clientType.color}
-                            name={clientType.name}
+                            tagName={clientType.tagName}
                             addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
                         />
                     </div>
@@ -49,14 +43,14 @@ const ProjectDetailsCard = ({
                         {projectTools.map(({
                             id,
                             color,
-                            name
-                        }: TagI) => {
+                            tagName
+                        }: ITagData) => {
                             return (
                                 <TagCard
                                     key={id}
                                     id={id}
                                     color={color}
-                                    name={name}
+                                    tagName={tagName}
                                     addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
                                 />
                             )
@@ -68,15 +62,15 @@ const ProjectDetailsCard = ({
                     Work/services:
                         {workAreas.map(({
                             id,
-                            name,
+                            tagName,
                             color
-                        }: TagI) => {
+                        }: ITagData) => {
                             return (
                                 <TagCard
                                     key={id}
                                     id={id}
                                     color={color}
-                                    name={name}
+                                    tagName={tagName}
                                     addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
                                 />
                             )

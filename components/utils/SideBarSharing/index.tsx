@@ -1,5 +1,5 @@
 import React from 'react'
-import useResponsiveness from '../../../lib/useResponsiveness'
+import useResponsiveness from '@/lib/useResponsiveness'
 import cx from 'classnames'
 
 interface SideBarI {

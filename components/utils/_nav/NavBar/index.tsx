@@ -1,8 +1,7 @@
-import {MutableRefObject} from 'react';
-import { PreRenderLink } from '../../PreRenderLink'
+import { PreRenderLink } from '@/components/utils/PreRenderLink'
 import cx from 'classnames'
 import { Squash as Hamburger } from 'hamburger-react'
-import useResponsiveness from '../../../../lib/useResponsiveness'
+import useResponsiveness from '@/lib/useResponsiveness'
 
 interface NavBarI {
     mobileNavOpen: boolean;

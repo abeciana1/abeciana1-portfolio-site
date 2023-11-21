@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import '../styles/notion.css'
+import '../styles/code-highlight.css'
 
 import { useRef, useState, useEffect } from 'react';
 import type { AppProps } from 'next/app'

@@ -114,23 +114,18 @@ const BlogArticle = ({ post }: {post: IPost}) => {
                         </SideBarSharing>
                     }
                     <section
-                        className="py-4 break-words"
+                        className="py-4 break-words leading-loose text-xl"
                     >
                         <Markdown
                             children={post.content}
                             components={{
                                 code(props: any) {
                                     const {children, className, node, ...rest} = props
-                                    // console.log('code children', children)
-                                    // console.log('code node', node)
-                                    console.log('code className', className)
                                     const match = node?.properties.className?.[0].split('-')[1]
-                                    console.log('match', match)
-                                    // className='notion-code'
                                     return (
                                         <>
                                         {match ?
-                                            <Highlight className={"notion-code " + className} >
+                                            <Highlight className={"my-5 notion-code " + className} >
                                                 {children?.[0]}
                                             </Highlight>
                                             :
@@ -141,7 +136,6 @@ const BlogArticle = ({ post }: {post: IPost}) => {
                                 }
                             }}
                         />
-                        {/* <NotionContentRender blocks={blocks} /> */}
                     </section>
                 </section>
                 <ScrollToTopBtn />

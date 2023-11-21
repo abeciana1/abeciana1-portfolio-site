@@ -90,6 +90,7 @@ pre[class*="language-"] {
     font-size: 85%;
     font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
     monospace;
+    white-space: wrap;
 }
 
 /*!

@@ -10,9 +10,6 @@ import { copyToClipboard } from '../../lib/helper-functions'
 import { gql, GraphQLClient } from 'graphql-request'
 import { IPost, ITagData } from '@/interfaces'
 import Markdown from 'react-markdown'
-import NotionCode from '@/components/notion-comps/Code'
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
-import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import Highlight from 'react-highlight'
 
 

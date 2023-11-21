@@ -9,6 +9,12 @@ import useResponsiveness from '../../lib/useResponsiveness'
 import { copyToClipboard } from '../../lib/helper-functions'
 import { gql, GraphQLClient } from 'graphql-request'
 import { IPost, ITagData } from '@/interfaces'
+import Markdown from 'react-markdown'
+import NotionCode from '@/components/notion-comps/Code'
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
+import Highlight from 'react-highlight'
+
 
 const BlogArticle = ({ post }: {post: IPost}) => {
     const mediaQueryRender = useResponsiveness()
@@ -113,6 +119,31 @@ const BlogArticle = ({ post }: {post: IPost}) => {
                     <section
                         className="py-4 break-words"
                     >
+                        <Markdown
+                            children={post.content}
+                            components={{
+                                code(props: any) {
+                                    const {children, className, node, ...rest} = props
+                                    // console.log('code children', children)
+                                    // console.log('code node', node)
+                                    console.log('code className', className)
+                                    const match = node?.properties.className?.[0].split('-')[1]
+                                    console.log('match', match)
+                                    // className='notion-code'
+                                    return (
+                                        <>
+                                        {match ?
+                                            <Highlight className={"notion-code " + className} >
+                                                {children?.[0]}
+                                            </Highlight>
+                                            :
+                                            <code className="notion-inline-code">{children?.[0]}</code>
+                                        }
+                                        </>
+                                    )
+                                }
+                            }}
+                        />
                         {/* <NotionContentRender blocks={blocks} /> */}
                     </section>
                 </section>
@@ -184,7 +215,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
         props: {
             post: postData.blogPosts[0],
         },
-        revalidate: 600
+        revalidate: 60 * 10 * 60
     }
 }
 

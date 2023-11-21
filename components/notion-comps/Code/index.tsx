@@ -1,17 +1,15 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { highlightAll } from "prismjs";
 import "prismjs/themes/prism-tomorrow.css";
 
 const NotionCode = ({
-    blockValue
+    language,
+    content
 }: any) => {
-    const content = blockValue.properties.title[0][0];
-    const language = blockValue.properties.language[0][0]
-    const langClass = `language-${language.toLowerCase()}`;
 
     const languageFormatted = () => {
-        let lang = language.split(' ')
-        let formattedLang = lang[0].toLowerCase()
+        let lang = language.split('-')
+        let formattedLang = lang[1].toLowerCase()
         if (formattedLang !== 'plain' || formattedLang !== undefined) {
             return require(`prismjs/components/prism-${languageFormatted}`)
         }
@@ -23,8 +21,8 @@ const NotionCode = ({
     }, [])
 
     return (
-        <pre className={`notion-code ${langClass}`}>
-            <code className={langClass}>
+        <pre className={`notion-code ${language}`}>
+            <code className={language}>
                 {content}
             </code>
         </pre>

@@ -11,7 +11,7 @@ export const TagCard = ({
     return (
         <span
             key={id}
-            className={cx("my-1",{
+            className={cx("my-1 font-medium px-2 rounded-md",{
                 [addClass]: addClass,
                 ['text-white bg-yellow-700 bg-opacity-60']: color === "brown",
                 ['text-white bg-orange-400 bg-opacity-60']: color === 'orange',
@@ -20,7 +20,7 @@ export const TagCard = ({
                 ['text-black bg-yellow-200']: color === 'yellow',
                 ['text-white bg-blue-300']: color === 'blue',
                 ['text-black bg-gray-200']: color === 'gray',
-                ['text-white bg-green-400']: color === 'green',
+                ['text-black bg-green-400']: color === 'green',
                 ['text-white bg-red-400']: color === 'red',
                 ['text-white bg-blue-800']: color === 'default'
             })}

@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
 import { TagCard } from '@/components/cards/TagCard'
@@ -10,7 +9,7 @@ const ProjectCard = ({
 }: {project: IProjectData}) => {
     
     return (
-        <React.Fragment>
+        <>
             <Link
                 className="z-40"
                 href={`/projects/${encodeURIComponent(project.slug)}`}
@@ -40,7 +39,7 @@ const ProjectCard = ({
                     <span className="font-normal">{project.excerpt.substring(0, 100)}...</span>
                 </div>
             </Link>
-        </React.Fragment>
+        </>
     )
 }
 

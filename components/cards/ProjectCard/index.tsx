@@ -2,18 +2,27 @@ import React from 'react';
 import Link from 'next/link'
 import Image from 'next/image'
 import { TagCard } from '@/components/cards/TagCard'
-import { IProjectCard } from '@/interfaces'
+import { IProjectData } from '@/interfaces'
 
 
 const ProjectCard = ({
     project
-}: {project: IProjectCard}) => {
+}: {project: IProjectData}) => {
 
-    const {
-        name,
-        bio,
-        logo
-    } = project.client
+    const projectStatusColors: {[status: string]: {text: string, color: string}} = {
+        "NotStarted": {
+            text: "Not started",
+            color: "gray"
+        },
+        "InProgress": {
+            text: "In progress",
+            color: "yellow"
+        },
+        "Completed": {
+            text: "Completed",
+            color: "green"
+        }
+    }
     
     return (
         <React.Fragment>
@@ -24,39 +33,26 @@ const ProjectCard = ({
                 <div className="px-2 py-2 bg-white z-30 rounded-bl-lg rounded-br-lg shadow-xl">
                     <div className="flex justify-content">
                         <Image
-                            src={logo}
+                            src={project.featuredImage?.url}
                             width={350}
                             height={400}
-                            alt={`Alex Beciana - Portfolio - ${project.title}`}
+                            alt={`Alex Beciana | Portfolio Project | ${project.projectTitle}`}
                         />
                     </div>
                     <div
-                        className="font-bold text-lg px-2 flex flex-wrap items-center"
+                        className="font-bold text-lg flex flex-wrap items-center"
                     >
-                        {project.title}
-                        {project.status && 
+                        {project.projectTitle}
+                        {project.projectStatus && 
                             <TagCard
-                                id={project.status.id}
-                                color={project.status.color}
-                                tagName={project.status.tagName}
-                                addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
-                            />
-                        }
-                        {project.clientType &&
-                            <TagCard
-                                id={project.clientType.id}
-                                color={project.clientType.color}
-                                tagName={project.clientType.tagName}
+                                id={project.id}
+                                color={projectStatusColors?.[`${project.projectStatus}`]?.color}
+                                tagName={projectStatusColors?.[`${project.projectStatus}`]?.text}
                                 addClass="font-normal ml-1 py-0.5 px-1.5 rounded-full text-xs"
                             />
                         }
                     </div>
-                    <div
-                        className="font-bold px-2"
-                    >
-                        {name}
-                        <span className="font-normal"> | {bio.substring(0, 100)}...</span>
-                    </div>
+                    <span className="font-normal">{project.excerpt.substring(0, 100)}...</span>
                 </div>
             </Link>
         </React.Fragment>

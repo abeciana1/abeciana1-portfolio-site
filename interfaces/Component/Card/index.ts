@@ -8,13 +8,6 @@ export interface ITag extends ITagData {
     addClass?: string;
 }
 
-export interface IProjectCard {
-    slug: string;
-    title: string;
-    status: ITagData;
-    clientType: ITagData;
-    client: IClientData;
-}
 
 export interface IProjectDetailsCard {
     status: ITag;

@@ -1,6 +1,7 @@
 import {
     IPostImage,
-    IPostTag
+    IPostTag,
+    IReferenceCard
 } from '@/interfaces'
 
 export interface ITagData {
@@ -38,5 +39,9 @@ export interface IProjectData {
     projectStatus: string;
     projectTitle: string;
     slug: string;
-    featuredImage: IPostImage
+    featuredImage: IPostImage;
+}
+
+export interface IReferenceData extends IReferenceCard {
+    id: string;
 }

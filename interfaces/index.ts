@@ -2,7 +2,8 @@ export type {
     ITagData,
     IPostData,
     IClientData,
-    IProjectData
+    IProjectData,
+    IReferenceData
 } from '@/interfaces/Data'
 
 export type {
@@ -24,6 +25,7 @@ export type {
     IClientCard,
     IEduCard,
     IJobCard,
+    IReferenceCard
 } from '@/interfaces/Component/Card'
 
 export type {

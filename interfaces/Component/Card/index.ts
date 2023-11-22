@@ -1,13 +1,12 @@
 import {
     ITagData,
     IPostData,
-    IClientData
+    IPostImage
 } from '@/interfaces'
 
 export interface ITag extends ITagData {
     addClass?: string;
 }
-
 
 export interface IProjectDetailsCard {
     status: ITag;
@@ -52,4 +51,12 @@ export interface IJobCard {
     companyLogo: string;
     endDate: string;
     responsibilities: string;
+}
+
+export interface IReferenceCard {
+    reviewerPic: IPostImage;
+    reviewerName: string;
+    reviewerCompany: string;
+    reviewerPosition: string;
+    testimonialBody: string;
 }

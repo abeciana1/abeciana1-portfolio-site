@@ -3,32 +3,17 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { TagCard } from '@/components/cards/TagCard'
 import { IProjectData } from '@/interfaces'
-
+import { projectStatusColors } from '@/lib/helper-functions'
 
 const ProjectCard = ({
     project
 }: {project: IProjectData}) => {
-
-    const projectStatusColors: {[status: string]: {text: string, color: string}} = {
-        "NotStarted": {
-            text: "Not started",
-            color: "gray"
-        },
-        "InProgress": {
-            text: "In progress",
-            color: "yellow"
-        },
-        "Completed": {
-            text: "Completed",
-            color: "green"
-        }
-    }
     
     return (
         <React.Fragment>
             <Link
                 className="z-40"
-                href={`/portfolio/${encodeURIComponent(project.slug)}`}
+                href={`/projects/${encodeURIComponent(project.slug)}`}
             >
                 <div className="px-2 py-2 bg-white z-30 rounded-bl-lg rounded-br-lg shadow-xl">
                     <div className="flex justify-content">

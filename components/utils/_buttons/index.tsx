@@ -188,34 +188,29 @@ export const ScrollToTopBtn = () => {
 
     return (
         <Fragment>
-            <div
+            <button
                 onMouseEnter={() => setHover(!mouseHover)}
                 onMouseLeave={() => setHover(!mouseHover)}
-                className="flex justify-end">
-                <button
-                    onMouseEnter={() => setHover(!mouseHover)}
-                    onMouseLeave={() => setHover(!mouseHover)}
-                    className="z-50 bg-altRed h-14 w-14 rounded-full fixed bottom-2 border-white border-2"
-                    onClick={clickToTopHandler}
+                className="z-50 bg-altRed h-14 w-14 rounded-full fixed bottom-2 border-white border-2 right-10"
+                onClick={clickToTopHandler}
+            >
+                <Transition
+                    as="span"
+                    show={mouseHover}
+                    enter="transition ease-in-out duration-700 transform"
+                    enterFrom="translate-x-0 opacity-0"
+                    enterTo="translate-x-0 opacity-100"
+                    leave="transition ease-in-out duration-700 transform"
+                    leaveFrom="translate-x-0 opacity-100"
+                    leaveTo="translate-x-0 opacity-0"
                 >
-                    <Transition
-                        as="span"
-                        show={mouseHover}
-                        enter="transition ease-in-out duration-700 transform"
-                        enterFrom="translate-x-0 opacity-0"
-                        enterTo="translate-x-0 opacity-100"
-                        leave="transition ease-in-out duration-700 transform"
-                        leaveFrom="translate-x-0 opacity-100"
-                        leaveTo="translate-x-0 opacity-0"
-                    >
-                        <span className="absolute bottom-1 right-16 text-white bg-black py-2 px-3 rounded-lg w-44 border-white border-2">Click to scroll to top</span>
-                    </Transition>
-                    <AiFillCaretUp
-                        strokeWidth="2.5"
-                        className="h-7 w-7 text-white mx-auto"
-                    />
-                </button>
-            </div>
+                    <span className="absolute bottom-1 right-16 text-white bg-black py-2 px-3 rounded-lg w-44 border-white border-2">Click to scroll to top</span>
+                </Transition>
+                <AiFillCaretUp
+                    strokeWidth="2.5"
+                    className="h-7 w-7 text-white mx-auto"
+                />
+            </button>
         </Fragment>
     )
 }

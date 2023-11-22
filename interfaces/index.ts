@@ -1,7 +1,8 @@
 export type {
     ITagData,
     IPostData,
-    IClientData
+    IClientData,
+    IProjectData
 } from '@/interfaces/Data'
 
 export type {
@@ -16,7 +17,6 @@ export type {
 } from '@/interfaces/Component'
 
 export type {
-    IProjectCard,
     IProjectDetailsCard,
     ISkillCard,
     ITag,

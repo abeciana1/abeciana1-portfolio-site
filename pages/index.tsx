@@ -1,18 +1,18 @@
 import React, { Suspense, lazy } from 'react'
 import { lazily } from 'react-lazily'
-import { CustomHead } from '../components/utils/CustomHead'
-import { SkillCardGrid, TwoColumnGrid } from '../components/layouts'
-import { HeroSectionWithLinkGradientBG } from '../components/sections'
+import { CustomHead } from '@/components/utils/CustomHead'
+import { SkillCardGrid, TwoColumnGrid } from '@/components/layouts'
+import { HeroSectionWithLinkGradientBG } from '@/components/sections'
 import Skills from '../data/skills.json'
-import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
-import { ExpandBtnLink } from '../components/utils/_buttons'
+import { PreRenderLinkAsBtn } from '@/components/utils/PreRenderLink'
+import { ExpandBtnLink } from '@/components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
-import profileCallout from '../public/profile-callout-edited.webp'
+import profileCallout from '@/public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
-import { SkillI } from '../components/cards/SkillCard'
-import { ScrollToTopBtn } from '../components/utils/_buttons'
-const SkillCard = lazy(() => import('../components/cards/SkillCard'))
+import { ISkillCard } from '@/interfaces'
+import { ScrollToTopBtn } from '@/components/utils/_buttons'
+const SkillCard = lazy(() => import('@/components/cards/SkillCard'))
 const {
   CodeMockup,
   CodeMockupLine
@@ -152,7 +152,7 @@ export default function Home({ joke }: any) {
                 className="text-4xl leading-relaxed"
             >Skills</h2>
             <SkillCardGrid>
-            {Skills.map(({ name, image }: SkillI, index: number) => {
+            {Skills.map(({ name, image }: ISkillCard, index: number) => {
               return (
                     <SkillCard
                       key={index + 1}

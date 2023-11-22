@@ -1,8 +1,8 @@
 import React from 'react'
-import { CustomHead } from '../../components/utils/CustomHead'
-import BlogPostCard from '../../components/cards/BlogPostCard'
+import { CustomHead } from '@/components/utils/CustomHead'
+import BlogPostCard from '@/components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
-import { ScrollToTopBtn } from '../../components/utils/_buttons'
+import { ScrollToTopBtn } from '@/components/utils/_buttons'
 import { gql, GraphQLClient } from 'graphql-request'
 
 const BlogPage = ({

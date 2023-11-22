@@ -1,5 +1,5 @@
 import React from 'react'
-import ContactForm from '../components/utils/_forms/ContactForm'
+import ContactForm from '@/components/utils/_forms/ContactForm'
 import Image from 'next/image'
 import Script from 'next/script'
 

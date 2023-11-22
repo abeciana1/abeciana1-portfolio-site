@@ -1,10 +1,10 @@
-import '../styles/globals.css'
-import '../styles/code-highlight.css'
+import '@/styles/globals.css'
+import '@/styles/code-highlight.css'
 
 import { useRef, useState, useEffect } from 'react';
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import NavBar from '../components/utils/_nav/NavBar'
+import NavBar from '@/components/utils/_nav/NavBar'
 import { StrictMode } from "react";
 
 // todo Add liking / claps feature

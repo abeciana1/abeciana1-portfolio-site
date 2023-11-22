@@ -1,16 +1,17 @@
 import React from 'react'
-import { HeroSectionWithLinkGradientBG } from '../components/sections'
-import profileCallout from '../public/profile-callout-edited.webp'
-import DeskVector from '../public/services/deskvector-without-bg.svg'
-import DigitalMarketing from '../public/services/Digital Marketing icon.svg'
-import Engineering from '../public/services/Engineeringicon'
-import UIDesign from '../public/services/UI Design icon.svg'
-import UXDesign from '../public/services/UX Design icon.svg'
+import { HeroSectionWithLinkGradientBG } from '@/components/sections'
+import profileCallout from '@/public/profile-callout-edited.webp'
+import DeskVector from '@/public/services/deskvector-without-bg.svg'
+import DigitalMarketing from '@/public/services/Digital Marketing icon.svg'
+import UIDesign from '@/public/services/UI Design icon.svg'
+import UXDesign from '@/public/services/UX Design icon.svg'
+import Engineering from '@/public/services/Engineeringicon'
 import { lazily } from 'react-lazily'
-const { ServiceIcon } = lazily(() => import('../components/utils/_icons'))
-import Clients from '../data/clients.json'
-import Logo, { ILogo } from '../components/cards/Logo'
-import { TwoColumnGrid, ThreeColumnGrid } from '../components/layouts'
+const { ServiceIcon } = lazily(() => import('@/components/utils/_icons'))
+import Clients from '@/data/clients.json'
+import Logo from '@/components/cards/Logo'
+import { ILogo } from '@/interfaces'
+import { TwoColumnGrid, ThreeColumnGrid } from '@/components/layouts'
 
 const FreelancePage = (): JSX.Element => {
 

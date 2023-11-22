@@ -1,17 +1,17 @@
 import React, { Suspense,lazy } from 'react'
-import { CustomHead } from '../components/utils/CustomHead'
+import { CustomHead } from '@/components/utils/CustomHead'
 import { SocialProfileJsonLd } from 'next-seo';
-import { SkillCardGrid } from '../components/layouts'
-import { HeroSectionWithLinkGradientBG } from '../components/sections'
-import Skills from '../data/skills.json'
+import { SkillCardGrid } from '@/components/layouts'
+import { HeroSectionWithLinkGradientBG } from '@/components/sections'
+import Skills from '@/data/skills.json'
 import { gql, GraphQLClient } from 'graphql-request'
 import { GetStaticProps } from 'next'
-import { ExpandBtnLink } from '../components/utils/_buttons'
+import { ExpandBtnLink } from '@/components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
-import profileCallout from '../public/profile-callout-edited.webp'
-import { SkillI } from '../components/cards/SkillCard'
-import { ScrollToTopBtn } from '../components/utils/_buttons'
+import profileCallout from '@/public/profile-callout-edited.webp'
+import { ISkillCard } from '@/interfaces'
+import { ScrollToTopBtn } from '@/components/utils/_buttons'
 const SkillCard = lazy(() => import('../components/cards/SkillCard'))
 const JobCard = lazy(() => import('../components/cards/JobCard'))
 const EduCard = lazy(() => import('../components/cards/EduCard'))
@@ -88,7 +88,7 @@ const AboutPage = ({ expData }: any) => {
                             className="text-4xl leading-relaxed"
                         >Skills</h2>
                         <SkillCardGrid>
-                        {Skills.map(({name, image}: SkillI, index:number) => {
+                        {Skills.map(({name, image}: ISkillCard, index:number) => {
                             return (
                                 <SkillCard
                                 key={index + 1}

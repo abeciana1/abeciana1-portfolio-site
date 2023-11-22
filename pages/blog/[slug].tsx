@@ -1,12 +1,12 @@
 import React from 'react'
-import { BlogPostHead } from '../../components/utils/CustomHead'
+import { BlogPostHead } from '@/components/utils/CustomHead'
 import Image from 'next/image'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import SideBarSharing from '../../components/utils/SideBarSharing'
-import { ShareBtn, ScrollToTopBtn } from '../../components/utils/_buttons'
+import SideBarSharing from '@/components/utils/SideBarSharing'
+import { ShareBtn, ScrollToTopBtn } from '@/components/utils/_buttons'
 import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
-import useResponsiveness from '../../lib/useResponsiveness'
-import { copyToClipboard } from '../../lib/helper-functions'
+import useResponsiveness from '@/lib/useResponsiveness'
+import { copyToClipboard } from '@/lib/helper-functions'
 import { gql, GraphQLClient } from 'graphql-request'
 import { IPost, ITagData } from '@/interfaces'
 import Markdown from 'react-markdown'
@@ -160,7 +160,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         }
     }`
     
-    const postData = await postClient.request(postQuery)
+    const postData: any = await postClient.request(postQuery)
     
     let paths = postData.blogPosts.map((post: any) => {
         return {
@@ -200,7 +200,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
     }`
 
     const postClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
-    const postData = await postClient.request(blogPostQuery)
+    const postData: any = await postClient.request(blogPostQuery)
 
     return {
         props: {

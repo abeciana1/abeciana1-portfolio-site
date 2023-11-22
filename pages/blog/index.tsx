@@ -94,8 +94,8 @@ export const getStaticProps: GetStaticProps = async () => {
         }`
 
     const postClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
-    const allPostsData = await postClient.request(allPosts)
-    const recentPostsData = await postClient.request(recentPosts)
+    const allPostsData: any = await postClient.request(allPosts)
+    const recentPostsData: any = await postClient.request(recentPosts)
 
     return {
         props: {

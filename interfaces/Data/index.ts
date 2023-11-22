@@ -38,7 +38,5 @@ export interface IProjectData {
     projectStatus: string;
     projectTitle: string;
     slug: string;
-    featuredImage: {
-        url: string;
-    };
+    featuredImage: IPostImage
 }

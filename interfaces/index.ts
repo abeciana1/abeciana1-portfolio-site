@@ -44,3 +44,12 @@ export type {
     ILinkBtn,
     ISideBar
 } from '@/interfaces/Utils'
+
+export type {
+    IPaths,
+    IParams
+} from '@/interfaces/Data/Fetch'
+
+export type {
+    IProject
+} from '@/interfaces/Project'

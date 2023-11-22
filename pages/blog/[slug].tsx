@@ -8,7 +8,7 @@ import { AiFillCopy, AiFillMessage, AiFillMail } from "react-icons/ai";
 import useResponsiveness from '@/lib/useResponsiveness'
 import { copyToClipboard } from '@/lib/helper-functions'
 import { gql, GraphQLClient } from 'graphql-request'
-import { IPost, ITagData } from '@/interfaces'
+import { IPost, ITagData, IParams, IPaths } from '@/interfaces'
 import Markdown from 'react-markdown'
 import Highlight from 'react-highlight'
 
@@ -160,9 +160,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
         }
     }`
     
-    const postData: any = await postClient.request(postQuery)
+    const postData: IPaths = await postClient.request(postQuery)
     
-    let paths = postData.blogPosts.map((post: any) => {
+    let paths = postData.blogPosts.map((post: IParams) => {
         return {
             params: {
                 slug: post.slug
@@ -176,8 +176,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }: any) => {
-    const slug = params.slug as string;
+export const getStaticProps: GetStaticProps = async (context) => {
+    const {slug} = context.params as IParams
 
     const blogPostQuery = gql`query post {
         blogPosts(where: {slug: "${slug}"}) {

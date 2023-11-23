@@ -4,7 +4,7 @@ import { ILayout } from '@/interfaces'
 
 export const TwoColumnGrid = ({ children, addClass = "" }: ILayout) => {
     return (
-        <section className={cx("grid grid-cols-1 md:grid-cols-2 relative items-center", {
+        <section className={cx("grid grid-cols-1 md:grid-cols-2 relative items-start", {
             [addClass]: addClass
         })}>
             { children }

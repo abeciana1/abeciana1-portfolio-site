@@ -71,7 +71,7 @@ const PortfolioProjectPage = ({ project }: {project: IProject}) => {
                 </section>
                 <ScrollToTopBtn/>
             </section>
-        </React.Fragment>
+        </>
     )
 }
 

@@ -26,8 +26,8 @@ const FreelancePage = (): JSX.Element => {
             <HeroSectionWithLinkGradientBG
                 heading="Let's work together"
                 taglineBody="Experienced frontend developer and software engineer. Offering services in web and software development, digital marketing, and community management. Expert at working across technical and non-technical teams."
-                image={profileCallout}
-                imageAlt="Alex Beciana | Freelance services"
+                image={'https://media.graphassets.com/output=format:webp/Bwz9zHRxS1S79v3Ppax0'}
+                imageAlt="AB Creative logo"
                 imageClassName="profile-callout"
                 reverseOrder={true}
                 gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"

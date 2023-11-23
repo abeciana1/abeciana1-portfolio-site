@@ -7,7 +7,7 @@ const ReferenceCard = ({
 }: {review: IReferenceCard}) => {
 
     return(
-        <div className='flex flex-col md:flex-row items-center gap-10 justify-center bg-sky p-5 overflow-clip'>
+        <div className='grid grid-cols-1 md:grid-cols-2 items-center gap-10 justify-center bg-gray-200 p-5 overflow-clip rounded-xl'>
             <div className="relative">
                 <ImQuotesRight
                     size={75}
@@ -15,15 +15,16 @@ const ReferenceCard = ({
                 />
                 <Image
                     src={review.reviewerPic.url}
-                    width={350}
-                    height={350}
+                    width={250}
+                    height={250}
                     alt={review.reviewerName}
-                    className='rounded-br-3xl rounded-tl-3xl mx-auto'
+                    className='rounded-full mx-auto'
                 />
                 <div className="text-lg font-medium leading-relaxed text-center">{review.reviewerName}, {review.reviewerPosition} — {review.reviewerCompany}</div>
+                <div className='text-lg my-2 bg-altYellow w-fit mx-auto font-medium py-0.5 px-2 rounded-md'>&quot;{review.callOut}&quot;</div>
             </div>
-            <div className='w-full md:w-9/12 overflow-y-auto'>
-                <div className='text-lg leading-relaxed h-96'>
+            <div className='w-full overflow-y-auto bg-white p-2 rounded-lg'>
+                <div className='text-lg leading-relaxed max-h-96'>
                     &quot;{review.testimonialBody}&quot;
                 </div>
             </div>

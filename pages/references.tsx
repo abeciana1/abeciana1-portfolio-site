@@ -15,7 +15,7 @@ const ReferencesPage = ({ reviews }: {reviews: IReferenceData[]}) => {
             {reviews && reviews.length > 0 &&
                 <>
                     <h1>What people are saying about me</h1>
-                    <section className='my-10'>
+                    <section className='my-10 space-y-5'>
                         {reviews.map((review: IReferenceData) => {
                             return (
                                 <ReferenceCard
@@ -49,6 +49,7 @@ export const getServerSideProps = async () => {
             reviewerCompany
             reviewerPosition
             testimonialBody
+            callOut
         }
         }
     `

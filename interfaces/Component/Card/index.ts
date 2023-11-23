@@ -59,4 +59,5 @@ export interface IReferenceCard {
     reviewerCompany: string;
     reviewerPosition: string;
     testimonialBody: string;
+    callOut: string;
 }

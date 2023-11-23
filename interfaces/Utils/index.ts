@@ -22,6 +22,7 @@ export interface IExpandLinkProps {
 }
 
 export interface IServiceIcon {
+    title: string;
     text: string;
     color: string;
     icon: React.ElementType;

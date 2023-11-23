@@ -15,6 +15,7 @@ import { ScrollToTopBtn } from '@/components/utils/_buttons'
 const SkillCard = lazy(() => import('../components/cards/SkillCard'))
 const JobCard = lazy(() => import('../components/cards/JobCard'))
 const EduCard = lazy(() => import('../components/cards/EduCard'))
+import { PreRenderLinkAsBtn } from '@/components/utils/PreRenderLink'
 
 const AboutPage = ({ expData }: any) => {
 
@@ -50,35 +51,44 @@ const AboutPage = ({ expData }: any) => {
                     reverseOrder={true}
                     gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
                 />
-                        <div className="flex pb-8 space-x-4 md:space-y-0 pt-4 lg:pt-0 flex-row relative items-center">
-                            <ExpandBtnLink
-                                icon={TiSocialLinkedin}
-                                text="LinkedIn"
-                                textColor="white"
-                                backgroundColor="black"
-                                href="https://www.linkedin.com/in/alexbeciana"
-                                addClass="hover:w-32"
-                                ariaLabel="Link to Alex Beciana LinkedIn profile"
-                            />
-                            <ExpandBtnLink
-                                icon={AiOutlineGithub}
-                                text="GitHub"
-                                textColor="white"
-                                backgroundColor="black"
-                                href="https://github.com/abeciana1"
-                                addClass="hover:w-32"
-                                ariaLabel="Link to Alex Beciana GitHub profile"
-                            />
-                            <ExpandBtnLink
-                                icon={AiOutlineBehance}
-                                text="Behance"
-                                textColor="white"
-                                backgroundColor="black"
-                                href="https://www.behance.net/alexbeciana"
-                                addClass="hover:w-32"
-                                ariaLabel="Link to Alex Beciana Behace profile"
-                            />
-                        </div>
+                    <div className="py-5">
+                        <PreRenderLinkAsBtn
+                            href="/references"
+                            linkText="My references"
+                            alt="references page"
+                            ctaButtonColor="altYellow"
+                            showArrow
+                        />
+                    </div>
+                    <div className="flex pb-8 space-x-4 md:space-y-0 pt-4 lg:pt-0 flex-row relative items-center">
+                        <ExpandBtnLink
+                            icon={TiSocialLinkedin}
+                            text="LinkedIn"
+                            textColor="white"
+                            backgroundColor="black"
+                            href="https://www.linkedin.com/in/alexbeciana"
+                            addClass="hover:w-32"
+                            ariaLabel="Link to Alex Beciana LinkedIn profile"
+                        />
+                        <ExpandBtnLink
+                            icon={AiOutlineGithub}
+                            text="GitHub"
+                            textColor="white"
+                            backgroundColor="black"
+                            href="https://github.com/abeciana1"
+                            addClass="hover:w-32"
+                            ariaLabel="Link to Alex Beciana GitHub profile"
+                        />
+                        <ExpandBtnLink
+                            icon={AiOutlineBehance}
+                            text="Behance"
+                            textColor="white"
+                            backgroundColor="black"
+                            href="https://www.behance.net/alexbeciana"
+                            addClass="hover:w-32"
+                            ariaLabel="Link to Alex Beciana Behace profile"
+                        />
+                    </div>
                 <Suspense fallback={<div>Loading...</div>}>
                     <section
                         className="mt-12 relative"

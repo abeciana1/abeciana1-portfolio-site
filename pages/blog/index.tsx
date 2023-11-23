@@ -1,4 +1,3 @@
-import React from 'react'
 import { CustomHead } from '@/components/utils/CustomHead'
 import BlogPostCard from '@/components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
@@ -10,7 +9,7 @@ const BlogPage = ({
 }: any) => {
 
     return (
-        <React.Fragment>
+        <>
             <CustomHead
                 title="Blog"
                 description="Alex Beciana | Writing and sharing software engineering concepts in easy-to-understand articles and tutorials."
@@ -49,7 +48,7 @@ const BlogPage = ({
                 </section>
             </>
             <ScrollToTopBtn/>
-        </React.Fragment>
+        </>
     )
 }
 

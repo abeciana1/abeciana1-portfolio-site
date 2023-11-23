@@ -1,4 +1,4 @@
-import React, { Suspense,lazy } from 'react'
+import { Suspense,lazy } from 'react'
 import { CustomHead } from '@/components/utils/CustomHead'
 import { SocialProfileJsonLd } from 'next-seo';
 import { SkillCardGrid } from '@/components/layouts'
@@ -25,7 +25,7 @@ const AboutPage = ({ expData }: any) => {
     } = expData
 
     return (
-        <React.Fragment>
+        <>
             <CustomHead
                 title="About"
                 description="Alex Beciana | Work experience and education as a digital marketer, community manager, and full-stack software engineer"
@@ -159,7 +159,7 @@ const AboutPage = ({ expData }: any) => {
                 </Suspense>
                 <ScrollToTopBtn/>
             </section>
-        </React.Fragment>
+        </>
     )
 }
 

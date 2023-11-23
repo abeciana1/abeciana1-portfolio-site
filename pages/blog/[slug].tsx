@@ -1,4 +1,3 @@
-import React from 'react'
 import { BlogPostHead } from '@/components/utils/CustomHead'
 import Image from 'next/image'
 import { GetStaticProps, GetStaticPaths } from 'next'
@@ -26,7 +25,7 @@ const BlogArticle = ({ post }: {post: IPost}) => {
     const mobile = (isMobile || isTablet)
 
     return (
-        <React.Fragment>
+        <>
             <BlogPostHead
                 title={`Blog | ${post.title}`}
                 description={post.excerpt}
@@ -146,7 +145,7 @@ const BlogArticle = ({ post }: {post: IPost}) => {
                      Related posts
                     </h2>
                 </section> */}
-        </React.Fragment>
+        </>
     )
 }
 

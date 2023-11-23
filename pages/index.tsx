@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react'
+import { Suspense, lazy } from 'react'
 import { lazily } from 'react-lazily'
 import { CustomHead } from '@/components/utils/CustomHead'
 import { SkillCardGrid, TwoColumnGrid } from '@/components/layouts'
@@ -21,7 +21,7 @@ const {
 export default function Home({ joke }: any) {
 
   return (
-    <React.Fragment>
+    <>
       <CustomHead
         description='Full stack software engineer with three years of experience with an entrepreneurial spirit.'
         image="./profile-callout-edited.webp"
@@ -165,7 +165,7 @@ export default function Home({ joke }: any) {
         </section>
       </Suspense>
       <ScrollToTopBtn/>
-    </React.Fragment>
+    </>
   )
 }
 

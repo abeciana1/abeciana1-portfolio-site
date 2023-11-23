@@ -1,6 +1,4 @@
-import React from 'react'
 import { HeroSectionWithLinkGradientBG } from '@/components/sections'
-import profileCallout from '@/public/profile-callout-edited.webp'
 import { lazily } from 'react-lazily'
 const { ServiceIcon } = lazily(() => import('@/components/utils/_icons'))
 import Clients from '@/data/clients.json'
@@ -18,7 +16,7 @@ import { PiEngineFill } from "react-icons/pi";
 const FreelancePage = (): JSX.Element => {
 
     return (
-        <React.Fragment>
+        <>
             <CustomHead
                 title="AB Creative Freelancing"
                 description="Alex Beciana | Empower your brand online with top-notch web and app development services. Elevate user experience and drive success with our expert solutions."
@@ -94,7 +92,7 @@ const FreelancePage = (): JSX.Element => {
                     />
                 </TwoColumnGrid>
             </section>
-        </React.Fragment>
+        </>
     )
 }
 

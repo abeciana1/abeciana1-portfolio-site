@@ -1,6 +1,7 @@
 import { CustomHead } from '@/components/utils/CustomHead'
 import { gql, GraphQLClient } from 'graphql-request'
 import { IReferenceData } from '@/interfaces'
+import ReferenceCard from '@/components/cards/ReferenceCard'
 
 const ReferencesPage = ({ reviews }: {reviews: IReferenceData[]}) => {
 
@@ -11,7 +12,21 @@ const ReferencesPage = ({ reviews }: {reviews: IReferenceData[]}) => {
                 description="Alex Beciana | References from colleagues, freelance clients, supervisors, and instructors who can attest to my work ethic, competence, and reliability as a developer/engineer and teammate."
                 image="./profile-callout-edited.webp"
             />
-            <h1>What people are saying about me</h1>
+            {reviews && reviews.length > 0 &&
+                <>
+                    <h1>What people are saying about me</h1>
+                    <section className='my-10'>
+                        {reviews.map((review: IReferenceData) => {
+                            return (
+                                <ReferenceCard
+                                    key={review.id}
+                                    review={review}
+                                />
+                            )
+                        })}
+                    </section>
+                </>
+            }
         </>
     )
 }
@@ -39,9 +54,8 @@ export const getServerSideProps = async () => {
     `
 
     const {testimonials}: {testimonials: IReferenceData[]} = await reviewClient.request(reviewQuery)
-
     return {
-        prop: {
+        props: {
             reviews: testimonials
         }
     }

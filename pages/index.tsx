@@ -70,7 +70,7 @@ export default function Home({ joke }: any) {
           linkText="More about me"
           alt="portfolio page"
           ctaButtonColor="altYellow"
-          showArrow={true}
+          showArrow
         />
         <PreRenderLinkAsBtn
           href="/blog"

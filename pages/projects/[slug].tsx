@@ -1,4 +1,3 @@
-import React from 'react'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Image from 'next/image'
 import { ScrollToTopBtn } from '@/components/utils/_buttons'
@@ -13,7 +12,7 @@ import { projectStatusColors } from '@/lib/helper-functions'
 const PortfolioProjectPage = ({ project }: {project: IProject}) => {
 
     return (
-        <React.Fragment>
+        <>
             <BlogPostHead
                 title={`Project | ${project.projectTitle}`}
                 description={project.excerpt}

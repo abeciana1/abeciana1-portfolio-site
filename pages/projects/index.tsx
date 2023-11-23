@@ -1,4 +1,3 @@
-import React from 'react'
 import { GetStaticProps } from 'next'
 import { CustomHead } from '@/components/utils/CustomHead'
 import dynamic from 'next/dynamic';
@@ -13,10 +12,8 @@ const PortfolioPage = ({
     projects
 }: {projects: IProjectData[]}) => {
 
-    console.log({projects})
-
     return (
-        <React.Fragment>
+        <>
             <CustomHead
                 title="Portfolio"
                 description="Alex Beciana | Creating projects for myself, friends, and clients."

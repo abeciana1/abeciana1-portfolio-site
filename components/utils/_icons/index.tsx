@@ -5,7 +5,8 @@ import { IServiceIcon } from '@/interfaces'
 export const ServiceIcon = ({
     text,
     color,
-    icon
+    icon,
+    title
 }: IServiceIcon) => {
     const Icon = icon as React.ElementType
     const [hovered, setHovered] = useState(false)
@@ -17,14 +18,17 @@ export const ServiceIcon = ({
             >
                 <div className="max-h-12">
                     <Icon
-                        strokeWidth="2.5"
+                        strokeWidth={1}
                         className={cx('h-12 w-12', {
-                            ['fill-blue-800 opacity-100']: color === 'blue'
+                            ['stroke-white fill-blue-800 opacity-100']: color === 'blue',
+                            ['stroke-white fill-altRed opacity-100']: color === 'red',
+                            ['stroke-white fill-altYellow opacity-100']: color === 'yellow',
+                            ['stroke-white fill-orange-400 opacity-100']: color === 'orange',
                         })}
                     />
                 </div>
-
                 <div>
+                    <span className='font-semiBold mr-1'>{title}.</span>
                     {text}
                 </div>
             </div>

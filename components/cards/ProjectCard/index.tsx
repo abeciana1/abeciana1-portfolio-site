@@ -21,6 +21,7 @@ const ProjectCard = ({
                             width={350}
                             height={400}
                             alt={`Alex Beciana | Portfolio Project | ${project.projectTitle}`}
+                            priority
                         />
                     </div>
                     <div

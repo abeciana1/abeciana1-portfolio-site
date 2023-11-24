@@ -3,10 +3,14 @@ import BlogPostCard from '@/components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
 import { ScrollToTopBtn } from '@/components/utils/_buttons'
 import { gql, GraphQLClient } from 'graphql-request'
+import { IPostData } from '@/interfaces'
 
 const BlogPage = ({
     posts, recentPosts
-}: any) => {
+}: {
+    posts: IPostData[],
+    recentPosts: IPostData[]
+}) => {
 
     return (
         <>
@@ -29,7 +33,7 @@ const BlogPage = ({
                 <section
                     className="pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
                 >
-                    {recentPosts.slice(1, 4).map((post: any) => {
+                    {recentPosts.slice(1, 4).map((post: IPostData) => {
                         return <BlogPostCard key={post.id} post={post} active={true} imagePriority={true} />
                     })}
                 </section>
@@ -42,7 +46,7 @@ const BlogPage = ({
                 <section
                     className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
                 >
-                    {posts.map((post: any) => {
+                    {posts.map((post: IPostData) => {
                         return <BlogPostCard key={post.id} post={post} active={false} imagePriority={false} /> 
                     })}
                 </section>
@@ -93,8 +97,8 @@ export const getStaticProps: GetStaticProps = async () => {
         }`
 
     const postClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
-    const allPostsData: any = await postClient.request(allPosts)
-    const recentPostsData: any = await postClient.request(recentPosts)
+    const allPostsData: {blogPosts: IPostData[]} = await postClient.request(allPosts)
+    const recentPostsData: {blogPosts: IPostData[]} = await postClient.request(recentPosts)
 
     return {
         props: {

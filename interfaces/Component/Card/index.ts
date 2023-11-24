@@ -35,7 +35,7 @@ export interface IClientCard {
 }
 
 export interface IEduCard {
-    id: number;
+    id: string;
     schoolName: string;
     schoolWebsite: string;
     schoolImage: string;
@@ -43,7 +43,7 @@ export interface IEduCard {
 }
 
 export interface IJobCard {
-    id: number;
+    id: string;
     position: string;
     startDate: string;
     companyName: string;

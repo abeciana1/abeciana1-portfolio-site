@@ -199,7 +199,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }`
 
     const postClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
-    const postData: any = await postClient.request(blogPostQuery)
+    const postData: {blogPosts: IPost[]} = await postClient.request(blogPostQuery)
 
     return {
         props: {

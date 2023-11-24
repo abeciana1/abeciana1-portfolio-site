@@ -3,7 +3,6 @@ import { lazily } from 'react-lazily'
 import { CustomHead } from '@/components/utils/CustomHead'
 import { SkillCardGrid, TwoColumnGrid } from '@/components/layouts'
 import { HeroSectionWithLinkGradientBG } from '@/components/sections'
-// import Skills from '../data/skills.json'
 import { PreRenderLinkAsBtn } from '@/components/utils/PreRenderLink'
 import { ExpandBtnLink } from '@/components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";

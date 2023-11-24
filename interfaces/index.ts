@@ -3,7 +3,8 @@ export type {
     IPostData,
     IClientData,
     IProjectData,
-    IReferenceData
+    IReferenceData,
+    IJoke
 } from '@/interfaces/Data'
 
 export type {

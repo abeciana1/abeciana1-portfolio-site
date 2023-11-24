@@ -3,22 +3,28 @@ import { lazily } from 'react-lazily'
 import { CustomHead } from '@/components/utils/CustomHead'
 import { SkillCardGrid, TwoColumnGrid } from '@/components/layouts'
 import { HeroSectionWithLinkGradientBG } from '@/components/sections'
-import Skills from '../data/skills.json'
+// import Skills from '../data/skills.json'
 import { PreRenderLinkAsBtn } from '@/components/utils/PreRenderLink'
 import { ExpandBtnLink } from '@/components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import profileCallout from '@/public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
-import { ISkillCard } from '@/interfaces'
+import { ISkillCard, IJoke } from '@/interfaces'
 import { ScrollToTopBtn } from '@/components/utils/_buttons'
-const SkillCard = lazy(() => import('@/components/cards/SkillCard'))
+import SkillCard from '@/components/cards/SkillCard'
 const {
   CodeMockup,
   CodeMockupLine
 } = lazily(() => import('../components/utils/CodeMockup'))
+import { gql, GraphQLClient } from 'graphql-request'
 
-export default function Home({ joke }: any) {
+export default function Home(
+  { 
+    joke,
+    skills
+  }: {joke: IJoke, skills: ISkillCard[]}
+  ) {
 
   return (
     <>
@@ -151,17 +157,19 @@ export default function Home({ joke }: any) {
                 id="skills"
                 className="text-4xl leading-relaxed"
             >Skills</h2>
-            <SkillCardGrid>
-            {Skills.map(({ name, image }: ISkillCard, index: number) => {
-              return (
-                    <SkillCard
-                      key={index + 1}
-                      name={name}
-                      image={image}
-                    />
-                  )
-              })}
-            </SkillCardGrid>
+            {skills && skills?.length > 0 &&
+              <SkillCardGrid>
+              {skills.map(({ id, name, image }: ISkillCard) => {
+                return (
+                      <SkillCard
+                        key={id}
+                        name={name}
+                        image={image}
+                      />
+                    )
+                })}
+              </SkillCardGrid>
+            }
         </section>
       </Suspense>
       <ScrollToTopBtn/>
@@ -171,11 +179,28 @@ export default function Home({ joke }: any) {
 
 export const getStaticProps: GetStaticProps = async () => {
 
+  const skillsClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
   const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
   const jokes = await res.json()
 
+  const skillQuery = gql`
+    query skills {
+      skills(stage: PUBLISHED) {
+        name
+        id
+        image {
+          alt
+          url(transformation: {document: {output: {format: webp}}})
+        }
+      }
+    }
+  `
+
+  const { skills }: {skills: ISkillCard[]} = await skillsClient.request(skillQuery)
+
   return {
     props: {
+      skills: skills,
       joke: jokes[0],
     },
     revalidate: 600

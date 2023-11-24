@@ -4,7 +4,10 @@ export type {
     IClientData,
     IProjectData,
     IReferenceData,
-    IJoke
+    IJoke,
+    IExperience,
+    IEducation,
+    IJob
 } from '@/interfaces/Data'
 
 export type {

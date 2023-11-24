@@ -50,3 +50,28 @@ export interface IJoke {
     question: string;
     punchline: string;
 }
+
+export interface IJob {
+    id: string;
+    position: string;
+    startDate: string;
+    companyName: string;
+    companyWebsite: string;
+    companyDescription: string;
+    companyLogo: IPostImage;
+    endDate: string;
+    responsibilities: string;
+}
+
+export interface IEducation {
+    id: string;
+    schoolName: string;
+    schoolWebsite: string;
+    schoolImage: IPostImage;
+    achievements: string;
+}
+
+export interface IExperience {
+    jobs: IJob[];
+    educations: IEducation[];
+}

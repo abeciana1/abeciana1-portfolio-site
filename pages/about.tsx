@@ -17,7 +17,7 @@ const JobCard = lazy(() => import('../components/cards/JobCard'))
 const EduCard = lazy(() => import('../components/cards/EduCard'))
 import { PreRenderLinkAsBtn } from '@/components/utils/PreRenderLink'
 
-const AboutPage = ({ expData }: any) => {
+const AboutPage = ({ expData, skills }: any) => {
 
     const {
         jobs,
@@ -97,17 +97,19 @@ const AboutPage = ({ expData }: any) => {
                             id="skills"
                             className="text-4xl leading-relaxed"
                         >Skills</h2>
+                        {skills && skills?.length > 0 &&
                         <SkillCardGrid>
-                        {Skills.map(({name, image}: ISkillCard, index:number) => {
+                        {skills.map(({ id, name, image }: ISkillCard) => {
                             return (
                                 <SkillCard
-                                key={index + 1}
-                                name={name}
-                                image={image}
+                                    key={id}
+                                    name={name}
+                                    image={image}
                                 />
-                            )
-                        })}
+                                )
+                            })}
                         </SkillCardGrid>
+                        }
                     </section>
                 </Suspense>
                 <Suspense fallback={<div>Loading...</div>}>
@@ -193,11 +195,27 @@ export const getStaticProps: GetStaticProps = async () => {
         }
         }`
         
+    const skillQuery = gql`
+        query skills {
+        skills(stage: PUBLISHED) {
+            name
+            id
+            image {
+            alt
+            url(transformation: {document: {output: {format: webp}}})
+            }
+        }
+        }
+    `
+
     const expData = await expClient.request(expQuery)
+    const { skills }: {skills: ISkillCard[]} = await expClient.request(skillQuery)
+
 
     return {
         props: {
-        expData: expData
+            expData: expData,
+            skills: skills
         },
         revalidate: 600
     }

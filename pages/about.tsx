@@ -3,7 +3,6 @@ import { CustomHead } from '@/components/utils/CustomHead'
 import { SocialProfileJsonLd } from 'next-seo';
 import { SkillCardGrid } from '@/components/layouts'
 import { HeroSectionWithLinkGradientBG } from '@/components/sections'
-import Skills from '@/data/skills.json'
 import { gql, GraphQLClient } from 'graphql-request'
 import { GetStaticProps } from 'next'
 import { ExpandBtnLink } from '@/components/utils/_buttons'
@@ -12,10 +11,11 @@ import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
 import profileCallout from '@/public/profile-callout-edited.webp'
 import { ISkillCard } from '@/interfaces'
 import { ScrollToTopBtn } from '@/components/utils/_buttons'
-const SkillCard = lazy(() => import('../components/cards/SkillCard'))
+import SkillCard from '@/components/cards/SkillCard'
 const JobCard = lazy(() => import('../components/cards/JobCard'))
 const EduCard = lazy(() => import('../components/cards/EduCard'))
 import { PreRenderLinkAsBtn } from '@/components/utils/PreRenderLink'
+import { IJob, IEducation, IExperience } from '@/interfaces'
 
 const AboutPage = ({ expData, skills }: any) => {
 
@@ -118,7 +118,7 @@ const AboutPage = ({ expData, skills }: any) => {
                             id="experience"
                             className="text-4xl leading-relaxed"
                         >Experience</h2>
-                        {jobs?.map((job: any) => {
+                        {jobs?.map((job: IJob) => {
                         return (
                             <JobCard
                                 key={job?.id}
@@ -145,7 +145,7 @@ const AboutPage = ({ expData, skills }: any) => {
                         <h2
                             className="text-4xl leading-relaxed"
                         >Education</h2>
-                        {educations?.map((school: any) => {
+                        {educations?.map((school: IEducation) => {
                             return (
                             <EduCard
                                 key={school?.id}
@@ -208,7 +208,7 @@ export const getStaticProps: GetStaticProps = async () => {
         }
     `
 
-    const expData = await expClient.request(expQuery)
+    const expData: IExperience = await expClient.request(expQuery)
     const { skills }: {skills: ISkillCard[]} = await expClient.request(skillQuery)
 
 

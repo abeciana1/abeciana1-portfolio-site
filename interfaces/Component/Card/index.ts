@@ -16,8 +16,9 @@ export interface IProjectDetailsCard {
 }
 
 export interface ISkillCard {
+    id?: string;
     name: string;
-    image: string;
+    image: IPostImage;
 }
 
 export interface IBlogPostCard {

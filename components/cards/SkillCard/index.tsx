@@ -11,7 +11,7 @@ const SkillCard = ({
                 <Image
                     width={50}
                     height={50}
-                    src={image}
+                    src={image.url}
                     alt={`Alex Beciana | Skill - ${name}`}
                     className="mx-auto"
                 />

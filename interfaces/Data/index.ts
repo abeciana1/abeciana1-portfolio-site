@@ -45,3 +45,8 @@ export interface IProjectData {
 export interface IReferenceData extends IReferenceCard {
     id: string;
 }
+
+export interface IJoke {
+    question: string;
+    punchline: string;
+}

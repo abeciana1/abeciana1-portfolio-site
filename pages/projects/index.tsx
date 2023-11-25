@@ -1,12 +1,8 @@
 import { GetStaticProps } from 'next'
 import { CustomHead } from '@/components/utils/CustomHead'
-import dynamic from 'next/dynamic';
 import { gql, GraphQLClient } from 'graphql-request'
 import { IProjectData } from '@/interfaces'
-
-const ProjectCard = dynamic(() => import('@/components/cards/ProjectCard'), {
-    ssr: false
-})
+import ProjectCard from '@/components/cards/ProjectCard'
 
 const PortfolioPage = ({
     projects

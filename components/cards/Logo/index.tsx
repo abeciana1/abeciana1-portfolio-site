@@ -16,6 +16,7 @@ const Logo = ({
                 alt={name + "client logo"}
                 width={width}
                 height={height}
+                priority
             />
         </React.Fragment>
     )

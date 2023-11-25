@@ -1,21 +1,12 @@
-import Image, { StaticImageData } from 'next/image'
+import Image from 'next/image'
 import cx from 'classnames'
-import { PreRenderLinkAsBtn } from '../utils/PreRenderLink'
-import useResponsiveness from '../../lib/useResponsiveness'
-import profilePic from '../../public/profile-pic.webp'
-
-interface HeroSectionI {
-    heading: string;
-    taglineBody: string;
-    image: string | StaticImageData;
-    imageAlt: string;
-    cta?: string;
-    ctaHref?: string;
-    ctaButtonColor?: string;
-    ctaAlt?: string;
-    reverseOrder?: boolean;
-    imageClassName?: string;
-}
+import { PreRenderLinkAsBtn } from '@/components/utils/PreRenderLink'
+import useResponsiveness from '@/lib/useResponsiveness'
+import profilePic from '@/public/profile-pic.webp'
+import {
+    IHeroSection,
+    IHeroGradient
+} from '@/interfaces'
 
 export const HeroSectionWithLink = ({
     heading,
@@ -28,7 +19,7 @@ export const HeroSectionWithLink = ({
     ctaAlt = "",
     reverseOrder,
     imageClassName
-}: HeroSectionI) => {
+}: IHeroSection) => {
 
     return(
         <section
@@ -64,20 +55,6 @@ export const HeroSectionWithLink = ({
     )
 }
 
-interface HeroGradientI {
-    heading: string;
-    taglineBody: string;
-    image: string | StaticImageData;
-    imageAlt: string;
-    cta?: string;
-    ctaHref?: string;
-    ctaButtonColor?: string;
-    ctaAlt?: string;
-    reverseOrder?: boolean;
-    imageClassName?: string;
-    gradientClass: string;
-}
-
 export const HeroSectionWithLinkGradientBG = ({
     heading,
     taglineBody,
@@ -89,8 +66,8 @@ export const HeroSectionWithLinkGradientBG = ({
     ctaAlt = "",
     reverseOrder,
     imageClassName,
-    gradientClass
-}: HeroGradientI) => {
+    gradientClass,
+}: IHeroGradient) => {
 
     const mediaQueryRender = useResponsiveness()
 

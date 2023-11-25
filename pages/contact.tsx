@@ -1,12 +1,16 @@
-import React from 'react'
-import ContactForm from '../components/utils/_forms/ContactForm'
+import ContactForm from '@/components/utils/_forms/ContactForm'
 import Image from 'next/image'
 import Script from 'next/script'
+import { CustomHead } from '@/components/utils/CustomHead'
 
 const Contact = () => {
 
     return (
-        <React.Fragment>
+        <>
+            <CustomHead
+                title="Contact me"
+                description="Reach out for collaboration. Let's create something extraordinary! Contact me today."
+            />
             <Script
                 id="hs-script-loader"
                 src="//js.hs-scripts.com/23677902.js"
@@ -35,7 +39,7 @@ const Contact = () => {
                     />
                 </section>
             </section>
-        </React.Fragment>
+        </>
     )
 }
 

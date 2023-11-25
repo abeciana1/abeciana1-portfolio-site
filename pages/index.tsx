@@ -1,41 +1,62 @@
-import React, { Suspense, lazy } from 'react'
+import { Suspense, lazy } from 'react'
 import { lazily } from 'react-lazily'
-import { CustomHead } from '../components/utils/CustomHead'
-import { SkillCardGrid, TwoColumnGrid } from '../components/layouts'
-import { HeroSectionWithLinkGradientBG } from '../components/sections'
-import Skills from '../data/skills.json'
-import { PreRenderLinkAsBtn } from '../components/utils/PreRenderLink'
-import { ExpandBtnLink } from '../components/utils/_buttons'
+import { CustomHead } from '@/components/utils/CustomHead'
+import { SkillCardGrid, TwoColumnGrid } from '@/components/layouts'
+import { HeroSectionWithLinkGradientBG } from '@/components/sections'
+import { PreRenderLinkAsBtn } from '@/components/utils/PreRenderLink'
+import { ExpandBtnLink } from '@/components/utils/_buttons'
 import { TiSocialLinkedin } from "react-icons/ti";
 import { AiOutlineGithub, AiOutlineBehance } from "react-icons/ai";
-import profileCallout from '../public/profile-callout-edited.webp'
+import profileCallout from '@/public/profile-callout-edited.webp'
 import { GetStaticProps } from 'next'
-import { SkillI } from '../components/cards/SkillCard'
-import { ScrollToTopBtn } from '../components/utils/_buttons'
-const SkillCard = lazy(() => import('../components/cards/SkillCard'))
+import { ISkillCard, IJoke } from '@/interfaces'
+import { ScrollToTopBtn } from '@/components/utils/_buttons'
+import SkillCard from '@/components/cards/SkillCard'
 const {
   CodeMockup,
   CodeMockupLine
 } = lazily(() => import('../components/utils/CodeMockup'))
+import { gql, GraphQLClient } from 'graphql-request'
 
-export default function Home({ joke }: any) {
+export default function Home(
+  { 
+    joke,
+    skills
+  }: {joke: IJoke, skills: ISkillCard[]}
+  ) {
 
   return (
-    <React.Fragment>
+    <>
       <CustomHead
-        description='Full stack software engineer with two years of experience with an entrepreneurial spirit.'
+        description='Full stack software engineer with three years of experience with an entrepreneurial spirit.'
         image="./profile-callout-edited.webp"
       />
       <HeroSectionWithLinkGradientBG
         heading="Hi I'm Alex Beciana"
-        taglineBody="Full stack software engineer with two years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."
+        taglineBody="Full stack software engineer with three years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."
         image={profileCallout}
         imageAlt="Alex Beciana (animated)"
         imageClassName="profile-callout"
         reverseOrder={true}
         gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
       />
-      <div className="flex pb-8 space-x-4 md:space-y-0 pt-4 lg:pt-0 flex-row relative items-center">
+      <div className="flex flex-col pt-5 space-y-4 md:space-y-0 md:pt-5 md:flex-row md:space-x-8">
+        <PreRenderLinkAsBtn
+          href="/about"
+          linkText="More about me"
+          alt="portfolio page"
+          ctaButtonColor="altYellow"
+          showArrow
+        />
+        <PreRenderLinkAsBtn
+          href="/blog"
+          linkText="My blog posts"
+          alt="portfolio page"
+          ctaButtonColor="altYellow"
+          showArrow={true}
+        />
+      </div>
+      <div className="flex pb-8 space-x-4 md:space-y-0 pt-5 flex-row relative items-center">
         <ExpandBtnLink
           icon={TiSocialLinkedin}
           text="LinkedIn"
@@ -62,22 +83,6 @@ export default function Home({ joke }: any) {
           href="https://www.behance.net/alexbeciana"
           addClass="hover:w-32"
           ariaLabel="Link to Alex Beciana Behance profile"
-        />
-      </div>
-      <div className="flex flex-col pt-8 space-y-4 md:space-y-0 md:pt-4 lg:pt-0 md:flex-row md:space-x-8">
-        <PreRenderLinkAsBtn
-          href="/about"
-          linkText="More about me"
-          alt="portfolio page"
-          ctaButtonColor="altYellow"
-          showArrow={true}
-        />
-        <PreRenderLinkAsBtn
-          href="/blog"
-          linkText="My blog posts"
-          alt="portfolio page"
-          ctaButtonColor="altYellow"
-          showArrow={true}
         />
       </div>
       <Suspense fallback={<div>Loading...</div>}>
@@ -151,31 +156,50 @@ export default function Home({ joke }: any) {
                 id="skills"
                 className="text-4xl leading-relaxed"
             >Skills</h2>
-            <SkillCardGrid>
-            {Skills.map(({ name, image }: SkillI, index: number) => {
-              return (
-                    <SkillCard
-                      key={index + 1}
-                      name={name}
-                      image={image}
-                    />
-                  )
-              })}
-            </SkillCardGrid>
+            {skills && skills?.length > 0 &&
+              <SkillCardGrid>
+              {skills.map(({ id, name, image }: ISkillCard) => {
+                return (
+                      <SkillCard
+                        key={id}
+                        name={name}
+                        image={image}
+                      />
+                    )
+                })}
+              </SkillCardGrid>
+            }
         </section>
       </Suspense>
       <ScrollToTopBtn/>
-    </React.Fragment>
+    </>
   )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
 
+  const skillsClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
   const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
   const jokes = await res.json()
 
+  const skillQuery = gql`
+    query skills {
+      skills(stage: PUBLISHED) {
+        name
+        id
+        image {
+          alt
+          url(transformation: {document: {output: {format: webp}}})
+        }
+      }
+    }
+  `
+
+  const { skills }: {skills: ISkillCard[]} = await skillsClient.request(skillQuery)
+
   return {
     props: {
+      skills: skills,
       joke: jokes[0],
     },
     revalidate: 600

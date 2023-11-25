@@ -20,6 +20,7 @@ module.exports = {
         200: "#fef08a",
         700: "#a16207"
       },
+      sky: "#f0f9ff",
       orange: {
         400: "#fb923c"
       },

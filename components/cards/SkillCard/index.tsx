@@ -1,21 +1,17 @@
 import Image from 'next/image'
-
-export interface SkillI {
-    name: string;
-    image: string;
-}
+import { ISkillCard } from '@/interfaces'
 
 const SkillCard = ({
     name,
     image
-}: SkillI | any) => {
+}: ISkillCard) => {
     return (
         <div>
             <div className="h-12 w-12 mx-auto">
                 <Image
                     width={50}
                     height={50}
-                    src={image}
+                    src={image.url}
                     alt={`Alex Beciana | Skill - ${name}`}
                     className="mx-auto"
                 />

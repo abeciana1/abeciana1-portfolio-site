@@ -4,23 +4,40 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-const nextConfig = withBundleAnalyzer({
-  reactStrictMode: true,
-  swcMinify: true,
-  images: {
-    deviceSizes: [100, 200, 320, 375, 425, 640, 750, 768, 828, 1024, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    domains: [
-        "media.graphcms.com",
-        "s3.us-west-2.amazonaws.com",
-        "www.notion.so",
-        "media.graphassets.com",
-        
-    ],
-    dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+module.exports = withBundleAnalyzer({
+    reactStrictMode: true,
+    swcMinify: true,
+    images: {
+      deviceSizes: [100, 200, 320, 375, 425, 640, 750, 768, 828, 1024, 1080, 1200, 1920, 2048, 3840],
+      imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: "media.graphcms.com/**",
+        },
+        {
+          protocol: "https",
+          hostname: "s3.us-west-2.amazonaws.com/**"
+        },
+        {
+          protocol: "https",
+          hostname: "www.notion.so/**"
+        },
+        {
+          protocol: "https",
+          hostname: "media.graphassets.com"
+        }
+      ],
+      dangerouslyAllowSVG: true,
+      contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+  async redirects() {
+    return [
+      {
+        source: "/portfolio",
+        destination: "/freelance",
+        permanent: true
+      }
+    ]
   }
 })
-
-module.exports =
-  nextConfig

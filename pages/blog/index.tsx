@@ -1,16 +1,19 @@
-import React from 'react'
-import { CustomHead } from '../../components/utils/CustomHead'
-import BlogPostCard from '../../components/cards/BlogPostCard'
+import { CustomHead } from '@/components/utils/CustomHead'
+import BlogPostCard from '@/components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
-import { getDatabase } from '../../lib/helper-functions'
-import { ScrollToTopBtn } from '../../components/utils/_buttons'
+import { ScrollToTopBtn } from '@/components/utils/_buttons'
+import { gql, GraphQLClient } from 'graphql-request'
+import { IPostData } from '@/interfaces'
 
 const BlogPage = ({
     posts, recentPosts
-}: any) => {
+}: {
+    posts: IPostData[],
+    recentPosts: IPostData[]
+}) => {
 
     return (
-        <React.Fragment>
+        <>
             <CustomHead
                 title="Blog"
                 description="Alex Beciana | Writing and sharing software engineering concepts in easy-to-understand articles and tutorials."
@@ -24,14 +27,14 @@ const BlogPage = ({
                     <section
                         className="py-12 md:mx-16 lg:mx-44"
                     >
-                            <BlogPostCard key={recentPosts[0].id} post={recentPosts[0]?.properties} active={true} imagePriority={true} />
+                            <BlogPostCard key={recentPosts[0].id} post={recentPosts[0]} active={true} imagePriority={true} />
                     </section>
                 }
                 <section
                     className="pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
                 >
-                    {recentPosts.slice(1, 4).map((post: any) => {
-                        return <BlogPostCard key={post.id} post={post?.properties} active={true} imagePriority={true} />
+                    {recentPosts.slice(1, 4).map((post: IPostData) => {
+                        return <BlogPostCard key={post.id} post={post} active={true} imagePriority={true} />
                     })}
                 </section>
             </>
@@ -43,24 +46,64 @@ const BlogPage = ({
                 <section
                     className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
                 >
-                    {posts.map((post: any) => {
-                        return <BlogPostCard key={post.id} post={post?.properties} active={false} imagePriority={false} /> 
+                    {posts.map((post: IPostData) => {
+                        return <BlogPostCard key={post.id} post={post} active={false} imagePriority={false} /> 
                     })}
                 </section>
             </>
             <ScrollToTopBtn/>
-        </React.Fragment>
+        </>
     )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const response = await getDatabase(process.env.NOTION_BLOG_DATABASE_ID)
-    const recentPosts = response.reverse()
+    
+    const allPosts = gql`
+        query post {
+        blogPosts(orderBy: publishedDate_ASC) {
+            id
+            title
+            publishedDate
+            slug
+            excerpt
+            blogPostTags {
+            id
+            color
+            tagName
+            }
+            featuredImage {
+            url(transformation: {document: {output: {format: webp}}})
+            }
+        }
+        }
+    `
+
+    const recentPosts = gql`query post {
+            blogPosts(orderBy: publishedDate_DESC, first: 4) {
+            id
+            title
+            publishedDate
+            slug
+            excerpt
+            blogPostTags {
+                id
+                color
+                tagName
+            }
+            featuredImage {
+                url(transformation: {document: {output: {format: webp}}})
+            }
+            }
+        }`
+
+    const postClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
+    const allPostsData: {blogPosts: IPostData[]} = await postClient.request(allPosts)
+    const recentPostsData: {blogPosts: IPostData[]} = await postClient.request(recentPosts)
 
     return {
         props: {
-            posts: response,
-            recentPosts: recentPosts
+            posts: allPostsData.blogPosts,
+            recentPosts: recentPostsData.blogPosts
         },
         revalidate: 600
     }

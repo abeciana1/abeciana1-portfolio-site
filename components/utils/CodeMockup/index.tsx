@@ -1,19 +1,13 @@
 import React from 'react'
 import cx from 'classnames'
-
-interface CodeLineI {
-    text: string;
-    prefix: string;
-    textColor?: string;
-    backgroundColor?: string;
-}
+import { ICodeLine, ICodeMockup } from '@/interfaces'
 
 export const CodeMockupLine = ({
     text,
     prefix,
     textColor,
     backgroundColor
-}: CodeLineI) => {
+}: ICodeLine) => {
     return (
         <pre data-prefix={prefix} className={cx("flex", {
             ["text-black"]: textColor === "black",
@@ -29,17 +23,11 @@ export const CodeMockupLine = ({
     )
 }
 
-interface CodeMockupI {
-    children: React.ReactNode;
-    enableSection: boolean;
-    background: string;
-}
-
-// w-6/7 lg:w-3/4 max-w-2xl
-
-export const CodeMockup = (
-    { children, enableSection, background }: CodeMockupI
-) => {
+export const CodeMockup = ({
+        children,
+        enableSection,
+        background
+}: ICodeMockup) => {
     return (
         <section tabIndex={0} className="my-10 relative">
             <div className={cx("mx-auto",{

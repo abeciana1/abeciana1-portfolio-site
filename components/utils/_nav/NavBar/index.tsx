@@ -1,18 +1,13 @@
-import {MutableRefObject} from 'react';
-import { PreRenderLink } from '../../PreRenderLink'
+import { PreRenderLink } from '@/components/utils/PreRenderLink'
 import cx from 'classnames'
 import { Squash as Hamburger } from 'hamburger-react'
-import useResponsiveness from '../../../../lib/useResponsiveness'
-
-interface NavBarI {
-    mobileNavOpen: boolean;
-    toggleMobileNav: () => void;
-}
+import useResponsiveness from '@/lib/useResponsiveness'
+import { INavBar } from '@/interfaces'
 
 const NavBar = ({
     mobileNavOpen,
     toggleMobileNav
-}: NavBarI) => {    
+}: INavBar) => {    
     const mediaQueryRender = useResponsiveness()
 
     const {
@@ -71,10 +66,18 @@ const NavBar = ({
                         </li>
                         <li>
                             <PreRenderLink
-                                alt="Portfolio page"
+                                alt="Freelance page"
                                 className="text-4xl mr-5 font-reross cursor-pointer anim-text"
-                                linkText="portfolio"
-                                href="/portfolio"
+                                linkText="freelance"
+                                href="/freelance"
+                            />
+                        </li>
+                        <li>
+                            <PreRenderLink
+                                alt="Projects page"
+                                className="text-4xl mr-5 font-reross cursor-pointer anim-text"
+                                linkText="projects"
+                                href="/projects"
                             />
                         </li>
                         <li>
@@ -113,8 +116,10 @@ const NavBar = ({
                             <PreRenderLink
                                 alt="Portfolio page"
                                 className="text-4xl font-reross cursor-pointer anim-text"
-                                linkText="portfolio"
-                                href="/portfolio"
+                                linkText="projects"
+                                href="/projects"
+                                // linkText="freelance"
+                                // href="/freelance"
                             />
                         </li>
                         <li

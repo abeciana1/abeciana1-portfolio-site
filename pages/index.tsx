@@ -40,7 +40,23 @@ export default function Home(
         reverseOrder={true}
         gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
       />
-      <div className="flex pb-8 space-x-4 md:space-y-0 pt-4 lg:pt-0 flex-row relative items-center">
+      <div className="flex flex-col pt-5 space-y-4 md:space-y-0 md:pt-5 md:flex-row md:space-x-8">
+        <PreRenderLinkAsBtn
+          href="/about"
+          linkText="More about me"
+          alt="portfolio page"
+          ctaButtonColor="altYellow"
+          showArrow
+        />
+        <PreRenderLinkAsBtn
+          href="/blog"
+          linkText="My blog posts"
+          alt="portfolio page"
+          ctaButtonColor="altYellow"
+          showArrow={true}
+        />
+      </div>
+      <div className="flex pb-8 space-x-4 md:space-y-0 pt-5 flex-row relative items-center">
         <ExpandBtnLink
           icon={TiSocialLinkedin}
           text="LinkedIn"
@@ -67,22 +83,6 @@ export default function Home(
           href="https://www.behance.net/alexbeciana"
           addClass="hover:w-32"
           ariaLabel="Link to Alex Beciana Behance profile"
-        />
-      </div>
-      <div className="flex flex-col pt-8 space-y-4 md:space-y-0 md:pt-4 lg:pt-0 md:flex-row md:space-x-8">
-        <PreRenderLinkAsBtn
-          href="/about"
-          linkText="More about me"
-          alt="portfolio page"
-          ctaButtonColor="altYellow"
-          showArrow
-        />
-        <PreRenderLinkAsBtn
-          href="/blog"
-          linkText="My blog posts"
-          alt="portfolio page"
-          ctaButtonColor="altYellow"
-          showArrow={true}
         />
       </div>
       <Suspense fallback={<div>Loading...</div>}>

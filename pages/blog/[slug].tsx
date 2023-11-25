@@ -35,7 +35,6 @@ const BlogArticle = ({ post }: {post: IPost}) => {
                 }}
                 image={post.featuredImage.url}
             />
-            {claps}
                 {desktop &&
                     <section className="fixed">
                         <SideBarSharing>

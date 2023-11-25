@@ -76,7 +76,7 @@ const AboutPage = ({ expData, skills }: any) => {
                             textColor="white"
                             backgroundColor="black"
                             href="https://github.com/abeciana1"
-                            addClass="hover:w-32"
+                            addClass="hover:w-28"
                             ariaLabel="Link to Alex Beciana GitHub profile"
                         />
                         <ExpandBtnLink

@@ -110,16 +110,22 @@ const NavBar = ({
                                 href="/about"
                             />
                         </li>
+                        <li onClick={toggleMobileNav}>
+                            <PreRenderLink
+                                alt="Freelance page"
+                                className="text-4xl mr-5 font-reross cursor-pointer anim-text"
+                                linkText="freelance"
+                                href="/freelance"
+                            />
+                        </li>
                         <li
                             onClick={toggleMobileNav}
                         >
                             <PreRenderLink
-                                alt="Portfolio page"
+                                alt="Projects page"
                                 className="text-4xl font-reross cursor-pointer anim-text"
                                 linkText="projects"
                                 href="/projects"
-                                // linkText="freelance"
-                                // href="/freelance"
                             />
                         </li>
                         <li

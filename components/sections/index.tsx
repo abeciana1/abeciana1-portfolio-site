@@ -90,8 +90,8 @@ export const HeroSectionWithLinkGradientBG = ({
                     </div>
                 </section>
             }
-            {mobile &&
-                <section className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl">
+            <section className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl min-h-[20rem]">
+                {mobile &&
                     <Image 
                         src={profilePic}
                         width={500}
@@ -100,8 +100,8 @@ export const HeroSectionWithLinkGradientBG = ({
                         className="profile-pic-simple mb-10"
                         alt="Alex Beciana"
                     />
-                </section>
-            }
+                }
+            </section>
             <section
                 className={cx("lg:pt-8 flex flex-col lg:grid lg:grid-cols-2 gap-20 justify-items-center item-stretch", {
                     ["flex-row-reverse"]: reverseOrder

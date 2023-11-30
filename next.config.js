@@ -14,6 +14,9 @@ const millionConfig = {
 module.exports = million.next(withBundleAnalyzer({
     reactStrictMode: true,
     swcMinify: true,
+    experimental: {
+      nextScriptWorkers: true,
+    },
     images: {
       deviceSizes: [100, 200, 320, 375, 425, 640, 750, 768, 828, 1024, 1080, 1200, 1920, 2048, 3840],
       imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
@@ -37,9 +40,6 @@ module.exports = million.next(withBundleAnalyzer({
       ],
       dangerouslyAllowSVG: true,
       contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
-      experimental: {
-        nextScriptWorkers: true,
-      },
   },
   async redirects() {
     return [

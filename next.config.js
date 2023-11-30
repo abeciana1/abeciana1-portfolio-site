@@ -37,6 +37,9 @@ module.exports = million.next(withBundleAnalyzer({
       ],
       dangerouslyAllowSVG: true,
       contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+      experimental: {
+        nextScriptWorkers: true,
+      },
   },
   async redirects() {
     return [

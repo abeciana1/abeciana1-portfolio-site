@@ -1,5 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
+import { Partytown } from '@builder.io/partytown/react';
 
 const MyDocument = () => {
     
@@ -11,9 +12,10 @@ const MyDocument = () => {
                 <link rel="apple-touch-icon" href="/waving.webp" />
                 <link rel="preload" as="image" href="/profile-callout-edited.webp" />
                 <link rel="preload" as="image" href="/profile-pic.webp" />
+                <Partytown debug />
                 <Script
                     id="msft-clarity"
-                    strategy="afterInteractive"
+                    strategy="worker"
                 >
                     {`
                         (function(c,l,a,r,i,t,y){
@@ -26,7 +28,7 @@ const MyDocument = () => {
                 </Script>
                 <Script
                     id="google-analytics"
-                    strategy="afterInteractive"
+                    strategy="worker"
                 >
                     {`
                             window.dataLayer = window.dataLayer || [];

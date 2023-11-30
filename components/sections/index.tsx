@@ -99,8 +99,6 @@ export const HeroSectionWithLinkGradientBG = ({
                     className="profile-pic-simple mb-10 sm:hidden"
                     alt="Animated illustration of me - Alex Beciana"
                 />
-                {/* {mobile &&
-                } */}
             </section>
             <section
                 className={cx("lg:pt-8 flex flex-col lg:flex-row gap-5 lg:gap-20 justify-items-center item-stretch", {

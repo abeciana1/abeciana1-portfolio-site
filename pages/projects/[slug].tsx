@@ -1,15 +1,13 @@
-import { lazy } from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Image from 'next/image'
 import { ScrollToTopBtn } from '@/components/utils/_buttons'
 import { BlogPostHead } from '@/components/utils/CustomHead'
 import { ITag, IPaths, IParams, IProject } from '@/interfaces'
 import { gql, GraphQLClient } from 'graphql-request'
-// import Markdown from 'react-markdown'
+import Markdown from 'react-markdown'
 import gfm from 'remark-gfm'
 import { TagCard } from '@/components/cards/TagCard'
 import { projectStatusColors } from '@/lib/helper-functions'
-const Markdown = lazy(() => import('react-markdown'))
 
 const PortfolioProjectPage = ({ project }: {project: IProject}) => {
 

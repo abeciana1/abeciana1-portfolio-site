@@ -189,6 +189,7 @@ export const ScrollToTopBtn = () => {
     return (
         <Fragment>
             <button
+                aria-label='scroll back to top of page'
                 onMouseEnter={() => setHover(!mouseHover)}
                 onMouseLeave={() => setHover(!mouseHover)}
                 className="z-50 bg-altRed h-14 w-14 rounded-full fixed bottom-2 border-white border-2 right-10"

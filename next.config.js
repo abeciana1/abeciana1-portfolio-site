@@ -1,10 +1,17 @@
 /** @type {import('next').NextConfig} */
 
+// import million from 'million/compiler';
+const million = require('million/compiler');
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-module.exports = withBundleAnalyzer({
+const millionConfig = {
+  auto: true,
+}
+
+module.exports = million.next(withBundleAnalyzer({
     reactStrictMode: true,
     swcMinify: true,
     images: {
@@ -40,4 +47,4 @@ module.exports = withBundleAnalyzer({
       }
     ]
   }
-})
+}, millionConfig))

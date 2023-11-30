@@ -98,7 +98,7 @@ export const HeroSectionWithLinkGradientBG = ({
                         height={500}
                         priority
                         className="profile-pic-simple mb-10"
-                        alt="Alex Beciana"
+                        alt="Animated illustration of me - Alex Beciana"
                     />
                 }
             </section>

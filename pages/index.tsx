@@ -35,7 +35,7 @@ export default function Home(
         heading="Hi I'm Alex Beciana"
         taglineBody="Full stack software engineer with three years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."
         image={profileCallout}
-        imageAlt="Alex Beciana (animated)"
+        imageAlt="Animated illustration of me - Alex Beciana"
         imageClassName="profile-callout"
         reverseOrder={true}
         gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"

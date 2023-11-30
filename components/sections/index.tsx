@@ -90,7 +90,7 @@ export const HeroSectionWithLinkGradientBG = ({
                     </div>
                 </section>
             }
-            <section className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl min-h-[20rem]">
+            <section className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl min-h-[19rem]">
                 {mobile &&
                     <Image 
                         src={profilePic}
@@ -103,8 +103,8 @@ export const HeroSectionWithLinkGradientBG = ({
                 }
             </section>
             <section
-                className={cx("lg:pt-8 flex flex-col lg:grid lg:grid-cols-2 gap-20 justify-items-center item-stretch", {
-                    ["flex-row-reverse"]: reverseOrder
+                className={cx("lg:pt-8 flex flex-col lg:flex-row gap-5 lg:gap-20 justify-items-center item-stretch", {
+                    ["lg:flex-row-reverse"]: reverseOrder
                 })}
             >
                 {desktop &&
@@ -119,7 +119,7 @@ export const HeroSectionWithLinkGradientBG = ({
                         />
                     </section>
                 }
-                <section className="z-10 self-center justify-self-start">
+                <section className="z-10 self-center justify-self-start lg:w-3/4">
                     <h1 className="text-5xl font-reross leading-relaxed">{heading}</h1>
                     <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{taglineBody}</div>
                     {cta &&

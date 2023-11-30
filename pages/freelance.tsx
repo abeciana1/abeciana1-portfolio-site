@@ -27,7 +27,7 @@ const FreelancePage = (): JSX.Element => {
                 image={'https://media.graphassets.com/output=format:webp/Bwz9zHRxS1S79v3Ppax0'}
                 imageAlt="AB Creative logo"
                 imageClassName="profile-callout"
-                reverseOrder={true}
+                reverseOrder
                 gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
             />
             <section className="text-center relative z-50 mt-20">

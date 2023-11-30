@@ -37,7 +37,7 @@ export default function Home(
         image={profileCallout}
         imageAlt="Animated illustration of me - Alex Beciana"
         imageClassName="profile-callout"
-        reverseOrder={true}
+        reverseOrder
         gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
       />
       <div className="flex flex-col pt-5 space-y-4 md:space-y-0 md:pt-5 md:flex-row md:space-x-8">

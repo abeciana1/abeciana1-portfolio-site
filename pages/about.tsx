@@ -48,7 +48,7 @@ const AboutPage = ({ expData, skills }: any) => {
                     image={profileCallout}
                     imageAlt="Animated illustration of me - Alex Beciana"
                     imageClassName="profile-callout"
-                    reverseOrder={true}
+                    reverseOrder
                     gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
                 />
                     <div className="py-5">

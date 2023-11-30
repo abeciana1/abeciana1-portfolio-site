@@ -104,9 +104,21 @@ export const HeroSectionWithLinkGradientBG = ({
             }
             <section
                 className={cx("lg:pt-8 flex flex-col lg:grid lg:grid-cols-2 gap-20 justify-items-center item-stretch", {
-                    ["flex-col-reverse"]: reverseOrder
+                    ["flex-row-reverse"]: reverseOrder
                 })}
             >
+                {desktop &&
+                    <section className="z-30 self-center justify-self-start lg:justify-self-end">
+                        <Image 
+                            src={image}
+                            width={400}
+                            height={414}
+                            priority
+                            className={imageClassName}
+                            alt={imageAlt}
+                        />
+                    </section>
+                }
                 <section className="z-10 self-center justify-self-start">
                     <h1 className="text-5xl font-reross leading-relaxed">{heading}</h1>
                     <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{taglineBody}</div>
@@ -119,18 +131,6 @@ export const HeroSectionWithLinkGradientBG = ({
                         />
                     }
                 </section>
-                    {desktop &&
-                        <section className="z-30 self-center justify-self-start lg:justify-self-end">
-                            <Image 
-                                src={image}
-                                width={400}
-                                height={414}
-                                priority
-                                className={imageClassName}
-                                alt={imageAlt}
-                            />
-                        </section>
-                    }
             </section>
         </>
     )

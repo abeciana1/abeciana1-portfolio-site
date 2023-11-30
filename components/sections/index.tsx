@@ -90,24 +90,24 @@ export const HeroSectionWithLinkGradientBG = ({
                     </div>
                 </section>
             }
-            <section className="justify-item-center self-center mx-auto z-50 block md:hidden drop-shadow-xl min-h-[19rem]">
-                {mobile &&
-                    <Image 
-                        src={profilePic}
-                        width={500}
-                        height={500}
-                        priority
-                        className="profile-pic-simple mb-10"
-                        alt="Animated illustration of me - Alex Beciana"
-                    />
-                }
+            <section className="justify-item-center self-center mx-auto z-50 block sm:hidden drop-shadow-xl min-h-[19rem]">
+                <Image 
+                    src={profilePic}
+                    width={500}
+                    height={500}
+                    priority
+                    className="profile-pic-simple mb-10 sm:hidden"
+                    alt="Animated illustration of me - Alex Beciana"
+                />
+                {/* {mobile &&
+                } */}
             </section>
             <section
                 className={cx("lg:pt-8 flex flex-col lg:flex-row gap-5 lg:gap-20 justify-items-center item-stretch", {
                     ["flex-col-reverse"]: reverseOrder
                 })}
             >
-                <section className="z-10 self-center justify-self-start lg:w-3/4">
+                <section className="z-10 self-center justify-self-start md:w-3/4 lg:w-3/5">
                     <h1 className="text-5xl font-reross leading-relaxed">{heading}</h1>
                     <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{taglineBody}</div>
                     {cta &&

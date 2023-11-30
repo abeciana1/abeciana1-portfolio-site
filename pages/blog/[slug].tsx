@@ -1,3 +1,4 @@
+import { lazy } from 'react';
 import { BlogPostHead } from '@/components/utils/CustomHead'
 import Image from 'next/image'
 import { GetStaticProps, GetStaticPaths } from 'next'
@@ -8,8 +9,11 @@ import useResponsiveness from '@/lib/useResponsiveness'
 import { copyToClipboard } from '@/lib/helper-functions'
 import { gql, GraphQLClient } from 'graphql-request'
 import { IPost, ITagData, IParams, IPaths } from '@/interfaces'
-import Markdown from 'react-markdown'
-import Highlight from 'react-highlight'
+// import Markdown from 'react-markdown'
+// import Highlight from 'react-highlight'
+
+const Markdown = lazy(() => import('react-markdown'))
+const Highlight = lazy(() => import('react-highlight'))
 
 
 const BlogArticle = ({ post }: {post: IPost}) => {
@@ -125,10 +129,10 @@ const BlogArticle = ({ post }: {post: IPost}) => {
                                         <>
                                         {match ?
                                             <Highlight className={"my-5 notion-code " + className} >
-                                                {children?.[0]}
+                                                {children}
                                             </Highlight>
                                             :
-                                            <code className="notion-inline-code">{children?.[0]}</code>
+                                            <code className="notion-inline-code">{children}</code>
                                         }
                                         </>
                                     )

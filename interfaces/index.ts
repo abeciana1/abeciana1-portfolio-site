@@ -52,6 +52,10 @@ export type {
 } from '@/interfaces/Utils'
 
 export type {
+    FormContainerI
+} from '@/interfaces/Utils/Form'
+
+export type {
     IPaths,
     IParams
 } from '@/interfaces/Data/Fetch'

@@ -52,7 +52,9 @@ export type {
 } from '@/interfaces/Utils'
 
 export type {
-    FormContainerI
+    FormContainerI,
+    FormValuesI,
+    NumberValidationI
 } from '@/interfaces/Utils/Form'
 
 export type {

@@ -220,7 +220,8 @@ export const ScrollToTopBtn = () => {
 export const FilterTagButton = ({
     tagName,
     addTagFilter,
-    active
+    active,
+    removeTagFilter
 }: IFilterButton) => {
     const [ selected, setSelect ] = useState(active)
 
@@ -230,6 +231,7 @@ export const FilterTagButton = ({
             addTagFilter(tagName)
         } else {
             setSelect(false)
+            removeTagFilter(tagName)
         }
     }
 

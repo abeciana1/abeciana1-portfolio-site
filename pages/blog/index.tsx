@@ -4,15 +4,16 @@ import BlogPostCard from '@/components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
 import { ScrollToTopBtn } from '@/components/utils/_buttons'
 import { gql, GraphQLClient } from 'graphql-request'
-import { IPostData } from '@/interfaces'
+import { IPostData, IBlogTag } from '@/interfaces'
 import { IoFilter, IoClose } from "react-icons/io5";
 import cx from 'classnames'
 
 const BlogPage = ({
-    posts, recentPosts
+    posts, recentPosts, blogTags
 }: {
     posts: IPostData[],
-    recentPosts: IPostData[]
+    recentPosts: IPostData[],
+    blogTags: IBlogTag[]
 }) => {
     const [ isClient, setClient ] = useState(false)
     const [ showTagFilter, setTagFilter] = useState(false)
@@ -20,7 +21,7 @@ const BlogPage = ({
         searchTerm: '',
         techToolTags: []
     })
-
+    
     const searchTermHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFilter({
             ...filter,
@@ -190,14 +191,24 @@ export const getStaticProps: GetStaticProps = async () => {
             }
         }`
 
+        const allTags = gql`
+            query tags {
+                blogPostTags {
+                    tagName
+                }
+            }
+        `
+
     const postClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
     const allPostsData: {blogPosts: IPostData[]} = await postClient.request(allPosts)
     const recentPostsData: {blogPosts: IPostData[]} = await postClient.request(recentPosts)
+    const blogTags: {blogPostTags: IBlogTag[]} = await postClient.request(allTags)
 
     return {
         props: {
             posts: allPostsData.blogPosts,
-            recentPosts: recentPostsData.blogPosts
+            recentPosts: recentPostsData.blogPosts,
+            blogTags: blogTags.blogPostTags
         },
         revalidate: 600
     }

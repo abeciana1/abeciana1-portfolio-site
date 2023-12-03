@@ -5,7 +5,7 @@ import { Transition } from '@headlessui/react'
 import {
     IShareButtonProps,
     IExpandLinkProps,
-    IBlogTag
+    IFilterButton
 } from '@/interfaces'
 
 export const ShareBtn = ({
@@ -218,12 +218,19 @@ export const ScrollToTopBtn = () => {
 }
 
 export const FilterTagButton = ({
-    tagName
-}: IBlogTag) => {
-    const [ selected, setSelect ] = useState(false)
+    tagName,
+    addTagFilter,
+    active
+}: IFilterButton) => {
+    const [ selected, setSelect ] = useState(active)
 
     const toggleSelect = () => {
-        setSelect(!selected)
+        if (!selected) {
+            setSelect(true)
+            addTagFilter(tagName)
+        } else {
+            setSelect(false)
+        }
     }
 
     return (

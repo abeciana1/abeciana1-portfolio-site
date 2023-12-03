@@ -230,6 +230,10 @@ export const FilterTagButton = ({
         <button
             aria-label={tagName}
             onClick={toggleSelect}
-        >tagName</button>
+            className={cx('text-xl py-0.5 px-1.5 rounded-lg', {
+                ['text-white bg-black']: selected,
+                ['bg-gray-200 text-black']: !selected
+            })}
+        >{tagName}</button>
     )
 }

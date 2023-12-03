@@ -4,7 +4,8 @@ import { AiFillCaretUp } from 'react-icons/ai'
 import { Transition } from '@headlessui/react'
 import {
     IShareButtonProps,
-    IExpandLinkProps
+    IExpandLinkProps,
+    IBlogTag
 } from '@/interfaces'
 
 export const ShareBtn = ({
@@ -213,5 +214,22 @@ export const ScrollToTopBtn = () => {
                 />
             </button>
         </Fragment>
+    )
+}
+
+export const FilterTagButton = ({
+    tagName
+}: IBlogTag) => {
+    const [ selected, setSelect ] = useState(false)
+
+    const toggleSelect = () => {
+        setSelect(!selected)
+    }
+
+    return (
+        <button
+            aria-label={tagName}
+            onClick={toggleSelect}
+        >tagName</button>
     )
 }

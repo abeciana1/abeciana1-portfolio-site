@@ -7,7 +7,8 @@ export type {
     IJoke,
     IExperience,
     IEducation,
-    IJob
+    IJob,
+    IBlogTag
 } from '@/interfaces/Data'
 
 export type {

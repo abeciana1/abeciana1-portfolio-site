@@ -75,3 +75,7 @@ export interface IExperience {
     jobs: IJob[];
     educations: IEducation[];
 }
+
+export interface IBlogTag {
+    tagName: string;
+}

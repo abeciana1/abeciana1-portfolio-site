@@ -5,7 +5,7 @@ import { GetStaticProps } from 'next'
 import { ScrollToTopBtn } from '@/components/utils/_buttons'
 import { gql, GraphQLClient } from 'graphql-request'
 import { IPostData } from '@/interfaces'
-import { IoFilter } from "react-icons/io5";
+import { IoFilter, IoClose } from "react-icons/io5";
 import cx from 'classnames'
 
 const BlogPage = ({
@@ -17,7 +17,8 @@ const BlogPage = ({
     const [ isClient, setClient ] = useState(false)
     const [ showTagFilter, setTagFilter] = useState(false)
     const [ filter, setFilter ] = useState({
-        searchTerm: ''
+        searchTerm: '',
+        techToolTags: []
     })
 
     const searchTermHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,6 +57,14 @@ const BlogPage = ({
 
     const toggleTagFilter = () => {
         setTagFilter(!showTagFilter)
+    }
+
+    const clearAllFilter = () => {
+        setFilter({
+            searchTerm: "",
+            techToolTags: []
+        })
+        setTagFilter(false)
     }
 
     return (
@@ -108,13 +117,20 @@ const BlogPage = ({
                             />
                         </div>
                     </form>
-                    <section className="pt-5">
+                    <section className="pt-5 flex gap-5 items-center">
                         <button onClick={toggleTagFilter} aria-hidden={!showTagFilter} aria-label='Toggle tag filter' 
                             className={cx('border-2 border-black rounded-full p-1', {
                                 ['bg-black text-white']: showTagFilter
                             })}
                         >
-                            <IoFilter strokeWidth={2} size={30} />
+                            <IoFilter title='Filter icon' strokeWidth={2} size={30} />
+                        </button>
+                        <button 
+                            onClick={clearAllFilter}
+                            aria-label='Clear all filters'
+                            className='flex items-center bg-gray-200 text-black py-0.5 px-1.5 rounded-lg'
+                        >
+                            <span><IoClose size={20} title='Clear filters icon' /></span>Clear all
                         </button>
                         {showTagFilter &&
                             <></>

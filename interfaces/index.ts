@@ -19,7 +19,8 @@ export type {
 
 export type {
     ILogo,
-    ILayout
+    ILayout,
+    IFilterButton
 } from '@/interfaces/Component'
 
 export type {

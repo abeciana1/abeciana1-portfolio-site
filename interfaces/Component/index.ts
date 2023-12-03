@@ -1,3 +1,5 @@
+import { IBlogTag } from '@/interfaces'
+
 export interface ILogo {
     name: string;
     logo: string;
@@ -8,4 +10,9 @@ export interface ILogo {
 export interface ILayout {
     children: React.ReactNode;
     addClass?: string;
+}
+
+export interface IFilterButton extends IBlogTag {
+    addTagFilter: (tag: string) => void;
+    active: boolean;
 }

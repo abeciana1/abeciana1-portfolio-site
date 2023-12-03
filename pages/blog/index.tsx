@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { CustomHead } from '@/components/utils/CustomHead'
 import BlogPostCard from '@/components/cards/BlogPostCard'
 import { GetStaticProps } from 'next'
@@ -16,7 +16,6 @@ const BlogPage = ({
     recentPosts: IPostData[],
     blogTags: IBlogTag[]
 }) => {
-    const [ isClient, setClient ] = useState(false)
     const [ showTagFilter, setTagFilter] = useState(false)
     const [ filter, setFilter ] = useState({
         searchTerm: '',
@@ -24,38 +23,29 @@ const BlogPage = ({
     })
     
     const searchTermHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFilter({
-            ...filter,
-            searchTerm: e.target.value
-        })
+        if (document) {
+            document.addEventListener('keydown', (e: KeyboardEvent) => {
+                if (e.code === 'Enter') {
+                    e.preventDefault()
+                }
+            })
+            setFilter({
+                ...filter,
+                searchTerm: e.target.value
+            })
+        }
     }
 
-    useEffect(() => {
-        setClient(true)
-    }, [isClient])
-
-    useEffect(() => {
-        if (isClient) {
-            let paramSearch = window.location.search
-            const searchParams = new URLSearchParams(paramSearch)
-            if (searchParams.has('searchTerm')) {
-                setFilter({
-                    ...filter,
-                    searchTerm: searchParams.get('searchTerm') as string
-                })
-            }
-        }
-    }, [isClient])
-
     const filteredPosts = useMemo(() => {
-        // * search term filtering
         const searchFilteredPosts = posts.filter((post: IPostData) => {
-            return post.title.toLowerCase().includes(filter.searchTerm.toLowerCase())
+            const includesSearchTerm = post.title.toLowerCase().includes(filter.searchTerm.toLowerCase())
+            const includesTechTags = filter.techToolTags.every((tagString: any) => {
+                return post.blogPostTags.map((tag: any) => tag.tagName).includes(tagString)
+            })
+            return includesSearchTerm && includesTechTags
         })
-
-
         return searchFilteredPosts
-    }, [filter.searchTerm])
+    }, [filter.searchTerm, filter.techToolTags])
 
     const toggleTagFilter = () => {
         setTagFilter(!showTagFilter)
@@ -76,7 +66,15 @@ const BlogPage = ({
         })
     }
 
-    console.log('filter.techToolTags', filter.techToolTags)
+    const removeTagFilter = (tag: string) => {
+        let tagIndex = filter.techToolTags.indexOf(tag)
+        let copiedList = [...filter.techToolTags]
+        copiedList.splice(tagIndex, 1)
+        setFilter({
+            ...filter,
+            techToolTags: copiedList
+        })
+    }
 
     return (
         <>
@@ -117,14 +115,9 @@ const BlogPage = ({
                                 name="searchTerm"
                                 type="text"
                                 placeholder="Search blog posts"
-                                required
                                 value={filter.searchTerm}
                                 className="w-full py-2 px-4 rounded-3xl focus:ring-2 border-2 border-black focus:border-0 mt-1"
                                 onChange={searchTermHandler}
-                            />
-                            <input
-                                type="submit"
-                                className="bg-altYellow text-black text-lg py-1 px-2 rounded-xl cursor-pointer w-32"
                             />
                         </div>
                     </form>
@@ -153,6 +146,7 @@ const BlogPage = ({
                                                 tagName={tagName}
                                                 active={filter.techToolTags.includes(tagName)}
                                                 addTagFilter={addTagFilter}
+                                                removeTagFilter={removeTagFilter}
                                             />
                                     )
                                 })}

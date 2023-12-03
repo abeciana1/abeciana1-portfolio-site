@@ -15,4 +15,5 @@ export interface ILayout {
 export interface IFilterButton extends IBlogTag {
     addTagFilter: (tag: string) => void;
     active: boolean;
+    removeTagFilter: (tag: string) => void;
 }

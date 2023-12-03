@@ -6,6 +6,7 @@ import { ScrollToTopBtn } from '@/components/utils/_buttons'
 import { gql, GraphQLClient } from 'graphql-request'
 import { IPostData } from '@/interfaces'
 import { IoFilter } from "react-icons/io5";
+import cx from 'classnames'
 
 const BlogPage = ({
     posts, recentPosts
@@ -14,6 +15,7 @@ const BlogPage = ({
     recentPosts: IPostData[]
 }) => {
     const [ isClient, setClient ] = useState(false)
+    const [ showTagFilter, setTagFilter] = useState(false)
     const [ filter, setFilter ] = useState({
         searchTerm: ''
     })
@@ -51,6 +53,10 @@ const BlogPage = ({
 
         return searchFilteredPosts
     }, [filter.searchTerm])
+
+    const toggleTagFilter = () => {
+        setTagFilter(!showTagFilter)
+    }
 
     return (
         <>
@@ -103,9 +109,16 @@ const BlogPage = ({
                         </div>
                     </form>
                     <section className="pt-5">
-                        <button className='border-2 border-black rounded-full p-1'>
+                        <button onClick={toggleTagFilter} aria-hidden={!showTagFilter} aria-label='Toggle tag filter' 
+                            className={cx('border-2 border-black rounded-full p-1', {
+                                ['bg-black text-white']: showTagFilter
+                            })}
+                        >
                             <IoFilter strokeWidth={2} size={30} />
                         </button>
+                        {showTagFilter &&
+                            <></>
+                        }
                     </section>
                 </section>
                 <section

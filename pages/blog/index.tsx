@@ -16,7 +16,6 @@ const BlogPage = ({
     recentPosts: IPostData[],
     blogTags: IBlogTag[]
 }) => {
-    const [ showTagFilter, setTagFilter] = useState(false)
     const [ filter, setFilter ] = useState({
         searchTerm: '',
         techToolTags: [] as string[]
@@ -47,16 +46,11 @@ const BlogPage = ({
         return searchFilteredPosts
     }, [filter.searchTerm, filter.techToolTags])
 
-    const toggleTagFilter = () => {
-        setTagFilter(!showTagFilter)
-    }
-
     const clearAllFilter = () => {
         setFilter({
             searchTerm: "",
             techToolTags: []
         })
-        setTagFilter(false)
     }
 
     const addTagFilter = (tag: string) => {
@@ -74,7 +68,6 @@ const BlogPage = ({
             ...filter,
             techToolTags: copiedList
         })
-        setTagFilter(false)
     }
 
     return (
@@ -123,47 +116,38 @@ const BlogPage = ({
                         </div>
                     </form>
                     <section className="pt-5 flex gap-5 items-center">
-                        <button onClick={toggleTagFilter} aria-hidden={!showTagFilter} aria-label='Toggle tag filter' 
-                            className={cx('border-2 border-black rounded-full p-1', {
-                                ['bg-black text-white']: showTagFilter
-                            })}
-                        >
-                            <IoFilter title='Filter icon' strokeWidth={2} size={30} />
-                        </button>
-                        <button 
+                        {/* <button 
                             onClick={clearAllFilter}
                             aria-label='Clear all filters'
-                            className='flex items-center bg-gray-200 text-black py-0.5 px-1.5 rounded-lg whitespace-nowrap'
+                            className='flex items-center bg-gray-200 text-black py-0.5 px-1.5 rounded-lg whitespace-nowrap min-h-[2rem]'
                         >
                             <span><IoClose size={20} title='Clear filters icon' /></span>Clear all
-                        </button>
-                        {filter.techToolTags.length > 0 &&
-                            <div className='overflow-x-auto flex gap-2.5 whitespace-nowrap'>
-                                {filter.techToolTags.map((tag: string) => (
+                        </button> */}
+                        <div className='overflow-x-auto flex gap-2.5 whitespace-nowrap min-h-[3rem]'>
+                            {filter.techToolTags.length > 0 &&
+                                filter.techToolTags.map((tag: string) => (
                                     <button
                                         onClick={() => removeTagFilter(tag)}
                                         key={tag}
-                                        className='cursor-pointer text-lg bg-gray-200 w-full py-0.5 px-2 rounded-md'
+                                        className='cursor-pointer text-lg bg-gray-200 w-full py-0.5 px-2 rounded-md max-h-[2rem]'
                                     >{tag}</button>
-                                ))}
-                            </div>
-                        }
+                                ))
+                            }
+                        </div>
                     </section>
-                        {showTagFilter &&
-                            <section className='pt-5 flex flex-wrap gap-2.5'>
-                                {blogTags.map(({tagName}: IBlogTag, index) => {
-                                    return (
-                                            <FilterTagButton
-                                                key={tagName + '-' + index}
-                                                tagName={tagName}
-                                                active={filter.techToolTags.includes(tagName)}
-                                                addTagFilter={addTagFilter}
-                                                removeTagFilter={removeTagFilter}
-                                            />
-                                    )
-                                })}
-                            </section>
-                        }
+                    <section className='flex flex-wrap gap-2.5'>
+                        {blogTags.map(({tagName}: IBlogTag, index) => {
+                            return (
+                                    <FilterTagButton
+                                        key={tagName + '-' + index}
+                                        tagName={tagName}
+                                        active={filter.techToolTags.includes(tagName)}
+                                        addTagFilter={addTagFilter}
+                                        removeTagFilter={removeTagFilter}
+                                    />
+                            )
+                        })}
+                    </section>
                 </section>
                 <section
                     className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"

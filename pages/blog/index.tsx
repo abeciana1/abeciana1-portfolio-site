@@ -6,6 +6,7 @@ import { ScrollToTopBtn } from '@/components/utils/_buttons'
 import { gql, GraphQLClient } from 'graphql-request'
 import { IPostData, IBlogTag } from '@/interfaces'
 import { IoFilter, IoClose } from "react-icons/io5";
+import { FilterTagButton } from '@/components/utils/_buttons'
 import cx from 'classnames'
 
 const BlogPage = ({
@@ -19,7 +20,7 @@ const BlogPage = ({
     const [ showTagFilter, setTagFilter] = useState(false)
     const [ filter, setFilter ] = useState({
         searchTerm: '',
-        techToolTags: []
+        techToolTags: [] as string[]
     })
     
     const searchTermHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,6 +68,15 @@ const BlogPage = ({
         })
         setTagFilter(false)
     }
+
+    const addTagFilter = (tag: string) => {
+        setFilter({
+            ...filter,
+            techToolTags: [...filter.techToolTags, tag]
+        })
+    }
+
+    console.log('filter.techToolTags', filter.techToolTags)
 
     return (
         <>
@@ -133,10 +143,21 @@ const BlogPage = ({
                         >
                             <span><IoClose size={20} title='Clear filters icon' /></span>Clear all
                         </button>
-                        {showTagFilter &&
-                            <></>
-                        }
                     </section>
+                        {showTagFilter &&
+                            <section className='pt-5 flex flex-wrap gap-2.5'>
+                                {blogTags.map(({tagName}: IBlogTag, index) => {
+                                    return (
+                                            <FilterTagButton
+                                                key={tagName + '-' + index}
+                                                tagName={tagName}
+                                                active={filter.techToolTags.includes(tagName)}
+                                                addTagFilter={addTagFilter}
+                                            />
+                                    )
+                                })}
+                            </section>
+                        }
                 </section>
                 <section
                     className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"

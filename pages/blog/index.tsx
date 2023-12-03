@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next'
 import { ScrollToTopBtn } from '@/components/utils/_buttons'
 import { gql, GraphQLClient } from 'graphql-request'
 import { IPostData } from '@/interfaces'
+import { IoFilter } from "react-icons/io5";
 
 const BlogPage = ({
     posts, recentPosts
@@ -39,17 +40,17 @@ const BlogPage = ({
                 })
             }
         }
-    }, [isClient, filter.searchTerm])
+    }, [isClient])
 
     const filteredPosts = useMemo(() => {
         // * search term filtering
         const searchFilteredPosts = posts.filter((post: IPostData) => {
             return post.title.toLowerCase().includes(filter.searchTerm.toLowerCase())
         })
-        console.log('searchFilteredPosts', searchFilteredPosts)
+
 
         return searchFilteredPosts
-    }, [filter])
+    }, [filter.searchTerm])
 
     return (
         <>
@@ -83,8 +84,8 @@ const BlogPage = ({
                     className="text-4xl leading-relaxed"
                 >All posts</h2>
                 <section>
-                    <form className='flex gap-5'>
-                        <div className='w-3/5'>
+                    <form className='w-full'>
+                        <div className='flex gap-5 lg:w-3/5'>
                             <label className='sr-only'>Search blog posts</label>
                             <input
                                 name="searchTerm"
@@ -95,12 +96,17 @@ const BlogPage = ({
                                 className="w-full py-2 px-4 rounded-3xl focus:ring-2 border-2 border-black focus:border-0 mt-1"
                                 onChange={searchTermHandler}
                             />
+                            <input
+                                type="submit"
+                                className="bg-altYellow text-black text-lg py-1 px-2 rounded-xl cursor-pointer w-32"
+                            />
                         </div>
-                        <input
-                            type="submit"
-                            className="bg-altYellow text-black text-lg py-1 px-2 rounded-xl cursor-pointer w-32"
-                        />
                     </form>
+                    <section className="pt-5">
+                        <button className='border-2 border-black rounded-full p-1'>
+                            <IoFilter strokeWidth={2} size={30} />
+                        </button>
+                    </section>
                 </section>
                 <section
                     className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"

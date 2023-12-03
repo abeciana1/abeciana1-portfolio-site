@@ -74,6 +74,7 @@ const BlogPage = ({
             ...filter,
             techToolTags: copiedList
         })
+        setTagFilter(false)
     }
 
     return (
@@ -132,10 +133,21 @@ const BlogPage = ({
                         <button 
                             onClick={clearAllFilter}
                             aria-label='Clear all filters'
-                            className='flex items-center bg-gray-200 text-black py-0.5 px-1.5 rounded-lg'
+                            className='flex items-center bg-gray-200 text-black py-0.5 px-1.5 rounded-lg whitespace-nowrap'
                         >
                             <span><IoClose size={20} title='Clear filters icon' /></span>Clear all
                         </button>
+                        {filter.techToolTags.length > 0 &&
+                            <div className='overflow-x-auto flex gap-2.5 whitespace-nowrap'>
+                                {filter.techToolTags.map((tag: string) => (
+                                    <button
+                                        onClick={() => removeTagFilter(tag)}
+                                        key={tag}
+                                        className='cursor-pointer text-lg bg-gray-200 w-full py-0.5 px-2 rounded-md'
+                                    >{tag}</button>
+                                ))}
+                            </div>
+                        }
                     </section>
                         {showTagFilter &&
                             <section className='pt-5 flex flex-wrap gap-2.5'>

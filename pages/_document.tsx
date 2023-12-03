@@ -12,7 +12,9 @@ const MyDocument = () => {
                 <link rel="apple-touch-icon" href="/waving.webp" />
                 <link rel="preload" as="image" href="/profile-callout-edited.webp" />
                 <link rel="preload" as="image" href="/profile-pic.webp" />
-                <Partytown debug />
+                {process.env.NODE_ENV === 'production' &&
+                    <Partytown debug />
+                }
                 <Script
                     id="msft-clarity"
                     strategy="worker"

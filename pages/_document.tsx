@@ -13,7 +13,7 @@ const MyDocument = () => {
                 <link rel="preload" as="image" href="/profile-callout-edited.webp" />
                 <link rel="preload" as="image" href="/profile-pic.webp" />
                 {process.env.NODE_ENV === 'production' &&
-                    <Partytown debug />
+                    <Partytown />
                 }
                 <Script
                     id="msft-clarity"

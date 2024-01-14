@@ -25,18 +25,18 @@ const MyDocument = () => {
                             t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
                         })(window, document, "clarity", "script", "a78c5ntos1");
-                        `
-                    }
+                        `}
                 </Script>
                 <Script
                     id="google-analytics"
                     strategy="worker"
+                    src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"
                 >
                     {`
                             window.dataLayer = window.dataLayer || [];
                             function gtag(){dataLayer.push(arguments);}
                             gtag('js', new Date());
-
+                            
                             gtag('config', 'G-Y7HNS80HJT');
                         `
                     }

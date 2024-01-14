@@ -11,7 +11,7 @@ import { FaGear } from "react-icons/fa6";
 import { BiSolidBookContent } from "react-icons/bi";
 import { IoStorefrontSharp } from "react-icons/io5";
 import { PiEngineFill } from "react-icons/pi";
-
+import { PreRenderLinkAsBtn } from '@/components/utils/PreRenderLink'
 
 const FreelancePage = (): JSX.Element => {
 
@@ -30,6 +30,22 @@ const FreelancePage = (): JSX.Element => {
                 reverseOrder
                 gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
             />
+            <div className='flex flex-col pt-5 space-y-4 md:space-y-0 md:pt-0 md:flex-row md:space-x-8'>
+                <PreRenderLinkAsBtn
+                    href="/about"
+                    linkText="More about me"
+                    alt="portfolio page"
+                    ctaButtonColor="altYellow"
+                    showArrow
+                />
+                <PreRenderLinkAsBtn
+                    href="/references"
+                    linkText="My references"
+                    alt="references page"
+                    ctaButtonColor="altYellow"
+                    showArrow
+                />
+            </div>
             <section className="text-center relative z-50 mt-20">
                 <h2 className="text-4xl">I've worked with</h2>
                 <ThreeColumnGrid addClass="mt-20 gap-10 lg:gap-20">

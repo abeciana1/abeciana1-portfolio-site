@@ -105,7 +105,7 @@ export const HeroSectionWithLinkGradientBG = ({
                     ["flex-col-reverse"]: reverseOrder
                 })}
             >
-                <section className="z-10 self-center justify-self-start md:w-3/4 lg:w-3/5">
+                <section className="z-10 self-center justify-self-start lg:w-3/5">
                     <h1 className="text-5xl font-reross leading-relaxed">{heading}</h1>
                     <div className="leading-10 text-lg xl:text-xl xl:leading-loose">{taglineBody}</div>
                     {cta &&

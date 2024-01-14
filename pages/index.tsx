@@ -40,7 +40,7 @@ export default function Home(
         reverseOrder
         gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
       />
-      <div className="flex flex-col pt-5 space-y-4 md:space-y-0 md:pt-5 md:flex-row md:space-x-8">
+      <div className="flex flex-col pt-5 space-y-4 md:space-y-0 md:pt-0 md:flex-row flex-wrap md:space-x-8">
         <PreRenderLinkAsBtn
           href="/about"
           linkText="More about me"
@@ -48,12 +48,19 @@ export default function Home(
           ctaButtonColor="altYellow"
           showArrow
         />
-        <PreRenderLinkAsBtn
+        {/* <PreRenderLinkAsBtn
           href="/blog"
           linkText="My blog posts"
           alt="portfolio page"
           ctaButtonColor="altYellow"
           showArrow={true}
+        /> */}
+        <PreRenderLinkAsBtn
+            href="/references"
+            linkText="My references"
+            alt="references page"
+            ctaButtonColor="altYellow"
+            showArrow
         />
       </div>
       <div className="flex pb-8 space-x-4 md:space-y-0 pt-5 flex-row relative items-center">

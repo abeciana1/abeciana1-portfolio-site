@@ -51,7 +51,7 @@ const AboutPage = ({ expData, skills }: any) => {
                     reverseOrder
                     gradientClass="bg-gradient-to-r from-blue-300 via-yellow-200 to-orange-400"
                 />
-                    <div className="py-5">
+                    <div className="pb-5">
                         <PreRenderLinkAsBtn
                             href="/references"
                             linkText="My references"

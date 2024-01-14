@@ -13,7 +13,7 @@ const Contact = () => {
             />
             <Script
                 id="hs-script-loader"
-                src="//js.hs-scripts.com/23677902.js"
+                src="//js.hs-scripts.com/44931574.js"
                 strategy="afterInteractive"
             />
             <section

@@ -18,7 +18,7 @@ const ReferenceCard = ({
                     width={250}
                     height={250}
                     alt={review.reviewerName}
-                    className='rounded-full mx-auto'
+                    className='rounded-full mx-auto w-56 h-56'
                 />
                 <div className="text-lg font-medium leading-relaxed text-center">{review.reviewerName}, {review.reviewerPosition} — {review.reviewerCompany}</div>
                 <div className='text-lg my-2 bg-altYellow w-fit mx-auto font-medium py-0.5 px-2 rounded-md'>&quot;{review.callOut}&quot;</div>

@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense } from 'react'
 import { lazily } from 'react-lazily'
 import { CustomHead } from '@/components/utils/CustomHead'
 import { SkillCardGrid, TwoColumnGrid } from '@/components/layouts'
@@ -17,6 +17,7 @@ const {
   CodeMockupLine
 } = lazily(() => import('../components/utils/CodeMockup'))
 import { gql, GraphQLClient } from 'graphql-request'
+import jokes from '@/data/jokes.json'
 
 export default function Home(
   { 
@@ -186,8 +187,6 @@ export default function Home(
 export const getStaticProps: GetStaticProps = async () => {
 
   const skillsClient = new GraphQLClient(process.env.GRAPH_CMS_API_ENDPOINT || "")
-  const res = await fetch("https://backend-omega-seven.vercel.app/api/getjoke")
-  const jokes = await res.json()
 
   const skillQuery = gql`
     query skills {
@@ -202,12 +201,14 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   `
 
+  const joke = jokes[Math.floor(Math.random()*jokes.length)]
+
   const { skills }: {skills: ISkillCard[]} = await skillsClient.request(skillQuery)
 
   return {
     props: {
-      skills: skills,
-      joke: jokes[0],
+      joke: joke,
+      skills: skills
     },
     revalidate: 600
   }

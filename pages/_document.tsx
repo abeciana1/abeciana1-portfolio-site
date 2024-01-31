@@ -27,10 +27,10 @@ const MyDocument = () => {
                         })(window, document, "clarity", "script", "a78c5ntos1");
                         `}
                 </Script>
+                <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT" />
                 <Script
                     id="google-analytics"
-                    strategy="worker"
-                    src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"
+                    strategy="afterInteractive"
                 >
                     {`
                             window.dataLayer = window.dataLayer || [];

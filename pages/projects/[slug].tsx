@@ -21,10 +21,10 @@ const PortfolioProjectPage = ({ project }: {project: IProject}) => {
                 }}
                 image={project.featuredImage.url}
             />
-            <h1 className="mt-5 text-5xl font-reross leading-relaxed">{project.projectTitle}</h1>
+            <h1 className="mt-5 text-5xl font-reross leading-relaxed whitespace-normal">{project.projectTitle}</h1>
             <section className="flex flex-col-reverse md:flex-row md:space-x-10">
             <section
-                    className="py-4 break-words md:basis-3/4 max-w-md lg:max-w-2xl leading-loose text-xl"
+                    className="py-4 break-words max-w-md lg:max-w-lg xl:max-w-2xl leading-loose text-xl"
                 >
                     <Markdown
                         children={project.projectDescription}
@@ -39,13 +39,13 @@ const PortfolioProjectPage = ({ project }: {project: IProject}) => {
                         }}
                     />
                 </section>
-                <section className="md:basis-1/4 min-w-xl">
+                <section className="min-w-xl max-w-sm md:max-w-lg xl:max-w-xl">
                     <Image
                         src={project.featuredImage.url}
-                        width={300}
-                        height={300}
+                        width={256}
+                        height={256}
                         alt={`Alex Beciana | Portfolio Project | ${project.projectTitle}`}
-                        className='mx-auto h-60 w-60'
+                        className='mx-auto h-64 w-64'
                         priority
                     />
                     <div className="flex items-center py-5">

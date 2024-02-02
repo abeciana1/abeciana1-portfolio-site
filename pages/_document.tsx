@@ -13,7 +13,7 @@ const MyDocument = () => {
                 <link rel="preload" as="image" href="/profile-callout-edited.webp" />
                 <link rel="preload" as="image" href="/profile-pic.webp" />
                 {process.env.NODE_ENV === 'production' &&
-                    <Partytown />
+                    <Partytown forward={['dataLayer.push']} />
                 }
                 <Script
                     id="msft-clarity"
@@ -27,10 +27,11 @@ const MyDocument = () => {
                         })(window, document, "clarity", "script", "a78c5ntos1");
                         `}
                 </Script>
-                <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT" />
-                <Script
+                <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"></script>
+                <script
                     id="google-analytics"
-                    strategy="afterInteractive"
+                    type="text/partytown"
+                    // strategy="afterInteractive"
                 >
                     {`
                             window.dataLayer = window.dataLayer || [];
@@ -40,7 +41,7 @@ const MyDocument = () => {
                             gtag('config', 'G-Y7HNS80HJT');
                         `
                     }
-                </Script>
+                </script>
             </Head>
             <body className="py-4 mx-auto px-5 md:px-20 page-margin">
                 <Main />

@@ -27,8 +27,8 @@ const MyDocument = () => {
                         })(window, document, "clarity", "script", "a78c5ntos1");
                         `}
                 </Script>
-                <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT"></script>
-                <script
+                <Script od="google-tag-manager" type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT" />
+                <Script
                     id="google-analytics"
                     type="text/partytown"
                     // strategy="afterInteractive"
@@ -41,7 +41,7 @@ const MyDocument = () => {
                             gtag('config', 'G-Y7HNS80HJT');
                         `
                     }
-                </script>
+                </Script>
             </Head>
             <body className="py-4 mx-auto px-5 md:px-20 page-margin">
                 <Main />

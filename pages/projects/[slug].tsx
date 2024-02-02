@@ -22,9 +22,9 @@ const PortfolioProjectPage = ({ project }: {project: IProject}) => {
                 image={project.featuredImage.url}
             />
             <h1 className="mt-5 text-5xl font-reross leading-relaxed whitespace-normal">{project.projectTitle}</h1>
-            <section className="flex flex-col-reverse md:flex-row md:space-x-10">
+            <section className="flex flex-col-reverse lg:flex-row lg:space-x-10">
             <section
-                    className="py-4 break-words max-w-md lg:max-w-lg xl:max-w-2xl leading-loose text-xl"
+                    className="py-4 break-words max-w-md md:max-w-2xl lg:max-w-lg xl:max-w-2xl leading-loose text-xl"
                 >
                     <Markdown
                         children={project.projectDescription}
@@ -39,7 +39,7 @@ const PortfolioProjectPage = ({ project }: {project: IProject}) => {
                         }}
                     />
                 </section>
-                <section className="min-w-xl max-w-sm md:max-w-lg xl:max-w-xl">
+                <section className="">
                     <Image
                         src={project.featuredImage.url}
                         width={256}
@@ -48,7 +48,7 @@ const PortfolioProjectPage = ({ project }: {project: IProject}) => {
                         className='mx-auto h-64 w-64'
                         priority
                     />
-                    <div className="flex items-center py-5">
+                    <div className="flex items-center py-5 min-w-xl max-w-sm md:max-w-lg xl:max-w-xl">
                             <span className="font-semiBold">Project status: </span>
                             <TagCard
                                 id={project.id}

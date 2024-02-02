@@ -45,7 +45,7 @@ const PortfolioProjectPage = ({ project }: {project: IProject}) => {
                         width={300}
                         height={300}
                         alt={`Alex Beciana | Portfolio Project | ${project.projectTitle}`}
-                        className='mx-auto'
+                        className='mx-auto h-60 w-60'
                         priority
                     />
                     <div className="flex items-center py-5">

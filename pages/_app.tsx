@@ -37,6 +37,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       if (isClient) {
+        window.dataLayer = window.dataLayer || []
         window?.dataLayer?.push({
             event: 'pageview',
             page: url,

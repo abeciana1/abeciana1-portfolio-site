@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from 'next/document'
-import Script from 'next/script'
+// import Script from 'next/script'
 import { Partytown } from '@builder.io/partytown/react';
 
 const MyDocument = () => {
@@ -26,20 +26,6 @@ const MyDocument = () => {
                             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
                         })(window, document, "clarity", "script", "a78c5ntos1");
                         `}
-                </Script>
-                {/* <Script id="google-tag-manager" strategy="worker" src="https://www.googletagmanager.com/gtag/js?id=G-Y7HNS80HJT" /> */}
-                <Script
-                    id="google-analytics"
-                    strategy="worker"
-                >
-                    {`
-                            window.dataLayer = window.dataLayer || [];
-                            function gtag(){dataLayer.push(arguments);}
-                            gtag('js', new Date());
-                            
-                            gtag('config', 'G-Y7HNS80HJT');
-                        `
-                    }
                 </Script>
             </Head>
             <body className="py-4 mx-auto px-5 md:px-20 page-margin">

@@ -30,6 +30,7 @@ const JobCard = ({
                     src={companyLogo || "/profile-pic.webp"}
                     alt={`${companyName} logo`}
                     className="mx-auto"
+                    loading='lazy'
                 />
                 <div
                     className="text-center mt-5 text-lg"

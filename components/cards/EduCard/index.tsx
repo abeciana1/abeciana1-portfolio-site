@@ -26,6 +26,7 @@ const EduCard = ({
                     src={schoolImage}
                     alt={`${schoolName} logo`}
                     className="mx-auto"
+                    loading='lazy'
                 />
             </div>
             <div

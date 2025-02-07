@@ -44,7 +44,7 @@ const AboutPage = ({ expData, skills }: any) => {
             <section>
                 <HeroSectionWithLinkGradientBG
                     heading="Hi I'm Alex Beciana"
-                    taglineBody="Full stack software engineer with three years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."
+                    taglineBody="Full stack software engineer with five years of experience with an entrepreneurial spirit. Previous experience with five  years in digital marketing, product management, and community management, working in tech (startup to FAANG), education, and music as well as leading a profitable startup. Accustomed to working across technical and non-technical teams and managing project roadmaps."
                     image={profileCallout}
                     imageAlt="Animated illustration of me - Alex Beciana"
                     imageClassName="profile-callout  hidden sm:inline"
